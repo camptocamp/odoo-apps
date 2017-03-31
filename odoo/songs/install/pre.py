@@ -28,9 +28,9 @@ def setup_company(ctx):
     with ctx.log(u'Configuring company'):
         values = {
             'name': "SenseFly",
-            'street': "",
-            'zip': "",
-            'city': "",
+            'street': "Route de Genève 38",
+            'zip': "1033",
+            'city': "Cheseaux-Lausanne",
             'country_id': ctx.env.ref('base.ch').id,
             'phone': "+41 00 000 00 00",
             'fax': "+41 00 000 00 00",
