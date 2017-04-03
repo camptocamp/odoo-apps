@@ -13,9 +13,6 @@
 [submodule "odoo/external-src/account-financial-tools"]
 	path = odoo/external-src/account-financial-tools
 	url = git@github.com:OCA/account-financial-tools
-[submodule "odoo/odoo/external-src/enterprise"]
-	path = odoo/odoo/external-src/enterprise
-	url = git@github.com:odoo/enterprise
 [submodule "odoo/external-src/enterprise"]
 	path = odoo/external-src/enterprise
 	url = git@github.com:odoo/enterprise
