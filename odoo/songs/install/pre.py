@@ -42,7 +42,7 @@ def setup_company(ctx):
             'currency_id': ctx.env.ref('base.CHF').id,
         }
         create_or_update(ctx, 'res.company',
-                         'scenario.sensefly_ch',
+                         'base.main_company',
                          values)
 
 
