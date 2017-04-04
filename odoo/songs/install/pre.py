@@ -37,7 +37,6 @@ def setup_company(ctx):
             'email': "contact@sensefly.ch",
             'website': "http://www.sensefly.ch",
             'vat': "VAT",
-            'parent_id': company.id,
             'logo': b64_logo,
             'currency_id': ctx.env.ref('base.CHF').id,
         }
