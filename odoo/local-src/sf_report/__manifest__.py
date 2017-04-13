@@ -10,7 +10,7 @@
     'license': 'AGPL-3',
     'category': 'Base',
     'images': [],
-    'depends': ['base'],
+    'depends': ['report'],
     'data': [
         'views/layout_templates.xml',
     ],

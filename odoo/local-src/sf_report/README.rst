@@ -1,3 +1,4 @@
-Invoicing
-====================
-The custom layout invoice for senseFly
+External layout
+----------------
+
+The custom footer layout for senseFly
