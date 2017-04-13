@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+        Product Extension
+        -->
+
+        <record id="view_sf_product_drone_info_form_inherit" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="priority">3</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="drone_type_id" widget="many2many_tags"/>
+                    <field name="product_reseller_type"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
