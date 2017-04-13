@@ -11,7 +11,7 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <field name="type" position="after">
-                    <field name="drone_type_id" widget="many2many_tags"/>
+                    <field name="drone_type_ids" widget="many2many_tags"/>
                     <field name="product_reseller_type"/>
                 </field>
             </field>
