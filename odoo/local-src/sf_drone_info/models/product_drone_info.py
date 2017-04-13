@@ -13,8 +13,10 @@ RESELLER_TYPE_SELECTION = [
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    drone_type_id = fields.Many2many('drone.type', 'rel_product_drone_type', string='Drone')
-    product_reseller_type = fields.Selection(RESELLER_TYPE_SELECTION, string='Reseller Type')
+    drone_type_id = fields.Many2many('drone.type', 'rel_product_drone_type',
+                                     string='Drone')
+    product_reseller_type = fields.Selection(RESELLER_TYPE_SELECTION,
+                                             string='Reseller Type')
 
 
 class DroneType(models.Model):
