@@ -74,8 +74,18 @@ def admin_user_password(ctx):
 
 
 @anthem.log
+def change_config_parameters(ctx):
+    """ fix config parameters for reports styles """
+    url = "http://localhost:8069"
+    SysParam = ctx.env['ir.config_parameter']
+    SysParam.set_param('web.base.url', url)
+    SysParam.set_param('web.base.url.freeze', 'True')
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     setup_company(ctx)
     setup_language(ctx)
     admin_user_password(ctx)
+    change_config_parameters(ctx)
