@@ -23,4 +23,4 @@ class DroneType(models.Model):
     _name = "drone.type"
     _description = "Drone Type"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(required=True)
