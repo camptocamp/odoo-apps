@@ -43,3 +43,4 @@ migration:
           - cloud_platform
           #### OCA/account-financial-tools
           - account_fiscal_year
+          - sf_drone_info
