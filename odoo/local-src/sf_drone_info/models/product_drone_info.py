@@ -45,8 +45,8 @@ class DroneType(models.Model):
 
         for drone_type in self:
             spare_part_ids = drone_type.product_ids.filtered(
-                lambda p: p.product_reseller_type == 'itrn' or
-                          not p.product_reseller_type)
+                lambda p: p.product_reseller_type == 'itrn'
+                or not p.product_reseller_type)
 
             spare_parts = [{'id': sp.id,
                             'name_template': sp.name,
