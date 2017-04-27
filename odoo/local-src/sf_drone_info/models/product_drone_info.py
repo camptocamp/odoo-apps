@@ -36,21 +36,27 @@ class DroneType(models.Model):
         res = []
 
         if not self.env['res.partner'].search([('id', '=', partner_id)]):
-            raise MissingError(_('Missing record!') + ':' + _('Partner does not exists.'))
+            raise MissingError(_('Missing record!') + ':' +
+                               _('Partner does not exists.'))
 
-        pricelist_id = self.env['res.partner'].browse(partner_id).property_product_pricelist
+        pricelist_id = \
+            self.env['res.partner'].browse(
+                partner_id).property_product_pricelist
 
         for drone_type in self:
-            spare_part_ids = drone_type.product_ids.filtered(lambda p: p.product_reseller_type == 'itrn'
-                                                                    or not p.product_reseller_type)
+            spare_part_ids = drone_type.product_ids.filtered(
+                lambda p: p.product_reseller_type == 'itrn' or
+                          not p.product_reseller_type)
 
             spare_parts = [{'id': sp.id,
                             'name_template': sp.name,
                             'default_code': sp.default_code,
-                            'price': pricelist_id.price_get(sp.id, 1, partner_id)[pricelist_id.id],
+                            'price':
+                                pricelist_id.price_get(sp.id, 1, partner_id)[
+                                    pricelist_id.id],
                             'currency': pricelist_id.currency_id.name
                             } for sp in spare_part_ids]
 
-            res += (spare_parts)
+            res += spare_parts
 
         return res
