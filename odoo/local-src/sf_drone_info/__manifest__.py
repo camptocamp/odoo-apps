@@ -11,7 +11,8 @@
         'security/ir.model.access.csv',
         'views/product_drone_info.xml'
     ],
-    'demo': [],
+    'demo': ['data/partner_demo.xml',
+             'data/product_demo.xml'],
     'installable': True,
     'application': True,
     'auto_install': False

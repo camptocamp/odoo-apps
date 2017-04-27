@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_drone_type01" model="drone.type">
+        <field name="name">eBee</field>
+    </record>
+
+    <record id="sf_product01" model="product.product">
+        <field name="name">eBee</field>
+        <field name="standard_price">35.0</field>
+        <field name="list_price">40.0</field>
+        <field name="type">consu</field>
+        <field name="default_code">402-01-03</field>
+        <field name="drone_type_ids" eval="[(4,ref('sf_drone_type01'))]"/>
+    </record>
+</odoo>
