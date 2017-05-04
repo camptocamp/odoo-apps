@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+from ..common import load_csv
 
 """ File for full (production) data
 
@@ -13,7 +14,12 @@ installation.
 
 
 @anthem.log
+def import_product(ctx):
+    load_csv(ctx, 'data/install/product.csv', 'product.template')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
-    # nothing yet
+    import_product(ctx)
     return
