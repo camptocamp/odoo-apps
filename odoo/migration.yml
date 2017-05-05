@@ -18,12 +18,16 @@ migration:
               - anthem songs.install.data_demo::main
       addons:
         upgrade:
-          #### core
+          # CORE
           - account_accountant
+          - account_analytic_default
+          - account_cancel
           - analytic
+          - auth_ldap
           - board
-          - hr_timesheet
+          - l10n_ch
           - mrp
+          - mrp_repair
           - procurement
           - product
           - project
@@ -32,17 +36,34 @@ migration:
           - sale_stock
           - stock
           - stock_account
-          # l10n-switzerland
-          - l10n_ch
-          #### OCA/server-tools
+          - stock_picking_wave
+          # Enterprise
+          - account_reports_followup
+          - helpdesk
+          - mrp_plm
+          - quality_mrp
+          # OCA/account-closing
+          - account_cutoff_base
+          - account_cutoff_prepaid
+          - account_invoice_start_end_dates
+          # OCA/account-financial-tools
+          - account_asset_management
+          - account_fiscal_year
+          # OCA/bank-payment
+          - account_payment_order
+          # OCA/l10n-switzerland
+          - l10n_ch_bank
+          - l10n_ch_base_bank
+          - l10n_ch_pain_credit_transfer
+          - l10n_ch_states
+          - l10n_ch_zip
+          # OCA/reporting-engine
+          - report_xlsx
+          # OCA/server-tools
           - base_technical_features
           - date_range
           - mail_environment
           - server_environment
-          #### camptocamp/cloud-platform
-          - cloud_platform
-          #### OCA/account-financial-tools
-          - account_fiscal_year
-          #### local-src
+          # SENSEFLY
           - sf_drone_info
           - sf_report
