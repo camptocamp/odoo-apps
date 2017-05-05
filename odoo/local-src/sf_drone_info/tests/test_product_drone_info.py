@@ -12,7 +12,7 @@ class TestProductDroneInfo(TransactionCase):
 
         self.assertEqual(len(outcome), 1)
         self.assertEqual(outcome[0]['name_template'], 'eBee')
-        self.assertEqual(outcome[0]['price'], 40.0)
+        self.assertEqual(outcome[0]['price'], 60000.0)
         self.assertEqual(outcome[0]['currency'], 'EUR')
 
     def test_get_spare_parts_with_bad_partner_throw_exception(self):

@@ -4,7 +4,7 @@
         <field name="name">eBee</field>
     </record>
 
-    <record id="sf_product01" model="product.product">
+    <record id="sf_product01" model="product.template">
         <field name="name">eBee</field>
         <field name="standard_price">35.0</field>
         <field name="list_price">40.0</field>
