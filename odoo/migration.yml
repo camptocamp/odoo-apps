@@ -57,6 +57,8 @@ migration:
           - l10n_ch_pain_credit_transfer
           - l10n_ch_states
           - l10n_ch_zip
+          # OCA/partner-contact
+          - base_location
           # OCA/reporting-engine
           - report_xlsx
           # OCA/server-tools
