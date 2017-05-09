@@ -1,0 +1,7 @@
+id,default_code,name,type,active,list_price,sale_ok,purchase_ok,standard_price
+"__setup__.product_template_1657","404-01-01","eBee Plus","consu","true","16990.0","true","true","1638.88"
+"__setup__.product_template_1521","404-02-02","eBee SQ - without sensor","consu","true","8990.0","true","true","1061.06"
+"__setup__.product_template_1663","706-01-01","eBee Plus RTK/PPK upgrade","consu","true","9990.0","true","true","2066.02"
+"__setup__.product_template_1658","404-03-01","eBee Plus RTK","consu","true","25990.0","true","true","3704.9"
+"__setup__.product_template_1257","402-01-03","eBee","consu","true","13990.0","true","true","1101.35"
+"__setup__.product_template_1749","504-15-01","central body EP","consu","true","10000.0","true","true","1083.6"
