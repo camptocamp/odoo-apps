@@ -16,3 +16,15 @@
 [submodule "odoo/external-src/enterprise"]
 	path = odoo/external-src/enterprise
 	url = git@github.com:camptocamp/enterprise
+[submodule "odoo/external-src/reporting-engine"]
+	path = odoo/external-src/reporting-engine
+	url = git@github.com:OCA/reporting-engine.git
+[submodule "odoo/external-src/bank-payment"]
+	path = odoo/external-src/bank-payment
+	url = git@github.com:OCA/bank-payment.git
+[submodule "odoo/external-src/account-closing"]
+	path = odoo/external-src/account-closing
+	url = git@github.com:OCA/account-closing.git
+[submodule "odoo/external-src/partner-contact"]
+	path = odoo/external-src/partner-contact
+	url = git@github.com:OCA/partner-contact.git
