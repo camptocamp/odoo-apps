@@ -53,8 +53,9 @@ class DroneType(models.Model):
                             'name_template': sp.name,
                             'default_code': sp.default_code,
                             'price':
-                                pricelist_id.price_get(sp.product_variant_id.id, 1, partner_id)[
-                                    pricelist_id.id],
+                                pricelist_id.price_get(
+                                    sp.product_variant_id.id, 1, partner_id)
+                                [pricelist_id.id],
                             'currency': pricelist_id.currency_id.name
                             } for sp in spare_part_ids]
 
