@@ -13,10 +13,10 @@ RESELLER_TYPE_SELECTION = [
 
 
 class ProductTemplate(models.Model):
-    _inherit = "product.product"
+    _inherit = "product.template"
 
     drone_type_ids = fields.Many2many('drone.type', 'rel_product_drone_type',
-                                      'product_id', 'drone_type_id',
+                                      'product_template_id', 'drone_type_id',
                                       string='Drone')
     product_reseller_type = fields.Selection(RESELLER_TYPE_SELECTION,
                                              string='Reseller Type')
@@ -27,8 +27,9 @@ class DroneType(models.Model):
     _description = "Drone Type"
 
     name = fields.Char(required=True)
-    product_ids = fields.Many2many('product.product', 'rel_product_drone_type',
-                                   'drone_type_id', 'product_id',
+    product_ids = fields.Many2many('product.template',
+                                   'rel_product_drone_type',
+                                   'drone_type_id', 'product_template_id',
                                    string='Product')
 
     def get_spare_parts(self, partner_id):
@@ -52,8 +53,9 @@ class DroneType(models.Model):
                             'name_template': sp.name,
                             'default_code': sp.default_code,
                             'price':
-                                pricelist_id.price_get(sp.id, 1, partner_id)[
-                                    pricelist_id.id],
+                                pricelist_id.price_get(
+                                    sp.product_variant_id.id, 1, partner_id)
+                                [pricelist_id.id],
                             'currency': pricelist_id.currency_id.name
                             } for sp in spare_part_ids]
 
