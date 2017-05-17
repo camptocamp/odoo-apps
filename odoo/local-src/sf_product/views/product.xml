@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sensesefly_product_inherit" model="ir.ui.view">
+            <field name="name">sensefly.product.template.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="uom_po_id" position="after">
+                    <field name="origin"/>
+                </field>
+            </field>
+        </record>
+</odoo>
