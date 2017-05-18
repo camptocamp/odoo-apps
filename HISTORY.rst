@@ -24,6 +24,7 @@ latest (unreleased)
 * Add sf_drone_info_module
 * Define custom report layout
 * Add user data
+* Install basic OCA modules
 
 *Bugfixes*
 
