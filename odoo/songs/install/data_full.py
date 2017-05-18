@@ -14,6 +14,12 @@ installation.
 
 
 @anthem.log
+def import_users(ctx):
+    """ Importing users from csv """
+    load_csv(ctx, 'data/install/users.csv', 'res.users')
+
+
+@anthem.log
 def import_product(ctx):
     load_csv(ctx, 'data/install/product.csv', 'product.template')
 
@@ -21,5 +27,6 @@ def import_product(ctx):
 @anthem.log
 def main(ctx):
     """ Loading full data """
+    import_users(ctx)
     import_product(ctx)
     return

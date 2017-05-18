@@ -11,10 +11,12 @@ migration:
         full:
           operations:
             post:
+              - anthem songs.install.data_all::main
               - anthem songs.install.data_full::main
         demo:
           operations:
             post:
+              - anthem songs.install.data_all::main
               - anthem songs.install.data_demo::main
       addons:
         upgrade:

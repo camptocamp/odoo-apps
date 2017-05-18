@@ -5,10 +5,8 @@
 import anthem
 
 """ Data loaded in all modes
-
 The data loaded here will be loaded in the 'demo' and
 'full' modes.
-
 """
 
 
