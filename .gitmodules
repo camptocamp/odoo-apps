@@ -28,3 +28,6 @@
 [submodule "odoo/external-src/partner-contact"]
 	path = odoo/external-src/partner-contact
 	url = git@github.com:OCA/partner-contact.git
+[submodule "odoo/external-src/sale-workflow"]
+	path = odoo/external-src/sale-workflow
+	url = git@github.com:OCA/sale-workflow.git
