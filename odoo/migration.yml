@@ -43,7 +43,6 @@ migration:
           - account_reports_followup
           - helpdesk
           - mrp_plm
-          - quality_mrp
           # OCA/account-closing
           - account_cutoff_base
           - account_cutoff_prepaid
@@ -61,6 +60,7 @@ migration:
           - l10n_ch_zip
           # OCA/partner-contact
           - base_location
+          - partner_identification
           # OCA/reporting-engine
           - report_xlsx
           # OCA/server-tools
@@ -68,6 +68,8 @@ migration:
           - date_range
           - mail_environment
           - server_environment
+          # OCA/sale-workflow
+          - sale_exception
           # SENSEFLY
           - sf_drone_info
           - sf_report

@@ -22,6 +22,7 @@ ENV ADDONS_PATH="/opt/odoo/external-src/enterprise, \
   /opt/odoo/external-src/l10n-switzerland, \
   /opt/odoo/external-src/partner-contact, \
   /opt/odoo/external-src/reporting-engine, \
+  /opt/odoo/external-src/sale-workflow, \
   /opt/odoo/external-src/server-tools, \
   /opt/odoo/local-src," \
   LIMIT_TIME_CPU=86400 \
