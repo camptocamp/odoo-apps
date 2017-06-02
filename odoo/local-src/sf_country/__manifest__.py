@@ -7,9 +7,6 @@
     'author': 'Telmo Santos',
     'category': 'SenseFly',
     'depends': ['base', 'crm'],
-    'description': """
-    Extends the country related business models.
-    """,
     'data': ['views/res_country.xml'],
     'demo': [],
     'images': ['static/description/icon.png'],
