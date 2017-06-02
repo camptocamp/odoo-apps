@@ -32,6 +32,8 @@ latest (unreleased)
 **Build**
 
 * Add OCA sale-workflow
+* Sync from odoo-template
+* Load entrypoints
 
 **Documentation**
 
