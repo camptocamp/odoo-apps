@@ -72,3 +72,4 @@ migration:
           - sf_drone_info
           - sf_report
           - sf_product
+          - sf_country
