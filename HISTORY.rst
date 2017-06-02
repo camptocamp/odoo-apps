@@ -21,6 +21,9 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add sensfly website / ERP interface
+  The interface class implements a generic method "call" to be called through xmlrpc.
+
 **Bugfixes**
 
 **Build**
