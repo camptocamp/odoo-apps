@@ -9,7 +9,6 @@ from pkg_resources import resource_string, resource_stream
 
 import anthem
 
-from anthem.lyrics.records import create_or_update
 from anthem.lyrics.loaders import load_csv_stream
 
 from ..common import req
@@ -69,7 +68,7 @@ def change_config_parameters(ctx):
 
 @anthem.log
 def main(ctx):
-    """ Main: creating demo data """
+    """ Main setup """
     setup_companies(ctx)
     setup_language(ctx)
     admin_user_password(ctx)
