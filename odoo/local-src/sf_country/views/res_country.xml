@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--
+    Country Extension
+    -->
+    <record id="view_sf_country_tree" model="ir.ui.view">
+        <field name="name">res.country.tree</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_tree"/>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="free_trade_agreement"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_sf_country_form" model="ir.ui.view">
+        <field name="name">res.country.form</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <group>
+                    <field name="free_trade_agreement"/>
+                    <field name="agreement_desc"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+
+    <!--
     Country Group Extension
     -->
 
