@@ -50,6 +50,7 @@ migration:
           # OCA/account-financial-tools
           - account_asset_management
           - account_fiscal_year
+          - currency_rate_update
           # OCA/bank-payment
           - account_payment_order
           # OCA/l10n-switzerland
@@ -70,6 +71,8 @@ migration:
           - server_environment
           # OCA/sale-workflow
           - sale_exception
+          # OCA/account-analytic
+          - analytic_tag_dimension
           # SENSEFLY
           - sf_drone_info
           - sf_report
