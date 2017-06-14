@@ -1,0 +1,98 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sf_partner_entity_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-02 13:36+0000\n"
+"PO-Revision-Date: 2017-06-02 13:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_active
+msgid "Active"
+msgstr "Actif"
+
+#. module: sf_partner_entity_type
+#: model:ir.actions.act_window,help:sf_partner_entity_type.action_partner_entity_type_form
+msgid "Click to create a new entity type."
+msgstr "Cliquer pour créer un nouveau type d'entité de partenaire."
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_display_name
+msgid "Display Name"
+msgstr "Afficher le nom"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_id
+#: model:ir.ui.view,arch_db:sf_partner_entity_type.view_partner_entity_type_form
+#: model:ir.ui.view,arch_db:sf_partner_entity_type.view_res_partner_filter
+msgid "Entity Type"
+msgstr "Type d'entité"
+
+#. module: sf_partner_entity_type
+#: model:ir.ui.view,arch_db:sf_partner_entity_type.view_partner_entity_type_list
+#: model:ir.ui.menu,name:sf_partner_entity_type.menu_partner_entity_type_form
+#: model:ir.actions.act_window,name:sf_partner_entity_type.action_partner_entity_type_form
+msgid "Entity Types"
+msgstr "Types d'entité"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_id_7279
+msgid "ID"
+msgstr "ID"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: sf_partner_entity_type
+#: model:ir.actions.act_window,help:sf_partner_entity_type.action_partner_entity_type_form
+msgid "Manage partner entity type to better classify them.\n"
+"        A partner can only be of one entity type."
+msgstr "Gérer les type d'entité des partenaires afin de mieux les classifié.\n"
+"        Un partenaire avoir qu'un type d'entité unique."
+
+#. module: sf_partner_entity_type
+#: model:ir.model.fields,field_description:sf_partner_entity_type.field_res_partner_entity_type_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: sf_partner_entity_type
+#: model:ir.model,name:sf_partner_entity_type.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: sf_partner_entity_type
+#: model:ir.model,name:sf_partner_entity_type.model_res_partner_entity_type
+msgid "res.partner.entity.type"
+msgstr "res.partner.entity.type"
+
