@@ -26,6 +26,12 @@ latest (unreleased)
 * Add sales team on countries
 * Remove Quality module
 * Add sale exceptions and partner identification
+* Add a second company based in Washington DC
+* Setup MRP, Purchase, Sales and Logistics
+* Add Entity type on partners
+* Add Custom field on countries
+* Add boolean field to tell that the location has department link to an analytic account
+
 
 **Bugfixes**
 
