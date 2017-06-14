@@ -59,6 +59,7 @@ migration:
           - l10n_ch_pain_credit_transfer
           - l10n_ch_states
           - l10n_ch_zip
+          - l10n_ch_scan_bvr
           # OCA/partner-contact
           - base_location
           - partner_identification
