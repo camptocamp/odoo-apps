@@ -6,25 +6,36 @@ import anthem
 
 
 @anthem.log
-def activate_options(ctx):
-    """ Activating logistics options """
-    employee_group = ctx.env.ref('base.group_user')
-    employee_group.write({
-        'implied_ids': [(4, ctx.env.ref('stock.group_production_lot').id),
-                        (4, ctx.env.ref('stock.group_locations').id),
-                        (4, ctx.env.ref('stock.group_adv_location').id)]
-
-    })
-
-
-@anthem.log
-def set_delivery_pick_ship(ctx):
-    """ Setting pick-ship on the warehouse """
-    ctx.env.ref('stock.warehouse0').delivery_steps = 'pick_ship'
+def settings(ctx):
+    """ Configure inventory settings """
+    ctx.env['stock.config.settings'].create({
+        'group_stock_production_lot': 1,
+        'module_product_expiry': 0,
+        'group_stock_tracking_lot': 0,
+        'group_stock_tracking_owner': 0,
+        'module_stock_barcode': False,
+        'module_stock_landed_cost': 0,
+        'group_stock_inventory_valuation': 0,
+        'module_delivery_dhl': False,
+        'module_delivery_fedex': False,
+        'module_delivery_temando': False,
+        'module_delivery_ups': False,
+        'module_delivery_usps': False,
+        'module_procurement_jit': 0,
+        'warehouse_and_location_usage_level': 1,
+        'group_stock_adv_location': 0,
+        'decimal_precision': 0,
+        'module_stock_dropshipping': 0,
+        'module_stock_picking_wave': 1,
+        'module_stock_calendar': 0,
+        'group_uom': 0,
+        'group_product_variant': 0,
+        'group_stock_packaging': 0,
+        'module_quality': True,
+    }).execute()
 
 
 @anthem.log
 def main(ctx):
     """ Configuring logistics """
-    activate_options(ctx)
-    set_delivery_pick_ship(ctx)
+    settings(ctx)
