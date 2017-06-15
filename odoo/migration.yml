@@ -85,4 +85,5 @@ migration:
           - sf_report
           - sf_product
           - sf_country
+          - sf_helpdesk
           - sf_stock
