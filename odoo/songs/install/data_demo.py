@@ -14,12 +14,24 @@ excerpt of data, while the full data is only imported in the 'full' mode.
 
 
 @anthem.log
+def import_country_state(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/demo/country_state.csv', 'res.country.state')
+
+
+@anthem.log
+def import_countries(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/demo/country.csv', 'res.country')
+
+
+@anthem.log
 def import_customers(ctx):
     """ Importing customers from csv """
     load_csv(ctx, 'data/demo/customers.csv', 'res.partner')
 
 
-anthem.log
+@anthem.log
 def import_suppliers(ctx):
     """ Importing customers from csv """
     load_csv(ctx, 'data/demo/suppliers.csv', 'res.partner')
@@ -33,6 +45,9 @@ def import_product(ctx):
 @anthem.log
 def main(ctx):
     """ Loading demo data """
+    import_country_state(ctx)
+    import_countries(ctx)
     import_customers(ctx)
     import_suppliers(ctx)
     import_product(ctx)
+    return

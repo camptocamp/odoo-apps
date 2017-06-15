@@ -14,6 +14,18 @@ installation.
 
 
 @anthem.log
+def import_country_state(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/country_state.csv', 'res.country.state')
+
+
+@anthem.log
+def import_countries(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/country.csv', 'res.country')
+
+
+@anthem.log
 def import_customers(ctx):
     """ Importing customers from csv """
     load_csv(ctx, 'data/install/customers.csv', 'res.partner')
@@ -33,6 +45,8 @@ def import_product(ctx):
 @anthem.log
 def main(ctx):
     """ Loading full data """
+    import_country_state(ctx)
+    import_countries(ctx)
     import_customers(ctx)
     import_suppliers(ctx)
     import_product(ctx)
