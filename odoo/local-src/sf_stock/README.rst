@@ -1,0 +1,1 @@
+This is a module for customization of stock related business objects.
