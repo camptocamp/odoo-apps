@@ -30,6 +30,11 @@ def import_customers(ctx):
 
 
 @anthem.log
+def import_drone_type(ctx):
+    load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
+
+
+@anthem.log
 def import_product(ctx):
     load_csv(ctx, 'data/demo/product.csv', 'product.template')
 
@@ -39,4 +44,5 @@ def main(ctx):
     """ Loading demo data """
     import_users(ctx)
     import_customers(ctx)
+    import_drone_type(ctx)
     import_product(ctx)
