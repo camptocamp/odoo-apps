@@ -7,14 +7,22 @@ migration:
       operations:
         pre:
           - anthem songs.install.pre::main
+        post:
+          - anthem songs.install.base_setup::settings
+          - anthem songs.install.mrp::settings
+          - anthem songs.install.purchase::settings
+          - anthem songs.install.sale::settings
+          - anthem songs.install.logistics::settings
       modes:
         full:
           operations:
             post:
+              - anthem songs.install.data_all::main
               - anthem songs.install.data_full::main
         demo:
           operations:
             post:
+              - anthem songs.install.data_all::main
               - anthem songs.install.data_demo::main
       addons:
         upgrade:
@@ -41,7 +49,6 @@ migration:
           - account_reports_followup
           - helpdesk
           - mrp_plm
-          - quality_mrp
           # OCA/account-closing
           - account_cutoff_base
           - account_cutoff_prepaid
@@ -49,6 +56,7 @@ migration:
           # OCA/account-financial-tools
           - account_asset_management
           - account_fiscal_year
+          - currency_rate_update
           # OCA/bank-payment
           - account_payment_order
           # OCA/l10n-switzerland
@@ -57,8 +65,10 @@ migration:
           - l10n_ch_pain_credit_transfer
           - l10n_ch_states
           - l10n_ch_zip
+          - l10n_ch_scan_bvr
           # OCA/partner-contact
           - base_location
+          - partner_identification
           # OCA/reporting-engine
           - report_xlsx
           # OCA/server-tools
@@ -66,6 +76,13 @@ migration:
           - date_range
           - mail_environment
           - server_environment
+          # OCA/sale-workflow
+          - sale_exception
+          # OCA/account-analytic
+          - analytic_tag_dimension
           # SENSEFLY
           - sf_drone_info
           - sf_report
+          - sf_product
+          - sf_country
+          - sf_stock

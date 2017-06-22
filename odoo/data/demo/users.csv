@@ -1,0 +1,11 @@
+id,login,password,name,email,tz,lang,groups_id/id
+"__setup__.res_users_11","a.perraudin","SFchange1511","Alain Perraudin","alain.perraudin@sensefly.com","Europe/Zurich","en_US","base.group_user"
+"__setup__.res_users_144","a.olson","SFchange11144","Arvid Olson","arvid.olson@sensefly.com","US/Eastern","en_US","base.group_user"
+"__setup__.res_users_16","b.ryder","SFchange1116","Brock Ryder","brock.ryder@sensefly.com","Europe/Zurich","en_US","base.group_user"
+"__setup__.res_users_147","c.burky","SFchange12147","Cedric Burky","cedric.burky@sensefly.com","Europe/Zurich","fr_FR","base.group_user"
+"__setup__.res_users_4","j.zufferey","SFchange244","Jean-Christophe Zufferey","jean-christophe.zufferey@sensefly.com","Europe/Paris","en_US","base.group_user"
+"__setup__.res_users_190","m.blake","SFchange13190","Michael Blake","michael.blake@sensefly.com","Europe/Zurich","en_US","base.group_user"
+"__setup__.res_users_148","m.guillaud","SFchange16148","Mickael Guillaud","mickael.guillaud@sensefly.com","Europe/Zurich","en_US","base.group_user"
+"__setup__.res_users_105","mysensefly","SFchange10105","mysenseFly","","Europe/Zurich","fr_FR","base.group_user"
+"__setup__.res_users_71","r.ayotte","SFchange1471","Roxanne Ayotte","roxanne.ayotte@sensefly.com","Europe/Zurich","en_US","base.group_user"
+"__setup__.res_users_43","v.chaubert","SFchange1543","Victor Chaubert","victor.chaubert@sensefly.com","Europe/Zurich","en_US","base.group_user"
