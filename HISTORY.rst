@@ -21,6 +21,9 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add the import Sales Team / Channel to demo and install songs
+
+
 **Bugfixes**
 
 **Build**
