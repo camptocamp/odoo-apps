@@ -24,8 +24,14 @@ def import_users(ctx):
 
 
 @anthem.log
-def import_customers(ctx):
+def import_location(ctx):
     """ Importing customers from csv """
+    load_csv(ctx, 'data/demo/stock_location.csv', 'stock.location')
+
+
+@anthem.log
+def import_customers(ctx):
+    """ Importing stock location from csv """
     load_csv(ctx, 'data/demo/customers.csv', 'res.partner')
 
 
@@ -38,5 +44,6 @@ def import_product(ctx):
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
+    import_location(ctx)
     import_customers(ctx)
     import_product(ctx)
