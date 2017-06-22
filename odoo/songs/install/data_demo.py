@@ -24,15 +24,20 @@ def import_users(ctx):
 
 
 @anthem.log
+def import_crm_team(ctx):
+    """ Importing sales team / channel from csv """
+    load_csv(ctx, 'data/demo/crm_team.csv', 'crm.team')
+
+
+@anthem.log
 def import_customers(ctx):
     """ Importing customers from csv """
     load_csv(ctx, 'data/demo/customers.csv', 'res.partner')
 
 
 @anthem.log
-def import_crm_team(ctx):
-    """ Importing sales team / channel from csv """
-    load_csv(ctx, 'data/demo/crm_team.csv', 'crm.team')
+def import_drone_type(ctx):
+    load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
 
 
 @anthem.log
@@ -46,4 +51,5 @@ def main(ctx):
     import_users(ctx)
     import_crm_team(ctx)
     import_customers(ctx)
+    import_drone_type(ctx)
     import_product(ctx)
