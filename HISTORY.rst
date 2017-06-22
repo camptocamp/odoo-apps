@@ -21,6 +21,7 @@ latest (unreleased)
 
 *Features and Improvements*
 
+* Add Partner: Customer, supplier (draft)
 * Add sf_drone_info_module
 * Define custom report layout
 
