@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add the import Sales Team / Channel to demo and install songs
+* Add the import "Drone type" to demo and install songs
 
 
 **Bugfixes**
