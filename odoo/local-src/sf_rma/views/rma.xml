@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<record id="sf_rma_tree_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <tree string="RMA">
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+      </tree>
+    </field>
+</record>
+
+<record id="sf_rma_form_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <form string="Return merchandise authorisation">
+        <header>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <sheet>
+          <div class="oe_title" colspan="4">
+            <group>
+              <h1>
+                <field name="name" class="oe_inline"/>
+              </h1>
+            </group>
+          </div>
+          <group>
+            <group>
+              <field name="partner_id"/>
+              <field name="product_id"/>
+              <field name="lot_id"/>
+            </group>
+            <group>
+              <field name="warranty_limit"/>
+              <field name="zendesk_ref" class="oe_edit_only"/>
+              <field name="zendesk_url" class="oe_read_only" widget="url"/>
+              <field name="user_id"/>
+            </group>
+            <group>
+              <field name="cause_ids" widget="many2many_tags"/>
+            </group>
+            <group string="Decisions">
+              <field name="exchanged"/>
+              <field name="received"/>
+              <field name="offered"/>
+              <field name="offer_reason" attrs="{'invisible': [('offered', '=', False)], 'required': [('offered', '=', True)]}"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Notes">
+              <field name="notes"/>
+            </page>
+            <page string="Drone info">
+              <group>
+                <field name="drone_flight_time"/>
+                <field name="drone_flight_num"/>
+                <field name="drone_firmware_version"/>
+              </group>
+            </page>
+            <page string="Other">
+              <group>
+                <field name="invoicing_method"/>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+</record>
+
+<record id="sf_rma_action" model="ir.actions.act_window">
+  <field name="name">Return merchandise authorisation</field>
+  <field name="res_model">sf.rma</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree,form</field>
+  <field name="view_id" ref="sf_rma_tree_view"/>
+  <field name="context">{"search_default_user_id":uid}</field>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Click to create a Return merchandise authorisation.
+    </p>
+  </field>
+</record>
+
+<menuitem action="sf_rma_action" name="RMA"
+  id="menu_sf_rma-act" parent="menu_rma" sequence="1"/>
+
+</odoo>

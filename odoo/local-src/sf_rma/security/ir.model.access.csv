@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sf_rma_read,Permission to read senseFly RMA,model_sf_rma,group_rma_user,1,0,0,0
+access_sf_rma_write,Permission to write senseFly RMA,model_sf_rma,group_rma_manager,1,1,1,1
+access_sf_rma_cause_read,Permission to read senseFly RMA cause,model_sf_rma,group_rma_manager,1,0,0,0
+access_sf_rma_cause_write,Permission to write senseFly RMA cause,model_sf_rma,group_rma_manager,1,1,1,1

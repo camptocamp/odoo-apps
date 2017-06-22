@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+<record id="sf_rma_cause_tree_view" model="ir.ui.view">
+    <field name="model">sf.rma.cause</field>
+    <field name="arch" type="xml">
+      <tree string="Cause of failure" edit="top">
+        <field name="name"/>
+      </tree>
+    </field>
+</record>
+
+<record id="sf_rma_cause_action" model="ir.actions.act_window">
+  <field name="name">Cause of failure</field>
+  <field name="res_model">sf.rma</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree</field>
+  <field name="view_id" ref="sf_rma_cause_tree_view"/>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Click to create a cause of failure.
+    </p>
+  </field>
+</record>
+
+<menuitem action="sf_rma_cause_action" name="Cause of failure"
+  id="menu_sf_rma_cause-act" parent="menu_rma_config" sequence="1"/>
+</odoo>
