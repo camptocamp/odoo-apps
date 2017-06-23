@@ -29,6 +29,7 @@ class RMA(models.Model):
 
     zendesk_ref = fields.Char("Ticket num (Zendesk)")
     zendesk_url = fields.Char(compute='_compute_zendesk_url')
+    zendesk_url_set = fields.Boolean(compute='_compute_zendesk_url')
 
     user_id = fields.Many2one(
         'res.users',
@@ -85,5 +86,11 @@ class RMA(models.Model):
     @api.one
     @api.depends('zendesk_ref')
     def _compute_zendesk_url(self):
-        if self.zendesk_ref:
-            self.zendesk_url = "url%s" % self.zendesk_ref
+        ICP = self.env['ir.config_parameter']
+        base_url = ICP.get_param('zendesk.url')
+        if base_url:
+            self.zendesk_url_set = True
+            if self.zendesk_ref:
+                if '{ref}' not in base_url:
+                    base_url += '{ref}'
+                self.zendesk_url = base_url.format(ref=self.zendesk_ref)

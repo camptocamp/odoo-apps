@@ -41,6 +41,11 @@
               <field name="warranty_limit"/>
               <field name="zendesk_ref" class="oe_edit_only"/>
               <field name="zendesk_url" class="oe_read_only" widget="url"/>
+              <field name="zendesk_url_set" invisible="1"/>
+              <p colspan="2" class="bg-warning" attrs="{'invisible': [('zendesk_url_set', '=', True)]}">
+                Zendesk base url is not set, please define `zendesk.url` in <br/>
+                <b>Settings -> Technical -> Parameters -> System Parameters</b>
+              </p>
               <field name="user_id"/>
             </group>
             <group>
