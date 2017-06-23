@@ -21,6 +21,10 @@
     <field name="arch" type="xml">
       <form string="Return merchandise authorisation">
         <header>
+          <button name="action_open" type="object" string="Open" class="oe_highlight" states="draft"/>
+          <button name="action_close" type="object" string="Close" states="draft"/>
+          <button name="action_close" type="object" string="Close" class="oe_highlight" states="open"/>
+          <button name="action_reset" type="object" string="Reset" states="open,closed"/>
           <field name="state" widget="statusbar"/>
         </header>
         <sheet>

@@ -94,3 +94,15 @@ class RMA(models.Model):
                 if '{ref}' not in base_url:
                     base_url += '{ref}'
                 self.zendesk_url = base_url.format(ref=self.zendesk_ref)
+
+    @api.multi
+    def action_open(self):
+        self.write({'state': 'open'})
+
+    @api.multi
+    def action_close(self):
+        self.write({'state': 'closed'})
+
+    @api.multi
+    def action_reset(self):
+        self.write({'state': 'draft'})
