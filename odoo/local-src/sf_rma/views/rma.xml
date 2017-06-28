@@ -125,6 +125,9 @@
               <group>
                 <field name="invoicing_method"/>
               </group>
+              <group>
+                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+              </group>
             </page>
           </notebook>
         </sheet>

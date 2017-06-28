@@ -33,6 +33,10 @@ class RMA(models.Model):
         help="The Lot/Serial of the returned product")
     warranty_limit = fields.Date("Warranty limit")
 
+    company_id = fields.Many2one(
+        'res.company', string="Company",
+        default=lambda rec: rec.env.user.company_id.id)
+
     zendesk_ref = fields.Char("Ticket num (Zendesk)")
     zendesk_url = fields.Char(compute='_compute_zendesk_url')
     zendesk_url_set = fields.Boolean(compute='_compute_zendesk_url')
