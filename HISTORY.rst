@@ -27,6 +27,7 @@ latest (unreleased)
 * Active multi location in a warehouse
 * Import the stock locations
 
+* Install module 'Sensfly MRP'
 
 **Bugfixes**
 
