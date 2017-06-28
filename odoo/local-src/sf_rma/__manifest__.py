@@ -12,7 +12,9 @@
     "application": True,
     "installable": True,
     "depends": [
-        "base",
+        "sale",
+        "stock",
+        "mrp_repair",
     ],
     "data": [
         "security/rma_security.xml",

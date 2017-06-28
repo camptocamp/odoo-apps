@@ -4,6 +4,22 @@
 
 <odoo>
 
+<record id="act_sf_rma_sale_order" model="ir.actions.act_window">
+  <field name="name">Quotations and Sales</field>
+  <field name="res_model">sale.order</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree,form,graph</field>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Create a Quotation, the first step of a new sale.
+      </p><p>
+      Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+      </p><p>
+      Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+    </p>
+  </field>
+</record>
+
 <record id="sf_rma_tree_view" model="ir.ui.view">
     <field name="model">sf.rma</field>
     <field name="arch" type="xml">
@@ -28,7 +44,37 @@
           <field name="state" widget="statusbar"/>
         </header>
         <sheet>
-          <div class="oe_title" colspan="4">
+          <div class="oe_button_box" name="button_box">
+            <button name="action_view_sale"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-dollar"
+              attrs="{'invisible': [('sale_count', '=', 0)]}">
+              <field name="sale_count" widget="statinfo" string="Sales"/>
+            </button>
+            <button name="action_view_repair"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-wrench"
+              attrs="{'invisible': [('repair_count', '=', 0)]}">
+              <field name="repair_count" widget="statinfo" string="Repairs"/>
+            </button>
+            <button name="action_view_picking"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-truck"
+              attrs="{'invisible': [('picking_count', '=', 0)]}">
+              <field name="picking_count" widget="statinfo" string="Pickings"/>
+            </button>
+            <button name="action_view_rma_history"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-history"
+              attrs="{'invisible': [('history_rma_count', '=', 0)]}">
+              <field name="history_rma_count" widget="statinfo" string="History"/>
+            </button>
+          </div>
+          <div class="oe_title">
             <group>
               <h1>
                 <field name="name" class="oe_inline"/>

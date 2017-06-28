@@ -77,11 +77,22 @@ class RMA(models.Model):
         ('before', "Before invoicing"),
         ('after', "After invoicing")])
 
-    # TODO
-    # smart buttons
-    # repair_ids = fields
-    # order_ids = fields.
-    # picking_ids = fields.
+    repair_ids = fields.One2many('mrp.repair', 'rma_id', string="Repairs")
+    sale_ids = fields.One2many('sale.order', 'rma_id', string="Sale orders")
+    picking_ids = fields.One2many('stock.picking', 'rma_id', string="Pickings")
+    history_rma_ids = fields.Many2many(
+        'sf.rma',
+        compute='_compute_history_rma',
+        help="Other RMA for the same seral number")
+
+    repair_count = fields.Integer(
+        compute='_compute_repair_count', string="# Repairs")
+    sale_count = fields.Integer(
+        compute='_compute_sale_count', string="# Sale orders")
+    picking_count = fields.Integer(
+        compute='_compute_picking_count', string="# Pickings")
+    history_rma_count = fields.Integer(
+        compute='_compute_history_rma', string="# RMA")
 
     @api.one
     @api.depends('zendesk_ref')
@@ -94,6 +105,69 @@ class RMA(models.Model):
                 if '{ref}' not in base_url:
                     base_url += '{ref}'
                 self.zendesk_url = base_url.format(ref=self.zendesk_ref)
+
+    @api.one
+    @api.depends('lot_id')
+    def _compute_history_rma(self):
+        if self.lot_id:
+            domain = [('lot_id', '=', self.lot_id.id), ('id', '!=', self.id)]
+            self.history_rma_ids = self.search(domain).ids
+            self.history_rma_count = len(self.history_rma_ids)
+
+    @api.one
+    @api.depends('repair_ids')
+    def _compute_repair_count(self):
+        self.repair_count = len(self.repair_ids)
+
+    @api.one
+    @api.depends('sale_ids')
+    def _compute_sale_count(self):
+        self.sale_count = len(self.sale_ids)
+
+    @api.one
+    @api.depends('picking_ids')
+    def _compute_picking_count(self):
+        self.picking_count = len(self.picking_ids)
+
+    @api.multi
+    def action_view_relation(self, field, action, form_view):
+        action = self.env.ref(action).read()[0]
+        if len(self[field]) > 1:
+            action['domain'] = [('id', 'in', self[field].ids)]
+        elif len(self[field]) == 1:
+            action['views'] = [(self.env.ref(form_view).id, 'form')]
+            action['res_id'] = self[field].ids[0]
+        else:
+            action = {'type': 'ir.actions.act_window_close'}
+        return action
+
+    @api.multi
+    def action_view_repair(self):
+        return self.action_view_relation(
+            'repair_ids',
+            'mrp_repair.action_repair_order_tree',
+            'mrp_repair.view_repair_order_form')
+
+    @api.multi
+    def action_view_sale(self):
+        return self.action_view_relation(
+            'sale_ids',
+            'sf_rma.act_sf_rma_sale_order',
+            'sale.view_order_form')
+
+    @api.multi
+    def action_view_picking(self):
+        return self.action_view_relation(
+            'picking_ids',
+            'stock.action_picking_form',
+            'stock.view_picking_form')
+
+    @api.multi
+    def action_view_rma_history(self):
+        return self.action_view_relation(
+            'history_rma_ids',
+            'sf_rma.sf_rma_action',
+            'sf_rma.sf_rma_form_view')
 
     @api.multi
     def action_open(self):
