@@ -10,6 +10,12 @@ class RMA(models.Model):
     _description = "Return merchandise authorisation"
 
     name = fields.Char(required=True)
+
+    date = fields.Datetime(
+        'Claim Date', index=True, default=fields.Datetime.now)
+    create_date = fields.Datetime("Creation Date", readonly=True)
+    date_closed = fields.Datetime("Closed", readonly=True)
+
     partner_id = fields.Many2one(
         'res.partner',
         string="Partner",
