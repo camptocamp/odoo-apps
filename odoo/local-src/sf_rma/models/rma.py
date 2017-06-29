@@ -107,6 +107,7 @@ class RMA(models.Model):
     @api.one
     @api.depends('zendesk_ref')
     def _compute_zendesk_url(self):
+        """ Compute URL from a base url and a ticket number """
         ICP = self.env['ir.config_parameter']
         base_url = ICP.get_param('zendesk.url')
         if base_url:
@@ -119,8 +120,12 @@ class RMA(models.Model):
     @api.one
     @api.depends('lot_id')
     def _compute_history_rma(self):
+        """ Find all RMA for the same lot_id """
         if self.lot_id:
-            domain = [('lot_id', '=', self.lot_id.id), ('id', '!=', self.id)]
+            domain = [('lot_id', '=', self.lot_id.id)]
+            if not isinstance(self.id, models.NewId):
+                # exclude current RMA from history
+                domain.append(('id', '!=', self.id))
             self.history_rma_ids = self.search(domain).ids
             self.history_rma_count = len(self.history_rma_ids)
 
