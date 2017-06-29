@@ -60,7 +60,6 @@ def import_drone_type(ctx):
     load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
 
 
-
 @anthem.log
 def import_product(ctx):
     load_csv(ctx, 'data/install/product.csv', 'product.template')
