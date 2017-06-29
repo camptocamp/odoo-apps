@@ -25,5 +25,6 @@
         "views/rma_cause.xml",
         "data/crm_team.xml",
         "data/pricelist.xml",
+        "data/ir_sequence.xml",
     ],
 }

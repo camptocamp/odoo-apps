@@ -9,7 +9,7 @@ class RMA(models.Model):
     _name = 'sf.rma'
     _description = "Return merchandise authorisation"
 
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, default='/', readonly=True)
 
     date = fields.Datetime(
         'Claim Date', index=True, default=fields.Datetime.now)
@@ -143,6 +143,18 @@ class RMA(models.Model):
     @api.depends('picking_ids')
     def _compute_picking_count(self):
         self.picking_count = len(self.picking_ids)
+
+    @api.model
+    def _get_sequence_number(self):
+        return self.env['ir.sequence'].next_by_code('sf.rma') or '/'
+
+    @api.model
+    def create(self, values):
+        values = values or {}
+        if ('name' not in values or not values.get('name') or
+                values.get('name') == '/'):
+            values['name'] = self._get_sequence_number()
+        return super(RMA, self).create(values)
 
     @api.multi
     def action_view_relation(self, field, action, form_view):
