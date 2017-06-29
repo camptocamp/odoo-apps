@@ -169,7 +169,7 @@ class RMA(models.Model):
     def action_view_picking(self):
         return self.action_view_relation(
             'picking_ids',
-            'stock.action_picking_form',
+            'stock.action_picking_tree_all',
             'stock.view_picking_form')
 
     @api.multi
@@ -179,9 +179,89 @@ class RMA(models.Model):
             'sf_rma.sf_rma_action',
             'sf_rma.sf_rma_form_view')
 
+    def _prepare_mrp_repair_data(self):
+        self.ensure_one()
+        mrp_repair_data = self.env['mrp.repair'].default_get(
+            ['location_id'])
+        mrp_repair_data.update({
+            'rma_id': self.id,
+            'partner_id': self.partner_id.id,
+            'product_id': self.product_id.id,
+            'lot_id': self.lot_id.id,
+            'product_qty': 1,
+            'company_id': self.company_id.id,
+        })
+        return mrp_repair_data
+
+    def _prepare_so_data(self):
+        self.ensure_one()
+        return {
+            'partner_id': self.partner_id.id,
+            'rma_id': self.id,
+            'company_id': self.company_id.id,
+            'team_id': self.env.ref('sf_rma.crm_team_rma').id,
+            'pricelist_id': self.env.ref('sf_rma.pricelist_rma').id
+        }
+
+    def _prepare_so_line_data(self, sale):
+        self.ensure_one()
+        return {
+            'order_id': sale.id,
+            'product_id': self.product_id.id,
+            'product_uom_qty': 1,
+            'company_id': self.company_id.id,
+        }
+
+    def _prepare_picking_data(self):
+        self.ensure_one()
+        warehouse = self.env['stock.warehouse'].search(
+            [('company_id', '=', self.company_id.id)],
+            limit=1
+        )
+
+        return {
+            'partner_id': self.partner_id.id,
+            'rma_id': self.id,
+            'company_id': self.company_id.id,
+            'picking_type_id': warehouse.in_type_id.id,
+            'location_dest_id': warehouse.lot_rma_id.id,
+        }
+
+    def _prepare_reception_move_data(self, picking):
+        self.ensure_one()
+
+        return {
+            'picking_id': picking.id,
+            'product_id': self.product_id.id,
+            'product_uom_qty': 1,
+            'company_id': self.company_id.id,
+            'location_id': picking.location_id.id,
+            'location_dest_id': picking.location_dest_id.id,
+        }
+
     @api.multi
     def action_open(self):
         self.write({'state': 'open'})
+        for rec in self:
+            mrp_repair_data = self._prepare_mrp_repair_data()
+            self.env['mrp.repair'].create_with_onchanges(
+                mrp_repair_data, ['product_id', 'partner_id', 'location_id'])
+
+            so_data = self._prepare_so_data()
+            sale = self.env['sale.order'].create_with_onchanges(
+                so_data, ['partner_id'])
+
+            so_line_data = self._prepare_so_line_data(sale)
+            self.env['sale.order.line'].create_with_onchanges(
+                so_line_data, ['product_id'])
+
+            picking_data = self._prepare_picking_data()
+            picking = self.env['stock.picking'].create_with_onchanges(
+                picking_data, ['partner_id'])
+
+            move_data = self._prepare_reception_move_data(picking)
+            picking = self.env['stock.move'].create_with_onchanges(
+                move_data, ['product_id'])
 
     @api.multi
     def action_close(self):
