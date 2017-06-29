@@ -26,6 +26,12 @@ def import_crm_team(ctx):
 
 
 @anthem.log
+def import_location(ctx):
+    """ Importing stock location from csv """
+    load_csv(ctx, 'data/demo/stock_location.csv', 'stock.location')
+
+
+@anthem.log
 def import_drone_type(ctx):
     load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
 
@@ -40,6 +46,7 @@ def main(ctx):
     """ Loading full data """
     import_users(ctx)
     import_crm_team(ctx)
+    import_location(ctx)
     import_drone_type(ctx)
     import_product(ctx)
     return

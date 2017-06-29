@@ -22,7 +22,7 @@ def settings(ctx):
         'module_delivery_ups': False,
         'module_delivery_usps': False,
         'module_procurement_jit': 0,
-        'warehouse_and_location_usage_level': 1,
+        'warehouse_and_location_usage_level': 2,
         'group_stock_adv_location': 0,
         'decimal_precision': 0,
         'module_stock_dropshipping': 0,
