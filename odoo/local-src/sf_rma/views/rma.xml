@@ -20,14 +20,41 @@
   </field>
 </record>
 
+<record id="sf_rma_search_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <search string="RMA">
+
+        <field name="name" string="RMA"/>
+        <field name="partner_id" operator="child_of"/>
+        <field name="user_id"/>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+        <filter string="My RMA" domain="[('user_id','=',uid)]" name="my_rma_filter"/>
+        <separator/>
+        <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+        <filter string="Opened" name="open" domain="[('state','=','open')]"/>
+        <filter string="Closed" name="closed" domain="[('state','=','closed')]"/>
+        <separator/>
+        <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
+        <group expand="0" string="Group By">
+            <filter string="Responsible" domain="[]" context="{'group_by':'user_id'}"/>
+            <filter name="customer" string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+            <filter string="Month" domain="[]" context="{'group_by':'date'}"/>
+        </group>
+      </search>
+    </field>
+</record>
+
 <record id="sf_rma_tree_view" model="ir.ui.view">
     <field name="model">sf.rma</field>
     <field name="arch" type="xml">
-      <tree string="RMA">
+      <tree string="RMA" decoration-warning="state=='draft'" decoration_muted="state == 'done'">
         <field name="name"/>
         <field name="partner_id"/>
         <field name="product_id"/>
         <field name="lot_id"/>
+        <field name="state" invisible="1"/>
       </tree>
     </field>
 </record>
@@ -129,6 +156,10 @@
             </page>
           </notebook>
         </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
       </form>
     </field>
 </record>

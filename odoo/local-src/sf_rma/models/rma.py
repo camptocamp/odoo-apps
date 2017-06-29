@@ -7,6 +7,7 @@ from odoo import api, fields, models
 
 class RMA(models.Model):
     _name = 'sf.rma'
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
     _description = "Return merchandise authorisation"
 
     name = fields.Char(required=True, default='/', readonly=True)
