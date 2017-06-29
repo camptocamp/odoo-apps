@@ -20,6 +20,30 @@ def import_users(ctx):
 
 
 @anthem.log
+def import_country_state(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/country_state.csv', 'res.country.state')
+
+
+@anthem.log
+def import_countries(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/country.csv', 'res.country')
+
+
+@anthem.log
+def import_customers(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/customers.csv', 'res.partner')
+
+
+@anthem.log
+def import_suppliers(ctx):
+    """ Importing customers from csv """
+    load_csv(ctx, 'data/install/suppliers.csv', 'res.partner')
+
+
+@anthem.log
 def import_crm_team(ctx):
     """ Importing sales team / channel from csv """
     load_csv(ctx, 'data/demo/crm_team.csv', 'crm.team')
@@ -45,6 +69,10 @@ def import_product(ctx):
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
+    import_country_state(ctx)
+    import_countries(ctx)
+    import_customers(ctx)
+    import_suppliers(ctx)
     import_crm_team(ctx)
     import_location(ctx)
     import_drone_type(ctx)
