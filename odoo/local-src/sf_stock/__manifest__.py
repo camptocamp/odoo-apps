@@ -7,7 +7,10 @@
     'author': 'Telmo Santos',
     'category': 'SenseFly',
     'depends': ['stock'],
-    'data': ['views/stock_location.xml'],
+    'data': [
+        'views/stock_location.xml',
+        'views/stock_production_lot.xml',
+    ],
     'demo': [],
     'images': ['static/description/icon.png'],
     'installable': True,
