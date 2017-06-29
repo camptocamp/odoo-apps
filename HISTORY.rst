@@ -22,8 +22,24 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add Partner: Customer, supplier (draft)
-* Add sf_drone_info_module
-* Define custom report layout
+* Add the import Sales Team / Channel to demo and install songs
+* Add the import "Drone type" to demo and install songs
+* Active multi location in a warehouse
+* Import the stock locations
+
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.1.0 (2017-06-15)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Add sensfly website / ERP interface
   The interface class implements a generic method "call" to be called through xmlrpc.
 * Add sales team on countries
@@ -34,17 +50,14 @@ latest (unreleased)
 * Add Entity type on partners
 * Add Custom field on countries
 * Add boolean field to tell that the location has department link to an analytic account
+* Add Helpdesk module custom
 
-
-**Bugfixes**
 
 **Build**
 
 * Add OCA sale-workflow
 * Sync from odoo-template
 * Load entrypoints
-
-**Documentation**
 
 
 10.0.0 (2017-05-18)

@@ -24,6 +24,10 @@ migration:
             post:
               - anthem songs.install.data_all::main
               - anthem songs.install.data_demo::main
+          addons:
+            upgrade:
+              # camptocamp/odoo-prototype
+              - base_settings_exporter
       addons:
         upgrade:
           # CORE
@@ -85,4 +89,6 @@ migration:
           - sf_report
           - sf_product
           - sf_country
+          - sf_helpdesk
           - sf_stock
+    - version: 10.1.0
