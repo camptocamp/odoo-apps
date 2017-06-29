@@ -23,6 +23,8 @@ latest (unreleased)
 
 * Add the import Sales Team / Channel to demo and install songs
 * Add the import "Drone type" to demo and install songs
+* Active multi location in a warehouse
+* Import the stock locations
 
 
 **Bugfixes**
