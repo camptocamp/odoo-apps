@@ -11,6 +11,7 @@
     "license": "AGPL-3",
     "application": True,
     "installable": True,
+    "post_init_hook": 'post_init_hook',
     "depends": [
         "sale",
         "stock",
@@ -22,5 +23,7 @@
         "views/menu.xml",
         "views/rma.xml",
         "views/rma_cause.xml",
+        "data/crm_team.xml",
+        "data/pricelist.xml",
     ],
 }

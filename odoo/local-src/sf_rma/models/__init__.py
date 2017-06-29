@@ -6,3 +6,4 @@ from . import picking
 from . import rma
 from . import rma_cause
 from . import sale
+from . import warehouse
