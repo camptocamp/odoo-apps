@@ -3,7 +3,7 @@
 {
     'name': "SenseFly Drone Info",
     'version': '1.0',
-    'depends': ['product'
+    'depends': ['product',
                 ],
     'author': "Telmo Santos",
     'category': 'SenseFly',
