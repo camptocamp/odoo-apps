@@ -13,7 +13,8 @@ class TestProductDroneInfo(TransactionCase):
         self.assertEqual(len(outcome), 1)
         self.assertEqual(outcome[0]['name_template'], 'eBee')
         self.assertEqual(outcome[0]['price'], 40.0)
-        self.assertEqual(outcome[0]['currency'], 'EUR')
+        self.assertEqual(outcome[0]['currency'],
+                         partner.property_product_pricelist.currency_id.name)
 
     def test_get_spare_parts_with_bad_partner_throw_exception(self):
         drone_type = self.env.ref('sf_drone_info.sf_drone_type01')
