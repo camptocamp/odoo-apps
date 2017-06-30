@@ -1,6 +1,8 @@
 "id","company_id/id","name","location_id/id","usage","is_department_location","scrap_location","partner_id/id"
 "__setup__.stock_location_team_inc","__setup__.company_mte","Team","","view","false","false",""
 "__setup__.stock_location_team_sa","base.main_company","Team","","view","false","false",""
+"__setup__.stock_location_wh_inc","__setup__.company_mte","Stock","","view","false","false",""
+"__setup__.stock_location_stock_inc","__setup__.company_mte","Stock","__setup__.stock_location_wh_inc","view","false","false",""
 "__setup__.stock_location_18","base.main_company","Atelier","__setup__.stock_location_team_sa","customer","true","false",""
 "__setup__.stock_location_22","base.main_company","Admin","__setup__.stock_location_team_sa","customer","true","false",""
 "__setup__.stock_location_23","base.main_company","INDU - Indus","__setup__.stock_location_team_sa","customer","true","false",""
