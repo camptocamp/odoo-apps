@@ -26,9 +26,14 @@ latest (unreleased)
 * Add the import "Drone type" to demo and install songs
 * Active multi location in a warehouse
 * Import the stock locations
+* For the company "senseFly Inc"
+  * Add a warehouse
+  * Add locations WH and Stock
 
 
 **Bugfixes**
+
+* Fix sf_drone_info tests by making it flexing about currency
 
 **Build**
 
