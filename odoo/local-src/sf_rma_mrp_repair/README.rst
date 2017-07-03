@@ -1,6 +1,6 @@
-============
-Sensefly MRP
-============
+=======================
+Sensefly RMA MRP Repair
+=======================
 
 This modules adds a type 'Replace' on mrp.repair.line.
 
