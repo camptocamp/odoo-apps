@@ -10,5 +10,8 @@ class ProductionLot(models.Model):
     _inherit = 'stock.production.lot'
 
     warranty_end_date = fields.Date('Warranty end date')
-    warranty_stock_move_id = fields.Many2one('stock.move')
-    product_tracking = fields.Selection(related='product_id.tracking')
+    warranty_stock_move_id = fields.Many2one('stock.move',
+                                             string='Warranty stock move')
+    product_tracking = fields.Selection(related='product_id.tracking',
+                                        readonly=True,
+                                        string='Product tracking')
