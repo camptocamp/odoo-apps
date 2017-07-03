@@ -45,6 +45,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add Intragroup field on partners
 * Add sensfly website / ERP interface
   The interface class implements a generic method "call" to be called through xmlrpc.
 * Add sales team on countries
