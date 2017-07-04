@@ -9,6 +9,7 @@ migration:
           - anthem songs.install.pre::main
         post:
           - anthem songs.install.base_setup::settings
+          - anthem songs.install.accounting::settings
           - anthem songs.install.mrp::settings
           - anthem songs.install.purchase::settings
           - anthem songs.install.sale::settings

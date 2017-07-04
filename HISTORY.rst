@@ -29,6 +29,7 @@ latest (unreleased)
 * For the company "senseFly Inc"
   * Add a warehouse
   * Add locations WH and Stock
+* Configuration settings on main company
 
 
 **Bugfixes**
