@@ -30,6 +30,7 @@ latest (unreleased)
   * Add a warehouse
   * Add locations WH and Stock
 
+* Add warranty end date on stock production lot for serial numbers
 
 **Bugfixes**
 
