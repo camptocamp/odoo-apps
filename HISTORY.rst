@@ -37,6 +37,9 @@ latest (unreleased)
 
 **Build**
 
+* Upgrade Docker image to 10.0-2.3.0
+* Update odoo/src to latest commit
+
 **Documentation**
 
 
