@@ -34,16 +34,17 @@ migration:
           # CORE
           - account_accountant
           - account_analytic_default
+          - account_asset
           - account_cancel
           - analytic
           - auth_ldap
           - board
+          - contacts
           - l10n_ch
           - mrp
           - mrp_repair
           - procurement
           - product
-          - project
           - purchase
           - sale
           - sale_stock
@@ -91,5 +92,6 @@ migration:
           - sf_product
           - sf_country
           - sf_helpdesk
+          - sf_partner_entity_type
           - sf_stock
     - version: 10.1.0
