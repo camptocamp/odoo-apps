@@ -20,6 +20,7 @@ class MrpRepair(models.Model):
         @return: Move ids of final products
 
         """
+        # ***************************** Odoo code *****************************
         if self.filtered(lambda repair: not repair.repaired):
             raise UserError(_(
                 "Repair must be repaired in order to make the product moves."))
@@ -28,8 +29,10 @@ class MrpRepair(models.Model):
         for repair in self:
             moves = self.env['stock.move']
             for operation in repair.operations:
+                # ************************ Custom code ************************
                 if operation.type == 'replace':
                     continue
+                # ************************* Odoo code *************************
                 move = Move.create({
                     'name': operation.name,
                     'product_id': operation.product_id.id,
