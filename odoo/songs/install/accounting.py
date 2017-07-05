@@ -13,7 +13,7 @@ def settings(ctx):
         'bank_account_code_prefix': u'102',
         'cash_account_code_prefix': u'100',
         'chart_template_id': False,
-        'code_digits': 2,
+        'code_digits': 5,
         'company_footer': False,
         'company_id': ctx.env.ref('base.main_company').id,
         'complete_tax_set': False,
