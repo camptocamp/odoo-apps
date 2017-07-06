@@ -30,6 +30,7 @@ latest (unreleased)
   * Add a warehouse
   * Add locations WH and Stock
 
+* Install module 'Sensfly RMA MRP Repair'
 
 **Bugfixes**
 

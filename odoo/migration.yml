@@ -91,4 +91,5 @@ migration:
           - sf_country
           - sf_helpdesk
           - sf_stock
+          - sf_rma_mrp_repair
     - version: 10.1.0
