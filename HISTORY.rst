@@ -31,6 +31,7 @@ latest (unreleased)
   * Add locations WH and Stock
 
 * Install module 'Sensfly RMA MRP Repair'
+* Add warranty end date on stock production lot for serial numbers
 
 **Bugfixes**
 
