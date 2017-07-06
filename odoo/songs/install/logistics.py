@@ -13,7 +13,7 @@ def settings(ctx):
         'company_id': ctx.env.ref('base.main_company').id,
         'decimal_precision': 0,
         'group_product_variant': False,
-        'group_stock_adv_location': False,
+        'group_stock_adv_location': 1,
         'group_stock_inventory_valuation': 1,
         'group_stock_multi_locations': True,
         'group_stock_multi_warehouses': False,
