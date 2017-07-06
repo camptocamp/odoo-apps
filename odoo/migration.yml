@@ -9,6 +9,7 @@ migration:
           - anthem songs.install.pre::main
         post:
           - anthem songs.install.base_setup::settings
+          - anthem songs.install.accounting::settings
           - anthem songs.install.mrp::settings
           - anthem songs.install.purchase::settings
           - anthem songs.install.sale::settings
@@ -33,16 +34,17 @@ migration:
           # CORE
           - account_accountant
           - account_analytic_default
+          - account_asset
           - account_cancel
           - analytic
           - auth_ldap
           - board
+          - contacts
           - l10n_ch
           - mrp
           - mrp_repair
           - procurement
           - product
-          - project
           - purchase
           - sale
           - sale_stock
@@ -90,6 +92,7 @@ migration:
           - sf_product
           - sf_country
           - sf_helpdesk
+          - sf_partner_entity_type
           - sf_stock
           - sf_rma_mrp_repair
     - version: 10.1.0
