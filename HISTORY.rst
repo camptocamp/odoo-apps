@@ -33,6 +33,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add business financial consolidation account (bfc_account) on account
 * Add active field on journal
 * Add field owner in account analytic
 * Add Partner: Customer, supplier (draft)
