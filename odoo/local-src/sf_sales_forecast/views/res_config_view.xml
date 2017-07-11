@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id="view_sale_config_settings" model="ir.ui.view">
+        <field name="name">sale settings</field>
+        <field name="model">sale.config.settings</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="sales_team.view_sale_config_settings"/>
+        <field name="arch" type="xml">
+            <div id="main" position="after">
+                <separator name="sale_forecast" string="Sales Forecast"/>
+                <group>
+                    <field name="sale_forecast_range_type_id" class="oe_inline"/>
+                </group>
+            </div>
+        </field>
+    </record>
+    </data>
+</odoo>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- SALES FORECAST -->
+    <record id="sf_sales_forecast_tree" model="ir.ui.view">
+        <field name="name">sf.sales.forecast.tree</field>
+        <field name="model">sf.sales.forecast</field>
+        <field name="arch" type="xml">
+            <tree string="Sales Forecast">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="fiscal_year_id"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sf_sales_forecast_form" model="ir.ui.view">
+        <field name="name">sf.sales.forecast.form</field>
+        <field name="model">sf.sales.forecast</field>
+        <field name="arch" type="xml">
+            <form string="Sales Forecast">
+                <header>
+                    <button name="generate_forecast_lines" type="object" string="Generate Lines" class="oe_highlight" groups="sales_team.group_sale_manager"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h2>
+                        Forecast Number <field name="name" class="oe_inline"/>
+                        </h2>
+
+                    </div>
+                    <group colspan="4" col="4">
+                        <group colspan="2">
+                            <field name="partner_id" />
+                            <field name="fiscal_year_id"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="user_id" />
+                            <field name="company_id"/>
+                        </group>
+                        <group colspan="3">
+                            <field name="product_ids" options="{'no_quick_create':True,'no_create_edit':True}" >
+                                <tree>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <field name="forecast_line_ids" create="0">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="period_id"/>
+                            <field name="updated_forecast"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sf_sales_forecast" model="ir.actions.act_window">
+        <field name="name">Sales Forecast</field>
+        <field name="res_model">sf.sales.forecast</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create a new sales forecast for a dealer/partner</field>
+    </record>
+
+    <menuitem name="Sales Forecast" id="main_menu_sales_forecast" parent="sales_team.menu_sale_report" sequence="20"/>
+    <menuitem name="Forecast"  id="menu_sales_forecast" parent="main_menu_sales_forecast" action="action_sf_sales_forecast" sequence="10"/>
+
+    <!-- SALES FORECAST LINES -->
+
+    <record id="sf_sales_forecast_line_tree" model="ir.ui.view">
+        <field name="name">sf.sales.forecast.line.tree</field>
+        <field name="model">sf.sales.forecast.line</field>
+        <field name="arch" type="xml">
+            <tree string="Sales Forecast Lines" editable="top">
+                <field name="fiscal_year_id"/>
+                <field name="partner_id"/>
+                <field name="period_id"/>
+                <field name="product_id"/>
+                <field name="updated_forecast"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sf_sales_forecast_line" model="ir.actions.act_window">
+        <field name="name">Sales Forecast Lines</field>
+        <field name="res_model">sf.sales.forecast.line</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="sf_sales_forecast_line_tree"/>
+        <field name="context">{"search_default_fiscal_year_id" : True, "search_default_partner_id" : True }</field>
+    </record>
+
+    <menuitem name="Forecast Lines"  id="menu_sales_forecast_lines" parent="main_menu_sales_forecast" action="action_sf_sales_forecast_line" sequence="20"/>
+</odoo>

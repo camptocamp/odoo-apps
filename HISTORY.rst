@@ -70,6 +70,7 @@ latest (unreleased)
 
 * Add active field on journal
 * Add field owner in account analytic
+* Add Sales forecast module
 * Add Partner: Customer, supplier (draft)
 * Add the import Sales Team / Channel to demo and install songs
 * Add the import "Drone type" to demo and install songs
