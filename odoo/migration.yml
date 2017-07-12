@@ -94,5 +94,6 @@ migration:
           - sf_helpdesk
           - sf_partner_entity_type
           - sf_stock
+          - sf_partner
           - sf_rma_mrp_repair
     - version: 10.1.0
