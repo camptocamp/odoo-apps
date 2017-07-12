@@ -283,7 +283,8 @@ class RMA(models.Model):
 
     @api.multi
     def action_close(self):
-        self.write({'state': 'closed'})
+        self.write({'state': 'closed',
+                    'date_closed': fields.Datetime.now()})
 
     @api.multi
     def action_reset(self):
