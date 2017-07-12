@@ -1,0 +1,790 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sf_rma
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-30 15:31+0000\n"
+"PO-Revision-Date: 2017-06-30 15:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sf_rma
+#: model:res.groups,comment:sf_rma.group_rma_user
+msgid "\n"
+"    The user will be able to browse RMA.\n"
+"  "
+msgstr ""
+
+#. module: sf_rma
+#: model:res.groups,comment:sf_rma.group_rma_manager
+msgid "\n"
+"    The user will be able to manage RMA causes.\n"
+"  "
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_picking_count
+msgid "# Pickings"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_history_rma_count
+msgid "# RMA"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_repair_count
+msgid "# Repairs"
+msgstr "# Réparations"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_sale_count
+msgid "# Sale orders"
+msgstr "# Commandes"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_sale_order_count
+msgid "# of Sales Order"
+msgstr "# de Commandes"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_account_payable_id
+msgid "Account Payable"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_account_receivable_id
+msgid "Account Receivable"
+msgstr ""
+
+#. module: sf_rma
+#: selection:sf.rma,invoicing_method:0
+msgid "After invoicing"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_bank_account_count
+msgid "Bank"
+msgstr "Banque"
+
+#. module: sf_rma
+#: selection:sf.rma,invoicing_method:0
+msgid "Before invoicing"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.actions.act_window,name:sf_rma.sf_rma_cause_action
+#: model:ir.ui.menu,name:sf_rma.menu_sf_rma_cause-act
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_cause_tree_view
+msgid "Cause of failure"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_cause_ids
+msgid "Cause(s) of the failure"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_ids
+msgid "Causes"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_date
+msgid "Claim Date"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.actions.act_window,help:sf_rma.sf_rma_action
+msgid "Click to create a Return merchandise authorisation."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.actions.act_window,help:sf_rma.sf_rma_cause_action
+msgid "Click to create a cause of failure."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Close"
+msgstr "Fermer"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_date_closed
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+#: selection:sf.rma,state:0
+msgid "Closed"
+msgstr "Fermé"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_offered
+msgid "Commercial gesture"
+msgstr "Offert"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_ref_company_ids
+msgid "Companies that refers to partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_company_id
+msgid "Company"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.menu,name:sf_rma.menu_rma_config
+msgid "Configuration"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_contract_ids
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_contracts_count
+msgid "Contracts"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_payment_token_count
+msgid "Count Payment Token"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.actions.act_window,help:sf_rma.act_sf_rma_sale_order
+msgid "Create a Quotation, the first step of a new sale."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_create_uid
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_create_date
+msgid "Creation Date"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Customer"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_stock_customer
+msgid "Customer Location"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_payment_term_id
+msgid "Customer Payment Terms"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Decisions"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_trust
+msgid "Degree of trust you have in this debtor"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_display_name
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+#: selection:sf.rma,state:0
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_drone_firmware_version
+msgid "Drone firmware number"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_drone_flight_time
+msgid "Drone hours of flight"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Drone info"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_drone_flight_num
+msgid "Drone number of flights"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_exchanged
+msgid "Exchanged"
+msgstr "Echange"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_drone_firmware_version
+msgid "Firmware number"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_account_position_id
+msgid "Fiscal Position"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_has_unreconciled_entries
+msgid "Has unreconciled entries"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "History"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_history_rma_ids
+msgid "History rma ids"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_drone_flight_time
+msgid "Hours of flight"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_id
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_id
+msgid "ID"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_image_arrival
+msgid "Image arrival"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_image_departure
+msgid "Image departure"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_repair_order_form
+msgid "Images"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_invoice_warn
+msgid "Invoice"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_invoice_ids
+msgid "Invoices"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_invoicing_method
+msgid "Invoicing method"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_issued_total
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_journal_item_count
+msgid "Journal Items"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma___last_update
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_write_uid
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_write_date
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_last_time_entries_checked
+msgid "Last time the invoices & payments matching was performed for this partner. It is set either if there's not at least an unreconciled debit and an unreconciled credit or if you click the \"Done\" button."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_last_time_entries_checked
+msgid "Latest Invoices & Payments Matching Date"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_lot_id
+msgid "Lot/Serial Number"
+msgstr ""
+
+#. module: sf_rma
+#: model:res.groups,name:sf_rma.group_rma_manager
+msgid "Manager"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_invoice_warn_msg
+msgid "Message for Invoice"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_sale_warn_msg
+msgid "Message for Sales Order"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_picking_warn_msg
+msgid "Message for Stock Picking"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Month"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "My RMA"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_name
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_name
+msgid "Name"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_payment_next_action
+msgid "Next Action"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_payment_next_action_date
+msgid "Next Action Date"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_payment_next_action
+msgid "Note regarding the next action."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.actions.act_window,help:sf_rma.act_sf_rma_sale_order
+msgid "Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_notes
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Notes"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_drone_flight_num
+msgid "Number of flights"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_offer_reason
+msgid "Offer reason"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_offered
+msgid "Offered"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+#: selection:sf.rma,state:0
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Opened"
+msgstr "Ouvert"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Other"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_history_rma_ids
+msgid "Other RMA for the same seral number"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_partner_id
+msgid "Partner concerned by the repair"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_debit_limit
+msgid "Payable Limit"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_payment_token_ids
+msgid "Payment Tokens"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_picking_ids
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Pickings"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_planned_date
+msgid "Planned date"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_product_id
+msgid "Product"
+msgstr "Produit"
+
+#. module: sf_rma
+#: model:ir.actions.act_window,name:sf_rma.act_sf_rma_sale_order
+msgid "Quotations and Sales"
+msgstr "Devis et commandes"
+
+#. module: sf_rma
+#: code:addons/odoo/local-src/sf_rma/models/warehouse.py:26
+#: code:addons/sf_rma/models/warehouse.py:26
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_rma_id
+#: model:ir.model.fields,field_description:sf_rma.field_sale_order_rma_id
+#: model:ir.model.fields,field_description:sf_rma.field_stock_picking_rma_id
+#: model:ir.module.category,name:sf_rma.module_category_rma
+#: model:ir.ui.menu,name:sf_rma.menu_rma
+#: model:ir.ui.menu,name:sf_rma.menu_rma_root
+#: model:ir.ui.menu,name:sf_rma.menu_sf_rma-act
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_tree_view
+#, python-format
+msgid "RMA"
+msgstr "RMA"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_stock_warehouse_lot_rma_id
+msgid "RMA Location"
+msgstr "Emplacement de RMA"
+
+#. module: sf_rma
+#: model:product.pricelist,name:sf_rma.pricelist_rma
+msgid "RMA Pricelist"
+msgstr "List de prix RMA"
+
+#. module: sf_rma
+#: model:crm.team,name:sf_rma.crm_team_rma
+msgid "RMA team"
+msgstr "Equipe RMA"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_offer_reason
+msgid "Reason of the commercial gesture"
+msgstr "Raison pour le geste commercial"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_received
+msgid "Received"
+msgstr "Réception"
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_mrp_repair
+msgid "Repair Order"
+msgstr "Ordre de réparation"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_repaired_by
+msgid "Repaired by"
+msgstr "Réparé par"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_repair_ids
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Repairs"
+msgstr "Réparations"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_note_resolution
+#: model:ir.ui.view,arch_db:sf_rma.view_repair_order_form
+msgid "Resolution note"
+msgstr "Note de résolution"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_user_id
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: sf_rma
+#: selection:sf.rma,repaired_by:0
+msgid "Retailer"
+msgstr "Revendeur"
+
+#. module: sf_rma
+#: model:ir.actions.act_window,name:sf_rma.sf_rma_action
+#: model:ir.model,name:sf_rma.model_sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Return merchandise authorisation"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_product_id
+msgid "Returned product"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_sale_ids
+msgid "Sale orders"
+msgstr "Bons de commandes"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_sale_order
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_sale_order_ids
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_sale_warn
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_invoice_warn
+#: model:ir.model.fields,help:sf_rma.field_res_users_picking_warn
+#: model:ir.model.fields,help:sf_rma.field_res_users_sale_warn
+msgid "Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" will throw an exception with the message and block the flow. The Message has to be written in the next field."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_state
+msgid "Status"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_picking_warn
+msgid "Stock Picking"
+msgstr "Transfert"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_user_id
+msgid "Technician"
+msgstr "Technicien"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_sf_rma_lot_id
+msgid "The Lot/Serial of the returned product"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_payment_next_action_date
+msgid "The date before which no action should be taken."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_account_position_id
+msgid "The fiscal position will determine taxes and accounts used for the partner."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_has_unreconciled_entries
+msgid "The partner has at least one unreconciled debit and credit since last time the invoices & payments matching was performed."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_account_payable_id
+msgid "This account will be used instead of the default one as the payable account for the current partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_account_receivable_id
+msgid "This account will be used instead of the default one as the receivable account for the current partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_supplier_payment_term_id
+msgid "This payment term will be used instead of the default one for purchase orders and vendor bills"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_payment_term_id
+msgid "This payment term will be used instead of the default one for sale orders and customer invoices"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_stock_customer
+msgid "This stock location will be used, instead of the default one, as the destination location for goods you send to this partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_property_stock_supplier
+msgid "This stock location will be used, instead of the default one, as the source location for goods you receive from the current partner"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_zendesk_ref
+msgid "Ticket num (Zendesk)"
+msgstr "Numéro de ticket (Zendesk)"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_total_invoiced
+msgid "Total Invoiced"
+msgstr "Total facturé"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_debit
+msgid "Total Payable"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_credit
+msgid "Total Receivable"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_credit
+msgid "Total amount this customer owes you."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_debit
+msgid "Total amount you have to pay to this vendor."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
+msgid "Unread Messages"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_unreconciled_aml_ids
+msgid "Unreconciled aml ids"
+msgstr ""
+
+#. module: sf_rma
+#: model:res.groups,name:sf_rma.group_rma_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_res_users_currency_id
+msgid "Utility field to express amount currency"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_stock_supplier
+msgid "Vendor Location"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_users_property_supplier_payment_term_id
+msgid "Vendor Payment Terms"
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_warranty_limit
+msgid "Warranty limit"
+msgstr "Limite de guarantie"
+
+#. module: sf_rma
+#: model:ir.actions.act_window,help:sf_rma.act_sf_rma_sale_order
+msgid "Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment."
+msgstr ""
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
+msgid "Zendesk base url is not set, please define `zendesk.url` in <br/>\n"
+"                <b>Settings -&gt; Technical -&gt; Parameters -&gt; System Parameters</b>"
+msgstr "L'URL de base Zendesk n'est pas configurée, veuillez définir `zendesk.url` dans <br/>\n"
+"                <b>Configuration -&gt; Technique -&gt; Paramètres -&gt; Paramètres systèmes</b>"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_zendesk_url
+msgid "Zendesk url"
+msgstr "URL Zendesk"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_sf_rma_zendesk_url_set
+msgid "Zendesk url set"
+msgstr "URL Zendesk Définie"
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_base
+msgid "base"
+msgstr "base"
+
+#. module: sf_rma
+#: selection:sf.rma,repaired_by:0
+msgid "senseFly"
+msgstr "senseFly"
+
+#. module: sf_rma
+#: model:ir.model,name:sf_rma.model_sf_rma_cause
+msgid "sf.rma.cause"
+msgstr "sf.rma.cause"
+
