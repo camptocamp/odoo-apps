@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.2.0 (2017-07-12)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Add active field on journal
 * Add field owner in account analytic
 * Add Partner: Customer, supplier (draft)
@@ -45,8 +57,6 @@ latest (unreleased)
 
 * Upgrade Docker image to 10.0-2.3.0
 * Update odoo/src to latest commit
-
-**Documentation**
 
 
 10.1.0 (2017-06-15)

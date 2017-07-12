@@ -98,3 +98,4 @@ migration:
           - sf_rma_mrp_repair
           - sf_account_analytic
     - version: 10.1.0
+    - version: 10.2.0
