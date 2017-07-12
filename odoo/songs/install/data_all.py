@@ -29,7 +29,15 @@ def import_analytic_tag(ctx):
 
 
 @anthem.log
+def import_analytic_account_project(ctx):
+    """ Importing analytic account (project) from csv """
+    load_csv(ctx, 'data/install/analytic_account_project.csv',
+             'account.analytic.account')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
     import_analytic_tag(ctx)
+    import_analytic_account_project(ctx)
