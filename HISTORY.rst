@@ -34,6 +34,7 @@ latest (unreleased)
 * Install module 'Sensfly RMA MRP Repair'
 * Add warranty end date on stock production lot for serial numbers
 * Add Analytic Tags data: dimension and tags
+* Add Analytic account data (project)
 
 **Bugfixes**
 
