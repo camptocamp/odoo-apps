@@ -16,7 +16,11 @@ installation.
 @anthem.log
 def import_users(ctx):
     """ Importing users from csv """
-    load_csv(ctx, 'data/install/users.csv', 'res.users')
+    model = ctx.env['res.users'].with_context({
+        'no_reset_password': True,
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/install/users.csv', model)
 
 
 @anthem.log
