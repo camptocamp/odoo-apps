@@ -25,13 +25,13 @@ def import_users(ctx):
 
 @anthem.log
 def import_country_state(ctx):
-    """ Importing customers from csv """
+    """ Importing country states from csv """
     load_csv(ctx, 'data/demo/country_state.csv', 'res.country.state')
 
 
 @anthem.log
 def import_countries(ctx):
-    """ Importing customers from csv """
+    """ Importing countries from csv """
     load_csv(ctx, 'data/demo/country.csv', 'res.country')
 
 
@@ -61,17 +61,19 @@ def import_customers(ctx):
 
 @anthem.log
 def import_suppliers(ctx):
-    """ Importing customers from csv """
+    """ Importing suppliers from csv """
     load_csv(ctx, 'data/demo/suppliers.csv', 'res.partner')
 
 
 @anthem.log
 def import_drone_type(ctx):
-    load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
+    """ Importing drone type from csv """
+    load_csv(ctx, 'data/demo/drone_type.csv', 'drone.type')
 
 
 @anthem.log
 def import_product(ctx):
+    """ Importing products from csv """
     load_csv(ctx, 'data/demo/product.csv', 'product.template')
 
 

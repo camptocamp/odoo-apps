@@ -16,18 +16,22 @@ installation.
 @anthem.log
 def import_users(ctx):
     """ Importing users from csv """
-    load_csv(ctx, 'data/install/users.csv', 'res.users')
+    model = ctx.env['res.users'].with_context({
+        'no_reset_password': True,
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/install/users.csv', model)
 
 
 @anthem.log
 def import_country_state(ctx):
-    """ Importing customers from csv """
+    """ Importing country states from csv """
     load_csv(ctx, 'data/install/country_state.csv', 'res.country.state')
 
 
 @anthem.log
 def import_countries(ctx):
-    """ Importing customers from csv """
+    """ Importing countries from csv """
     load_csv(ctx, 'data/install/country.csv', 'res.country')
 
 
@@ -39,7 +43,7 @@ def import_customers(ctx):
 
 @anthem.log
 def import_suppliers(ctx):
-    """ Importing customers from csv """
+    """ Importing suppliers from csv """
     load_csv(ctx, 'data/install/suppliers.csv', 'res.partner')
 
 
@@ -63,11 +67,13 @@ def import_location(ctx):
 
 @anthem.log
 def import_drone_type(ctx):
+    """ Importing drone type from csv """
     load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
 
 
 @anthem.log
 def import_product(ctx):
+    """ Importing products type from csv """
     load_csv(ctx, 'data/install/product.csv', 'product.template')
 
 
