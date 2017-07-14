@@ -87,15 +87,16 @@ migration:
           # OCA/account-analytic
           - analytic_tag_dimension
           # SENSEFLY
-          - sf_drone_info
-          - sf_report
-          - sf_product
-          - sf_country
-          - sf_helpdesk
-          - sf_partner_entity_type
-          - sf_stock
-          - sf_partner
-          - sf_rma_mrp_repair
           - sf_account_analytic
+          - sf_country
+          - sf_drone_info
+          - sf_helpdesk
           - sf_invoice_check_duplicate
+          - sf_partner
+          - sf_partner_entity_type
+          - sf_product
+          - sf_report
+          - sf_rma_mrp_repair
+          - sf_stock
+    - version: 10.1.0
     - version: 10.2.0
