@@ -35,6 +35,8 @@ latest (unreleased)
 
 * Add active field on journal
 * Add field owner in account analytic
+* Add functional field on supplier invoice showing duplicated invoices
+* Smart button on supplier invoice showing duplicated invoices
 * Add Partner: Customer, supplier (draft)
 * Add the import Sales Team / Channel to demo and install songs
 * Add the import "Drone type" to demo and install songs
