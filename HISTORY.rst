@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add ribbon in non prod instances
 * Add functional field on supplier invoice showing duplicated invoices
 * Smart button on supplier invoice showing duplicated invoices
 

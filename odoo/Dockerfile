@@ -31,6 +31,7 @@ ENV ADDONS_PATH="/opt/odoo/external-src/enterprise, \
   /opt/odoo/external-src/sale-workflow, \
   /opt/odoo/external-src/account-analytic, \
   /opt/odoo/external-src/server-tools, \
+  /opt/odoo/external-src/web, \
   /opt/odoo/local-src," \
   LIMIT_TIME_CPU=86400 \
   LIMIT_TIME_REAL=86400 \
