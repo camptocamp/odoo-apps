@@ -38,7 +38,7 @@ class RMA(models.Model):
         'res.company', string="Company",
         default=lambda rec: rec.env.user.company_id.id)
 
-    zendesk_ref = fields.Char("Ticket num (Zendesk)")
+    zendesk_ref = fields.Char("Ticket num (Zendesk)", required=True)
     zendesk_url = fields.Char(compute='_compute_zendesk_url')
     zendesk_url_set = fields.Boolean(compute='_compute_zendesk_url')
 
@@ -289,3 +289,8 @@ class RMA(models.Model):
     @api.multi
     def action_reset(self):
         self.write({'state': 'draft'})
+
+    _sql_constraints = [
+        ('zendesk_ref_5_digits',
+         "CHECK(CHAR_LENGTH(zendesk_ref) = 5 AND zendesk_ref ~ '^[0-9]+$')",
+         'Ticket num (Zendesk) must be 5 digits')]

@@ -19,6 +19,7 @@ class TestRMA(TransactionCase):
         self.rma = self.env['sf.rma'].create({
             'partner_id': self.env.ref('base.res_partner_12').id,
             'product_id': self.drone.id,
+            'zendesk_ref': '99999',
         })
 
     def test_rma_sequence(self):
