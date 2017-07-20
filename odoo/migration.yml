@@ -14,6 +14,7 @@ migration:
           - anthem songs.install.purchase::settings
           - anthem songs.install.sale::settings
           - anthem songs.install.logistics::settings
+          - anthem songs.install.ldap::main
       modes:
         full:
           operations:
