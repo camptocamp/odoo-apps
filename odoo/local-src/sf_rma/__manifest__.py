@@ -27,5 +27,6 @@
         "data/crm_team.xml",
         "data/pricelist.xml",
         "data/ir_sequence.xml",
+        "data/ir_config_parameter.xml",
     ],
 }
