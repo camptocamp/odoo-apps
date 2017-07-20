@@ -5,6 +5,11 @@
 from odoo import api, fields, models
 
 
+def get_selection_description(rec, field):
+    """ Get translated selection description from its selected value """
+    return dict(rec._fields[field]._description_selection(rec.env))[rec[field]]
+
+
 class RMA(models.Model):
     _name = 'sf.rma'
     _inherit = ['mail.thread', 'ir.needaction_mixin']
@@ -105,6 +110,10 @@ class RMA(models.Model):
     history_rma_count = fields.Integer(
         compute='_compute_history_rma', string="# RMA")
 
+    repair_state = fields.Char(compute="_compute_repair_count")
+    sale_state = fields.Char(compute="_compute_sale_count")
+    picking_state = fields.Char(compute="_compute_picking_count")
+
     @api.one
     @api.depends('zendesk_ref')
     def _compute_zendesk_url(self):
@@ -134,16 +143,25 @@ class RMA(models.Model):
     @api.depends('repair_ids')
     def _compute_repair_count(self):
         self.repair_count = len(self.repair_ids)
+        if self.repair_count == 1:
+            state = get_selection_description(self.repair_ids, 'state')
+            self.repair_state = state
 
     @api.one
     @api.depends('sale_ids')
     def _compute_sale_count(self):
         self.sale_count = len(self.sale_ids)
+        if self.sale_count == 1:
+            state = get_selection_description(self.sale_ids, 'state')
+            self.sale_state = state
 
     @api.one
     @api.depends('picking_ids')
     def _compute_picking_count(self):
         self.picking_count = len(self.picking_ids)
+        if self.picking_count == 1:
+            state = get_selection_description(self.picking_ids, 'state')
+            self.picking_state = state
 
     @api.model
     def _get_sequence_number(self):

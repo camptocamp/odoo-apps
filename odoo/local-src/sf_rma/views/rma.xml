@@ -78,21 +78,45 @@
               class="oe_stat_button"
               icon="fa-dollar"
               attrs="{'invisible': [('sale_count', '=', 0)]}">
-              <field name="sale_count" widget="statinfo" string="Sales"/>
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('sale_count', '!=', 1)]}">
+                  <field name="sale_state" class="oe_inline"/>
+                </span>
+                <field name="sale_count" class="o_stat_value" attrs="{'invisible': [('sale_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('sale_count', '=', 1)]}">
+                Sales
+                </span>
+              </div>
             </button>
             <button name="action_view_repair"
               type="object"
               class="oe_stat_button"
               icon="fa-wrench"
               attrs="{'invisible': [('repair_count', '=', 0)]}">
-              <field name="repair_count" widget="statinfo" string="Repairs"/>
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('repair_count', '!=', 1)]}">
+                  <field name="repair_state" class="oe_inline"/>
+                </span>
+                <field name="repair_count" class="o_stat_value" attrs="{'invisible': [('repair_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('repair_count', '=', 1)]}">
+                Repairs
+                </span>
+              </div>
             </button>
             <button name="action_view_picking"
               type="object"
               class="oe_stat_button"
               icon="fa-truck"
               attrs="{'invisible': [('picking_count', '=', 0)]}">
-              <field name="picking_count" widget="statinfo" string="Pickings"/>
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('picking_count', '!=', 1)]}">
+                  <field name="picking_state" class="oe_inline"/>
+                </span>
+                <field name="picking_count" class="o_stat_value" attrs="{'invisible': [('picking_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('picking_count', '=', 1)]}">
+                Pickings
+                </span>
+              </div>
             </button>
             <button name="action_view_rma_history"
               type="object"
