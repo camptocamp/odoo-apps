@@ -49,7 +49,8 @@ class RMA(models.Model):
     state = fields.Selection([
         ('draft', "Draft"),
         ('open', "Open"),
-        ('closed', "Closed")],
+        ('closed', "Closed"),
+        ('canceled', "Canceled")],
         string="Status",
         required=True,
         default='draft')
