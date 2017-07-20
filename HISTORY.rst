@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Add functional field on supplier invoice showing duplicated invoices
 * Smart button on supplier invoice showing duplicated invoices
+* BSSFL-65: Add LDAP configuration
 
 **Bugfixes**
 
