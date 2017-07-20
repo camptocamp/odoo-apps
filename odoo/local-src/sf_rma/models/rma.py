@@ -56,15 +56,17 @@ class RMA(models.Model):
         default='draft')
 
     # Decisions
-    exchanged = fields.Boolean(
+    to_exchange = fields.Boolean(
         default=False)
-    received = fields.Boolean(
+    to_receive = fields.Boolean(
         default=False)
-    offered = fields.Boolean(
+    to_invoice = fields.Boolean(
+        default=False)
+    to_offer = fields.Boolean(
         default=False,
         help="Commercial gesture")
     offer_reason = fields.Char(help="Reason of the commercial gesture")
-    repaired_by = fields.Selection([
+    repair_by = fields.Selection([
         ('retailer', "Retailer"),
         ('sf', "senseFly")])
 
@@ -85,7 +87,6 @@ class RMA(models.Model):
         'sf.rma.cause',
         string="Causes",
         help="Cause(s) of the failure")
-    is_invoicable = fields.Boolean("Invoicable")
 
     repair_ids = fields.One2many('mrp.repair', 'rma_id', string="Repairs")
     sale_ids = fields.One2many('sale.order', 'rma_id', string="Sale orders")

@@ -129,11 +129,12 @@
               <field name="cause_ids" widget="many2many_tags"/>
             </group>
             <group string="Decisions">
-              <field name="exchanged"/>
-              <field name="received"/>
-              <field name="is_invoicable"/>
-              <field name="offered"/>
-              <field name="offer_reason" attrs="{'invisible': [('offered', '=', False)], 'required': [('offered', '=', True)]}"/>
+              <field name="repair_by"/>
+              <field name="to_exchange"/>
+              <field name="to_receive"/>
+              <field name="to_invoice"/>
+              <field name="to_offer"/>
+              <field name="offer_reason" attrs="{'invisible': [('to_offer', '=', False)], 'required': [('to_offer', '=', True)]}"/>
             </group>
           </group>
 
