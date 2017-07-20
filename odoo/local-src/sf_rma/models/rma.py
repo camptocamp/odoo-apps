@@ -189,24 +189,36 @@ class RMA(models.Model):
 
     @api.multi
     def action_view_repair(self):
-        return self.action_view_relation(
+        action = self.action_view_relation(
             'repair_ids',
             'mrp_repair.action_repair_order_tree',
             'mrp_repair.view_repair_order_form')
+        values = self._prepare_mrp_repair_data()
+        values = {'default_' + k: v for k, v in values.iteritems()}
+        action['context'] = values
+        return action
 
     @api.multi
     def action_view_sale(self):
-        return self.action_view_relation(
+        action = self.action_view_relation(
             'sale_ids',
             'sf_rma.act_sf_rma_sale_order',
             'sale.view_order_form')
+        values = self._prepare_so_data()
+        values = {'default_' + k: v for k, v in values.iteritems()}
+        action['context'] = values
+        return action
 
     @api.multi
     def action_view_picking(self):
-        return self.action_view_relation(
+        action = self.action_view_relation(
             'picking_ids',
             'stock.action_picking_tree_all',
             'stock.view_picking_form')
+        values = self._prepare_picking_data()
+        values = {'default_' + k: v for k, v in values.iteritems()}
+        action['context'] = values
+        return action
 
     @api.multi
     def action_view_rma_history(self):
