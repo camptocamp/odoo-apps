@@ -84,9 +84,7 @@ class RMA(models.Model):
         'sf.rma.cause',
         string="Causes",
         help="Cause(s) of the failure")
-    invoicing_method = fields.Selection([
-        ('before', "Before invoicing"),
-        ('after', "After invoicing")])
+    is_invoicable = fields.Boolean("Invoicable")
 
     repair_ids = fields.One2many('mrp.repair', 'rma_id', string="Repairs")
     sale_ids = fields.One2many('sale.order', 'rma_id', string="Sale orders")

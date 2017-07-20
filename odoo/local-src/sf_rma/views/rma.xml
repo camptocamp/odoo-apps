@@ -130,6 +130,7 @@
             <group string="Decisions">
               <field name="exchanged"/>
               <field name="received"/>
+              <field name="is_invoicable"/>
               <field name="offered"/>
               <field name="offer_reason" attrs="{'invisible': [('offered', '=', False)], 'required': [('offered', '=', True)]}"/>
             </group>
@@ -147,9 +148,6 @@
               </group>
             </page>
             <page string="Other">
-              <group>
-                <field name="invoicing_method"/>
-              </group>
               <group>
                 <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
               </group>
