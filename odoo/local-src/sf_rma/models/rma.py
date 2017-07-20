@@ -273,13 +273,14 @@ class RMA(models.Model):
             self.env['sale.order.line'].create_with_onchanges(
                 so_line_data, ['product_id'])
 
-            picking_data = self._prepare_picking_data()
-            picking = self.env['stock.picking'].create_with_onchanges(
-                picking_data, ['partner_id'])
+            if rec.to_receive:
+                picking_data = self._prepare_picking_data()
+                picking = self.env['stock.picking'].create_with_onchanges(
+                    picking_data, ['partner_id'])
 
-            move_data = self._prepare_reception_move_data(picking)
-            picking = self.env['stock.move'].create_with_onchanges(
-                move_data, ['product_id'])
+                move_data = self._prepare_reception_move_data(picking)
+                self.env['stock.move'].create_with_onchanges(
+                    move_data, ['product_id'])
 
     @api.multi
     def action_close(self):
