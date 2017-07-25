@@ -11,6 +11,11 @@ class StockMove(models.Model):
 
     @api.model
     def play_onchanges(self, values, onchange_fields):
+        """ product_qty is a function field for which we don't want the value
+        for a create. In onchange it is set for cache purpose only
+        A create with this value would raise an error
+
+        """
         res = super(StockMove, self).play_onchanges(values, onchange_fields)
         if 'product_qty' in res:
             del res['product_qty']
