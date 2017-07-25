@@ -319,7 +319,8 @@ class RMA(models.Model):
 
     @api.multi
     def action_reset(self):
-        self.write({'state': 'draft'})
+        self.write({'state': 'draft',
+                    'date_closed': False})
 
     _sql_constraints = [
         ('zendesk_ref_5_digits',
