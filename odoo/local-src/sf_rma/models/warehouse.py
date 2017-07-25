@@ -16,13 +16,11 @@ class Warehouse(models.Model):
         Create a RMA location for RMA movements that takes place when internal,
         outgoing or incoming pickings are made from/to this location
         """
-        location_obj = self.env['stock.location']
+        Location = self.env['stock.location']
 
         for warehouse in self:
             if not warehouse.lot_rma_id:
-                location = location_obj.with_context(
-                    active_test=False
-                ).create({
+                location = Location.create({
                     'name': _('RMA'),
                     'usage': 'internal',
                     'location_id': warehouse.view_location_id.id,
