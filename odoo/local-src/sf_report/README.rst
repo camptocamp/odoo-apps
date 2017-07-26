@@ -1,4 +1,4 @@
 External layout
 ----------------
 
-The custom footer layout for senseFly
+The custom header and footer layout for senseFly
