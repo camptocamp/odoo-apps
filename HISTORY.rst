@@ -68,6 +68,7 @@ latest (unreleased)
 
 * Add date of transfer on DO form and tree
 * Add draft image to be used over the reports
+* Quotation / Order report
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
 * Add sale order main partner to invoice email template
