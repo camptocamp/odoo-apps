@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<record id="act_sf_rma_sale_order" model="ir.actions.act_window">
+  <field name="name">Quotations and Sales</field>
+  <field name="res_model">sale.order</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree,form,graph</field>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Create a Quotation, the first step of a new sale.
+      </p><p>
+      Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+      </p><p>
+      Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+    </p>
+  </field>
+</record>
+
+<record id="sf_rma_search_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <search string="RMA">
+
+        <field name="name" string="RMA"/>
+        <field name="partner_id" operator="child_of"/>
+        <field name="user_id"/>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+        <filter string="My RMA" domain="[('user_id','=',uid)]" name="my_rma_filter"/>
+        <separator/>
+        <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+        <filter string="Opened" name="open" domain="[('state','=','open')]"/>
+        <filter string="Closed" name="closed" domain="[('state','=','closed')]"/>
+        <separator/>
+        <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
+        <group expand="0" string="Group By">
+            <filter string="Responsible" domain="[]" context="{'group_by':'user_id'}"/>
+            <filter name="customer" string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+            <filter string="Month" domain="[]" context="{'group_by':'date'}"/>
+        </group>
+      </search>
+    </field>
+</record>
+
+<record id="sf_rma_tree_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <tree string="RMA" decoration-warning="state=='draft'" decoration_muted="state == 'done'">
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="product_id"/>
+        <field name="lot_id"/>
+        <field name="state" invisible="1"/>
+      </tree>
+    </field>
+</record>
+
+<record id="sf_rma_form_view" model="ir.ui.view">
+    <field name="model">sf.rma</field>
+    <field name="arch" type="xml">
+      <form string="Return merchandise authorisation">
+        <header>
+          <button name="action_open" type="object" string="Open" class="oe_highlight" states="draft"/>
+          <button name="action_close" type="object" string="Close" states="draft"/>
+          <button name="action_close" type="object" string="Close" class="oe_highlight" states="open"/>
+          <button name="action_reset" type="object" string="Reset" states="open,closed,canceled"/>
+          <button name="action_cancel" type="object" string="Cancel" states="draft,open,closed"/>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+            <button name="action_view_sale"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-dollar"
+              attrs="{'invisible': [('sale_count', '=', 0)]}">
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('sale_count', '!=', 1)]}">
+                  <field name="sale_state" class="oe_inline"/>
+                </span>
+                <field name="sale_count" class="o_stat_value" attrs="{'invisible': [('sale_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('sale_count', '=', 1)]}">
+                Sales
+                </span>
+              </div>
+            </button>
+            <button name="action_view_repair"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-wrench"
+              attrs="{'invisible': [('repair_count', '=', 0)]}">
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('repair_count', '!=', 1)]}">
+                  <field name="repair_state" class="oe_inline"/>
+                </span>
+                <field name="repair_count" class="o_stat_value" attrs="{'invisible': [('repair_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('repair_count', '=', 1)]}">
+                Repairs
+                </span>
+              </div>
+            </button>
+            <button name="action_view_picking"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-truck"
+              attrs="{'invisible': [('picking_count', '=', 0)]}">
+              <div class="o_stat_info">
+                <span class="o_stat_text" attrs="{'invisible': [('picking_count', '!=', 1)]}">
+                  <field name="picking_state" class="oe_inline"/>
+                </span>
+                <field name="picking_count" class="o_stat_value" attrs="{'invisible': [('picking_count', '=', 1)]}"/>
+                <span class="o_stat_text" attrs="{'invisible': [('picking_count', '=', 1)]}">
+                Pickings
+                </span>
+              </div>
+            </button>
+            <button name="action_view_rma_history"
+              type="object"
+              class="oe_stat_button"
+              icon="fa-history"
+              attrs="{'invisible': [('history_rma_count', '=', 0)]}">
+              <field name="history_rma_count" widget="statinfo" string="History"/>
+            </button>
+          </div>
+          <div class="oe_title">
+            <h1>
+              <field name="name" class="oe_inline"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="partner_id"/>
+              <field name="product_id"/>
+              <field name="lot_id"/>
+            </group>
+            <group>
+              <field name="date"/>
+              <field name="warranty_limit"/>
+              <field name="zendesk_ref" class="oe_edit_only"/>
+              <field name="zendesk_url" class="oe_read_only" widget="url"/>
+              <field name="zendesk_url_set" invisible="1"/>
+              <p colspan="2" class="bg-warning" attrs="{'invisible': [('zendesk_url_set', '=', True)]}">
+                Zendesk base url is not set, please define `zendesk.url` in <br/>
+                <b>Settings -> Technical -> Parameters -> System Parameters</b>
+              </p>
+              <field name="user_id"/>
+            </group>
+            <group>
+              <field name="cause_ids" widget="many2many_tags"/>
+            </group>
+            <group string="Decisions">
+              <field name="repair_by"/>
+              <field name="to_exchange"/>
+              <field name="to_receive"/>
+              <field name="to_invoice"/>
+              <field name="to_offer"/>
+              <field name="offer_reason" attrs="{'invisible': [('to_offer', '=', False)], 'required': [('to_offer', '=', True)]}"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Notes">
+              <field name="notes"/>
+            </page>
+            <page string="Drone info">
+              <group>
+                <field name="drone_flight_time"/>
+                <field name="drone_flight_num"/>
+                <field name="drone_firmware_version"/>
+              </group>
+            </page>
+            <page string="Other">
+              <group>
+                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+</record>
+
+<record id="sf_rma_action" model="ir.actions.act_window">
+  <field name="name">Return merchandise authorisation</field>
+  <field name="res_model">sf.rma</field>
+  <field name="view_type">form</field>
+  <field name="view_mode">tree,form</field>
+  <field name="view_id" ref="sf_rma_tree_view"/>
+  <field name="context">{"search_default_user_id":uid}</field>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Click to create a Return merchandise authorisation.
+    </p>
+  </field>
+</record>
+
+<menuitem action="sf_rma_action" name="RMA"
+  id="menu_sf_rma-act" parent="menu_rma" sequence="1"/>
+
+</odoo>

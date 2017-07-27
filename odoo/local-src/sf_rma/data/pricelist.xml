@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+  <record model="product.pricelist" id="pricelist_rma">
+    <field name="name">RMA Pricelist</field>
+  </record>
+</odoo>

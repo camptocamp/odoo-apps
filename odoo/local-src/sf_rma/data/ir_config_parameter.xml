@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+  <record id="zendesk_url" model="ir.config_parameter">
+    <field name="key">zendesk.url</field>
+    <field name="value">https://sensefly.zendesk.com/agent/tickets/</field>
+  </record>
+</odoo>

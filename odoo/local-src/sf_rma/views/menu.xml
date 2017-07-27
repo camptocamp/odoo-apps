@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <menuitem id="menu_rma_root" name="RMA"
+    sequence="25"
+    web_icon="sf_rma,static/description/icon.png"
+    groups="group_rma_user"/>
+  <menuitem id="menu_rma_config" name="Configuration"
+    sequence="100" parent="menu_rma_root"
+    groups="group_rma_manager"/>
+  <menuitem id="menu_rma" name="RMA"
+    groups="group_rma_user"
+    parent="menu_rma_root" sequence="5" />
+</odoo>

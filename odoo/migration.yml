@@ -97,6 +97,7 @@ migration:
           - sf_partner_entity_type
           - sf_product
           - sf_report
+          - sf_rma
           - sf_rma_mrp_repair
           - sf_stock
     - version: 10.1.0
