@@ -75,7 +75,9 @@ class RMA(models.Model):
         ('retailer', "Retailer"),
         ('sf', "senseFly")])
 
-    notes = fields.Text()
+    # Notes
+    problem_description = fields.Text()
+    resolution_description = fields.Text()
 
     # Drone info
     drone_flight_time = fields.Float(
