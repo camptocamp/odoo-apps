@@ -30,7 +30,11 @@ class TestRMA(TransactionCase):
 
         Check all relation have been corectly created
 
+        Receive product
+
         """
+        self.rma.to_receive = True
+
         self.assertEquals(self.rma.state, 'draft')
         self.assertEquals(self.rma.repair_count, 0)
         self.assertEquals(self.rma.picking_count, 0)
@@ -54,6 +58,44 @@ class TestRMA(TransactionCase):
                           self.rma.partner_id)
         self.assertEquals(self.rma.picking_ids.move_lines.product_id,
                           self.rma.product_id)
+
+        self.assertEquals(self.rma.sale_ids.partner_id,
+                          self.rma.partner_id)
+        self.assertEquals(self.rma.sale_ids.pricelist_id,
+                          self.env.ref('sf_rma.pricelist_rma'))
+        self.assertEquals(self.rma.sale_ids.team_id,
+                          self.env.ref('sf_rma.crm_team_rma'))
+        self.assertEquals(self.rma.sale_ids.order_line.product_id,
+                          self.rma.product_id)
+
+    def test_rma_validation_no_picking(self):
+        """Create a RMA and validate it
+
+        Check all relation have been corectly created
+
+        Don't receive product
+
+        """
+        self.rma.to_receive = False
+
+        self.assertEquals(self.rma.state, 'draft')
+        self.assertEquals(self.rma.repair_count, 0)
+        self.assertEquals(self.rma.picking_count, 0)
+        self.assertEquals(self.rma.sale_count, 0)
+
+        self.rma.action_open()
+
+        self.assertEquals(self.rma.state, 'open')
+        self.assertEquals(self.rma.repair_count, 1)
+        self.assertEquals(self.rma.picking_count, 0)
+        self.assertEquals(self.rma.sale_count, 1)
+
+        self.assertEquals(self.rma.repair_ids.product_id,
+                          self.rma.product_id)
+        self.assertEquals(self.rma.repair_ids.partner_id,
+                          self.rma.partner_id)
+        self.assertEquals(self.rma.repair_ids.lot_id,
+                          self.rma.lot_id)
 
         self.assertEquals(self.rma.sale_ids.partner_id,
                           self.rma.partner_id)
