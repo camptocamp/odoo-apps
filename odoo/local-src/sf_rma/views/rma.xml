@@ -164,7 +164,8 @@
 
           <notebook>
             <page string="Notes">
-              <field name="notes"/>
+              <field name="problem_description"/>
+              <field name="resolution_description"/>
             </page>
             <page string="Drone info">
               <group>
