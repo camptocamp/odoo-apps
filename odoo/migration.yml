@@ -87,6 +87,9 @@ migration:
           - sale_exception
           # OCA/account-analytic
           - analytic_tag_dimension
+          # OCA/Web
+          - web_environment_ribbon
+          - server_environment_ir_config_parameter
           # SENSEFLY
           - sf_account_analytic
           - sf_country
