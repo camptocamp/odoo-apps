@@ -2,6 +2,7 @@
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
+import json
 from odoo import api, fields, models
 
 
@@ -32,10 +33,21 @@ class RMA(models.Model):
         string="Product",
         required=True,
         help="Returned product")
+    original_order_products_domain = fields.Char(
+        'product.product', compute="_compute_original_order_products_domain")
+    original_order_id = fields.Many2one(
+        'sale.order',
+        string='Original sale order'
+    )
+    original_customer_id = fields.Many2one(
+        'res.partner',
+        string='Original customer',
+        help='Customer who bought the product'
+    )
     lot_id = fields.Many2one(
         'stock.production.lot',
         string="Lot/Serial Number",
-        domain="[('product_id','=',product_id)]",
+        domain="[('first_outgoing_stock_move_id','!=',False)]",
         help="The Lot/Serial of the returned product")
     warranty_limit = fields.Date("Warranty limit")
 
@@ -321,6 +333,39 @@ class RMA(models.Model):
     def action_reset(self):
         self.write({'state': 'draft',
                     'date_closed': False})
+
+    @api.multi
+    @api.depends('original_order_id')
+    def _compute_original_order_products_domain(self):
+        for rma in self:
+            order_lines = self.env['sale.order.line'].search(
+                [('order_id', '=', rma.original_order_id.id)])
+            if order_lines:
+                product_ids = order_lines.mapped('product_id').ids
+                rma.original_order_products_domain = json.dumps(
+                    [('id', 'in', product_ids)])
+
+    @api.onchange('lot_id')
+    def onchange_lot_id(self):
+        lot = self.lot_id
+        if lot:
+            outgoing_move = lot.first_outgoing_stock_move_id
+            sale_order = outgoing_move.picking_id.sale_id
+            self.product_id = self.lot_id.product_id.id
+            self.warranty_limit = self.lot_id.warranty_end_date
+            self.original_order_id = sale_order.id
+        else:
+            self.product_id = False
+            self.warranty_limit = False
+            self.original_order_id = False
+
+    @api.onchange('original_order_id')
+    def onchange_original_order_id(self):
+        order = self.original_order_id
+        if order:
+            self.original_customer_id = order.partner_id.id
+        else:
+            self.original_customer_id = False
 
     _sql_constraints = [
         ('zendesk_ref_5_digits',
