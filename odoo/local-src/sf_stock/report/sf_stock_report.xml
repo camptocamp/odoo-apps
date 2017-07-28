@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="Delivery Slip"
+            id="action_report_delivery"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="sf_stock.sf_report_deliveryslip"
+            file="sf_stock.sf_report_deliveryslip"
+        />
+    </data>
+</odoo>
