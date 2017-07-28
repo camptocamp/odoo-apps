@@ -22,6 +22,8 @@ class StockMove(models.Model):
             if condition:
                 production_lots = move.mapped('quant_ids.lot_id')
                 for lot in production_lots:
+                    if lot.first_outgoing_stock_move_id:
+                        continue
                     if move.product_id.warranty:
                         product_warranty = move.product_id.warranty
                         warranty_month = int(product_warranty)
@@ -38,6 +40,6 @@ class StockMove(models.Model):
                         warranty_date = None
                     lot.write({
                         'warranty_end_date': warranty_date,
-                        'warranty_stock_move_id': move.id
+                        'first_outgoing_stock_move_id': move.id
                     })
         return True
