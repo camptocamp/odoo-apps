@@ -78,6 +78,12 @@ def import_product(ctx):
 
 
 @anthem.log
+def import_rma_cause(ctx):
+    """ Importing RMA causes from csv """
+    load_csv(ctx, 'data/install/rma_cause.csv', 'sf.rma.cause')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -90,4 +96,5 @@ def main(ctx):
     import_location(ctx)
     import_drone_type(ctx)
     import_product(ctx)
+    import_rma_cause(ctx)
     return
