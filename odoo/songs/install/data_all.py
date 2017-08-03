@@ -36,8 +36,16 @@ def import_analytic_account_project(ctx):
 
 
 @anthem.log
+def import_product_category(ctx):
+    """ Importing product category from csv """
+    load_csv(ctx, 'data/install/product_category.csv',
+             'product.category')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
     import_analytic_tag(ctx)
     import_analytic_account_project(ctx)
+    import_product_category(ctx)
