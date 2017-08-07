@@ -19,7 +19,7 @@ def setup_ldap(ctx):
             'OU=SENSEFLY_Users,OU=SENSEFLY,OU=SUBSIDIARIES,'
             'DC=PARROT,DC=BIZ',
         'ldap_binddn':
-            'CN=OpenErp,'
+            'CN=Open Erp,'
             'OU=SENSEFLY_Users,OU=SENSEFLY,OU=SUBSIDIARIES,'
             'DC=PARROT,DC=BIZ',
         'create_user': False,
