@@ -133,16 +133,16 @@
           </div>
           <group>
             <group>
-              <field name="partner_id"/>
               <field name="lot_id"/>
-              <field name="original_order_id"/>
-              <field name="original_order_products_domain" readonly="1"/>
-              <field name="product_id" domain="original_order_products_domain"/>
-              <field name="original_customer_id"/>
+              <field name="original_order_id" attrs="{'readonly': [('lot_id', '!=', False)]}"/>
+              <field name="original_order_products_domain" readonly="1" invisible="1"/>
+              <field name="product_id" domain="original_order_products_domain" attrs="{'readonly': ['|', ('original_order_id', '=', False), ('lot_id', '!=', False)]}"/>
+              <field name="original_customer_id" attrs="{'readonly': [('lot_id', '!=', False)]}"/>
+              <field name="partner_id"/>
             </group>
             <group>
               <field name="date"/>
-              <field name="warranty_limit"/>
+              <field name="warranty_limit" attrs="{'readonly': [('lot_id', '!=', False)]}"/>
               <field name="zendesk_ref" class="oe_edit_only"/>
               <field name="zendesk_url" class="oe_read_only" widget="url"/>
               <field name="zendesk_url_set" invisible="1"/>

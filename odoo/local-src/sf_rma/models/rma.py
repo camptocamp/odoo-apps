@@ -363,9 +363,15 @@ class RMA(models.Model):
     def onchange_original_order_id(self):
         order = self.original_order_id
         if order:
-            self.original_customer_id = order.partner_id.id
+            original_partner_id = order.partner_id.id
+            self.original_customer_id = original_partner_id
+            self.partner_id = original_partner_id
         else:
             self.original_customer_id = False
+            self.partner_id = False
+            if not self.lot_id:
+                self.product_id = False
+                self.warranty_limit = False
 
     _sql_constraints = [
         ('zendesk_ref_5_digits',
