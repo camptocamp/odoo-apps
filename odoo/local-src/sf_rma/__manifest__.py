@@ -16,6 +16,8 @@
         "sale",
         "stock",
         "mrp_repair",
+        "sf_stock",
+        "web_domain_field"
     ],
     "data": [
         "security/rma_security.xml",

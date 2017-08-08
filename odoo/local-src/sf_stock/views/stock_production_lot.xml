@@ -8,7 +8,6 @@
             <field name="ref" position="after">
                 <field name="product_tracking" invisible="1" />
                 <field name="warranty_end_date" attrs="{'invisible': [('product_tracking', '!=', 'serial')]}"/>
-                <field name="warranty_stock_move_id" attrs="{'invisible': [('warranty_end_date', '=', False)]}"/>
             </field>
         </field>
     </record>

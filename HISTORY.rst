@@ -31,6 +31,9 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix error on 'stock.picking' when using serial number products with qty > 1
+* Write warranty end date on production lot only at first outgoing picking
+
 **Build**
 
 **Documentation**
