@@ -24,6 +24,12 @@ def import_users(ctx):
 
 
 @anthem.log
+def import_users_groups(ctx):
+    """ Importing groups to users from csv """
+    load_csv(ctx, 'data/install/users_group.csv', 'res.users')
+
+
+@anthem.log
 def import_country_state(ctx):
     """ Importing country states from csv """
     load_csv(ctx, 'data/install/country_state.csv', 'res.country.state')
@@ -81,6 +87,7 @@ def import_product(ctx):
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
+    import_users_groups(ctx)
     import_country_state(ctx)
     import_countries(ctx)
     import_customers(ctx)

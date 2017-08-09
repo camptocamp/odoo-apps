@@ -28,6 +28,7 @@ latest (unreleased)
 * Add RMA module
   Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.  
   This object will be used from zendesk.
+* Add groups to users data
 
 **Bugfixes**
 
