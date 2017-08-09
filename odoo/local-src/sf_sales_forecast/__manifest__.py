@@ -9,7 +9,9 @@
     'category': 'Sales',
     'depends': ['sale', 'sales_team'],
     'data': [
+        'security/ir.model.access.csv',
         'views/sales_forecast.xml',
+        'views/forecast_import.xml',
         'views/res_config_view.xml',
         'data/sequence.xml'
     ],

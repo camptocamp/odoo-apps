@@ -47,7 +47,6 @@
                                 </tree>
                             </field>
                         </group>
-                        <field name="company_id" invisible="1"/>
                     </group>
                     <field name="forecast_line_ids" create="0">
                         <tree editable="bottom">
@@ -70,7 +69,7 @@
     </record>
 
     <menuitem name="Sales Forecast" id="main_menu_sales_forecast" parent="sales_team.menu_sale_report" sequence="20"/>
-    <menuitem name="Forecast"  id="menu_sales_forecast" parent="main_menu_sales_forecast" action="action_sf_sales_forecast" sequence="10"/>
+    <menuitem name="Forecast"  id="menu_sales_forecast" parent="main_menu_sales_forecast" action="action_sf_sales_forecast" sequence="20"/>
 
     <!-- SALES FORECAST LINES -->
 
@@ -96,5 +95,5 @@
         <field name="context">{"search_default_fiscal_year_id" : True, "search_default_partner_id" : True }</field>
     </record>
 
-    <menuitem name="Forecast Lines"  id="menu_sales_forecast_lines" parent="main_menu_sales_forecast" action="action_sf_sales_forecast_line" sequence="20"/>
+    <menuitem name="Forecast Lines"  id="menu_sales_forecast_lines" parent="main_menu_sales_forecast" action="action_sf_sales_forecast_line" sequence="30"/>
 </odoo>

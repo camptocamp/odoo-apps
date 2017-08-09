@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.exceptions import MissingError
-from odoo.tools.translate import _
 
 
 class SfSalesForecast(models.Model):
@@ -33,6 +32,11 @@ class SfSalesForecast(models.Model):
     forecast_line_ids = fields.One2many(
         'sf.sales.forecast.line', 'forecast_id', string='Lines')
 
+    _sql_constraints = [('uniq_forecast',
+                         'unique(company_id, partner_id, fiscal_year_id)',
+                         _("Forecast must be unique by company partner and "
+                           "fiscal year!"))]
+
     @api.multi
     def generate_forecast_lines(self):
         # Period range type
@@ -40,9 +44,8 @@ class SfSalesForecast(models.Model):
             self.env['sale.config.settings']\
                 .default_sale_forecast_range_type_id()
         if not period_range_type:
-            raise MissingError(_('Sale forecast range type!') + ': ' +
-                               _('Please configure it in Sales Configuration.')
-                               )
+            raise MissingError(_('Sale forecast range type!: Please configure'
+                                 ' it in Sales Configuration.'))
 
         # Periods os this fiscal year
         period_ids = self.env['date.range'].search(
@@ -51,26 +54,24 @@ class SfSalesForecast(models.Model):
              ('type_id', '=', period_range_type.id)])
 
         if not period_ids:
-            raise MissingError(_('No periods defined!') + ': ' +
-                               _('At least one period is extected to be '
-                                 'configured in this fiscal year!'))
+            raise MissingError(_('No periods defined!: At least one period is'
+                                 ' extected to be configured in this'
+                                 ' fiscal year!'))
 
         # Check lines already generated per product
-        for product_id in self.product_ids:
+        for product in self.product_ids:
             # Already exists skip it!
-            if self.forecast_line_ids.filtered(
-                    lambda line: line.product_id == product_id):
+            if product in self.forecast_line_ids.mapped('product'):
                 continue
-            else:
-                # Create lines
-                for period_id in period_ids:
-                    self.write(
-                        {'forecast_line_ids': [
-                            (0, 0, {
-                                'product_id': product_id.id,
-                                'period_id': period_id.id
-                                }
-                             )]})
+            # Create lines
+            for period_id in period_ids:
+                self.write(
+                    {'forecast_line_ids': [
+                        (0, 0, {
+                            'product_id': product.id,
+                            'period_id': period_id.id
+                            }
+                         )]})
 
         lines2delete = self.forecast_line_ids.filtered(
             lambda line: line.product_id not in self.product_ids
