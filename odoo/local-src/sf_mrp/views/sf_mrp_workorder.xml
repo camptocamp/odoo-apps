@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="mrp_production_workcenter_done_as_planned">
+        <field name="name">mrp.production.work.order.form</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workcenter_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[9]" position="after">
+                <button name="button_done_as_planned" type="object" string="Finish as planned" attrs="{'invisible': ['|', ('working_state', '=', 'blocked'), ('state', 'not in', ('ready', 'pending'))]}" class="btn-success"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
