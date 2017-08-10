@@ -32,6 +32,7 @@ latest (unreleased)
 * Add Work centers data
 * Add partner categories data
 * Add cost budget estimation module
+* Rename warehouse SA
 
 **Bugfixes**
 
