@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="report.external_layout_header">
+
+<template id="sf_external_layout">
+    <!-- Multicompany -->
+    <t t-if="not o and doc">
+        <t t-set="o" t-value="doc"/>
+    </t>
+    <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"></t>
+    </t>
+    <t t-if="not o or not 'company_id' in o">
+        <t t-set="company" t-value="res_company"></t>
+    </t>
+
+    <t t-call="sf_report.sf_external_layout_header" />
+    <t t-raw="0" />
+    <t t-call="report.external_layout_footer" />
+</template>
+
+<template id="sf_external_layout_header">
     <div class="header">
-        <div class="row">
-            <div class="col-xs-3">
-                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;"/>
+        <div class="row" style="border-bottom:2px solid #ccc;position: relative;">
+            <div class="col-xs-9" id="header_company" style="margin-bottom: 10px;">
+                    <img style="max-height: 100px" t-att-src="'data:image/png;base64,%s' % company.report_logo"/>
+                    <div style="display: inline-block; vertical-align: bottom;">
+                        <p style="font-weight:bold"> <span t-field="company.name"/></p>
+                        <span t-field="company.partner_id"
+                              t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'
+                              style="display:inline-block"/>
+                        <p style="margin-bottom: 0;">VAT: <span t-field="company.company_registry"/></p>
+                    </div>
             </div>
-            <div class="col-xs-9 text-right" style="margin-top:20px;" t-field="company.rml_header1"/>
-        </div>
-        <div class="row zero_min_height">
-            <div class="col-xs-12">
-                <div style="border-bottom: 1px solid black;"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6" name="company_address">
-                <span t-field="company.partner_id"
-                    t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                    style="border-bottom: 1px solid black; display:inline-block;"/>
-            </div>
+            <!-- Placeholder to add title -->
+            <div name="header_title" class="col-xs-3" style="margin-bottom: 10px;text-align: right;position: absolute;bottom: 0;right: 0;"/>
         </div>
     </div>
 </template>
@@ -29,7 +43,7 @@
             We further refer to our General Terms of Business supplied with this document
             (senseFly’s General Terms &amp; Conditions).
         </p>
-        <div class="text-center" style="border-top: 1px solid black;">
+        <div class="text-center" style="border-top: 2px solid #ccc;">
             <!--  Don't display that in SF report  -->
             <t t-if="False">
                 <ul t-if="not company.custom_footer" class="list-inline">

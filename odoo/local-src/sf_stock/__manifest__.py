@@ -6,10 +6,12 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['stock'],
+    'depends': ['stock', 'sale_stock'],
     'data': [
         'views/stock_location.xml',
         'views/stock_production_lot.xml',
+        'report/sf_report_deliveryslip.xml',
+        'report/sf_stock_report.xml'
     ],
     'demo': [],
     'images': ['static/description/icon.png'],
