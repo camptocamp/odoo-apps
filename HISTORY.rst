@@ -36,6 +36,7 @@ latest (unreleased)
 * Rename warehouse SA
 * Add RMA causes data
 * Add product category data
+* Add PL name data in account tag
 
 **Bugfixes**
 
