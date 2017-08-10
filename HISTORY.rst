@@ -38,6 +38,8 @@ latest (unreleased)
 * Add product category data
 * Add PL name data in account tag
 * Add Parrot category data in account tag
+* Add sensefly header and footer to be used in all reports
+* Replacement of standard Delivery Slip report
 
 **Bugfixes**
 
