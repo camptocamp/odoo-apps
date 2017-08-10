@@ -40,6 +40,7 @@ latest (unreleased)
 * Add Parrot category data in account tag
 * Add sensefly header and footer to be used in all reports
 * Replacement of standard Delivery Slip report
+* Add groups to users data
 
 **Bugfixes**
 
