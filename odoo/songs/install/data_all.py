@@ -50,6 +50,13 @@ def import_product_category(ctx):
 
 
 @anthem.log
+def import_account_tag_pl_name(ctx):
+    """ Importing account tag (PL name)  from csv """
+    load_csv(ctx, 'data/install/account_tag_pl.csv',
+             'account.account.tag')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -57,3 +64,4 @@ def main(ctx):
     import_analytic_account_project(ctx)
     import_partner_entity(ctx)
     import_product_category(ctx)
+    import_account_tag_pl_name(ctx)
