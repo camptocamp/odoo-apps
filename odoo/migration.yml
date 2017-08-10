@@ -73,6 +73,7 @@ migration:
           - l10n_ch_states
           - l10n_ch_zip
           - l10n_ch_scan_bvr
+          - l10n_ch_import_cresus
           # OCA/partner-contact
           - base_location
           - partner_identification

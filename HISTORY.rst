@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Install module l10n_ch_import_cresus
+
 **Bugfixes**
 
 **Build**
