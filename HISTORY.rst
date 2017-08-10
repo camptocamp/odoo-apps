@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.3.0 (2017-08-10)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Add business financial consolidation account (bfc_account) on account
 * Add ribbon in non prod instances
 * Add functional field on supplier invoice showing duplicated invoices
@@ -47,10 +59,6 @@ latest (unreleased)
 * Fix error on 'stock.picking' when using serial number products with qty > 1
 * Write warranty end date on production lot only at first outgoing picking
 * LDAP configuration, fix username
-
-**Build**
-
-**Documentation**
 
 
 10.2.0 (2017-07-12)
