@@ -30,6 +30,7 @@ latest (unreleased)
   This object will be used from zendesk.
 * Add an icon to the RMA module
 * Add Work centers data
+* Add partner categories data
 
 **Bugfixes**
 

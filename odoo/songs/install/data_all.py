@@ -36,8 +36,16 @@ def import_analytic_account_project(ctx):
 
 
 @anthem.log
+def import_partner_entity(ctx):
+    """ Importing partner entity from csv """
+    load_csv(ctx, 'data/install/partner_entity.csv',
+             'res.partner.entity.type')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
     import_analytic_tag(ctx)
     import_analytic_account_project(ctx)
+    import_partner_entity(ctx)

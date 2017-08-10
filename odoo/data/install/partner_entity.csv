@@ -1,0 +1,4 @@
+"id","name"
+"__setup__.res_partner_entity_dealer","Dealer"
+"__setup__.res_partner_entity_client","Client"
+"__setup__.res_partner_entity_supplier","Supplier"
