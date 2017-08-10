@@ -92,7 +92,10 @@ migration:
           - web_environment_ribbon
           - server_environment_ir_config_parameter
           # SENSEFLY
+          - sf_account
           - sf_account_analytic
+          - sf_account_analytic
+          - sf_account_budget
           - sf_country
           - sf_drone_info
           - sf_helpdesk
@@ -104,7 +107,5 @@ migration:
           - sf_rma
           - sf_rma_mrp_repair
           - sf_stock
-          - sf_account_analytic
-          - sf_account_budget
     - version: 10.1.0
     - version: 10.2.0

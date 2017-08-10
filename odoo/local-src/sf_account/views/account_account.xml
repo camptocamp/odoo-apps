@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_view_account_form_inherit" model="ir.ui.view">
+        <field name="name">sf.view.account.form.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <field name="deprecated" position="before">
+                <field name="bfc_account"/>
+                <field name="bfc_factor"/>
+            </field>
+        </field>
+    </record>
+</odoo>
