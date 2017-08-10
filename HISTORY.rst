@@ -37,6 +37,7 @@ latest (unreleased)
 * Add RMA causes data
 * Add product category data
 * Add PL name data in account tag
+* Add Parrot category data in account tag
 
 **Bugfixes**
 
