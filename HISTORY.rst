@@ -34,6 +34,7 @@ latest (unreleased)
 * Add partner categories data
 * Add cost budget estimation module
 * Rename warehouse SA
+* Add RMA causes data
 
 **Bugfixes**
 
