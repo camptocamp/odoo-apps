@@ -65,6 +65,7 @@ latest (unreleased)
 * Add sensefly header and footer to be used in all reports
 * Replacement of standard Delivery Slip report
 * Add groups to users data
+* Compute time on work orders without start/stop button
 
 **Bugfixes**
 

@@ -12,26 +12,16 @@ class MrpWorkorder(models.Model):
 
     @api.multi
     def button_done_as_planned(self):
-        timeline = self.env['mrp.workcenter.productivity']
-        if self.duration < self.duration_expected:
-            loss_id = self.env['mrp.workcenter.productivity.loss'].search([(
-                'loss_type', '=', 'productive')], limit=1)
-            if not len(loss_id):
-                raise UserError(_("You need to define at least one "
-                                  "productivity loss in the category"
-                                  " 'Productivity'. Create one "
-                                  "from the Manufacturing app, menu: "
-                                  "Configuration / Productivity Losses."))
-        else:
-            loss_id = self.env['mrp.workcenter.productivity.loss'].search([(
-                'loss_type', '=', 'performance')], limit=1)
-            if not len(loss_id):
-                raise UserError(_(
-                    "You need to define at least one productivity "
-                    "loss in the category 'Performance'. "
-                    "Create one from the Manufacturing app, "
-                    "menu: Configuration / Productivity Losses."))
 
+        timeline = self.env['mrp.workcenter.productivity']
+        loss = self.env['mrp.workcenter.productivity.loss'].search([(
+            'loss_type', '=', 'performance')], limit=1)
+        if not loss:
+            raise UserError(_(
+                "You need to define at least one productivity "
+                "loss in the category 'Performance'. "
+                "Create one from the Manufacturing app, "
+                "menu: Configuration / Productivity Losses."))
         for workorder in self:
 
             if workorder.production_id.state != 'progress':
@@ -44,7 +34,7 @@ class MrpWorkorder(models.Model):
                 'workorder_id': workorder.id,
                 'workcenter_id': workorder.workcenter_id.id,
                 'description': _('Time Tracking: ')+self.env.user.name,
-                'loss_id': loss_id[0].id,
+                'loss_id': loss.id,
                 'date_start': datetime.now() - relativedelta(
                     minutes=workorder.duration_expected),
                 'date_end': datetime.now(),
@@ -52,6 +42,5 @@ class MrpWorkorder(models.Model):
             })
         return self.write({
                     'state': 'done',
-                    'duration': workorder.duration_expected,
                     'date_finished': datetime.now(),
         })
