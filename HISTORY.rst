@@ -31,6 +31,7 @@ latest (unreleased)
 * Add an icon to the RMA module
 * Add Work centers data
 * Add partner categories data
+* Add cost budget estimation module
 
 **Bugfixes**
 
@@ -50,7 +51,6 @@ latest (unreleased)
 * Add active field on journal
 * Add field owner in account analytic
 * Add Partner: Customer, supplier (draft)
-* Add cost budget estimation module
 * Add the import Sales Team / Channel to demo and install songs
 * Add the import "Drone type" to demo and install songs
 * Active multi location in a warehouse
