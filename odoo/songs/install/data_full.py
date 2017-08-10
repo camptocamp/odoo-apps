@@ -78,6 +78,12 @@ def import_product(ctx):
 
 
 @anthem.log
+def import_workcenter(ctx):
+    """ Importing workcenters from csv """
+    load_csv(ctx, 'data/install/workcenter.csv', 'mrp.workcenter')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -90,4 +96,5 @@ def main(ctx):
     import_location(ctx)
     import_drone_type(ctx)
     import_product(ctx)
+    import_workcenter(ctx)
     return
