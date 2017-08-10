@@ -40,6 +40,7 @@ latest (unreleased)
 
 * Fix error on 'stock.picking' when using serial number products with qty > 1
 * Write warranty end date on production lot only at first outgoing picking
+* LDAP configuration, fix username
 
 **Build**
 
