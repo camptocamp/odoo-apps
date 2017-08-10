@@ -1,6 +1,6 @@
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
-	url = git@github.com:OCA/l10n-switzerland.git
+	url = git@github.com:camptocamp/l10n-switzerland.git
 [submodule "odoo/src"]
 	path = odoo/src
 	url = git@github.com:OCA/OCB.git

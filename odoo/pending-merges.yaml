@@ -7,3 +7,12 @@
      # [10.0][MIG] Migrates web_domain_field module
    - oca refs/pull/617/head
  target: &default_target camptocamp merge-branch-2082-master
+./external-src/l10n-switzerland:
+ remotes:
+   oca: git@github.com:OCA/l10n-switzerland.git
+   camptocamp: git@github.com:camptocamp/l10n-switzerland.git
+ merges:
+   - oca 10.0
+     # [MIG][10.0] l10n_ch_import_cresus
+   - oca refs/pull/348/head
+ target: *default_target
