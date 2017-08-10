@@ -50,6 +50,7 @@ latest (unreleased)
 * Add active field on journal
 * Add field owner in account analytic
 * Add Partner: Customer, supplier (draft)
+* Add cost budget estimation module
 * Add the import Sales Team / Channel to demo and install songs
 * Add the import "Drone type" to demo and install songs
 * Active multi location in a warehouse

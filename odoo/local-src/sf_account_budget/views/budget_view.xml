@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sf_account_budget_form">
+            <field name="name">sf.account.budget.form</field>
+            <field name="model">sf.account.budget</field>
+            <field name="arch" type="xml">
+                <form string="Cost Estimation">
+                    <sheet string="Budget">
+                        <div class="oe_title">
+                            <h1>
+                                Account Budget Number <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="id" invisible="1"/>
+                                <field name="account_id"/>
+                                <field name="fiscal_year_id"/>
+                            </group>
+                            <group>
+                                    <field name="company_id"/>
+                            </group>
+                        </group>
+
+                        <field name="budget_line_ids" widget="one2many_list" context="{'default_budget_id':id, 'default_fiscal_year_id': fiscal_year_id}">
+                            <tree string="Budget Lines" editable="bottom">
+                                <field name="budget_id" invisible="1"/>
+                                <field name="fiscal_year_id" invisible="1"/>
+                                <field name="tag_id"/>
+                                <field name="period_id"/>
+                                <field name="period_budget" sum="Total Budget"/>
+                                <field name="e1" sum="Total Budget"/>
+                                <field name="e2" sum="Total Budget"/>
+                                <field name="e3" sum="Total Budget"/>
+                                <field name="e4" sum="Total Budget"/>
+                                <field name="e5" sum="Total Budget"/>
+                                <field name="e6" sum="Total Budget"/>
+                                <field name="e7" sum="Total Budget"/>
+                                <field name="e8" sum="Total Budget"/>
+                                <field name="e9" sum="Total Budget"/>
+                                <field name="e10" sum="Total Budget"/>
+                                <field name="e11" sum="Total Budget"/>
+                                <field name="e12" sum="Total Budget"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sf_account_budget_tree">
+            <field name="name">sf.account.budget.tree</field>
+            <field name="model">sf.account.budget</field>
+            <field name="arch" type="xml">
+                <tree string="Cost Estimation">
+                    <field name="name"/>
+                    <field name="account_id"/>
+                    <field name="fiscal_year_id"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="sf_account_budget_action">
+            <field name="name">Cost Estimation</field>
+            <field name="res_model">sf.account.budget</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sf_account_budget_tree"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="sf_account_bugdet_menu" name="Budgets" parent="account.menu_finance_reports" sequence="100" groups="account.group_account_user"/>
+        <menuitem id="menu_act_sf_account_budget_view"
+                  parent="sf_account_bugdet_menu"
+                  action="sf_account_budget_action" sequence="10"
+                  name="Cost Estimation" />
+    </data>
+</odoo>

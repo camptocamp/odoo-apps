@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_budget_user,access.account.budget.user,model_sf_account_budget,account.group_account_user,1,0,0,0
+access_account_budget_line_user,access.account.budget.line.user,model_sf_account_budget_line,account.group_account_user,1,0,0,0
+access_account_budget_manager,access.account.budget.manager,model_sf_account_budget,account.group_account_manager,1,1,1,1
+access_account_budget_line_manager,access.account.budget.line.manager,model_sf_account_budget_line,account.group_account_manager,1,1,1,1
+access_account_budget_import_manager,access.account.budget.import.manager,model_sf_account_budget_import,account.group_account_manager,1,1,1,1

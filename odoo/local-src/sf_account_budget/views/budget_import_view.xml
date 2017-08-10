@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sf_account_budget_import_form">
+            <field name="name">sf.account.budget.import.form</field>
+            <field name="model">sf.account.budget.import</field>
+            <field name="arch" type="xml">
+                <form string="Cost Estimation">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" attrs="{'invisible':[('name','=',False)]}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="data" filename="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sf_account_budget_import_tree">
+            <field name="name">sf.account.budget.import.tree</field>
+            <field name="model">sf.account.budget.import</field>
+            <field name="arch" type="xml">
+                <tree string="Cost Estimation">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record model="ir.actions.act_window" id="sf_account_budget_import_action">
+            <field name="name">Import Budget</field>
+            <field name="res_model">sf.account.budget.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sf_account_budget_import_tree"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_act_sf_account_budget_import_view"
+                  parent="sf_account_bugdet_menu"
+                  action="sf_account_budget_import_action" sequence="5"
+                  name="Import Cost Estimation"/>
+    </data>
+</odoo>

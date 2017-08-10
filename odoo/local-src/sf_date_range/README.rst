@@ -1,0 +1,1 @@
+Extends date range model adding the field code.

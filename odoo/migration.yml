@@ -104,5 +104,7 @@ migration:
           - sf_rma
           - sf_rma_mrp_repair
           - sf_stock
+          - sf_account_analytic
+          - sf_account_budget
     - version: 10.1.0
     - version: 10.2.0
