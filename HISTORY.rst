@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add business financial consolidation account (bfc_account) on account
 * Add ribbon in non prod instances
 * Add functional field on supplier invoice showing duplicated invoices
 * Smart button on supplier invoice showing duplicated invoices
@@ -49,7 +50,6 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* Add business financial consolidation account (bfc_account) on account
 * Add active field on journal
 * Add field owner in account analytic
 * Add Partner: Customer, supplier (draft)
