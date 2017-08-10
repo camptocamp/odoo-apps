@@ -1,0 +1,2 @@
+"id","company_id/id","code","name","time_efficiency","capacity","costs_hour","oee_target"
+"mrp.mrp_workcenter_0","base.main_company","OP","Operator","100","1.00","33.00","90"
