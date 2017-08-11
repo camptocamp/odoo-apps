@@ -20,7 +20,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
-
+* Add carrier accounts on partner
 * Install module l10n_ch_import_cresus
 
 **Bugfixes**
