@@ -20,7 +20,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
-
+* Add secondary vendor field on purchase order
 * Install module l10n_ch_import_cresus
 
 **Bugfixes**
