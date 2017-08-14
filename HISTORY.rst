@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Build**
 
+* Update submodule OCA/server-tools (fixes General settings menu bug)
+
 **Documentation**
 
 
