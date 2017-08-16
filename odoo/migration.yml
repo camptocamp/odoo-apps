@@ -100,6 +100,7 @@ migration:
           - web_environment_ribbon
           - server_environment_ir_config_parameter
           # SENSEFLY
+          - product_price_category
           - sf_account
           - sf_account_analytic
           - sf_account_analytic

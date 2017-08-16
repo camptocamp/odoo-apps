@@ -30,7 +30,7 @@
 	url = git@github.com:OCA/partner-contact.git
 [submodule "odoo/external-src/sale-workflow"]
 	path = odoo/external-src/sale-workflow
-	url = git@github.com:OCA/sale-workflow.git
+	url = git@github.com:camptocamp/sale-workflow.git
 [submodule "odoo/external-src/account-analytic"]
 	path = odoo/external-src/account-analytic
 	url = git@github.com:camptocamp/account-analytic.git

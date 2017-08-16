@@ -30,6 +30,7 @@ latest (unreleased)
 * Install module sf_sale_order_delivery_info
 * Install modules analytic_tag_default, sale_analytic_tag_dimension, purchase_analytic_tag_dimension
 * Add RMA kanban and calendar views
+* Install module product_price_category
 
 **Bugfixes**
 
