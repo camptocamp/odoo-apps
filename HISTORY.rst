@@ -20,8 +20,10 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
+* Add sale order main partner to invoice email template
 * Install module l10n_ch_import_cresus
 * Install module stock_picking_invoice_link
 * Activate the Drop shipping settings

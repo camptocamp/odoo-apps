@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_invoice_form_inherit" model="ir.ui.view">
+        <field name="name">sf.invoice.form.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <page name="other_info" position="before">
+                <page name="sale_orders" string="Sale Order">
+                    <field name="order_ids"/>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
