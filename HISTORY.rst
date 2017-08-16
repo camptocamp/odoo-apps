@@ -26,6 +26,7 @@ latest (unreleased)
 * Install module stock_picking_invoice_link
 * Activate the Drop shipping settings
 * Install module account_reversal
+* Install module sf_sale_order_delivery_info
 
 **Bugfixes**
 

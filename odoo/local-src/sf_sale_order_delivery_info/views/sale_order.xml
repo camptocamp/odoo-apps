@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page/group/group[@name='technical']" position="before">
+                <group name="delivery" string="Delivery">
+                    <label for="weight" string="Weight"/>
+                    <div>
+                        <field name="weight" class="oe_inline"/>
+                        <field name="weight_uom_id" nolabel="1" class="oe_inline" style="margin-left:5px"/>
+                    </div>
+                    <field name="volume" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
