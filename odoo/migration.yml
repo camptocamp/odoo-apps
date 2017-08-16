@@ -63,6 +63,7 @@ migration:
           # OCA/account-financial-tools
           - account_asset_management
           - account_fiscal_year
+          - account_reversal
           - currency_rate_update
           # OCA/bank-payment
           - account_payment_order
