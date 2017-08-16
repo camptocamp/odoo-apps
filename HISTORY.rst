@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Install module l10n_ch_import_cresus
+* Install module base_partner_merge
 
 **Bugfixes**
 
