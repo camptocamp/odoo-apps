@@ -16,3 +16,12 @@
      # [MIG][10.0] l10n_ch_import_cresus
    - oca refs/pull/348/head
  target: *default_target
+./external-src/stock-logistics-workflow:
+ remotes:
+   oca: git@github.com:OCA/stock-logistics-workflow.git
+   camptocamp: git@github.com:camptocamp/stock-logistics-workflow.git
+ merges:
+   - oca 10.0
+     # [10.0] porting stock_picking_invoice_link
+   - oca refs/pull/347/head
+ target: *default_target
