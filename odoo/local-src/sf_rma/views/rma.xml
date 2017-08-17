@@ -95,11 +95,11 @@
               attrs="{'invisible': [('repair_count', '=', 0)]}">
               <div class="o_stat_info">
                 <span class="o_stat_text" attrs="{'invisible': [('repair_count', '!=', 1)]}">
-                  <field name="repair_state" class="oe_inline"/>
+                  Repair
                 </span>
                 <field name="repair_count" class="o_stat_value" attrs="{'invisible': [('repair_count', '=', 1)]}"/>
                 <span class="o_stat_text" attrs="{'invisible': [('repair_count', '=', 1)]}">
-                Repairs
+                  Repairs
                 </span>
               </div>
             </button>

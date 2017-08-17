@@ -86,8 +86,8 @@ class RMA(models.Model):
         default=False)
     to_offer = fields.Boolean(
         default=False,
-        help="Commercial gesture")
-    offer_reason = fields.Char(help="Reason of the commercial gesture")
+        string="Commercial gesture")
+    offer_reason = fields.Char(string="Reason of the commercial gesture")
     repair_by = fields.Selection([
         ('retailer', "Retailer"),
         ('sf', "senseFly")])
@@ -421,4 +421,7 @@ class RMA(models.Model):
     _sql_constraints = [
         ('zendesk_ref_5_digits',
          "CHECK(CHAR_LENGTH(zendesk_ref) = 5 AND zendesk_ref ~ '^[0-9]+$')",
-         'Ticket num (Zendesk) must be 5 digits')]
+         'Ticket num (Zendesk) must be 5 digits'),
+        ('zendesk_ref_unique', 'unique(zendesk_ref)',
+         'This ticket num (Zendesk) is already used on another RMA.')
+    ]
