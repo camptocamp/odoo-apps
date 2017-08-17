@@ -87,7 +87,8 @@ class RMA(models.Model):
     to_offer = fields.Boolean(
         default=False,
         string="Commercial gesture")
-    offer_reason = fields.Char(string="Reason of the commercial gesture")
+    offer_reason = fields.Char(string="Reason",
+                               help="Reason of the commercial gesture")
     repair_by = fields.Selection([
         ('retailer', "Retailer"),
         ('sf', "senseFly")])
