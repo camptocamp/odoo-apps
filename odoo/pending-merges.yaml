@@ -45,3 +45,12 @@
      # [10.0][add] Module product price category
    - oca refs/pull/517/head
  target: *default_target
+./external-src/server-tools:
+ remotes:
+   oca: git@github.com:OCA/server-tools.git
+   camptocamp: git@github.com:camptocamp/server-tools.git
+ merges:
+   - oca 10.0
+     # [10.0][ADD] auth_totp: MFA Support
+   - oca refs/pull/703/head
+ target: *default_target

@@ -82,6 +82,7 @@ migration:
           # OCA/reporting-engine
           - report_xlsx
           # OCA/server-tools
+          - auth_totp
           - base_technical_features
           - date_range
           - mail_environment
