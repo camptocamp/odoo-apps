@@ -50,6 +50,10 @@ class RMA(models.Model):
         string="Lot/Serial Number",
         domain="[('first_outgoing_stock_move_id','!=',False)]",
         help="The Lot/Serial of the returned product")
+    lot_first_order_id = fields.Many2one(
+        'sale.order',
+        related='lot_id.first_outgoing_stock_move_id.picking_id.sale_id'
+    )
     warranty_limit = fields.Date("Warranty limit")
 
     company_id = fields.Many2one(
@@ -350,7 +354,7 @@ class RMA(models.Model):
     def onchange_lot_id(self):
         lot = self.lot_id
         if lot:
-            sale_order = self._get_first_order_from_lot(lot)
+            sale_order = self.lot_first_order_id
             self.product_id = self.lot_id.product_id.id
             self.warranty_limit = self.lot_id.warranty_end_date
             self.original_order_id = sale_order.id
@@ -365,7 +369,7 @@ class RMA(models.Model):
         if order:
             lot = self.lot_id
             if lot:
-                original_order = self._get_first_order_from_lot(lot)
+                original_order = self.lot_first_order_id
                 if order != original_order:
                     raise ValidationError(_('Original sale order has to be '
                                             'the first sale order where the '
@@ -386,7 +390,7 @@ class RMA(models.Model):
     def onchange_original_customer_id(self):
         lot = self.lot_id
         if lot:
-            sale_order = self._get_first_order_from_lot(lot)
+            sale_order = self.lot_first_order_id
         else:
             sale_order = self.original_order_id
         if sale_order.partner_id != self.original_customer_id:
@@ -413,11 +417,6 @@ class RMA(models.Model):
             [('order_id', '=', sale_order.id)])
         if order_lines:
             return order_lines.mapped('product_id')
-
-    def _get_first_order_from_lot(self, lot):
-        outgoing_move = lot.first_outgoing_stock_move_id
-        return outgoing_move.picking_id.sale_id
-
 
     _sql_constraints = [
         ('zendesk_ref_5_digits',
