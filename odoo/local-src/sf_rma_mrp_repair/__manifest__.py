@@ -10,7 +10,11 @@
     "author": "Camptocamp SA",
     "license": "AGPL-3",
     "depends": [
+        "sf_rma",
         "mrp_repair",
+    ],
+    "data": [
+        "views/mrp_repair.xml"
     ],
     "application": False,
     "installable": True,
