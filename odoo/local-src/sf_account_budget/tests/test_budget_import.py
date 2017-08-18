@@ -99,6 +99,7 @@ class TestBudgetImport(SavepointCase):
         # Fiscal Year
         cls.env['date.range'].create(
             {'name': 2017,
+             'code': 2017,
              'company_id': cls.company_id,
              'date_start': '2017-01-01',
              'date_end': '2017-12-31',
