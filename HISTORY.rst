@@ -25,6 +25,7 @@ latest (unreleased)
 * Install module l10n_ch_import_cresus
 * Install module stock_picking_invoice_link
 * Activate the Drop shipping settings
+* Install module account_reversal
 
 **Bugfixes**
 
