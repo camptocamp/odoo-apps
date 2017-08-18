@@ -99,6 +99,7 @@ migration:
           - sf_account_analytic
           - sf_account_analytic
           - sf_account_budget
+          - sf_carrier_partner
           - sf_country
           - sf_drone_info
           - sf_helpdesk
@@ -106,12 +107,12 @@ migration:
           - sf_partner
           - sf_partner_entity_type
           - sf_product
+          - sf_purchase
           - sf_report
           - sf_rma
           - sf_rma_mrp_repair
-          - sf_stock
           - sf_sales_forecast
-          - sf_carrier_partner
+          - sf_stock
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0

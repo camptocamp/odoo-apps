@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">sf.purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="date_order" position="before">
+                <field name="second_vendor_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
