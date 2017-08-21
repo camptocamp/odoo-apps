@@ -26,6 +26,7 @@ latest (unreleased)
 * Install module stock_picking_invoice_link
 * Activate the Drop shipping settings
 * Install module account_reversal
+* Add the email template invoicing data
 
 **Bugfixes**
 

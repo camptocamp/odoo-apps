@@ -64,6 +64,12 @@ def import_account_tag_parrot_category(ctx):
 
 
 @anthem.log
+def import_email_template(ctx):
+    """ Importing email template from csv """
+    load_csv(ctx, 'data/install/email_template.csv', 'mail.template')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -73,3 +79,4 @@ def main(ctx):
     import_product_category(ctx)
     import_account_tag_pl_name(ctx)
     import_account_tag_parrot_category(ctx)
+    import_email_template(ctx)
