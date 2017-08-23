@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_product_template_inventory_category" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{'search_default_inventory_category_id': [active_id], 'search_default_inventory_category_id': active_id}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new product.
+            </p>
+        </field>
+    </record>
+
+    <record id="sf_view_inventory_category_tree" model="ir.ui.view">
+        <field name="name">sf.view.inventory.category.tree</field>
+        <field name="model">sf.inventory.category</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory Categories">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sf_view_inventory_category_form" model="ir.ui.view">
+        <field name="name">sf.view.inventory.category.form</field>
+        <field name="model">sf.inventory.category</field>
+        <field name="arch" type="xml">
+            <form string="Inventory Category" class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                            name="%(sf_product_template_inventory_category)d"
+                            icon="fa-th-list"
+                            type="action">
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text"> Products</span>
+                            </div>
+                        </button>
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name" string="Inventory category name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. eBee"/></h1>
+                    </div>
+                    <group>
+                        <group name="left">
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+
+                    <field name="product_template_ids" readonly="1">
+                        <tree>
+                            <field name="default_code"/>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sf_inventory_category" model="ir.actions.act_window">
+        <field name="name">Inventory Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sf.inventory.category</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="sf_view_inventory_category_tree"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add an inventory category.
+          </p>
+        </field>
+    </record>
+
+    <menuitem action="action_sf_inventory_category"
+              id="menu_inventory_category_config"
+              name="Inventory Categories"
+              parent="stock.menu_product_in_config_stock"
+              groups="stock.group_stock_manager"
+              sequence="20"/>
+</odoo>
