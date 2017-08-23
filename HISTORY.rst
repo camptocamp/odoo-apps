@@ -37,7 +37,7 @@ latest (unreleased)
 * RMA :
 
   * Rename 'To offer' in 'Commercial gesture'
-  * Rename erroneous 'Quotation' to 'Repair' on smart button
+  * Add object label on smart buttons
   * Add unique constraint on zendesk reference
 
 
