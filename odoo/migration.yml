@@ -77,6 +77,7 @@ migration:
           - l10n_ch_import_cresus
           # OCA/partner-contact
           - base_location
+          - base_partner_merge
           - partner_identification
           # OCA/reporting-engine
           - report_xlsx
