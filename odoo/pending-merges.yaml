@@ -25,3 +25,14 @@
      # [10.0] porting stock_picking_invoice_link
    - oca refs/pull/347/head
  target: *default_target
+./external-src/account-analytic:
+ remotes:
+   oca: git@github.com:OCA/account-analytic.git
+   camptocamp: git@github.com:camptocamp/account-analytic.git
+ merges:
+   - oca 10.0
+     # [10.0][ADD] purchase and sale analytic tag dimension
+   - oca refs/pull/127/head
+     # [10.0][ADD] module analytic_tag_default
+   - oca refs/pull/128/head
+ target: *default_target
