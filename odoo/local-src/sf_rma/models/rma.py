@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 import json
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 def get_selection_description(rec, field):
@@ -49,6 +50,10 @@ class RMA(models.Model):
         string="Lot/Serial Number",
         domain="[('first_outgoing_stock_move_id','!=',False)]",
         help="The Lot/Serial of the returned product")
+    lot_first_order_id = fields.Many2one(
+        'sale.order',
+        related='lot_id.first_outgoing_stock_move_id.picking_id.sale_id'
+    )
     warranty_limit = fields.Date("Warranty limit")
 
     company_id = fields.Many2one(
@@ -340,19 +345,16 @@ class RMA(models.Model):
     @api.depends('original_order_id')
     def _compute_original_order_products_domain(self):
         for rma in self:
-            order_lines = self.env['sale.order.line'].search(
-                [('order_id', '=', rma.original_order_id.id)])
-            if order_lines:
-                product_ids = order_lines.mapped('product_id').ids
+            products = self._get_order_products(rma.original_order_id)
+            if products:
                 rma.original_order_products_domain = json.dumps(
-                    [('id', 'in', product_ids)])
+                    [('id', 'in', products.ids)])
 
     @api.onchange('lot_id')
     def onchange_lot_id(self):
         lot = self.lot_id
         if lot:
-            outgoing_move = lot.first_outgoing_stock_move_id
-            sale_order = outgoing_move.picking_id.sale_id
+            sale_order = self.lot_first_order_id
             self.product_id = self.lot_id.product_id.id
             self.warranty_limit = self.lot_id.warranty_end_date
             self.original_order_id = sale_order.id
@@ -365,6 +367,15 @@ class RMA(models.Model):
     def onchange_original_order_id(self):
         order = self.original_order_id
         if order:
+            lot = self.lot_id
+            if lot:
+                original_order = self.lot_first_order_id
+                if order != original_order:
+                    raise ValidationError(_('Original sale order has to be '
+                                            'the first sale order where the '
+                                            'lot was sold : %s')
+                                          % original_order.name
+                                          )
             original_partner_id = order.partner_id.id
             self.original_customer_id = original_partner_id
             self.partner_id = original_partner_id
@@ -374,6 +385,38 @@ class RMA(models.Model):
             if not self.lot_id:
                 self.product_id = False
                 self.warranty_limit = False
+
+    @api.onchange('original_customer_id')
+    def onchange_original_customer_id(self):
+        lot = self.lot_id
+        if lot:
+            sale_order = self.lot_first_order_id
+        else:
+            sale_order = self.original_order_id
+        if sale_order.partner_id != self.original_customer_id:
+            raise ValidationError(_('Original customer has to be the partner '
+                                    'from the original sale order : %s.')
+                                  % sale_order.partner_id.name)
+
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        lot = self.lot_id
+        if lot and lot.product_id != self.product_id:
+            raise ValidationError(_('RMA Product has to be the same product '
+                                    'from the lot/serial number : %s.')
+                                  % lot.product_id)
+        else:
+            original_products = self._get_order_products(
+                self.original_order_id)
+            if original_products and self.product_id not in original_products:
+                raise ValidationError(_('RMA Product has to be a product '
+                                        'from original sale order.'))
+
+    def _get_order_products(self, sale_order):
+        order_lines = self.env['sale.order.line'].search(
+            [('order_id', '=', sale_order.id)])
+        if order_lines:
+            return order_lines.mapped('product_id')
 
     _sql_constraints = [
         ('zendesk_ref_5_digits',
