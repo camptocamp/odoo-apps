@@ -28,8 +28,8 @@ class SaleOrder(models.Model):
                                     help="Unit of measurement for Weight",
                                     default=_default_uom)
 
-    @api.depends('order_line')
+    @api.depends('order_line', 'order_line.product_id')
     def _cal_weight(self):
         for sale in self:
-            sale.weight = sum(line.weight for line in sale.order_line if
-                              line.state != 'cancel')
+            sale.weight = sum(line.product_id.weight for line
+                              in sale.order_line if line.state != 'cancel')
