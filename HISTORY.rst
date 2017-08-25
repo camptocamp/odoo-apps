@@ -28,6 +28,7 @@ latest (unreleased)
 * Install module account_reversal
 * Install module base_partner_merge
 * Install module sf_sale_order_delivery_info
+* Install modules analytic_tag_default, sale_analytic_tag_dimension, purchase_analytic_tag_dimension
 
 **Bugfixes**
 
