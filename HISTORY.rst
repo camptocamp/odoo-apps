@@ -27,6 +27,7 @@ latest (unreleased)
 * Activate the Drop shipping settings
 * Install module account_reversal
 * Install module base_partner_merge
+* Install module sf_sale_order_delivery_info
 
 **Bugfixes**
 
