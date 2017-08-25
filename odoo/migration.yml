@@ -113,6 +113,7 @@ migration:
           - sf_report
           - sf_rma
           - sf_rma_mrp_repair
+          - sf_sale_order_delivery_info
           - sf_sales_forecast
           - sf_stock
     - version: 10.1.0
