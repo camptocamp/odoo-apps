@@ -6,7 +6,7 @@
 	url = git@github.com:OCA/OCB.git
 [submodule "odoo/external-src/server-tools"]
 	path = odoo/external-src/server-tools
-	url = git@github.com:OCA/server-tools.git
+	url = git@github.com:camptocamp/server-tools.git
 [submodule "odoo/external-src/account-financial-reporting"]
 	path = odoo/external-src/account-financial-reporting
 	url = git@github.com:OCA/account-financial-reporting
