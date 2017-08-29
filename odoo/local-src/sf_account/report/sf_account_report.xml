@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="account_invoices"
+        model="account.invoice"
+        string="Invoices"
+        report_type="qweb-pdf"
+        name="sf_account.sf_report_invoice"
+        file="sf_account.sf_report_invoice"
+        attachment_use="True"
+         attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+    />
+</odoo>
