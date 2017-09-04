@@ -118,8 +118,9 @@ class RMA(models.Model):
     picking_ids = fields.One2many('stock.picking', 'rma_id', string="Pickings")
     history_rma_ids = fields.Many2many(
         'sf.rma',
+        string='RMA History',
         compute='_compute_history_rma',
-        help="Other RMA for the same seral number")
+        help="Other RMA for the same serial number")
 
     repair_count = fields.Integer(
         compute='_compute_repair_count', string="# Repairs")
