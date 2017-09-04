@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">mrp.repair.form</field>
+        <field name="model">mrp.repair</field>
+        <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <!-- Hides invoicing page-->
+            <xpath expr="//notebook/page[field[@name='fees_lines']]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides extra infos page-->
+            <xpath expr="//notebook/page[group/group/field[@name='move_id']]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides taxes field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides to invoice field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='to_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='to_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides subtotal field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Add cause field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='invoiced']" position="after">
+                <field name="cause_id" />
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='price_unit']" position="after">
+                <field name="cause_id" />
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_repair_order_calendar_kanban" model="ir.ui.view">
         <field name="name">mrp.repair.kanban</field>
         <field name="model">mrp.repair</field>
@@ -43,4 +87,29 @@
     <record id="mrp_repair.action_repair_order_tree" model="ir.actions.act_window">
         <field name="view_mode">kanban,tree,form,calendar</field>
     </record>
+
+    <record id="view_repair_cause_tree" model="ir.ui.view">
+        <field name="name">mrp.repair.cause.tree</field>
+        <field name="model">mrp.repair.cause</field>
+        <field name="arch" type="xml">
+            <tree string="Repair Causes" editable="true">
+                <field name="name" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_repair_cause_tree" model="ir.actions.act_window">
+        <field name="name">Repair Causes</field>
+        <field name="res_model">mrp.repair.cause</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_repair_cause_tree" />
+    </record>
+
+    <menuitem id="menu_repair_settings" name="Settings" parent="mrp_repair.menu_repair_order" sequence="20"/>
+
+    <menuitem action="mrp_repair.action_repair_order_tree" id="menu_repairs" name="Repairs" parent="mrp_repair.menu_repair_order" sequence="10"/>
+
+    <menuitem action="action_repair_cause_tree" id="menu_repair_cause" parent="sf_rma_mrp_repair.menu_repair_settings" name="Repair Causes"/>
+
 </odoo>

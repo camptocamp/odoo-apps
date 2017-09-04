@@ -67,3 +67,15 @@ class MrpRepairLine(models.Model):
     _inherit = 'mrp.repair.line'
 
     type = fields.Selection(selection_add=[('replace', 'Replace')])
+
+    cause_id = fields.Many2one('mrp.repair.cause', string='Cause',
+                               ondelete='restrict')
+
+
+class MrpRepairCause(models.Model):
+
+    _name = 'mrp.repair.cause'
+
+    name = fields.Char('Name', required=True, translate=True)
+
+    active = fields.Boolean(default=True)

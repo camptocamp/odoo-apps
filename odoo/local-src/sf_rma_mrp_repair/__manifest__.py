@@ -14,6 +14,7 @@
         "mrp_repair",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "views/mrp_repair.xml"
     ],
     "application": False,
