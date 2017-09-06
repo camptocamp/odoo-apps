@@ -64,7 +64,9 @@
         <field name="name">mrp.repair.kanban</field>
         <field name="model">mrp.repair</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" default_group_by="state" string="Repair orders">
+            <kanban default_group_by="stage_id" quick_create="0" group_create="0" group_edit="0" group_delete="0" string="Repair orders" >
+                <field name="stage_id"/>
+                <field name="state"/>
                 <field name="name"/>
                 <field name="product_id"/>
                 <field name="partner_id"/>

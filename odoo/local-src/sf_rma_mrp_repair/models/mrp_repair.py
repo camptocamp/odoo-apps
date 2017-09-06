@@ -2,23 +2,27 @@
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api, _, SUPERUSER_ID
 from odoo.exceptions import UserError
+
+
+MRP_REPAIR_STATE_SELECTION = [
+        ('draft', _('Open')),
+        ('to_analyze', _('To analyze')),
+        ('to_quotation', _('To quotation')),
+        ('under_repair', _('To repair')),
+        ('to_test', _('To test')),
+        ('to_finalize', _('To finalize')),
+        ('done', _('Repaired')),
+        ('cancel', _('Cancelled'))]
 
 
 class MrpRepair(models.Model):
 
     _inherit = 'mrp.repair'
 
-    state = fields.Selection([
-        ('draft', 'Open'),
-        ('cancel', 'Cancelled'),
-        ('to_analyze', 'To analyze'),
-        ('to_quotation', 'To quotation'),
-        ('under_repair', 'To repair'),
-        ('to_test', 'To test'),
-        ('to_finalize', 'To finalize'),
-        ('done', 'Repaired')],
+    state = fields.Selection(
+        MRP_REPAIR_STATE_SELECTION, required=True, default='draft',
         help="* The \'Open\' status is used when a user is encoding a new and "
              "unconfirmed repair order.\n"
              "* The \'To analyze\' status is used when RMA has to be "
@@ -34,6 +38,16 @@ class MrpRepair(models.Model):
     )
 
     invoicable_rma = fields.Boolean(related='rma_id.to_invoice')
+
+    stage_id = fields.Many2one('mrp.repair.stage',
+                               group_expand='_read_group_stage_ids',
+                               compute='_compute_stage_id', store=True)
+
+    @api.depends('state')
+    def _compute_stage_id(self):
+        for repair in self:
+            repair.stage_id = self.env['mrp.repair.stage'].search(
+                [('name', '=', repair.state)]).id
 
     @api.multi
     def action_repair_done(self):
@@ -98,8 +112,8 @@ class MrpRepair(models.Model):
     def action_repair_to_quotation(self):
         if self.filtered(lambda repair: not (repair.state == 'to_analyze'
                                              and repair.invoicable_rma)):
-            raise UserError(_('Repair must be Open and his RMA invoicable '
-                              'in order to be quoted'))
+            raise UserError(_('Repair must be To analyze and his RMA '
+                              'invoicable in order to be quoted'))
         return self.write({'state': 'to_quotation'})
 
     @api.multi
@@ -108,7 +122,7 @@ class MrpRepair(models.Model):
                                               and not repair.invoicable_rma)
                                              or (repair.state == 'to_quotation'
                                                  and repair.invoicable_rma))):
-            raise UserError(_('Repairs must be either To Analyze for '
+            raise UserError(_('Repair must be either To Analyze for '
                               'invoicable RMA or Open for non invoicable '
                               'RMA, in order to be repaired'))
         self.mapped('operations').write({'state': 'confirmed'})
@@ -117,7 +131,7 @@ class MrpRepair(models.Model):
     @api.multi
     def action_repair_to_test(self):
         if self.filtered(lambda repair: repair.state != 'under_repair'):
-            raise UserError(_('Repairs must be to repair in order to be '
+            raise UserError(_('Repair must be to repair in order to be '
                               'tested'))
         return self.write({'state': 'to_test'})
 
@@ -148,6 +162,15 @@ class MrpRepair(models.Model):
             repair.write(vals)
         return True
 
+    @api.model
+    def _read_group_stage_ids(self, stages, domain, order):
+        """ Read group customization in order to display all the stages in the
+            kanban view, even if they are empty
+        """
+        stage_ids = stages._search([], order=order,
+                                   access_rights_uid=SUPERUSER_ID)
+        return stages.browse(stage_ids)
+
 
 class MrpRepairLine(models.Model):
 
@@ -166,3 +189,28 @@ class MrpRepairCause(models.Model):
     name = fields.Char('Name', required=True, translate=True)
 
     active = fields.Boolean(default=True)
+
+
+class MrpRepairStage(models.Model):
+
+    _name = 'mrp.repair.stage'
+    _order = 'sequence, id'
+
+    name = fields.Char('Name', required=True, readonly=True, translate=False)
+
+    sequence = fields.Integer('Sequence', default=1, readonly=True,
+                              help="Used to order stages. Lower is better.")
+
+    fold = fields.Boolean('Folded in Pipeline',
+                          help='This stage is folded in the kanban view when '
+                               'there are no records in that stage to '
+                               'display.')
+
+    @api.multi
+    def name_get(self):
+        selection = [sel[0] for sel in MRP_REPAIR_STATE_SELECTION]
+        res = []
+        for stage in self:
+            index = selection.index(stage.name)
+            res.append((stage.id, MRP_REPAIR_STATE_SELECTION[index][1]))
+        return res
