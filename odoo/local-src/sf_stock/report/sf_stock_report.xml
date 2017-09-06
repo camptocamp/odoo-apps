@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <report
-            string="Delivery Slip"
-            id="action_report_delivery"
-            model="stock.picking"
-            report_type="qweb-pdf"
-            name="sf_stock.sf_report_deliveryslip"
-            file="sf_stock.sf_report_deliveryslip"
-        />
-    </data>
+    <report
+        string="Delivery Slip"
+        id="action_report_delivery"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="sf_stock.sf_report_deliveryslip"
+        file="sf_stock.sf_report_deliveryslip"
+    />
+
+    <report
+        string="DN / Invoice"
+        id="action_report_delivery_note"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="sf_stock.sf_report_deliverynote"
+        file="sf_stock.sf_report_deliverynote"
+    />
 </odoo>

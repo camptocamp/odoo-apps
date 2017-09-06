@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add Delivery note / invoice report
+
 **Bugfixes**
 
 **Build**
