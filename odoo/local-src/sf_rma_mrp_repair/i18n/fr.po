@@ -31,7 +31,6 @@ msgid "Cancel Repair"
 msgstr "Annuler la réparation"
 
 #. module: sf_rma_mrp_repair
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "Cancelled"
 msgstr "Annulé"
@@ -102,7 +101,6 @@ msgstr "Nom"
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
 #: selection:mrp.repair,state:0
-#: selection:mrp.repair.stage,state:0
 msgid "Open"
 msgstr "Ouvert"
 
@@ -184,7 +182,6 @@ msgid "Repair orders"
 msgstr "Ordres de réparation"
 
 #. module: sf_rma_mrp_repair
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "Repaired"
 msgstr "Réparé"
@@ -238,14 +235,12 @@ msgstr "Cette étape est cachée dans la vue Kanban quand il n'y a pas de dossie
 
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "To analyze"
 msgstr "A analyser"
 
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "To finalize"
 msgstr "A finaliser"
@@ -257,21 +252,18 @@ msgstr "A facturer"
 
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "To quotation"
 msgstr "A deviser"
 
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "To repair"
 msgstr "A réparer"
 
 #. module: sf_rma_mrp_repair
 #: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
-#: selection:mrp.repair.stage,state:0
 #: selection:mrp.repair,state:0
 msgid "To test"
 msgstr "A tester"

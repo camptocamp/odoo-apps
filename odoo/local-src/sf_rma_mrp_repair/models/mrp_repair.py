@@ -206,14 +206,6 @@ class MrpRepairStage(models.Model):
                                'there are no records in that stage to '
                                'display.')
 
-    state = fields.Selection(MRP_REPAIR_STATE_SELECTION,
-                             compute='_compute_state')
-
-    @api.depends('name')
-    def _compute_state(self):
-        for stage in self:
-            stage.state = stage.name
-
     @api.multi
     def name_get(self):
         """ Custom redefinition of name get to display translated state
@@ -223,5 +215,5 @@ class MrpRepairStage(models.Model):
                 self.env))
         res = []
         for stage in self:
-            res.append((stage.id, selection[stage.state]))
+            res.append((stage.id, selection[stage.name]))
         return res
