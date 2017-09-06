@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">mrp.repair.form</field>
+        <field name="model">mrp.repair</field>
+        <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <!-- Hides invoicing page-->
+            <xpath expr="//notebook/page[field[@name='fees_lines']]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides extra infos page-->
+            <xpath expr="//notebook/page[group/group/field[@name='move_id']]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides taxes field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides to invoice field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='to_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='to_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Hides subtotal field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Add cause field -->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='invoiced']" position="after">
+                <field name="cause_id" />
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='price_unit']" position="after">
+                <field name="cause_id" />
+            </xpath>
+            <!-- Replaces header with custom buttons -->
+            <xpath expr="//header" position="replace">
+                <header>
+                    <button name="action_repair_to_analyze" attrs="{'invisible':['|', ('state', '!=', 'draft'), ('invoicable_rma', '=', False)]}" string="To analyze" type="object" class="oe_highlight"/>
+                    <button name="action_repair_to_quotation" states="to_analyze" string="To quotation" type="object" class="oe_highlight"/>
+                    <button name="action_repair_to_repair" attrs="{'invisible': ['!', '|', '&amp;', ('state', '=', 'draft'), ('invoicable_rma', '=', False), '&amp;', ('state', '=', 'to_quotation'), ('invoicable_rma', '=', True)]}" string="To repair" type="object" class="oe_highlight"/>
+                    <button name="action_repair_to_test" states="under_repair" string="To test" type="object" class="oe_highlight"/>
+                    <button name="action_repair_to_finalize" states="to_test" string="To finalize" type="object" class="oe_highlight"/>
+                    <button name="action_repair_end" states="to_finalize" type="object" string="End Repair" class="oe_highlight"/>
+                    <button name="action_repair_back_to_repair" states="to_test,to_finalize" string="Back to repair" type="object" />
+                    <button name="action_repair_cancel" states="draft,to_analyze,to_quotation,under_repair,to_test,to_finalize" type="object" string="Cancel Repair"/>
+                    <button name="action_repair_cancel_draft" states="cancel" string="Set to Draft" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,under_repair,to_test,to_finalize,done"/>
+                    <field name="invoicable_rma" invisible="1" />
+                </header>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_repair_order_calendar_kanban" model="ir.ui.view">
         <field name="name">mrp.repair.kanban</field>
         <field name="model">mrp.repair</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" default_group_by="state" string="Repair orders">
+            <kanban default_group_by="stage_id" quick_create="0" group_create="0" group_edit="0" group_delete="0" string="Repair orders" >
+                <field name="stage_id"/>
+                <field name="state"/>
                 <field name="name"/>
                 <field name="product_id"/>
                 <field name="partner_id"/>
@@ -43,4 +105,29 @@
     <record id="mrp_repair.action_repair_order_tree" model="ir.actions.act_window">
         <field name="view_mode">kanban,tree,form,calendar</field>
     </record>
+
+    <record id="view_repair_cause_tree" model="ir.ui.view">
+        <field name="name">mrp.repair.cause.tree</field>
+        <field name="model">mrp.repair.cause</field>
+        <field name="arch" type="xml">
+            <tree string="Repair Causes" editable="true">
+                <field name="name" />
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_repair_cause_tree" model="ir.actions.act_window">
+        <field name="name">Repair Causes</field>
+        <field name="res_model">mrp.repair.cause</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_repair_cause_tree" />
+    </record>
+
+    <menuitem id="menu_repair_settings" name="Settings" parent="mrp_repair.menu_repair_order" sequence="20"/>
+
+    <menuitem action="mrp_repair.action_repair_order_tree" id="menu_repairs" name="Repairs" parent="mrp_repair.menu_repair_order" sequence="10"/>
+
+    <menuitem action="action_repair_cause_tree" id="menu_repair_cause" parent="sf_rma_mrp_repair.menu_repair_settings" name="Repair Causes"/>
+
 </odoo>
