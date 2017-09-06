@@ -33,6 +33,7 @@ latest (unreleased)
 * Install module product_price_category
 * Install module auth_totp
 * Customization of MRP Repair workflow
+* Install module sale_order_lot_selection
 
 **Bugfixes**
 
