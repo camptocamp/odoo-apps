@@ -56,7 +56,7 @@ def settings(ctx):
          'module_account_tax_cash_basis': False,
          'module_account_yodlee': False,
          'module_l10n_us_check_printing': False,
-         'overdue_msg': u'Dear Sir/Madam,\n\nOur records indicate that some payments on your account are still due. Please find details below.\nIf the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\nIf you have any queries regarding your account, Please contact us.\n\nThank you in advance for your cooperation.\nBest Regards,',
+         'overdue_msg': u'Dear Sir/Madam,\n\nOur records indicate that some payments on your account are still due. Please find details below.\nIf the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\nIf you have any queries regarding your account, Please contact us.\n\nThank you in advance for your cooperation.\nBest Regards,',  # noqa
          'period_lock_date': False,
          'purchase_tax_id': False,
          'purchase_tax_rate': 15.0,
@@ -115,7 +115,7 @@ def settings(ctx):
          'module_account_tax_cash_basis': False,
          'module_account_yodlee': False,
          'module_l10n_us_check_printing': False,
-         'overdue_msg': u'Dear Sir/Madam,\n\nOur records indicate that some payments on your account are still due. Please find details below.\nIf the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\nIf you have any queries regarding your account, Please contact us.\n\nThank you in advance for your cooperation.\nBest Regards,',
+         'overdue_msg': u'Dear Sir/Madam,\n\nOur records indicate that some payments on your account are still due. Please find details below.\nIf the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\nIf you have any queries regarding your account, Please contact us.\n\nThank you in advance for your cooperation.\nBest Regards,',  # noqa
          'period_lock_date': False,
          'purchase_tax_id': False,
          'purchase_tax_rate': 15.0,
