@@ -275,8 +275,8 @@ msgstr "Utilisé pour classer les étapes. Les valeurs basses passent avant."
 
 #. module: sf_rma_mrp_repair
 #: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair_cause
-msgid "mrp.repair.cause"
-msgstr "mrp.repair.cause"
+msgid "Cause of Mrp Repair Operation"
+msgstr "Cause de l'opération du MRP Repair"
 
 #. module: sf_rma_mrp_repair
 #: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair_stage

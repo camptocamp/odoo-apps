@@ -185,6 +185,7 @@ class MrpRepairLine(models.Model):
 class MrpRepairCause(models.Model):
 
     _name = 'mrp.repair.cause'
+    _description = 'Cause of Mrp Repair Operation'
 
     name = fields.Char('Name', required=True, translate=True)
 
@@ -192,6 +193,9 @@ class MrpRepairCause(models.Model):
 
 
 class MrpRepairStage(models.Model):
+    """ This model is used to display MRP repairs on a kanban view using
+    a group by state. As state is a selection field, it needs a sequence for
+    the columns to appear in a logical order according to sensefly workflow."""
 
     _name = 'mrp.repair.stage'
     _order = 'sequence, id'
