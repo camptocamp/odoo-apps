@@ -1,0 +1,296 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sf_rma_mrp_repair
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-06 11:18+0000\n"
+"PO-Revision-Date: 2017-09-06 13:25+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: en\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_active
+msgid "Active"
+msgstr "Actif"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+msgid "Back to repair"
+msgstr "Retour à réparer"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+msgid "Cancel Repair"
+msgstr "Annuler la réparation"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:17
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:17
+#, python-format
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_line_cause_id
+msgid "Cause"
+msgstr "Cause"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_create_uid
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_create_date
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_display_name
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+msgid "End Repair"
+msgstr "Terminer la Réparation"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_fold
+msgid "Folded in Pipeline"
+msgstr "Plié dans le flux"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_id
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_id_8717
+msgid "ID"
+msgstr "ID"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause___last_update
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_write_uid
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_write_date
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_cause_name
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:10
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:10
+#, python-format
+msgid "Open"
+msgstr "Ouvert"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_calendar_kanban
+msgid "Partner:"
+msgstr "Partenaire:"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.actions.act_window,name:sf_rma_mrp_repair.action_repair_cause_tree
+#: model:ir.ui.menu,name:sf_rma_mrp_repair.menu_repair_cause
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_cause_tree
+msgid "Repair Causes"
+msgstr "Causes de la réparation"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair_line
+msgid "Repair Line"
+msgstr "Ligne de réparation"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair
+msgid "Repair Order"
+msgstr "Ordre de réparation"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:107
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:107
+#, python-format
+msgid "Repair must be Open and his RMA invoicable in order to be analyzed"
+msgstr "La réparation doit être ouverte et son RMA facturable afin de la passer à analyser"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:115
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:115
+#, python-format
+msgid "Repair must be To analyze and his RMA invoicable in order to be quoted"
+msgstr "La réparation doit être à analyser et son RMA facturable afin de la passer à deviser"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:125
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:125
+#, python-format
+msgid "Repair must be either To Analyze for invoicable RMA or Open for non invoicable RMA, in order to be repaired"
+msgstr "La réparation doit être soit à analyser si son RMA est facturable ou ouvert si son RMA n'est pas facturable, pour la passer à réparer"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:149
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:149
+#, python-format
+msgid "Repair must be either to test or to finalize in order to be set back to repair"
+msgstr "La réparation doit être à tester ou à finaliser afin de la repasser à réparer"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:64
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:64
+#, python-format
+msgid "Repair must be repaired in order to make the product moves."
+msgstr "La réparation doit être réparée afin de générer les mouvements de stock"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:156
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:156
+#, python-format
+msgid "Repair must be to finalize in order to end reparation."
+msgstr "La réparation doit être à finaliser afin la terminer "
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:134
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:134
+#, python-format
+msgid "Repair must be to repair in order to be tested"
+msgstr "La réparation doit être à réparer afin de la passer à tester"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_calendar
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_calendar_kanban
+msgid "Repair orders"
+msgstr "Ordres de réparation"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:16
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:16
+#, python-format
+msgid "Repaired"
+msgstr "Réparé"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.menu,name:sf_rma_mrp_repair.menu_repairs
+msgid "Repairs"
+msgstr "Réparations"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:141
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:141
+#, python-format
+msgid "Repairs must be to test in order to be finalized"
+msgstr "La réparation doit être à tester afin de la passer à finaliser"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+msgid "Set to Draft"
+msgstr "Marquer comme brouillon"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.menu,name:sf_rma_mrp_repair.menu_repair_settings
+msgid "Settings"
+msgstr "Configuration"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_stage_id
+msgid "Stage id"
+msgstr "Stage id"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_calendar_kanban
+msgid "Technician:"
+msgstr "Technicien:"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,help:sf_rma_mrp_repair.field_mrp_repair_stage_fold
+msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgstr "Cette étape est cachée dans la vue Kanban quand il n'y a pas de dossier à afficher dans cette étape."
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:11
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:11
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+#, python-format
+msgid "To analyze"
+msgstr "A analyser"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:15
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:15
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+#, python-format
+msgid "To finalize"
+msgstr "A finaliser"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,field_description:sf_rma_mrp_repair.field_mrp_repair_invoicable_rma
+msgid "To invoice"
+msgstr "A facturer"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:12
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:12
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+#, python-format
+msgid "To quotation"
+msgstr "A deviser"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:13
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:13
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+#, python-format
+msgid "To repair"
+msgstr "A réparer"
+
+#. module: sf_rma_mrp_repair
+#: code:addons/odoo/local-src/sf_rma_mrp_repair/models/mrp_repair.py:14
+#: code:addons/sf_rma_mrp_repair/models/mrp_repair.py:14
+#: model:ir.ui.view,arch_db:sf_rma_mrp_repair.view_repair_order_form
+#, python-format
+msgid "To test"
+msgstr "A tester"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model.fields,help:sf_rma_mrp_repair.field_mrp_repair_stage_sequence
+msgid "Used to order stages. Lower is better."
+msgstr "Utilisé pour classer les étapes. Les valeurs basses passent avant."
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair_cause
+msgid "mrp.repair.cause"
+msgstr "mrp.repair.cause"
+
+#. module: sf_rma_mrp_repair
+#: model:ir.model,name:sf_rma_mrp_repair.model_mrp_repair_stage
+msgid "mrp.repair.stage"
+msgstr "mrp.repair.stage"
