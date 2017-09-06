@@ -7,14 +7,14 @@ from odoo.exceptions import UserError
 
 
 MRP_REPAIR_STATE_SELECTION = [
-        ('draft', _('Open')),
-        ('to_analyze', _('To analyze')),
-        ('to_quotation', _('To quotation')),
-        ('under_repair', _('To repair')),
-        ('to_test', _('To test')),
-        ('to_finalize', _('To finalize')),
-        ('done', _('Repaired')),
-        ('cancel', _('Cancelled'))]
+        ('draft', 'Open'),
+        ('to_analyze', 'To analyze'),
+        ('to_quotation', 'To quotation'),
+        ('under_repair', 'To repair'),
+        ('to_test', 'To test'),
+        ('to_finalize', 'To finalize'),
+        ('done', 'Repaired'),
+        ('cancel', 'Cancelled')]
 
 
 class MrpRepair(models.Model):
@@ -105,7 +105,7 @@ class MrpRepair(models.Model):
         if self.filtered(lambda repair: not (repair.state == 'draft'
                                              and repair.invoicable_rma)):
             raise UserError(_('Repair must be Open and his RMA invoicable '
-                              'in order to be analyzed'))
+                              'in order to be analyzed.'))
         return self.write({'state': 'to_analyze'})
 
     @api.multi
@@ -113,7 +113,7 @@ class MrpRepair(models.Model):
         if self.filtered(lambda repair: not (repair.state == 'to_analyze'
                                              and repair.invoicable_rma)):
             raise UserError(_('Repair must be To analyze and his RMA '
-                              'invoicable in order to be quoted'))
+                              'invoicable in order to be quoted.'))
         return self.write({'state': 'to_quotation'})
 
     @api.multi
@@ -124,7 +124,7 @@ class MrpRepair(models.Model):
                                                  and repair.invoicable_rma))):
             raise UserError(_('Repair must be either To Analyze for '
                               'invoicable RMA or Open for non invoicable '
-                              'RMA, in order to be repaired'))
+                              'RMA, in order to be repaired.'))
         self.mapped('operations').write({'state': 'confirmed'})
         return self.write({'state': 'under_repair'})
 
@@ -132,14 +132,14 @@ class MrpRepair(models.Model):
     def action_repair_to_test(self):
         if self.filtered(lambda repair: repair.state != 'under_repair'):
             raise UserError(_('Repair must be to repair in order to be '
-                              'tested'))
+                              'tested.'))
         return self.write({'state': 'to_test'})
 
     @api.multi
     def action_repair_to_finalize(self):
         if self.filtered(lambda repair: repair.state != 'to_test'):
             raise UserError(_('Repairs must be to test in order to be '
-                              'finalized'))
+                              'finalized.'))
         return self.write({'state': 'to_finalize'})
 
     @api.multi
@@ -147,7 +147,7 @@ class MrpRepair(models.Model):
         if self.filtered(lambda repair: repair.state not in (
                 'to_test', 'to_finalize')):
             raise UserError(_('Repair must be either to test or to finalize '
-                              'in order to be set back to repair'))
+                              'in order to be set back to repair.'))
         return self.write({'state': 'under_repair'})
 
     @api.multi
@@ -206,11 +206,22 @@ class MrpRepairStage(models.Model):
                                'there are no records in that stage to '
                                'display.')
 
+    state = fields.Selection(MRP_REPAIR_STATE_SELECTION,
+                             compute='_compute_state')
+
+    @api.depends('name')
+    def _compute_state(self):
+        for stage in self:
+            stage.state = stage.name
+
     @api.multi
     def name_get(self):
-        selection = [sel[0] for sel in MRP_REPAIR_STATE_SELECTION]
+        """ Custom redefinition of name get to display translated state
+        values in the kanban view"""
+        selection = dict(
+            self.env['mrp.repair']._fields['state']._description_selection(
+                self.env))
         res = []
         for stage in self:
-            index = selection.index(stage.name)
-            res.append((stage.id, MRP_REPAIR_STATE_SELECTION[index][1]))
+            res.append((stage.id, selection[stage.state]))
         return res
