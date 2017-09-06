@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sales_config" model="ir.ui.view">
+        <field name="name">sale settings inherit</field>
+        <field name="model">sale.config.settings</field>
+        <field name="inherit_id" ref="sale.view_sales_config"/>
+        <field name="arch" type="xml">
+            <group id="sale" position="inside">
+                <field name="terms_and_conditions" />
+            </group>
+            <field name="sale_note" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="view_purchase_configuration" model="ir.ui.view">
+        <field name="name">purchase.res.config.view.inherit</field>
+        <field name="model">purchase.config.settings</field>
+        <field name="inherit_id" ref="purchase.view_purchase_configuration"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[field[@name='group_product_variant']]" position="inside">
+                <field name="terms_and_conditions" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
