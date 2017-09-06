@@ -32,6 +32,7 @@ latest (unreleased)
 * Add RMA kanban and calendar views
 * Install module product_price_category
 * Install module auth_totp
+* Customization of MRP Repair workflow
 
 **Bugfixes**
 
