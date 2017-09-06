@@ -34,6 +34,7 @@ latest (unreleased)
 * Install module auth_totp
 * Customization of MRP Repair workflow
 * Install module sale_order_lot_selection
+* Update settings for accounting, logistics, manufacturing and sales
 
 **Bugfixes**
 
