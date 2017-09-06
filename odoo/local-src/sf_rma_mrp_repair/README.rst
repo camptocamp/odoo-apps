@@ -14,7 +14,7 @@ view. New workflow is as follows :
 
 Replace type
 ============
-a type 'Replace' on mrp.repair.line.
+New type 'Replace' on mrp.repair.line.
 
 Operation lines of type 'Replace' will not create any stock move when the
 Repair is set to done.
