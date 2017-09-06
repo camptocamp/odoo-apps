@@ -35,6 +35,13 @@ latest (unreleased)
 
 **Bugfixes**
 
+* RMA :
+
+  * Rename 'To offer' in 'Commercial gesture'
+  * Add object label on smart buttons
+  * Add unique constraint on zendesk reference
+
+
 **Build**
 
 * Update submodule OCA/server-tools (fixes General settings menu bug)

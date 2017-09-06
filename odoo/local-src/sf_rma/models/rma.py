@@ -86,8 +86,9 @@ class RMA(models.Model):
         default=False)
     to_offer = fields.Boolean(
         default=False,
-        help="Commercial gesture")
-    offer_reason = fields.Char(help="Reason of the commercial gesture")
+        string="Commercial gesture")
+    offer_reason = fields.Char(string="Reason",
+                               help="Reason of the commercial gesture")
     repair_by = fields.Selection([
         ('retailer', "Retailer"),
         ('sf', "senseFly")])
@@ -117,8 +118,9 @@ class RMA(models.Model):
     picking_ids = fields.One2many('stock.picking', 'rma_id', string="Pickings")
     history_rma_ids = fields.Many2many(
         'sf.rma',
+        string='RMA History',
         compute='_compute_history_rma',
-        help="Other RMA for the same seral number")
+        help="Other RMA for the same serial number")
 
     repair_count = fields.Integer(
         compute='_compute_repair_count', string="# Repairs")
@@ -421,4 +423,7 @@ class RMA(models.Model):
     _sql_constraints = [
         ('zendesk_ref_5_digits',
          "CHECK(CHAR_LENGTH(zendesk_ref) = 5 AND zendesk_ref ~ '^[0-9]+$')",
-         'Ticket num (Zendesk) must be 5 digits')]
+         'Ticket num (Zendesk) must be 5 digits'),
+        ('zendesk_ref_unique', 'unique(zendesk_ref)',
+         'This ticket num (Zendesk) is already used on another RMA.')
+    ]
