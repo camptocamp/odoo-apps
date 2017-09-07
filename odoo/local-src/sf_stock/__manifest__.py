@@ -10,6 +10,7 @@
     'data': [
         'views/stock_location.xml',
         'views/stock_production_lot.xml',
+        'views/stock_picking.xml',
         'report/sf_report_deliveryslip.xml',
         'report/sf_stock_report.xml'
     ],
