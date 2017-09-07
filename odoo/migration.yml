@@ -45,6 +45,7 @@ migration:
           - l10n_ch
           - mrp
           - mrp_repair
+          - note
           - procurement
           - product
           - purchase
