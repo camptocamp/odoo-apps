@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
-import account_journal
-import account
+from . import account_journal
+from . import account
+from . import account_invoice
