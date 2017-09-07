@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 * Add date of transfer on DO form and tree
+
+* Add draft image to be used over the reports
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
 * Install module l10n_ch_import_cresus
