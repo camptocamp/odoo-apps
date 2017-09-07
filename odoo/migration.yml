@@ -14,6 +14,7 @@ migration:
           - anthem songs.install.purchase::settings
           - anthem songs.install.sale::settings
           - anthem songs.install.logistics::settings
+          - anthem songs.install.manufacturing::settings
           - anthem songs.install.ldap::main
       modes:
         full:
@@ -44,6 +45,7 @@ migration:
           - l10n_ch
           - mrp
           - mrp_repair
+          - note
           - procurement
           - product
           - purchase
@@ -89,6 +91,7 @@ migration:
           - server_environment
           # OCA/sale-workflow
           - sale_exception
+          - sale_order_lot_selection
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
           # OCA/account-analytic
