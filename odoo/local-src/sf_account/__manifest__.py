@@ -7,8 +7,11 @@
     'author': 'Telmo Santos',
     'category': 'SenseFly',
     'depends': ['account'],
-    'data': ['views/account_journal.xml',
-             'views/account_account.xml'],
+    'data': [
+        'data/invoice_action_data.xml',
+        'views/account_journal.xml',
+        'views/account_account.xml',
+        'views/account_invoice.xml'],
     'demo': [],
     'images': ['static/description/icon.png'],
     'installable': True,
