@@ -20,10 +20,21 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.4.0 (2017-09-07)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Add date of transfer on DO form and tree
-
 * Add draft image to be used over the reports
-
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
 * Add sale order main partner to invoice email template
@@ -50,12 +61,9 @@ latest (unreleased)
   * Add object label on smart buttons
   * Add unique constraint on zendesk reference
 
-
 **Build**
 
 * Update submodule OCA/server-tools (fixes General settings menu bug)
-
-**Documentation**
 
 
 10.3.0 (2017-08-10)
