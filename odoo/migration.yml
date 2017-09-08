@@ -124,6 +124,7 @@ migration:
           - sf_sale_order_delivery_info
           - sf_sales_forecast
           - sf_stock
+          - sf_terms_and_conditions
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0

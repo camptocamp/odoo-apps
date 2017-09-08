@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_terms_and_conditions">
+        <t t-if="o.partner_id.apply_sale_terms_and_conditions">
+            <div style="page-break-after:always;" />
+            <div t-field="o.company_id.sale_terms_and_conditions"/>
+        </t>
+    </template>
+    <template id="purchase_terms_and_conditions">
+        <t t-if="o.partner_id.apply_purchase_terms_and_conditions">
+            <div style="page-break-after:always;" />
+            <div t-field="o.company_id.purchase_terms_and_conditions" />
+        </t>
+    </template>
+</odoo>
