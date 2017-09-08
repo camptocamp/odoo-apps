@@ -109,7 +109,7 @@ migration:
           - sf_account_analytic
           - sf_account_analytic
           - sf_account_budget
-          - sf_carrier_partner
+          - sf_partner_carrier
           - sf_country
           - sf_drone_info
           - sf_helpdesk
