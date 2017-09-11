@@ -4,6 +4,19 @@
 from odoo import fields, models, api
 
 
+class AccountMove(models.Model):
+    _inherit = "account.move"
+
+    @api.onchange('date')
+    def _onchange_date(self):
+        """On the form view, a change on the date will trigger onchange()
+        on account.move but not on account.move.line even the date field
+        is related to account.move.
+        Then, trigger the _onchange_amount_currency manually.
+        """
+        self.line_ids.onchange_amount_currency()
+
+
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
