@@ -215,7 +215,8 @@ class RMA(models.Model):
             'mrp_repair.action_repair_order_tree',
             'mrp_repair.view_repair_order_form')
         values = self._prepare_mrp_repair_data()
-        values = {'default_' + k: v for k, v in values.iteritems()}
+        values = {'default_' + k: v for k, v in values.iteritems()
+                  if k != 'product_qty'}
         action['context'] = values
         return action
 

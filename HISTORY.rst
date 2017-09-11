@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix error ending mrp.repair through RMA menu
+
 **Build**
 
 **Documentation**
