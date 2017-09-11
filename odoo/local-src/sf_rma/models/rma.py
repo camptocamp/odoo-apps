@@ -87,9 +87,6 @@ class RMA(models.Model):
          ('to_invoice','To invoice'),
          ('to_offer','Commercial Gesture')]
     )
-    to_offer = fields.Boolean(
-        default=False,
-        string="Commercial gesture")
     offer_reason = fields.Char(string="Reason",
                                help="Reason of the commercial gesture")
     repair_by = fields.Selection([
