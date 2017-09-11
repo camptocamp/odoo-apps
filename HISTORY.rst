@@ -25,6 +25,9 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Allow to add operations on mrp.repair until it is done
+* Do not set technician creating mrp.repair from rma
+
 **Build**
 
 **Documentation**
