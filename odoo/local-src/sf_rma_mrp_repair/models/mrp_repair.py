@@ -37,11 +37,11 @@ class MrpRepair(models.Model):
              "order."
     )
 
-    invoicable_rma = fields.Boolean(store=True, compute='_is_invoicable')
+    invoicable_rma = fields.Boolean(store=True, compute='_is_rma_invoicable')
 
-    def _is_invoicable(self):
+    def _is_rma_invoicable(self):
         for repair in self:
-            repair.invoicable_rma = repair.rma_id.decision == 'to_offer'
+            repair.invoicable_rma = repair.rma_id and repair.rma_id.decision == 'to_offer'
 
     stage_id = fields.Many2one('mrp.repair.stage',
                                group_expand='_read_group_stage_ids',
