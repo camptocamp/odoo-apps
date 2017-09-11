@@ -41,8 +41,7 @@ class MrpRepair(models.Model):
 
     def _is_invoicable(self):
         for repair in self:
-            if repair.rma.id:
-                repair.invoicable_rma = repair.rma_id.decision == 'to_offer'
+            repair.invoicable_rma = repair.rma_id.decision == 'to_offer'
 
     stage_id = fields.Many2one('mrp.repair.stage',
                                group_expand='_read_group_stage_ids',
