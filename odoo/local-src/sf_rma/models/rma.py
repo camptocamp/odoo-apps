@@ -83,9 +83,9 @@ class RMA(models.Model):
     to_receive = fields.Boolean(
         default=False)
     decision = fields.Selection(
-        [('free','Free'),
-         ('to_invoice','To invoice'),
-         ('to_offer','Commercial Gesture')]
+        [('free', 'Free'),
+         ('to_invoice', 'To invoice'),
+         ('to_offer', 'Commercial Gesture')]
     )
     offer_reason = fields.Char(string="Reason",
                                help="Reason of the commercial gesture")
