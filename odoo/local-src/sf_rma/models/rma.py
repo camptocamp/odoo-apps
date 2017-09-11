@@ -82,8 +82,11 @@ class RMA(models.Model):
         default=False)
     to_receive = fields.Boolean(
         default=False)
-    to_invoice = fields.Boolean(
-        default=False)
+    decision = fields.Selection(
+        [('free','Free'),
+         ('to_invoice','To invoice'),
+         ('to_offer','Commercial Gesture')]
+    )
     to_offer = fields.Boolean(
         default=False,
         string="Commercial gesture")
