@@ -58,6 +58,9 @@
                     <field name="invoicable_rma" invisible="1" />
                 </header>
             </xpath>
+            <xpath expr="//field[@name='operations']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', '=', 'done')]}</attribute>
+            </xpath>
         </field>
     </record>
 
