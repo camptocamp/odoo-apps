@@ -161,8 +161,9 @@
             <group string="Decisions">
               <field name="repair_by"/>
               <field name="to_exchange" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
+              <field name="to_receive" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
               <field name="decision" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
-              <field name="offer_reason" attrs="{'invisible': [('decision', '=', 'to_offer')], 'required': [('to_offer', '=', True)]}"/>
+              <field name="offer_reason" attrs="{'invisible': [('decision', '!=', 'to_offer')], 'required': [('decision', '=', 'to_offer')]}"/>
             </group>
           </group>
 
