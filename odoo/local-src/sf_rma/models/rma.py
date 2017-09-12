@@ -271,7 +271,7 @@ class RMA(models.Model):
             'team_id': self.env.ref('sf_rma.crm_team_rma').id,
             'pricelist_id': self.env.ref('sf_rma.pricelist_rma').id,
             'origin': self.name,
-            'type_id': self.env.ref('sf_rma.rma_sale_type')
+            'type_id': self.env.ref('sf_rma.rma_sale_type').id
         }
 
     def _prepare_so_line_data(self, sale):

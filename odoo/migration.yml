@@ -122,6 +122,7 @@ migration:
           - sf_report
           - sf_rma
           - sf_rma_mrp_repair
+          - sf_rma_sale_order
           - sf_sale_order_delivery_info
           - sf_sales_forecast
           - sf_stock

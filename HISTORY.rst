@@ -24,6 +24,7 @@ latest (unreleased)
 * Install module sf_terms_and_conditions
 * RMA decision fields adaptation
 * Install module sale_order_type
+* Install module sf_rma_sale_order
 
 **Bugfixes**
 
