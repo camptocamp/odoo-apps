@@ -66,7 +66,7 @@ def settings(ctx):
         'group_show_price_total': False,
         'group_uom': False,
         'group_warning_sale': 1,
-        'module_delivery': False,
+        'module_delivery': 1,
         'module_sale_contract': False,
         'module_sale_margin': False,
         'module_sale_order_dates': False,

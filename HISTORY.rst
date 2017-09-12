@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* fixed migration to avoid uninstallation of module sf_sale_order_delivery_info
+
 **Build**
 
 **Documentation**
