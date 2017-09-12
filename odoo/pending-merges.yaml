@@ -35,6 +35,8 @@
    - oca refs/pull/127/head
      # [10.0][ADD] module analytic_tag_default
    - oca refs/pull/128/head
+     # [10.0][ADD] sale and purchase analytic tag default
+   - oca refs/pull/129/head
  target: *default_target
 ./external-src/sale-workflow:
  remotes:
