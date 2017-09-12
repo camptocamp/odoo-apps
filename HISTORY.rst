@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Install module sf_terms_and_conditions
+* RMA decision fields adaptation
 
 **Bugfixes**
 

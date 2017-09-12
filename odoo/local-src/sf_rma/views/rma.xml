@@ -160,16 +160,15 @@
             </group>
             <group string="Decisions">
               <field name="repair_by"/>
-              <field name="to_exchange"/>
-              <field name="to_receive"/>
-              <field name="to_invoice"/>
-              <field name="to_offer"/>
-              <field name="offer_reason" attrs="{'invisible': [('to_offer', '=', False)], 'required': [('to_offer', '=', True)]}"/>
+              <field name="to_exchange" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
+              <field name="to_receive" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
+              <field name="decision" attrs="{'invisible': [('repair_by', '=', 'retailer')]}"/>
+              <field name="offer_reason" attrs="{'invisible': [('decision', '!=', 'to_offer')], 'required': [('decision', '=', 'to_offer')]}"/>
             </group>
           </group>
 
           <notebook>
-            <page string="Notes">
+            <page string="Zendesk">
               <label for="problem_description" />
               <field name="problem_description"/>
               <label for="resolution_description" />
