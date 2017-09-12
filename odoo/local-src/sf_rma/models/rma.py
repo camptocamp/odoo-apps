@@ -269,17 +269,22 @@ class RMA(models.Model):
             'rma_id': self.id,
             'company_id': self.company_id.id,
             'team_id': self.env.ref('sf_rma.crm_team_rma').id,
-            'pricelist_id': self.env.ref('sf_rma.pricelist_rma').id
+            'pricelist_id': self.env.ref('sf_rma.pricelist_rma').id,
+            'origin': self.name,
+            'type_id': self.env.ref('sf_rma.rma_sale_type')
         }
 
     def _prepare_so_line_data(self, sale):
         self.ensure_one()
-        return {
+        values = {
             'order_id': sale.id,
             'product_id': self.product_id.id,
             'product_uom_qty': 1,
             'company_id': self.company_id.id,
         }
+        if self.lot_id:
+            values.update({'lot_id': self.lot_id.id})
+        return values
 
     def _prepare_picking_data(self):
         self.ensure_one()

@@ -92,6 +92,7 @@ migration:
           # OCA/sale-workflow
           - sale_exception
           - sale_order_lot_selection
+          - sale_order_type
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
           # OCA/account-analytic
