@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Install module sf_terms_and_conditions
 * RMA decision fields adaptation
+* Install modules sale_analytic_tag_default and purchase_analytic_tag_default
 
 **Bugfixes**
 

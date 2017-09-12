@@ -97,7 +97,9 @@ migration:
           # OCA/account-analytic
           - analytic_tag_dimension
           - analytic_tag_default
+          - purchase_analytic_tag_default
           - purchase_analytic_tag_dimension
+          - sale_analytic_tag_default
           - sale_analytic_tag_dimension
           # OCA/Web
           - web_domain_field
