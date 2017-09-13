@@ -64,6 +64,15 @@ def import_account_tag_parrot_category(ctx):
 
 
 @anthem.log
+def import_account_fiscal_position(ctx):
+    """ Importing account fiscal postition from csv """
+    load_csv(ctx, 'data/install/fiscal_position.csv',
+             'account.fiscal.position')
+    load_csv(ctx, 'data/install/fiscal_position_tax.csv',
+             'account.fiscal.position.tax')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -73,3 +82,4 @@ def main(ctx):
     import_product_category(ctx)
     import_account_tag_pl_name(ctx)
     import_account_tag_parrot_category(ctx)
+    import_account_fiscal_position(ctx)

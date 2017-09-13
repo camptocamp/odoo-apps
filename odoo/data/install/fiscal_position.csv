@@ -1,0 +1,2 @@
+"id","name","company_id/id","country_id/id","auto_apply"
+"__setup__.account_fiscal_position_swiss","Swiss Fiscal","base.main_company","base.ch","true"

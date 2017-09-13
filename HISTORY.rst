@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Install module sf_terms_and_conditions
 * RMA decision fields adaptation
+* Add Fiscal position data
 
 **Bugfixes**
 
