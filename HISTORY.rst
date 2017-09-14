@@ -26,6 +26,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix generate sales forecast lines
 * fixed migration to avoid uninstallation of module sf_sale_order_delivery_info
 * Added path of stock-logistics-workflow repository to Dockerfile
 

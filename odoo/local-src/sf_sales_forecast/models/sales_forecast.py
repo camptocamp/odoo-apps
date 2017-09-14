@@ -61,7 +61,7 @@ class SfSalesForecast(models.Model):
         # Check lines already generated per product
         for product in self.product_ids:
             # Already exists skip it!
-            if product in self.forecast_line_ids.mapped('product'):
+            if product in self.forecast_line_ids.mapped('product_id'):
                 continue
             # Create lines
             for period_id in period_ids:
