@@ -9,7 +9,7 @@
     'website': 'https://www.sensefly.com/',
     'license': 'AGPL-3',
     'category': 'Base',
-    'images': ['log_sensefly.png'],
+    'images': ['static/description/icon.png'],
     'depends': ['base', 'report'],
     'data': [
         'views/layout_templates.xml',
