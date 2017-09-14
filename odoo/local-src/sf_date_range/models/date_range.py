@@ -9,5 +9,5 @@ class DateRange(models.Model):
 
     code = fields.Char(required=True)
 
-    _sql_constraints = [('uniq_code', 'unique(code)',
+    _sql_constraints = [('uniq_code', 'unique(code, company_id)',
                          _("The code of this range must be unique !"))]
