@@ -27,6 +27,7 @@ latest (unreleased)
 * RMA decision fields adaptation
 * Add Fiscal position data
 * RMA : Mark reception picking as to do
+* Install modules sale_analytic_tag_default and purchase_analytic_tag_default
 
 **Bugfixes**
 
