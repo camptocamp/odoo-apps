@@ -19,6 +19,13 @@ req = Requirement.parse('sensefly-odoo')
 
 
 @anthem.log
+def create_date_range(ctx):
+    """ Create date.ranges (periods) for 2017 from csv """
+    load_csv(ctx, 'data/install/date_range.csv',
+             'date.range')
+
+
+@anthem.log
 def create_analytic_dimension(ctx):
     """ Creating Analytic Dimension tag  """
     create_or_update(ctx, 'account.analytic.dimension',
