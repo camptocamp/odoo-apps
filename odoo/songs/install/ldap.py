@@ -14,7 +14,7 @@ def setup_ldap(ctx):
         'ldap_server': '10.41.10.18',
         'ldap_server_port': '389',
         'ldap_password': 'xxx',
-        'ldap_filter': '(userPrincipalName=%s)',
+        'ldap_filter': '(userPrincipalName=%s@parrot.biz)',
         'ldap_base':
             'OU=SENSEFLY_Users,OU=SENSEFLY,OU=SUBSIDIARIES,'
             'DC=PARROT,DC=BIZ',
