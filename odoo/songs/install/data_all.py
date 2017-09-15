@@ -3,14 +3,19 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+import csv
 from anthem.lyrics.records import create_or_update
 from ..common import load_csv
+from pkg_resources import Requirement, resource_stream
 
 
 """ Data loaded in all modes
 The data loaded here will be loaded in the 'demo' and
 'full' modes.
 """
+
+
+req = Requirement.parse('sensefly-odoo')
 
 
 @anthem.log
@@ -73,6 +78,32 @@ def import_account_fiscal_position(ctx):
 
 
 @anthem.log
+def delete_account(ctx):
+    """ Delete standard chart of accounts from csv """
+    # Read the CSV
+    content = resource_stream(req, 'data/install/account_delete.csv')
+
+    # Create list of dictionnaries
+    records = [
+        {k: v for k, v in row.items()}
+        for row in csv.DictReader(content, skipinitialspace=True)
+        ]
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record['id'], raise_if_not_found=False)
+        if rec:
+            rec.unlink()
+
+
+@anthem.log
+def import_account_account(ctx):
+    """ Importing chart of accounts from csv """
+    load_csv(ctx, 'data/install/account.csv',
+             'account.account')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -83,3 +114,5 @@ def main(ctx):
     import_account_tag_pl_name(ctx)
     import_account_tag_parrot_category(ctx)
     import_account_fiscal_position(ctx)
+    delete_account(ctx)
+    import_account_account(ctx)
