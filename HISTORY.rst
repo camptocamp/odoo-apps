@@ -24,6 +24,7 @@ latest (unreleased)
 * Install module sf_terms_and_conditions
 * Add and delete the chart of account data
 * RMA decision fields adaptation
+* RMA : Mark reception picking as to do
 
 **Bugfixes**
 
