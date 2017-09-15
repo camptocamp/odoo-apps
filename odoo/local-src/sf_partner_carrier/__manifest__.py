@@ -11,6 +11,7 @@
     "depends": [
     ],
     "data": [
+        'security/ir.model.access.csv',
         'views/carrier_account.xml'
     ],
     'images': ['static/description/icon.png'],
