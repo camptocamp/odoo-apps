@@ -45,6 +45,7 @@ latest (unreleased)
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
 * Add sale order main partner to invoice email template
+* Jounal item credit/debit calculation on change amount currency
 * Install module l10n_ch_import_cresus
 * Install module stock_picking_invoice_link
 * Activate the Drop shipping settings
