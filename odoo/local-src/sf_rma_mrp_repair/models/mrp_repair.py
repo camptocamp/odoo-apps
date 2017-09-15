@@ -171,7 +171,12 @@ class MrpRepair(models.Model):
             repair.mapped('operations').write({'state': 'confirmed'})
             repair.write({'repaired': True})
             vals = {'state': 'done'}
-            vals['move_id'] = repair.action_repair_done().get(repair.id)
+            # Use context without default_ values to generate stock.move
+            move_create_context = {key: val for key, val
+                                   in self.env.context.iteritems()
+                                   if 'default_' not in key}
+            vals['move_id'] = repair.with_context(
+                move_create_context).action_repair_done().get(repair.id)
             repair.write(vals)
         return True
 

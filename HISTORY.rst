@@ -31,6 +31,7 @@ latest (unreleased)
 * Added path of stock-logistics-workflow repository to Dockerfile
 * Allow to add operations on mrp.repair until it is done
 * Do not set technician creating mrp.repair from rma
+* Fix error ending mrp.repair through RMA menu
 
 **Build**
 
