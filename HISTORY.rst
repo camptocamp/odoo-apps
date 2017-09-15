@@ -29,6 +29,8 @@ latest (unreleased)
 
 * fixed migration to avoid uninstallation of module sf_sale_order_delivery_info
 * Added path of stock-logistics-workflow repository to Dockerfile
+* Allow to add operations on mrp.repair until it is done
+* Do not set technician creating mrp.repair from rma
 
 **Build**
 

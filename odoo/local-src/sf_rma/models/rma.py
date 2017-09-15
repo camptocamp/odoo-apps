@@ -312,8 +312,14 @@ class RMA(models.Model):
     def action_open(self):
         self.write({'state': 'open'})
         for rec in self:
+            # New create context without default_user_id key to ensure
+            # mrp.repair is not created with RMA user.
+            create_mrp_repair_context = dict(self.env.context or {})
+            create_mrp_repair_context['default_user_id'] = False
+
             mrp_repair_data = self._prepare_mrp_repair_data()
-            self.env['mrp.repair'].create_with_onchanges(
+            self.env['mrp.repair'].with_context(
+                create_mrp_repair_context).create_with_onchanges(
                 mrp_repair_data, ['product_id', 'partner_id', 'location_id'])
 
             so_data = self._prepare_so_data()

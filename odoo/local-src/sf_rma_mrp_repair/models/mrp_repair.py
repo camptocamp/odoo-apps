@@ -130,8 +130,15 @@ class MrpRepair(models.Model):
             raise UserError(_('Repair must be either To Analyze for '
                               'invoicable RMA or Open for non invoicable '
                               'RMA, in order to be repaired.'))
-        self.mapped('operations').write({'state': 'confirmed'})
         return self.write({'state': 'under_repair'})
+
+    @api.multi
+    def action_repair_back_to_analyze(self):
+        if self.filtered(lambda repair: not repair.invoicable_rma and
+                         repair.state != 'under_repair'):
+            raise UserError(_('Repair must be To repair and his RMA invoicable'
+                              'in order to set it back to analyze.'))
+        return self.write({'state': 'to_analyze'})
 
     @api.multi
     def action_repair_to_test(self):
@@ -161,6 +168,7 @@ class MrpRepair(models.Model):
             raise UserError(_("Repair must be to finalize in order to end "
                               "reparation."))
         for repair in self:
+            repair.mapped('operations').write({'state': 'confirmed'})
             repair.write({'repaired': True})
             vals = {'state': 'done'}
             vals['move_id'] = repair.action_repair_done().get(repair.id)
