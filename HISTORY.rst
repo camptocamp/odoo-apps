@@ -26,6 +26,7 @@ latest (unreleased)
 * Add and delete the chart of account data
 * RMA decision fields adaptation
 * Add Fiscal position data
+* RMA : Mark reception picking as to do
 
 **Bugfixes**
 

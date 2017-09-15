@@ -339,6 +339,8 @@ class RMA(models.Model):
                 self.env['stock.move'].create_with_onchanges(
                     move_data, ['product_id'])
 
+                picking.action_confirm()
+
     @api.multi
     def action_close(self):
         self.write({'state': 'closed',
