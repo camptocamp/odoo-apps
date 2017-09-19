@@ -39,6 +39,7 @@ latest (unreleased)
 * Do not set technician creating mrp.repair from rma
 * Fix error ending mrp.repair through RMA menu
 * fixed bank-payment submodule to avoid error on creation of payment order
+* Refresh customers data, error with the parent_id
 
 **Build**
 
