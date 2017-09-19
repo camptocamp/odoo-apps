@@ -14,6 +14,7 @@
     "post_init_hook": 'post_init_hook',
     "depends": [
         "sale",
+        "sale_order_type",
         "stock",
         "mrp_repair",
         "sf_stock",
@@ -30,5 +31,6 @@
         "data/pricelist.xml",
         "data/ir_sequence.xml",
         "data/ir_config_parameter.xml",
+        "data/sale_order_type.xml",
     ],
 }

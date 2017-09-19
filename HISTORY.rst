@@ -29,6 +29,8 @@ latest (unreleased)
 * RMA : Mark reception picking as to do
 * Install modules sale_analytic_tag_default and purchase_analytic_tag_default
 * Add Bank data
+* Install module sale_order_type
+* Install module sf_rma_sale_order
 
 **Bugfixes**
 

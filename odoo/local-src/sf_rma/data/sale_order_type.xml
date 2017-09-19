@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="rma_sale_type" model="sale.order.type">
+        <field name="name">RMA</field>
+    </record>
+</odoo>
