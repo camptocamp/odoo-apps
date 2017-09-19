@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.5.0 (2017-09-19)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Create date ranges (accounting periods) for 2017
 * Install module sf_terms_and_conditions
 * Add and delete the chart of account data
@@ -41,10 +53,6 @@ latest (unreleased)
 * Do not set technician creating mrp.repair from rma
 * Fix error ending mrp.repair through RMA menu
 * fixed bank-payment submodule to avoid error on creation of payment order
-
-**Build**
-
-**Documentation**
 
 
 10.4.0 (2017-09-07)
