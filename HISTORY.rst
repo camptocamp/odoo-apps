@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Add sensefly invoice report
 * Add Delivery note / invoice report
+* Add team on manufacturing order
 
 **Bugfixes**
 

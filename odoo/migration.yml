@@ -131,6 +131,7 @@ migration:
           - sf_terms_and_conditions
           - sf_mysensefly
           - sf_stock_picking_crystal_link
+          - mrp_team
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0

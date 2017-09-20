@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- MRP Team Search view -->
+    <record id="mrp_team_mrpteams_search" model="ir.ui.view">
+        <field name="name">Manufacturing Teams - Search</field>
+        <field name="model">mrp.team</field>
+        <field name="arch" type="xml">
+            <search string="Manufacturing Teams Search">
+                <filter name="personal" string="My Teams" domain="['|', ('member_ids', '=', uid), ('user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <field name="code" />
+                <field name="name"/>
+                <field name="user_id"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Team Leader" domain="[]" context="{'group_by':'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- MRP Teams Action -->
+    <record id="mrp_team_mrpteams_act" model="ir.actions.act_window">
+        <field name="name">Manufacturing Teams</field>
+        <field name="res_model">mrp.team</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="mrp_team_mrpteams_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to define a new manufacturing team.
+            </p><p>
+                Use manufacturing team to organize your different technicians into
+                separate teams. Each team will work in its own list of
+                manufacturing orders.
+            </p>
+        </field>
+    </record>
+
+    <!-- MRP Teams Form View -->
+     <record id="mrp_team_view_form" model="ir.ui.view">
+        <field name="name">mrp.team.form</field>
+        <field name="model">mrp.team</field>
+        <field name="arch" type="xml">
+            <form string="Manufacturing Team">
+                <sheet>
+                  <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Manufacturing team"/>
+                        <h1>
+                            <field name="name" placeholder="Manufacturing team name..."/>
+                        </h1>
+                        <div name="options_active"/>
+                    </div>
+                    <group>
+                        <group name="left">
+                            <field name="code" />
+                        </group>
+                        <group name="right">
+                            <field name="user_id" domain="[('share', '=', False)]"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="members" string="Team Members">
+                            <field name="member_ids" widget="many2many_kanban" options="{'not_delete': True}" domain="[('share', '=', False), ('mrp_team_id', '=', False)]">
+                                <kanban quick_create="false" create="true" delete="true">
+                                    <field name="name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click" style="position: relative">
+                                                <a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+                                                <div class="oe_module_vignette">
+                                                    <img t-att-src="kanban_image('res.users', 'image_small', record.id.value)" class="oe_avatar oe_kanban_avatar_smallbox"/>
+                                                    <div class="oe_module_desc">
+                                                        <field name="name"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <page string="More Info" name="more_info" groups="base.group_no_one,base.group_multi_company">
+                            <group string="Company" groups="base.group_multi_company">
+                                <field name="company_id" options="{'no_create': True}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this manufacturing team to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- MRP Teams Tree View -->
+    <record id="mrp_team_view_tree" model="ir.ui.view">
+        <field name="name">mrp.team.tree</field>
+        <field name="model">mrp.team</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree string="Manufacturing Team">
+                <field name="code" />
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mrp_team_act" model="ir.actions.act_window">
+        <field name="name">Manufacturing Teams</field>
+        <field name="res_model">mrp.team</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="mrp_team_view_tree"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to define a new manufacturing team.
+            </p><p>
+                Use manufacturing team to organize your different technicians into
+                separate teams. Each team will work in its own list of
+                manufacturing orders.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mrp_team"
+            action="mrp_team_mrpteams_act"
+            parent="mrp.menu_pm_resources_config"
+            sequence="20"
+            groups="base.group_no_one"/>
+
+</odoo>
