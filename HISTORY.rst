@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.5.0 (2017-09-19)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Create date ranges (accounting periods) for 2017
 * Install module sf_terms_and_conditions
 * Add and delete the chart of account data
@@ -28,6 +40,9 @@ latest (unreleased)
 * Add Fiscal position data
 * RMA : Mark reception picking as to do
 * Install modules sale_analytic_tag_default and purchase_analytic_tag_default
+* Add Bank data
+* Install module sale_order_type
+* Install module sf_rma_sale_order
 
 **Bugfixes**
 
@@ -38,6 +53,9 @@ latest (unreleased)
 * Do not set technician creating mrp.repair from rma
 * Fix error ending mrp.repair through RMA menu
 * Refresh the country states data
+* fixed bank-payment submodule to avoid error on creation of payment order
+* Refresh customers data, error with the parent_id
+* Refresh suppliers data, error with the country and state
 
 **Build**
 
