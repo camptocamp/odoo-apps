@@ -54,6 +54,11 @@ latest (unreleased)
 * Fix error ending mrp.repair through RMA menu
 * fixed bank-payment submodule to avoid error on creation of payment order
 * Refresh customers data, error with the parent_id
+* Refresh suppliers data, error with the country and state
+
+**Build**
+
+**Documentation**
 
 
 10.4.0 (2017-09-07)
