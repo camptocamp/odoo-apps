@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add sensefly invoice report
+
 **Bugfixes**
 
 **Build**
