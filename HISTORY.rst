@@ -26,6 +26,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Run create data ranges song
 * Refresh the country states data
 * Refresh customers data, error with the parent_id
 * Refresh suppliers data, error with the country and state
