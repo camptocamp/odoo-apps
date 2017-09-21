@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sf_external_layout_deliverynote_header_right" inherit_id="sf_report.sf_external_layout" primary="True">
+        <xpath expr="//t[@t-call='sf_report.sf_external_layout_header']" position="attributes">
+            <attribute name="t-call">sf_stock.sf_report_deliverynote_header_right</attribute>
+        </xpath>
+    </template>
+
+    <template id="sf_report_deliverynote_header_right" inherit_id="sf_report.sf_external_layout_header" primary="True">
+        <xpath expr="//div[@name='header_title']" position="inside">
+            <p>
+                <span><strong>DN / Invoice</strong></span>
+                <span t-field="o.name"/>
+            </p>
+            <span>Shipping date TODO</span>
+        </xpath>
+    </template>
+
+    <template id="sf_report_deliverynote_document">
+        <t t-call="sf_stock.sf_external_layout_deliverynote_header_right">
+            <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+        </t>
+    </template>
+
+    <template id="sf_report_deliverynote">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="sf_stock.sf_report_deliverynote_document" t-lang="o.partner_id.lang"/>
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span>Shipping address:</span><br/>
+                            <strong t-if="o.partner_id.commercial_company_name" t-field="o.partner_id.commercial_company_name"/>
+                            <br t-if="o.partner_id.commercial_company_name"/>
+                            <span t-if="o.partner_id.name and o.partner_id.commercial_company_name and o.partner_id.name != o.partner_id.commercial_company_name"
+                                  t-field="o.partner_id.name"/>
+                            <strong t-if="o.partner_id.name and not o.partner_id.commercial_company_name" t-field="o.partner_id.name"/>
+                            <div t-field="o.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'/>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <span>Invoicing address:</span><br/>
+                            <strong t-if="o.sale_id.partner_invoice_id.commercial_company_name" t-field="o.sale_id.partner_invoice_id.commercial_company_name"/>
+                            <span t-if="o.sale_id.partner_invoice_id.commercial_company_name"><br/></span>
+                            <span t-if="o.sale_id.partner_invoice_id.name and o.sale_id.partner_invoice_id.commercial_company_name and o.partner_id.name != o.partner_id.commercial_company_name" t-field="o.sale_id.partner_invoice_id.name"/>
+                            <strong t-if="o.sale_id.partner_invoice_id.name and not o.sale_id.partner_invoice_id.commercial_company_name"
+                                    t-field="o.sale_id.partner_invoice_id.name"/>
+                            <div t-field="o.sale_id.partner_invoice_id"
+                                t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'/>
+                            <p t-if="o.sale_id and o.sale_id.partner_id.vat">VAT: <span t-field="o.sale_id.partner_id.vat"/></p>
+                        </div>
+                    </div>
+
+                    <hr style="border-top: 1px solid #ccc"/>
+
+                    <div class="row mt32 mb32" id="informations">
+                        <div t-if="o.origin" class="col-xs-3">
+                            <strong>Quote Refeference</strong>
+                            <p t-field="o.origin"/>
+                        </div>
+                        <div t-if="o.sale_id.client_order_ref" class="col-xs-3">
+                            <strong>P.O. Reference</strong>
+                            <p t-field="o.sale_id.client_order_ref"/>
+                        </div>
+                        <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id" class="col-xs-3">
+                            <strong>Shipping Via</strong>
+                            <p t-field="o.carrier_id"/>
+                        </div>
+                        <div name="contact" t-if="o.partner_id and (o.partner_id.phone or o.partner_id.mobile or o.partner_id.email)" class="col-xs-3 pull-right">
+                            <strong>Contact</strong>
+                            <p style="line-height:1px;padding-top:8px;">
+                                <span t-field="o.partner_id.name"/>
+                                <span t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["phone", "mobile", "email"], "no_marker": False, "phone_icons": True}'/>
+                            </p>
+                        </div>
+                        <br/>
+                        <div class="col-xs-3" t-if="o.sale_id.incoterm">
+                            <strong>Incoterms</strong>
+                            <p t-field="o.sale_id.incoterm.code"/>
+                        </div>
+                        <div t-if="o.weight" class="col-xs-3">
+                            <strong>Net Weight</strong>
+                            <p><span t-field="o.weight"/><span t-field="o.weight_uom_id"/></p>
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>Gross Weight</strong>
+                            <p><span t-field="o.shipping_weight"/><span t-field="o.weight_uom_id"/></p>
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>Contact Intern</strong>
+                            <p>TODO</p>
+                        </div>
+                    </div>
+
+                    <table class="table table-condensed mt48" t-if="not o.pack_operation_ids">
+                        <thead>
+                            <tr style="background: #ccc;">
+                                <th><strong>Product</strong></th>
+                                <th><strong>Origin</strong></th>
+                                <th><strong>Ordered Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.move_lines" t-as="move">
+                                <td>
+                                    <span t-field="move.product_id"/>
+                                    <p t-if="move.product_id.hs_code">HS code: <span t-field="move.product_id.hs_code"/></p>
+                                </td>
+                                <td>
+                                    <span t-field="move.product_id.origin_id.code"/>
+                                </td>
+                                <td>
+                                    <span t-field="move.ordered_qty"/>
+                                    <span t-field="move.product_uom"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <t t-set="backorder" t-value="False"/>
+                    <table class="table table-condensed mt48"  t-if="o.pack_operation_ids">
+                        <!-- Is there a discount on at least one line? -->
+                        <t t-set="display_discount" t-value="any([operation.sale_line_ids.mapped('discount') for operation in o.pack_operation_ids])"/>
+
+                        <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
+                        <thead>
+                            <tr style="background: #ccc;">
+                                <th>
+                                    <strong>Product</strong>
+                                </th>
+                                <th>
+                                    <strong>Origin</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Ordered Quantity</strong>
+                                </th>
+                                <th t-if="any([pack_operation.state == 'done' for pack_operation in o.pack_operation_ids])" class="text-right">
+                                    <strong>Delivered Quantity</strong>
+                                </th>
+                                <th>
+                                    <strong>Unit Price</strong>
+                                </th>
+                                <th t-if="display_discount" class="text-right">
+                                    <strong>Disc.(%)</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Taxes</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Price</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.pack_operation_ids" t-as="pack_operation">
+                                <!-- Product -->
+                                <td>
+                                    <span t-field="pack_operation.product_id"/>
+                                    <p t-if="pack_operation.product_id.hs_code">HS code: <span t-field="pack_operation.product_id.hs_code"/></p>
+                                    <t t-if="has_serial_number and pack_operation.pack_lot_ids">
+                                        <table class="table table-condensed" t-if="pack_operation.pack_lot_ids">
+                                            <th name="lot_serial"><span class="pull-left">Lot/Serial Number</span></th>
+                                            <tr t-foreach="pack_operation.pack_lot_ids" t-as="packlot">
+                                                <td>
+                                                    <span t-field="packlot.lot_id"/>
+                                                    <t t-if="not packlot.lot_id">
+                                                        <span t-field="packlot.lot_name"/>
+                                                    </t>
+                                                </td>
+                                                <td name="lot_qty">
+                                                    <span t-field="packlot.qty"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </t>
+                                </td>
+                                <!-- Origin -->
+                                <td>
+                                    <span t-field="pack_operation.product_id.origin_id.code"/>
+                                </td>
+                                <!-- Ordered Quantity -->
+                                <td>
+                                    <table class="table table-condensed" t-if="pack_operation.linked_move_operation_ids">
+                                        <tr t-foreach="pack_operation.linked_move_operation_ids.mapped('move_id')" t-as="move_line">
+                                            <td class="text-right">
+                                                <span t-field="move_line.ordered_qty"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <!-- Delivered Quantity -->
+                                <td class="text-right" t-if="pack_operation.state == 'done'">
+                                    <t t-if="pack_operation.ordered_qty != pack_operation.qty_done">
+                                        <t t-set="backorder" t-value="True"/>
+                                    </t>
+                                    <span t-field="pack_operation.qty_done"/>
+                                    <span t-field="pack_operation.product_uom_id"/>
+                                </td>
+                                <!-- Price Unit -->
+                                <td>
+                                    <table class="table table-condensed" t-if="pack_operation.sale_line_ids">
+                                        <tr t-foreach="pack_operation.sale_line_ids" t-as="sale_line">
+                                            <td class="text-right">
+                                                <span t-field="sale_line.price_unit"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <!-- Discount -->
+                                <td t-if="display_discount">
+                                    <table class="table table-condensed" t-if="pack_operation.sale_line_ids">
+                                        <tr t-foreach="pack_operation.sale_line_ids" t-as="sale_line">
+                                            <td class="text-right">
+                                                <span t-field="sale_line.discount"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <!-- Taxes -->
+                                <td class="text-right">
+                                    <table class="table table-condensed" t-if="pack_operation.sale_line_ids">
+                                        <tr t-foreach="pack_operation.sale_line_ids" t-as="sale_line">
+                                            <td class="text-right">
+                                                <span t-esc="', '.join(map(lambda x: (x.description or x.name), sale_line.tax_id))"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <!-- Ordered Qty Price -->
+                                <td>
+                                    <table class="table table-condensed" t-if="pack_operation.linked_move_operation_ids">
+                                        <tr t-foreach="pack_operation.linked_move_operation_ids.mapped('move_id')" t-as="move_line">
+                                            <td class="text-right">
+                                                <span t-field="move_line.price_subtotal"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row" t-if="o.pack_operation_ids">
+                        <div class="col-xs-4 pull-right">
+                            <table class="table table-condensed">
+                                <tr class="border-black" >
+                                    <td><strong>Total Without Taxes</strong></td>
+                                    <td class="text-right">
+                                        <t t-set="price_subtotal" t-value="sum(sum(pack_operation.linked_move_operation_ids.mapped('move_id.price_subtotal')) for pack_operation in o.pack_operation_ids)"/>
+                                        <span t-esc="price_subtotal" t-options="{'widget': 'monetary', 'display_currency': o.sale_id.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Taxes</td>
+                                    <td class="text-right">
+                                        <t t-set="price_tax" t-value="sum(sum(pack_operation.linked_move_operation_ids.mapped('move_id.price_tax')) for pack_operation in o.pack_operation_ids)"/>
+                                        <span t-esc="price_tax" t-options="{'widget': 'monetary', 'display_currency': o.sale_id.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black" >
+                                    <td><strong>Total</strong></td>
+                                    <td class="text-right">
+                                        <t t-set="price_total" t-value="sum(sum(pack_operation.linked_move_operation_ids.mapped('move_id.price_total')) for pack_operation in o.pack_operation_ids)"/>
+                                        <span t-esc="price_total" t-options="{'widget': 'monetary', 'display_currency': o.sale_id.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <p t-if="o.backorder_id">
+                        This shipment is a backorder of <t t-esc="o.backorder_id.name"/>.
+                    </p>
+                    <p>
+                        <t t-if="backorder">
+                            All items couldn't be shipped, the remaining ones will be shipped as soon as they become available.
+                        </t>
+                    </p>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

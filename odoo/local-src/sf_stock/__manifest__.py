@@ -12,6 +12,7 @@
         'views/stock_production_lot.xml',
         'views/stock_picking.xml',
         'report/sf_report_deliveryslip.xml',
+        'report/sf_report_delivery_note.xml',
         'report/sf_stock_report.xml'
     ],
     'demo': [],

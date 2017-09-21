@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add sensefly invoice report
+* Add Delivery note / invoice report
 
 **Bugfixes**
 
