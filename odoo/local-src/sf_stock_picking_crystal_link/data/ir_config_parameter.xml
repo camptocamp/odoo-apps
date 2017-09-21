@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+  <record id="packing_list_url" model="ir.config_parameter">
+    <field name="key">packing.list.crystal.report.url</field>
+    <field name="value">http://crystalreports/ReCrystallizeServer/ViewReport.aspx?reportName=C:\ReCrystallizeServer\Reports\Supply%%20Chain\Packing_List.rpt&amp;P1=%s</field>
+  </record>
+</odoo>
