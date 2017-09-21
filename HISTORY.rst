@@ -26,6 +26,10 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Refresh the country states data
+* Refresh customers data, error with the parent_id
+* Refresh suppliers data, error with the country and state
+
 **Build**
 
 **Documentation**
@@ -55,10 +59,7 @@ latest (unreleased)
 * Allow to add operations on mrp.repair until it is done
 * Do not set technician creating mrp.repair from rma
 * Fix error ending mrp.repair through RMA menu
-* Refresh the country states data
 * fixed bank-payment submodule to avoid error on creation of payment order
-* Refresh customers data, error with the parent_id
-* Refresh suppliers data, error with the country and state
 
 **Build**
 
