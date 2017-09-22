@@ -282,6 +282,7 @@ class RMA(models.Model):
             'product_id': self.product_id.id,
             'product_uom_qty': 1,
             'company_id': self.company_id.id,
+            'price_unit': 0,
         }
         if self.lot_id:
             values.update({'lot_id': self.lot_id.id})
