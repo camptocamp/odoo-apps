@@ -4,7 +4,7 @@
 
 import json
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 def get_selection_description(rec, field):
@@ -367,6 +367,17 @@ class RMA(models.Model):
     def action_reset(self):
         self.write({'state': 'draft',
                     'date_closed': False})
+
+    @api.multi
+    def action_cancel(self):
+        if self.filtered(lambda rma: rma.state == 'closed'):
+            raise UserError(_('RMA cannot be canceled if already closed.'))
+        repairs = self.mapped('repair_ids').filtered(
+            lambda repair: repair.state != 'done' or not repair.invoiced)
+        repairs.action_repair_cancel()
+        self.mapped('sale_ids').action_cancel()
+        self.mapped('picking_ids').action_cancel()
+        self.write({'state': 'canceled'})
 
     @api.multi
     @api.depends('original_order_id')
