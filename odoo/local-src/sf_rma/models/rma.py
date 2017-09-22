@@ -85,13 +85,14 @@ class RMA(models.Model):
     decision = fields.Selection(
         [('free', 'Free'),
          ('to_invoice', 'To invoice'),
-         ('to_offer', 'Commercial Gesture')]
+         ('to_offer', 'Commercial Gesture')],
+        required=True
     )
     offer_reason = fields.Char(string="Reason",
                                help="Reason of the commercial gesture")
     repair_by = fields.Selection([
         ('retailer', "Retailer"),
-        ('sf', "senseFly")])
+        ('sf', "senseFly")], default='sf')
 
     # Notes
     problem_description = fields.Text()
