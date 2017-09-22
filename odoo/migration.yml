@@ -60,6 +60,8 @@ migration:
           - mrp_plm
           # OCA/account-closing
           - account_cutoff_base
+          - account_cutoff_accrual_base
+          - account_cutoff_accrual_picking
           - account_cutoff_prepaid
           - account_invoice_start_end_dates
           # OCA/account-financial-tools

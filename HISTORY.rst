@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Add sensefly invoice report
 * Add Delivery note / invoice report
+* Install modules account_cutoff_accrual_base and account_cutoff_accrual_picking
 
 **Bugfixes**
 
