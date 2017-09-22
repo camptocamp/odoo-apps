@@ -9,6 +9,25 @@
                 <field name="uom_po_id" position="after">
                     <field name="origin_id"/>
                 </field>
+                <div name="options" position="replace">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div>
+                                <field name="sale_ok"/>
+                                <label for="sale_ok"/>
+                            </div>
+                            <div>
+                                <field name="purchase_ok"/>
+                                <label for="purchase_ok"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <field name="validator_user" invisible="1"/>
+                            <field name="validated"  attrs="{'readonly':[('validator_user','=',False)]}"/>
+                            <label for="validated"/>
+                        </div>
+                    </div>
+                </div>
             </field>
         </record>
 </odoo>

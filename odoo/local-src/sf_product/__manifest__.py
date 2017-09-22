@@ -6,15 +6,19 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['product'],
+    'depends': ['base', 'product'],
     'description': """
 This is a module for customization of senseFly products
 
 Custom fields:
 
 - origin_id - The country where the product/component was made or assembled.
+- validated - Only validated product can be sold or purchased.
     """,
-    'data': ['views/product.xml'],
+    'data': [
+        'security/product_security.xml',
+        'views/product.xml'
+    ],
     'demo': [],
     'images': ['static/description/icon.png'],
     'installable': True,
