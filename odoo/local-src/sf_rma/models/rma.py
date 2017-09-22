@@ -299,7 +299,7 @@ class RMA(models.Model):
             'partner_id': self.partner_id.id,
             'rma_id': self.id,
             'company_id': self.company_id.id,
-            'picking_type_id': warehouse.in_type_id.id,
+            'picking_type_id': self.env.ref('sf_rma.picking_type_rma').id,
             'location_dest_id': warehouse.lot_rma_id.id,
         }
 

@@ -31,6 +31,7 @@
         "data/pricelist.xml",
         "data/ir_sequence.xml",
         "data/ir_config_parameter.xml",
+        "data/stock_picking_type.xml",
         "data/sale_order_type.xml",
     ],
 }
