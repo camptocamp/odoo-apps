@@ -348,6 +348,16 @@ class RMA(models.Model):
 
                 picking.action_confirm()
 
+                if self.lot_id:
+                    self.env['stock.pack.operation.lot'].create({
+                        'operation_id': picking.pack_operation_ids.id,
+                        'qty': 1,
+                        'lot_id': self.lot_id.id,
+                        'lot_name': self.lot_id.name,
+                    })
+
+                    picking.pack_operation_ids.save()
+
     @api.multi
     def action_close(self):
         self.write({'state': 'closed',
