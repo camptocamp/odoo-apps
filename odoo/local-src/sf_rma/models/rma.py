@@ -439,6 +439,17 @@ class RMA(models.Model):
                 raise ValidationError(_('RMA Product has to be a product '
                                         'from original sale order.'))
 
+    @api.multi
+    @api.constrains('product_id', 'lot_id')
+    def _check_lot_id_required(self):
+        for rma in self:
+            if (
+                    rma.product_id
+                    and rma.product_id.product_tmpl_id.tracking != 'none'
+                    and not rma.lot_id
+            ):
+                raise ValidationError(_('This product requires a lot number.'))
+
     def _get_order_products(self, sale_order):
         order_lines = self.env['sale.order.line'].search(
             [('order_id', '=', sale_order.id)])
