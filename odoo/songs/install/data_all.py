@@ -123,3 +123,4 @@ def main(ctx):
     import_account_fiscal_position(ctx)
     delete_account(ctx)
     import_account_account(ctx)
+    create_date_range(ctx)
