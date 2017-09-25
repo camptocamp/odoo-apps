@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add product validated field
+* Add module sale invoicing with delivery order partner fiscal position
 * Add sensefly invoice report
 * Add Delivery note / invoice report
 * Add team on manufacturing order
