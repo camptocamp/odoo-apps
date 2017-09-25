@@ -28,6 +28,7 @@ latest (unreleased)
 **Bugfixes**
 
 * Run create data ranges song
+* Delivery Slip layout
 * Refresh the country states data
 * Refresh customers data, error with the parent_id
 * Refresh suppliers data, error with the country and state

@@ -41,36 +41,38 @@
                         </div>
                     </div>
 
+                    <hr style="border-top: 1px solid #ccc"/>
+
                     <div class="row mt32 mb32" id="informations">
                         <div t-if="o.origin" class="col-xs-3">
-                            <strong>Quote Refeference:</strong>
+                            <strong>Quote Refeference</strong>
                             <p t-field="o.origin"/>
                         </div>
                         <div t-if="o.sale_id.client_order_ref" class="col-xs-3">
-                            <strong>P.O. Reference:</strong>
+                            <strong>P.O. Reference</strong>
                             <p t-field="o.sale_id.client_order_ref"/>
                         </div>
                         <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id" class="col-xs-3">
-                            <strong>Shipping Via:</strong>
+                            <strong>Shipping Via</strong>
                             <p t-field="o.carrier_id"/>
                         </div>
 
                         <div t-if="o.weight" class="col-xs-3">
-                            <strong>Net Weight:</strong>
+                            <strong>Net Weight</strong>
                             <p><span t-field="o.weight"/><span t-field="o.weight_uom_id"/></p>
                         </div>
                         <div class="col-xs-3">
-                            <strong>Gross Weight:</strong>
+                            <strong>Gross Weight</strong>
                             <p><span t-field="o.shipping_weight"/><span t-field="o.weight_uom_id"/></p>
                         </div>
                     </div>
 
-                    <table class="table table-condensed mt48" t-if="not o.pack_operation_ids">
+                    <table class="table table-condensed" t-if="not o.pack_operation_ids">
                         <thead>
-                            <tr>
-                                <th><strong>Product</strong></th>
-                                <th><strong>Origin</strong></th>
-                                <th><strong>Ordered Quantity</strong></th>
+                            <tr style="background: #ccc;">
+                                <th>Product</th>
+                                <th>Origin</th>
+                                <th>Ordered Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,15 +95,15 @@
                     <table class="table table-condensed mt48" t-if="o.pack_operation_ids">
                         <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
                         <thead>
-                            <tr>
-                                <th><strong>Product</strong></th>
-                                <th><strong>Origin</strong></th>
+                            <tr style="background: #ccc;">
+                                <th>Product</th>
+                                <th>Origin</th>
                                 <th name="lot_serial" t-if="has_serial_number">
                                     <span class="pull-left">Lot/Serial Number</span>
                                 </th>
                                 <th class="text-center"><strong>Ordered Quantity</strong></th>
                                 <th t-if="any([pack_operation.state == 'done' for pack_operation in o.pack_operation_ids])" class="text-right">
-                                        <strong>Delivered Quantity</strong>
+                                    Delivered Quantity
                                 </th>
                             </tr>
                         </thead>
