@@ -93,6 +93,8 @@ migration:
           - sale_exception
           - sale_order_lot_selection
           - sale_order_type
+          - sale_product_set
+          - sale_product_set_layout
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
           # OCA/account-analytic

@@ -24,6 +24,7 @@ latest (unreleased)
 * Add sensefly invoice report
 * Add Delivery note / invoice report
 * Add team on manufacturing order
+* Install module sale_product_set and sale_product_set_layout
 
 **Bugfixes**
 
