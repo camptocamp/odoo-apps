@@ -32,6 +32,7 @@ latest (unreleased)
 * Refresh the country states data
 * Refresh customers data, error with the parent_id
 * Refresh suppliers data, error with the country and state
+* Fix warehouse creation, sequences names and company
 
 **Build**
 
