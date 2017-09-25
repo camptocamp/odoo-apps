@@ -36,6 +36,7 @@ latest (unreleased)
 **Build**
 
 * Fix module dependencies to sf_report
+* Upgrade Docker image to 2.4.0
 
 **Documentation**
 
