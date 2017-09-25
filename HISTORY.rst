@@ -35,6 +35,8 @@ latest (unreleased)
 
 **Build**
 
+* Fix module dependencies to sf_report
+
 **Documentation**
 
 

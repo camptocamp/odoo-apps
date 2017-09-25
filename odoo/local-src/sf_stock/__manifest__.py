@@ -6,7 +6,7 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['stock', 'sale_stock'],
+    'depends': ['stock', 'sale_stock', 'sf_report'],
     'data': [
         'views/stock_location.xml',
         'views/stock_production_lot.xml',
