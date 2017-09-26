@@ -24,4 +24,7 @@
         <field name="target">inline</field>
     </record>
 
+    <menuitem id="menu_rma_settings" name="Settings" parent="menu_rma_config"
+            sequence="0" action="action_rma_config" />
+
 </odoo>
