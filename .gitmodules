@@ -24,7 +24,7 @@
 	url = git@github.com:OCA/bank-payment.git
 [submodule "odoo/external-src/account-closing"]
 	path = odoo/external-src/account-closing
-	url = git@github.com:OCA/account-closing.git
+	url = git@github.com:camptocamp/account-closing.git
 [submodule "odoo/external-src/partner-contact"]
 	path = odoo/external-src/partner-contact
 	url = git@github.com:OCA/partner-contact.git
