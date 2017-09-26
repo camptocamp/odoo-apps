@@ -6,7 +6,7 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['base', 'product'],
+    'depends': ['product', 'base_user_role'],
     'description': """
 This is a module for customization of senseFly products
 
@@ -17,6 +17,7 @@ Custom fields:
     """,
     'data': [
         'security/product_security.xml',
+        'data/product_responsible_role.xml',
         'views/product.xml'
     ],
     'demo': [],

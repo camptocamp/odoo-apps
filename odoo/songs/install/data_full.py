@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+from anthem.lyrics.records import create_or_update
 from ..common import load_csv
 
 """ File for full (production) data
@@ -27,6 +28,33 @@ def import_users(ctx):
 def import_users_groups(ctx):
     """ Importing groups to users from csv """
     load_csv(ctx, 'data/install/users_group.csv', 'res.users')
+
+
+@anthem.log
+def import_product_responsibles(ctx):
+    """ Importing product responsibles from csv """
+    load_csv(
+        ctx, 'data/install/product_responsibles.csv', 'res.users.role.line'
+    )
+
+
+@anthem.log
+def create_action_product_followers(ctx):
+    """ Creates action to add product followers"""
+    create_or_update(ctx, 'base.action.rule',
+                     '__setup__.action_rule_product_followers',
+                     {
+                         'name': 'Product Followers',
+                         'model_id': ctx.env.ref(
+                             'sf_stock.model_product_template').id,
+                         'kind': 'on_create',
+                         'act_followers': [(6, 0, [
+                             ctx.env.ref(
+                                 'sf_product.sf_product_responsible_role'
+                             ).mapped(
+                                 'line_ids.user_id.''partner_id.id')
+                         ])]
+                      })
 
 
 @anthem.log
@@ -106,6 +134,8 @@ def main(ctx):
     """ Loading full data """
     import_users(ctx)
     import_users_groups(ctx)
+    import_product_responsibles(ctx)
+    create_action_product_followers(ctx)
     import_country_state(ctx)
     import_countries(ctx)
     import_customers(ctx)
