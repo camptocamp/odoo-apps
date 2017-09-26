@@ -14,8 +14,10 @@
         "sf_rma_mrp_repair",
     ],
     "data": [
+        "data/product.xml",
         "wizard/repair_line_import.xml",
-        "views/sale_order.xml"
+        "views/rma_config_settings.xml",
+        "views/sale_order.xml",
     ],
     "application": False,
     "installable": True,

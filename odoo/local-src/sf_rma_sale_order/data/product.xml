@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rma_service_product_product" model="product.template">
+        <field name="name">RMA Service</field>
+        <field name="sale_ok" eval="True" />
+        <field name="type">service</field>
+        <field name="uom_id" ref="product.product_uom_unit"/>
+        <field name="categ_id" ref="product.product_category_all" />
+    </record>
+    <record id="base.main_company" model="res.company">
+        <field name="rma_service_product_id" ref="rma_service_product_product" />
+    </record>
+</odoo>

@@ -12,4 +12,6 @@
   <menuitem id="menu_rma" name="RMA"
     groups="group_rma_user"
     parent="menu_rma_root" sequence="5" />
+  <menuitem id="menu_rma_settings" name="Settings" parent="menu_rma_config"
+            sequence="0" action="action_rma_config" />
 </odoo>
