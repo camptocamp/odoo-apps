@@ -194,7 +194,8 @@ class MrpRepairLine(models.Model):
 
     _inherit = 'mrp.repair.line'
 
-    type = fields.Selection(selection_add=[('replace', 'Replace')])
+    type = fields.Selection(
+        selection_add=[('replace', 'Replace')], default='add')
 
     cause_id = fields.Many2one('mrp.repair.cause', string='Cause',
                                ondelete='restrict')

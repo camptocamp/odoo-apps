@@ -26,6 +26,9 @@ latest (unreleased)
 * Add Delivery note / invoice report
 * Add team on manufacturing order
 * Install module sale_product_set and sale_product_set_layout
+* Module repair Adaptation version III
+  "unit price" hidden
+  for operations set default type "add"
 
 **Bugfixes**
 
