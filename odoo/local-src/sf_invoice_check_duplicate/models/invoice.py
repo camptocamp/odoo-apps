@@ -7,6 +7,23 @@ from odoo import fields, models, api
 class Invoice(models.Model):
     _inherit = "account.invoice"
 
+    def search_duplicate_invoices(self, operator, value):
+        query = """
+        SELECT id
+        FROM account_invoice
+        WHERE type = 'in_invoice' AND state !=  'cancel'
+        AND (partner_id, amount_total) IN (
+            SELECT partner_id, amount_total
+            FROM account_invoice
+            WHERE type = 'in_invoice' AND state !=  'cancel'
+            GROUP BY partner_id, amount_total
+            HAVING count(*) %s %s)
+        """ % (operator, value)
+        self.env.cr.execute(query)
+        results = self.env.cr.fetchall()
+
+        return [('id', 'in', sum(results, ()))]
+
     def _get_duplicate_invoices(self):
         """Retrieve duplicated supplier invoices"""
         for invoice in self:
@@ -38,7 +55,9 @@ class Invoice(models.Model):
 
     duplicate_invoice_count = fields.Integer(
         string='# Duplicated Invoices',
-        compute='_get_duplicate_invoices', readonly=True)
+        compute='_get_duplicate_invoices',
+        readonly=True,
+        search=search_duplicate_invoices)
     duplicate_invoice_ids = fields.Many2many(
         "account.invoice", string='Duplicate Invoices',
         compute="_get_duplicate_invoices", readonly=True, copy=False)
