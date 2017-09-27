@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Account move -->
+    <record id="sf_view_move_form_inherit" model="ir.ui.view">
+        <field name="name">sf.account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="attributes">
+                <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Account move line -->
+    <record id="sf_view_move_line_tree_inherit" model="ir.ui.view">
+        <field name="name">sf.account.move.line.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="attributes">
+                <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="sf_view_move_line_form_inherit" model="ir.ui.view">
+        <field name="name">sf.account.move.line.form.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="attributes">
+                <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

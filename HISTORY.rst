@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Add section on quotation and invoice reports
 * Install module sale_validity
+* Labeling analytic account/tags columns as Project/Team
 * Add product validated field
 * Add sensefly invoice report
 * Add Delivery note / invoice report
