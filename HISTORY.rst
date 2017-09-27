@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Install module sale_validity
 * Add product validated field
 * Add sensefly invoice report
 * Add Delivery note / invoice report

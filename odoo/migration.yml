@@ -95,6 +95,7 @@ migration:
           - sale_order_type
           - sale_product_set
           - sale_product_set_layout
+          - sale_validity
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
           # OCA/account-analytic
