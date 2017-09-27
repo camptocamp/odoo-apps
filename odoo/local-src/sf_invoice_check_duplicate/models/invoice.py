@@ -17,12 +17,13 @@ class Invoice(models.Model):
             FROM account_invoice
             WHERE type = 'in_invoice' AND state !=  'cancel'
             GROUP BY partner_id, amount_total
-            HAVING count(*) %s %s)
-        """ % (operator, value)
-        self.env.cr.execute(query)
-        results = self.env.cr.fetchall()
+            HAVING count(*) %s %%s)
+        """ % (operator, )
 
-        return [('id', 'in', sum(results, ()))]
+        sql = self.env.cr.mogrify(query, (value,))
+        self.env.cr.execute(sql)
+
+        return [('id', 'in', [r[0] for r in self.env.cr.fetchall()])]
 
     def _get_duplicate_invoices(self):
         """Retrieve duplicated supplier invoices"""

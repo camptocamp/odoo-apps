@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/sf_invoice_check_duplicate/static/src/css/invoice.css"/>
+        </xpath>
+    </template>
+
     <record id="invoice_supplier_duplicate_form_inherit" model="ir.ui.view">
         <field name="name">account.invoice.supplier.duplicate.form.inherit</field>
         <field name="model">account.invoice</field>
