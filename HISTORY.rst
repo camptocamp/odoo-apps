@@ -31,6 +31,7 @@ latest (unreleased)
 * Hide unit price field on mrp repair line
 * Set 'add' as default value on mrp repair line
 * Install modules account_cutoff_accrual_base and account_cutoff_accrual_picking
+* Add units measure data
 
 **Bugfixes**
 
