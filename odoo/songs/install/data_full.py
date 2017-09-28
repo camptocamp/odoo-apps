@@ -52,7 +52,8 @@ def create_action_product_followers(ctx):
                              ctx.env.ref(
                                  'sf_product.sf_product_responsible_role'
                              ).mapped(
-                                 'line_ids.user_id.''partner_id.id')
+                                 'line_ids.user_id.partner_id.id'
+                             )
                          ])]
                       })
 
