@@ -28,6 +28,7 @@ latest (unreleased)
 * Install module sale_product_set and sale_product_set_layout
 * Hide unit price field on mrp repair line
 * Set 'add' as default value on mrp repair line
+* Install modules account_cutoff_accrual_base and account_cutoff_accrual_picking
 
 **Bugfixes**
 

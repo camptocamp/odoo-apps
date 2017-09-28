@@ -56,3 +56,12 @@
      # [10.0][ADD] auth_totp: MFA Support
    - oca refs/pull/703/head
  target: *default_target
+./external-src/account-closing:
+  remotes:
+    oca: git@github.com:OCA/account-closing.git
+    camptocamp: git@github.com:camptocamp/account-closing.git
+  merges:
+    - oca 10.0
+      # [MIG][10.0] account_cutoff_accrual_picking
+    - oca refs/pull/52/head
+  target: *default_target
