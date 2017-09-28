@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add section on quotation and invoice reports
 * Add product validated field
 * Add sensefly invoice report
 * Add Delivery note / invoice report
