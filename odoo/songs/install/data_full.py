@@ -48,13 +48,13 @@ def create_action_product_followers(ctx):
                          'model_id': ctx.env.ref(
                              'stock_landed_costs.model_product_template').id,
                          'kind': 'on_create',
-                         'act_followers': [(6, 0, [
-                             ctx.env.ref(
+                         'act_followers':
+                             [(6, 0, ctx.env.ref(
                                  'sf_product.sf_product_responsible_role'
                              ).mapped(
                                  'line_ids.user_id.partner_id.id'
                              )
-                         ])]
+                               )]
                       })
 
 
