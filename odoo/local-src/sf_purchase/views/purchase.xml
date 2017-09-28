@@ -16,6 +16,7 @@
             </field>
             <field name="account_analytic_id" position="attributes">
                 <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
             </field>
         </field>
     </record>
