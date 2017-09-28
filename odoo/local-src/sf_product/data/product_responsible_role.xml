@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<odoo>
+<odoo noupdate="1">
     <!-- Role product responsible-->
     <record id="sf_product_responsible_role" model="res.users.role">
         <field name="name">Product Responsible</field>
