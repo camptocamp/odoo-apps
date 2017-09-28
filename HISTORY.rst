@@ -31,6 +31,7 @@ latest (unreleased)
 * Hide unit price field on mrp repair line
 * Set 'add' as default value on mrp repair line
 * Install modules account_cutoff_accrual_base and account_cutoff_accrual_picking
+* Add RMA picking type
 
 **Bugfixes**
 
@@ -39,6 +40,10 @@ latest (unreleased)
 * Refresh the country states data
 * Refresh customers data, error with the parent_id
 * Refresh suppliers data, error with the country and state
+* Allow to cancel RMA
+* Require lot number if RMA product is tracked
+* Add lot number on RMA incoming picking
+* Set RMA default values
 
 **Build**
 
