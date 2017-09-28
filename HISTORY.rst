@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add section on quotation and invoice reports
+* Install module sale_validity
 * Add product validated field
 * Add sensefly invoice report
 * Add Delivery note / invoice report
