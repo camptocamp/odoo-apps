@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- RMA Config settings view (to be inherited) -->
     <record id="view_rma_config_settings" model="ir.ui.view">
         <field name="name">rma settings</field>
         <field name="model">rma.config.settings</field>

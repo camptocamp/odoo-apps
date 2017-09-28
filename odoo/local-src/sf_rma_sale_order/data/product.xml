@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="rma_service_product_product" model="product.template">
         <field name="name">RMA Service</field>
         <field name="sale_ok" eval="True" />
