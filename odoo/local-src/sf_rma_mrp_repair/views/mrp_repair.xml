@@ -27,6 +27,13 @@
             <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='to_invoice']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+            <!-- hides unit price field-->
+            <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='price_unit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[field[@name='operations']]//tree//field[@name='price_unit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <!-- Hides subtotal field -->
             <xpath expr="//notebook/page[field[@name='operations']]//form//field[@name='price_subtotal']" position="attributes">
                 <attribute name="invisible">1</attribute>
