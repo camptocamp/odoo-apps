@@ -15,7 +15,9 @@ def fix_warehouse_sequences_names(ctx):
     warehouse.name = base_company.name
     wh_sequences = ctx.env['ir.sequence'].search([
         ('company_id', '=', base_company.id),
-        ('prefix', 'like', 'WH%')])
+        ('prefix', 'like', 'WH%'),
+        ('name', 'like', '%Sequence%')
+    ])
     for seq in wh_sequences:
         index = seq.name.index('Sequence')
         seq_type = seq.name[index:]
