@@ -4,7 +4,7 @@
 
 import json
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 def get_selection_description(rec, field):
@@ -85,13 +85,14 @@ class RMA(models.Model):
     decision = fields.Selection(
         [('free', 'Free'),
          ('to_invoice', 'To invoice'),
-         ('to_offer', 'Commercial Gesture')]
+         ('to_offer', 'Commercial Gesture')],
+        required=True
     )
     offer_reason = fields.Char(string="Reason",
                                help="Reason of the commercial gesture")
     repair_by = fields.Selection([
         ('retailer', "Retailer"),
-        ('sf', "senseFly")])
+        ('sf', "senseFly")], default='sf')
 
     # Notes
     problem_description = fields.Text()
@@ -281,6 +282,7 @@ class RMA(models.Model):
             'product_id': self.product_id.id,
             'product_uom_qty': 1,
             'company_id': self.company_id.id,
+            'price_unit': 0,
         }
         if self.lot_id:
             values.update({'lot_id': self.lot_id.id})
@@ -297,7 +299,7 @@ class RMA(models.Model):
             'partner_id': self.partner_id.id,
             'rma_id': self.id,
             'company_id': self.company_id.id,
-            'picking_type_id': warehouse.in_type_id.id,
+            'picking_type_id': self.env.ref('sf_rma.picking_type_rma').id,
             'location_dest_id': warehouse.lot_rma_id.id,
         }
 
@@ -346,6 +348,16 @@ class RMA(models.Model):
 
                 picking.action_confirm()
 
+                if self.lot_id:
+                    self.env['stock.pack.operation.lot'].create({
+                        'operation_id': picking.pack_operation_ids.id,
+                        'qty': 1,
+                        'lot_id': self.lot_id.id,
+                        'lot_name': self.lot_id.name,
+                    })
+
+                    picking.pack_operation_ids.save()
+
     @api.multi
     def action_close(self):
         self.write({'state': 'closed',
@@ -355,6 +367,17 @@ class RMA(models.Model):
     def action_reset(self):
         self.write({'state': 'draft',
                     'date_closed': False})
+
+    @api.multi
+    def action_cancel(self):
+        if self.filtered(lambda rma: rma.state == 'closed'):
+            raise UserError(_('RMA cannot be canceled if already closed.'))
+        repairs = self.mapped('repair_ids').filtered(
+            lambda repair: repair.state != 'done' or not repair.invoiced)
+        repairs.action_repair_cancel()
+        self.mapped('sale_ids').action_cancel()
+        self.mapped('picking_ids').action_cancel()
+        self.write({'state': 'canceled'})
 
     @api.multi
     @api.depends('original_order_id')
@@ -426,6 +449,17 @@ class RMA(models.Model):
             if original_products and self.product_id not in original_products:
                 raise ValidationError(_('RMA Product has to be a product '
                                         'from original sale order.'))
+
+    @api.multi
+    @api.constrains('product_id', 'lot_id')
+    def _check_lot_id_required(self):
+        for rma in self:
+            if (
+                    rma.product_id
+                    and rma.product_id.product_tmpl_id.tracking != 'none'
+                    and not rma.lot_id
+            ):
+                raise ValidationError(_('This product requires a lot number.'))
 
     def _get_order_products(self, sale_order):
         order_lines = self.env['sale.order.line'].search(

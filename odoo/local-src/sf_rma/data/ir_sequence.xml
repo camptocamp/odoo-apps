@@ -9,4 +9,10 @@
     <field eval="5" name="padding"/>
     <field name="prefix">RMA-%(year)s/</field>
   </record>
+    <record id="seq_rma_receipts" model="ir.sequence">
+    <field name="name">RMA Receipts</field>
+    <field name="code">stock.picking</field>
+    <field eval="5" name="padding"/>
+    <field name="prefix">WH/IN/RMA/</field>
+  </record>
 </odoo>

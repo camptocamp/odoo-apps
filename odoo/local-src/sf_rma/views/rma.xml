@@ -68,7 +68,7 @@
           <button name="action_close" type="object" string="Close" states="draft"/>
           <button name="action_close" type="object" string="Close" class="oe_highlight" states="open"/>
           <button name="action_reset" type="object" string="Reset" states="open,closed,canceled"/>
-          <button name="action_cancel" type="object" string="Cancel" states="draft,open,closed"/>
+          <button name="action_cancel" type="object" string="Cancel" states="draft,open"/>
           <field name="state" widget="statusbar"/>
         </header>
         <sheet>
@@ -126,7 +126,10 @@
               class="oe_stat_button"
               icon="fa-history"
               attrs="{'invisible': [('history_rma_count', '=', 0)]}">
-              <field name="history_rma_count" widget="statinfo" string="History"/>
+              <div class="o_stat_info">
+                <span class="o_stat_text">History</span>
+                <field name="history_rma_count" class="o_stat_value" />
+              </div>
             </button>
           </div>
           <div class="oe_title">

@@ -20,6 +20,7 @@ class TestRMA(TransactionCase):
             'partner_id': self.env.ref('base.res_partner_12').id,
             'product_id': self.drone.id,
             'zendesk_ref': '99999',
+            'decision': 'free',
         })
 
     def test_rma_sequence(self):
