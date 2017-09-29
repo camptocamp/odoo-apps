@@ -12,6 +12,7 @@
         'views/account_journal.xml',
         'views/account_account.xml',
         'views/account_invoice.xml',
+        'views/account_move.xml',
         'report/sf_report_invoice.xml',
         'report/sf_account_report.xml'
         ],

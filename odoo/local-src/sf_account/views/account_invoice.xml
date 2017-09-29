@@ -13,4 +13,23 @@
             </page>
         </field>
     </record>
+
+    <record id="sf_invoice_supplier_form_inherit" model="ir.ui.view">
+        <field name="name">sf.invoice.supplier.form.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="analytic_tag_ids" position="replace"/>
+            <field name="account_analytic_id" position="before">
+                <field name="analytic_tag_ids" string="Team" groups="analytic.group_analytic_accounting" widget="many2many_tags"/>
+            </field>
+            <field name="account_analytic_id" position="attributes">
+                <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
+            </field>
+        </field>
+    </record>
+
+
 </odoo>

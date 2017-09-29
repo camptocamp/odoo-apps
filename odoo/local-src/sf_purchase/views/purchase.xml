@@ -9,6 +9,15 @@
             <field name="date_order" position="before">
                 <field name="second_vendor_id"/>
             </field>
+
+            <field name="analytic_tag_ids" position="replace"/>
+            <field name="account_analytic_id" position="before">
+                <field name="analytic_tag_ids" string="Team" groups="purchase.group_analytic_accounting" widget="many2many_tags"/>
+            </field>
+            <field name="account_analytic_id" position="attributes">
+                <attribute name="string">Project</attribute>
+                <attribute name="help">Analytic Account means Project</attribute>
+            </field>
         </field>
     </record>
 </odoo>
