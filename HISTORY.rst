@@ -35,6 +35,7 @@ latest (unreleased)
 * Install modules account_cutoff_accrual_base and account_cutoff_accrual_picking
 * Add RMA Settings to define RMA repair service product
 * Add RMA picking type
+* Add units measure data
 
 **Bugfixes**
 

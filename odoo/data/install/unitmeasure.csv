@@ -1,0 +1,3 @@
+"id","name","category_id/id","uom_type","rounding","factor","active"
+"product.product_uom_jx","Jx","product.product_uom_categ_unit","bigger","1.0","1.0","true"
+"product.product_uom_licence","Licence","product.product_uom_categ_unit","reference","1.0","1.0","true"

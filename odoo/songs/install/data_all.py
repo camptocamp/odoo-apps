@@ -62,6 +62,12 @@ def import_product_category(ctx):
 
 
 @anthem.log
+def import_unit_measure(ctx):
+    """ Importing unit measure from csv """
+    load_csv(ctx, 'data/install/unitmeasure.csv', 'product.uom')
+
+
+@anthem.log
 def import_account_tag_pl_name(ctx):
     """ Importing account tag (PL name)  from csv """
     load_csv(ctx, 'data/install/account_tag_pl.csv',
@@ -118,6 +124,7 @@ def main(ctx):
     import_analytic_account_project(ctx)
     import_partner_entity(ctx)
     import_product_category(ctx)
+    import_unit_measure(ctx)
     import_account_tag_pl_name(ctx)
     import_account_tag_parrot_category(ctx)
     import_account_fiscal_position(ctx)
