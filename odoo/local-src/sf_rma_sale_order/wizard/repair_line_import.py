@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class SaleOrderRepairLinesImportWizard(models.TransientModel):
@@ -37,13 +37,17 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
 
     @api.multi
     def import_lines(self):
+        rma_service = self.env.user.company_id.rma_service_product_id
+        if not rma_service:
+            raise UserError(_('A RMA repair service product has to be defined '
+                              'in the RMA Settings.'))
         values = []
         for line in self.repair_line_ids:
             values.append(
                 (0, 0, {
                     'name': line.name,
-                    'product_id': line.product_id.id,
-                    'price_unit': 0,
+                    'product_id': rma_service.id,
+                    'price_unit': line.product_id.list_price,
                     'product_uom_qty': line.product_uom_qty,
                     'product_uom': line.product_uom.id,
                 }))

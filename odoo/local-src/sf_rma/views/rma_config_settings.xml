@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- RMA Config settings view (to be inherited) -->
+    <record id="view_rma_config_settings" model="ir.ui.view">
+        <field name="name">rma settings</field>
+        <field name="model">rma.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="Configure RMA" class="oe_form_configuration">
+                <header>
+                    <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                    <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                </header>
+                <field name="company_id" invisible="1" />
+                <div id="main"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_rma_config" model="ir.actions.act_window">
+        <field name="name">Configure RMAs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rma.config.settings</field>
+        <field name="view_id" ref="view_rma_config_settings"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="menu_rma_settings" name="Settings" parent="menu_rma_config"
+            sequence="0" action="action_rma_config" />
+
+</odoo>

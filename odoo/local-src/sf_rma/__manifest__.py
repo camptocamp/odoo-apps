@@ -26,6 +26,7 @@
         "views/menu.xml",
         "views/rma.xml",
         "views/rma_cause.xml",
+        "views/rma_config_settings.xml",
         "views/mrp_repair.xml",
         "data/crm_team.xml",
         "data/pricelist.xml",
