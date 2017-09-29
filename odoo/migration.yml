@@ -91,6 +91,7 @@ migration:
           - date_range
           - mail_environment
           - server_environment
+          - base_user_role
           # OCA/sale-workflow
           - sale_exception
           - sale_order_lot_selection

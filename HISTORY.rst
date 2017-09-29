@@ -24,6 +24,7 @@ latest (unreleased)
 * Add section on quotation and invoice reports
 * Install module sale_validity
 * Add product validated field
+* Add product followers and product responsible role
 * Add sensefly invoice report
 * Add Delivery note / invoice report
 * Add team on manufacturing order
