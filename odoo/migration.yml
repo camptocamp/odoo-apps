@@ -13,7 +13,7 @@ migration:
           - anthem songs.install.mrp::settings
           - anthem songs.install.purchase::settings
           - anthem songs.install.sale::settings
-          - anthem songs.install.logistics::settings
+          - anthem songs.install.logistics::main
           - anthem songs.install.manufacturing::settings
           - anthem songs.install.ldap::main
       modes:

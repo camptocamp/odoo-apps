@@ -2,7 +2,46 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
+from anthem.lyrics.records import add_xmlid
 import anthem
+
+
+@anthem.log
+def fix_warehouse_sequences_names(ctx):
+    """ Fix names related to automatically created warehouse
+       adresses odoo/odoo PR #19563 """
+    base_company = ctx.env.ref('base.main_company')
+    warehouse = ctx.env.ref('stock.warehouse0')
+    warehouse.name = base_company.name
+    wh_sequences = ctx.env['ir.sequence'].search([
+        ('company_id', '=', base_company.id),
+        ('prefix', 'like', 'WH%')])
+    for seq in wh_sequences:
+        index = seq.name.index('Sequence')
+        seq_type = seq.name[index:]
+        seq.name = base_company.name + ' ' + seq_type
+
+
+@anthem.log
+def create_warehouse_sensefly_inc(ctx):
+    """ Creating warehouse """
+    company = ctx.env.ref('__setup__.company_mte')
+    ctx.env.user.company_id = company
+    warehouse = ctx.env['stock.warehouse'].create({
+        'name': company.name,
+        'code': 'WH',
+        'company_id': company.id,
+    })
+    add_xmlid(ctx, warehouse, '__setup__.stock_warehouse_inc',
+              noupdate=True)
+
+    location = ctx.env['stock.location'].search([
+        ('usage', '=', 'internal'), ('company_id', '=', company.id),
+        ('name', '=', 'Stock')])
+    add_xmlid(ctx, location, '__setup__.stock_location_stock_inc',
+              noupdate=True)
+
+    ctx.env.user.company_id = ctx.env.ref('base.main_company')
 
 
 @anthem.log
@@ -71,4 +110,6 @@ def settings(ctx):
 @anthem.log
 def main(ctx):
     """ Configuring logistics """
+    fix_warehouse_sequences_names(ctx)
+    create_warehouse_sensefly_inc(ctx)
     settings(ctx)
