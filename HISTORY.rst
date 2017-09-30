@@ -37,6 +37,7 @@ latest (unreleased)
 * Add RMA Settings to define RMA repair service product
 * Add RMA picking type
 * Add units measure data
+* Add Bank account partners data
 
 **Bugfixes**
 
