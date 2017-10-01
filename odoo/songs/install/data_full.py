@@ -107,6 +107,12 @@ def import_product(ctx):
 
 
 @anthem.log
+def import_serial_number(ctx):
+    """ Importing serial number from csv """
+    load_csv(ctx, 'data/install/serial.csv', 'stock.production.lot')
+
+
+@anthem.log
 def import_workcenter(ctx):
     """ Importing workcenters from csv """
     load_csv(ctx, 'data/install/workcenter.csv', 'mrp.workcenter')
@@ -139,6 +145,7 @@ def main(ctx):
     import_location(ctx)
     import_drone_type(ctx)
     import_product(ctx)
+    import_serial_number(ctx)
     import_workcenter(ctx)
     import_rma_cause(ctx)
     import_bank(ctx)
