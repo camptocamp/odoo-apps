@@ -96,6 +96,12 @@ def import_bank(ctx):
 
 
 @anthem.log
+def import_bank_account(ctx):
+    """ Importing bank account partners from csv """
+    load_csv(ctx, 'data/demo/bank_account.csv', 'res.partner.bank')
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -112,4 +118,5 @@ def main(ctx):
     import_workcenter(ctx)
     import_rma_cause(ctx)
     import_bank(ctx)
+    import_bank_account(ctx)
     return
