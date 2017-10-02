@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add shipped date field and button shipped
 * Add section on quotation and invoice reports
 * Install module sale_validity
 * Labeling analytic account/tags columns as Project/Team

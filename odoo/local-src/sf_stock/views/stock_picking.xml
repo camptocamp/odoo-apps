@@ -19,8 +19,18 @@
             <field name="priority" eval="80"/>
             <field name="arch" type="xml">
                 <field name="min_date" position="after">
+                    <field name="date_shipped" attrs="{'invisible':[('date_shipped', '=', False)]}"/>
                     <field name="date_done" attrs="{'invisible':[('date_done', '=', False)]}"/>
                 </field>
+
+                <button name="do_new_transfer" position="replace">
+                    <button name="do_new_transfer" string="Validate" groups="stock.group_stock_user" type="object" class="oe_highlight"
+                            attrs="{'invisible': [ '|', '&amp;', ('date_shipped', '=', False), ('show_button_shipped', '=', True),
+                            ('state', 'not in', ('draft','partially_available','assigned'))]}"/>
+
+                    <button name="action_shipped" string="Shipped" groups="stock.group_stock_user" type="object" class="oe_highlight"
+                            attrs="{'invisible':['|', ('show_button_shipped', '=', False), ('date_shipped','!=', False)]}"/>
+                </button>
             </field>
     </record>
 </odoo>
