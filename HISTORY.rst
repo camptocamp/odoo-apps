@@ -51,6 +51,7 @@ latest (unreleased)
 * Require lot number if RMA product is tracked
 * Add lot number on RMA incoming picking
 * Set RMA default values
+* Add serial number data
 
 **Build**
 
