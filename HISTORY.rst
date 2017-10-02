@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.6.0 (2017-10-02)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Add section on quotation and invoice reports
 * Install module sale_validity
 * Labeling analytic account/tags columns as Project/Team
@@ -57,8 +69,6 @@ latest (unreleased)
 
 * Fix module dependencies to sf_report
 * Upgrade Docker image to 2.4.0
-
-**Documentation**
 
 
 10.5.0 (2017-09-19)
