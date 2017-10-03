@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix account move view with Team and Project labels
+
 **Build**
 
 **Documentation**
