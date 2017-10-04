@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sf_inventory_category_user,sf.inventory.category user,model_sf_inventory_category,stock.group_stock_user,1,1,1,0
+access_sf_inventory_category_manager,sf.inventory.category manager,model_sf_inventory_category,stock.group_stock_manager,1,1,1,1

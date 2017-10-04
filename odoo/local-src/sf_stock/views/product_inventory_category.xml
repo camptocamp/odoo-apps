@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_view_product_template_inventory_form" model="ir.ui.view">
+        <field name="name">sf.product.inventory.form</field>
+        <field name="model">product.template</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="stock.view_template_property_form"/>
+        <field name="arch" type="xml">
+            <group name="stock_property" position="after">
+                <group>
+                    <field name="inventory_category_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
