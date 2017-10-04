@@ -20,6 +20,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+* Add the email template invoicing data
 
 **Bugfixes**
 
@@ -129,7 +130,6 @@ latest (unreleased)
 * Install module sale_order_lot_selection
 * Install module note
 * Update settings for accounting, logistics, manufacturing and sales
-* Add the email template invoicing data
 
 **Bugfixes**
 
