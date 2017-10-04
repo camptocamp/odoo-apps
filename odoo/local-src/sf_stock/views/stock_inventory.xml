@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_view_inventory_form" model="ir.ui.view">
+        <field name="name">sf.view.inventory.form.inherit</field>
+        <field name="model">stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_form" />
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="attributes">
+                <attribute name="string">Internal category</attribute>
+            </field>
+
+            <field name="category_id" position="after">
+                <field name="inventory_category_id"
+                       string="Inventory category"
+                       attrs="{'invisible': [('filter', 'not in','inventory_category')], 'required': [('filter', 'in', 'inventory_category')]}" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
