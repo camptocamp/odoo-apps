@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 * Add the email template invoicing data
+* Add stock inventory category filter on inventory adjustments
 
 **Bugfixes**
 
@@ -112,7 +113,6 @@ latest (unreleased)
 * Add draft image to be used over the reports
 * Add link beetween DO and Crystal report packing list
 * Quotation / Order report
-* Add stock inventory category filter on inventory adjustments
 * Add carrier accounts on partner
 * Add secondary vendor field on purchase order
 * Add sale order main partner to invoice email template
