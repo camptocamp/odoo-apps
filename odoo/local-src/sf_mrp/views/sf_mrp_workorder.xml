@@ -6,7 +6,13 @@
         <field name="inherit_id" ref="mrp.mrp_production_workcenter_form_view_inherit"/>
         <field name="arch" type="xml">
             <xpath expr="//header/button[9]" position="after">
-                <button name="button_done_as_planned" type="object" string="Finish as planned" attrs="{'invisible': ['|', ('working_state', '=', 'blocked'), ('state', 'not in', ('ready', 'pending'))]}" class="btn-success"/>
+                <button name="button_done_as_planned" type="object" string="DONE" attrs="{'invisible': ['|', ('working_state', '=', 'blocked'), ('state', 'not in', ('ready', 'pending'))]}" class="btn-success"/>
+            </xpath>
+            <xpath expr="//header/button[@name='button_start'][1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='button_start'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>

@@ -40,7 +40,5 @@ class MrpWorkorder(models.Model):
                 'date_end': datetime.now(),
                 'user_id': self.env.user.id
             })
-        return self.write({
-                    'state': 'done',
-                    'date_finished': datetime.now(),
-        })
+
+        return self.record_production()
