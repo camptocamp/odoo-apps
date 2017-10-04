@@ -29,6 +29,8 @@ latest (unreleased)
 **Bugfixes**
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
 
+* Fix account move view with Team and Project labels
+
 **Build**
 
 **Documentation**

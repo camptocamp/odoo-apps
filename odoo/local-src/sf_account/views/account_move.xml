@@ -7,6 +7,9 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
+            <field name="analytic_account_id" position="before">
+                <field name="analytic_tag_ids" string="Team"/>
+            </field>
             <field name="analytic_account_id" position="attributes">
                 <attribute name="string">Project</attribute>
                 <attribute name="help">Analytic Account means Project</attribute>
@@ -34,6 +37,9 @@
         <field name="inherit_id" ref="account.view_move_line_form"/>
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
+            <field name="analytic_tag_ids" position="attributes">
+                <attribute name="string">Team</attribute>
+            </field>
             <field name="analytic_account_id" position="attributes">
                 <attribute name="string">Project</attribute>
                 <attribute name="help">Analytic Account means Project</attribute>
