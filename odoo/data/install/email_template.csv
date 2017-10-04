@@ -1,0 +1,29 @@
+"id","name","model_id/id","subject","email_from","email_to","partner_to","email_cc","reply_to","user_signature","mail_server_id/id","lang","auto_delete","report_template/id","body_html"
+"__setup__.mail_template_23","Invoice - Send to customer","sale_stock.model_account_invoice","Your invoice : ${object.number or 'n/a' }","","${object.user_id.email}","${object.partner_id.id}","","","false","","","true","","<html>
+	<body lang=FR-CH link=""#0563C1"" vlink=""#954F72"">
+		<p class=MsoNormal><span lang=EN-GB style='font-size:12.0pt;color:#0D0D0D'>Dear Sir/Madam,</span><span lang=EN-GB><o:p></o:p></span></p>
+		<p class=MsoNormal><span lang=EN-GB style='font-size:12.0pt;color:#0D0D0D'>Please find enclosed the invoice relating to following order : ${object.origin or 'n/a' } </span><span lang=EN-GB><o:p></o:p></span></p>
+
+		<p class=MsoNormal><span lang=FR style='font-size:12.0pt;color:#0D0D0D'>Thank you for confidence.</span><span lang=EN-GB><o:p></o:p></span></p>
+		
+		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=400 style='width:300.0pt'><tr><td width=18 style='width:13.5pt;padding:0in 0in 0in 0in'><p class=MsoNormal style='margin-top:7.5pt;line-height:115%'><span style='color:black;mso-fareast-language:FR-CH'>&nbsp;</span><o:p></o:p></p></td><td style='padding:0in 0in 0in 0in'><p class=MsoNormal style='margin-bottom:12.0pt'><b><span style='font-size:12.0pt;font-family:""Tahoma"",sans-serif;color:#4A6AA0;mso-fareast-language:EN-IE'>The Accounting Team</span></b><b><span style='font-size:10.0pt;font-family:""Tahoma"",sans-serif;color:#676767;mso-fareast-language:EN-IE'><br></span></b><o:p></o:p></p>
+		<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=431 style='width:323.4pt'><tr><td style='padding:0in 0in 0in 0in'><span style='font-size:10pt;font-family:""Tahoma"",sans-serif;color:#676767;mso-fareast-language:EN-IE'><b>senseFly</b></span><br>"
+"__setup__.mail_template_25","Last reminder - Send to customer","sale_stock.model_account_invoice","OVERDUE: ${object.number or 'n/a' }","","${object.user_id.email}","${object.partner_id.id}","","","false","","","true","","<html>
+	<body lang=FR-CH link=""#0563C1"" vlink=""#954F72"">
+<span class=""oe_form_text_content"">Dear customer, 
+
+<br><br>This is to inform you that the attached invoice is overdue.
+
+<br><br>We would appreciate if you could remit the full amount due within the next 7 days.
+If we do not receive your payment within this delay, your account will be put on hold and we will not be able to proceed with new orders.
+<br><br>If you have any questions about the balance due on your account, please contact us by email at <a href=""mailto:finance@sensefly.com"">finance@sensefly.com</a>.
+
+<br><br>Thank you for your attention to this matter.
+<br>
+<br>
+<br>Sincerely,
+<br><b>The Accounting Team<b>
+</span>
+</body>
+</html>
+"
