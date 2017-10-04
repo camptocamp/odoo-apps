@@ -7,3 +7,4 @@ from . import stock_pack_operation
 from . import stock_inventory_category
 from . import stock_inventory
 from . import product_inventory_category
+from . import stock_picking

@@ -15,6 +15,7 @@
         'views/stock_inventory_category.xml',
         'views/stock_inventory.xml',
         'views/product_inventory_category.xml',
+        'views/stock_picking_type.xml',
         'report/sf_report_deliveryslip.xml',
         'report/sf_report_delivery_note.xml',
         'report/sf_stock_report.xml'
