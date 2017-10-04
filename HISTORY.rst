@@ -24,6 +24,8 @@ latest (unreleased)
 * Add the email template invoicing data
 * Add stock inventory category filter on inventory adjustments
 
+* Add shipping costs calculated filter
+
 **Bugfixes**
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
 

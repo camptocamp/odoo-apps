@@ -10,7 +10,8 @@
     'license': 'AGPL-3',
     'data': [
         'report/sf_sale_report_templates.xml',
-        'report/sf_sale_report.xml'
+        'report/sf_sale_report.xml',
+        'views/sale_views.xml'
     ],
     'images': ['static/description/icon.png'],
     'installable': True,

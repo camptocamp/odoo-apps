@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sf_sales_order_filter" model="ir.ui.view">
+        <field name="name">sf.sales.order.filter"</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <filter name="message_needaction" position="after">
+                <separator/>
+                <filter string="Waiting for shipping cost" name="no_delivery_method" domain="[('carrier_id','=',False)]"/>
+                <filter string="Shipping cost is set" name="with_delivery_method" domain="[('carrier_id','!=',False)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
