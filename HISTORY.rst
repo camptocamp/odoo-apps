@@ -24,6 +24,7 @@ latest (unreleased)
 * Add stock inventory category filter on inventory adjustments
 
 **Bugfixes**
+* Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
 
 **Build**
 
