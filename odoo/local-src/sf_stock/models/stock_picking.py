@@ -12,6 +12,24 @@ class StockPicking(models.Model):
     show_button_shipped = fields.Boolean(
         related='picking_type_id.show_button_shipped', readonly=True
     )
+    sale_id = fields.Many2one(
+        string='Sale Order',
+        compute='_get_sale_order_id'
+    )
+    sale_incoterm_id = fields.Many2one(
+        'stock.incoterms',
+        string='Sale Incoterm',
+        related='sale_id.incoterm'
+    )
+    confirm_customer_received = fields.Boolean(
+        string='Confirm Customer Received',
+        related='sale_incoterm_id.confirm_customer_received',
+
+    )
+    customer_received = fields.Boolean(
+        string='Customer Received',
+        help="Confirm that the customer received physically the goods."
+    )
 
     @api.multi
     def copy(self, default=None):
@@ -22,6 +40,20 @@ class StockPicking(models.Model):
 
     def action_shipped(self):
         self.write({'date_shipped': datetime.today()})
+
+    @api.multi
+    def do_new_transfer(self):
+        # If there's no need of confirmation that the customer received
+        # the goods, the reception if confirmed by default
+        for pick in self:
+            pick.customer_received = not pick.confirm_customer_received
+        return super(StockPicking, self).do_new_transfer()
+
+    @api.one
+    def _get_sale_order_id(self):
+        if self.origin and self.picking_type_id.code == 'outgoing':
+            self.sale_id = self.env['sale.order'].search(
+                [('name', '=', self.origin)])
 
 
 class PickingType(models.Model):

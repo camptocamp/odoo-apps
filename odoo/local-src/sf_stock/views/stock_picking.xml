@@ -16,7 +16,7 @@
             <field name="name">sf.view.picking.form.inherit</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.view_picking_form"/>
-            <field name="priority" eval="80"/>
+            <field name="priority" eval="100"/>
             <field name="arch" type="xml">
                 <field name="min_date" position="after">
                     <field name="date_shipped" attrs="{'invisible':[('date_shipped', '=', False)]}"/>
@@ -32,6 +32,24 @@
                     <button name="action_shipped" string="Shipped" groups="stock.group_stock_user" type="object" class="oe_highlight"
                             attrs="{'invisible':['|', ('show_button_shipped', '=', False), ('date_shipped','!=', False)]}"/>
                 </button>
+
+                <div name="tracking" position="after">
+                    <field name="confirm_customer_received" invisible="1"/>
+                    <field name="customer_received" attrs="{'invisible':[('confirm_customer_received', '=', False)]}"/>
+                </div>
             </field>
+    </record>
+
+    <record id="view_picking_internal_search_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <filter name="backorder" position="after">
+                 <separator/>
+                <filter name="customer_received" string="Confirmed Reception" domain="[('customer_received','=', True)]" help="Delivery orders with reception confirmed"/>
+                <filter name="customer_received" string="Unconfirmed Reception" domain="[('customer_received','=', False)]"/>
+            </filter>
+        </field>
     </record>
 </odoo>
