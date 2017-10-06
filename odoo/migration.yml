@@ -30,7 +30,9 @@ migration:
           addons:
             upgrade:
               # camptocamp/odoo-prototype
-              - base_settings_exporter
+              - base_dj
+              - dj_compilation_account
+              - dj_compilation_stock
       addons:
         upgrade:
           # CORE
