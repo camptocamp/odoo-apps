@@ -21,20 +21,22 @@ def import_users(ctx):
         'no_reset_password': True,
         'tracking_disable': True,
     })
-    load_csv(ctx, 'data/install/users.csv', model)
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/users.csv', model)
 
 
 @anthem.log
 def import_users_groups(ctx):
     """ Importing groups to users from csv """
-    load_csv(ctx, 'data/install/users_group.csv', 'res.users')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/users_group.csv', 'res.users'
+             )
 
 
 @anthem.log
 def import_product_responsibles(ctx):
     """ Importing product responsibles from csv """
     load_csv(
-        ctx, 'data/install/product_responsibles.csv', 'res.users.role.line'
+        ctx, 's3://prod-sf-odoo-data/install/product_responsibles.csv',
+        'res.users.role.line'
     )
 
 
@@ -61,79 +63,89 @@ def create_action_product_followers(ctx):
 @anthem.log
 def import_country_state(ctx):
     """ Importing country states from csv """
-    load_csv(ctx, 'data/install/country_state.csv', 'res.country.state')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/country_state.csv',
+             'res.country.state')
 
 
 @anthem.log
 def import_countries(ctx):
     """ Importing countries from csv """
-    load_csv(ctx, 'data/install/country.csv', 'res.country')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/country.csv', 'res.country')
 
 
 @anthem.log
 def import_customers(ctx):
     """ Importing customers from csv """
-    load_csv(ctx, 'data/install/customers.csv', 'res.partner')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/customers.csv',
+             'res.partner')
 
 
 @anthem.log
 def import_suppliers(ctx):
     """ Importing suppliers from csv """
-    load_csv(ctx, 'data/install/suppliers.csv', 'res.partner')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/suppliers.csv',
+             'res.partner')
 
 
 @anthem.log
 def import_crm_team(ctx):
     """ Importing sales team / channel from csv """
-    load_csv(ctx, 'data/install/crm_team.csv', 'crm.team')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/crm_team.csv', 'crm.team')
 
 
 @anthem.log
 def import_location(ctx):
     """ Importing stock location from csv """
-    load_csv(ctx, 'data/install/stock_location.csv', 'stock.location')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/stock_location.csv',
+             'stock.location')
 
 
 @anthem.log
 def import_drone_type(ctx):
     """ Importing drone type from csv """
-    load_csv(ctx, 'data/install/drone_type.csv', 'drone.type')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/drone_type.csv',
+             'drone.type')
 
 
 @anthem.log
 def import_product(ctx):
     """ Importing products type from csv """
-    load_csv(ctx, 'data/install/product.csv', 'product.template')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/product.csv',
+             'product.template')
 
 
 @anthem.log
 def import_serial_number(ctx):
     """ Importing serial number from csv """
-    load_csv(ctx, 'data/install/serial.csv', 'stock.production.lot')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/serial.csv',
+             'stock.production.lot')
 
 
 @anthem.log
 def import_workcenter(ctx):
     """ Importing workcenters from csv """
-    load_csv(ctx, 'data/install/workcenter.csv', 'mrp.workcenter')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/workcenter.csv',
+             'mrp.workcenter')
 
 
 @anthem.log
 def import_rma_cause(ctx):
     """ Importing RMA causes from csv """
-    load_csv(ctx, 'data/install/rma_cause.csv', 'sf.rma.cause')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/rma_cause.csv',
+             'sf.rma.cause')
 
 
 @anthem.log
 def import_bank(ctx):
     """ Importing bank from csv """
-    load_csv(ctx, 'data/install/bank.csv', 'res.bank')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/bank.csv', 'res.bank')
 
 
 @anthem.log
 def import_bank_account(ctx):
     """ Importing bank account partners from csv """
-    load_csv(ctx, 'data/install/bank_account.csv', 'res.partner.bank')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/bank_account.csv',
+             'res.partner.bank')
 
 
 @anthem.log
