@@ -24,6 +24,7 @@
                 </field>
 
                 <button name="do_new_transfer" position="replace">
+                    <field name="show_button_shipped" invisible="1"/>
                     <button name="do_new_transfer" string="Validate" groups="stock.group_stock_user" type="object" class="oe_highlight"
                             attrs="{'invisible': [ '|', '&amp;', ('date_shipped', '=', False), ('show_button_shipped', '=', True),
                             ('state', 'not in', ('draft','partially_available','assigned'))]}"/>
