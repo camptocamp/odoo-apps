@@ -21,3 +21,9 @@ class Purchase(models.Model):
         res = super(Purchase, self).button_confirm()
         self.print_draft = False
         return res
+
+    @api.multi
+    def print_quotation(self):
+        self.write({'state': "sent"})
+        return self.env['report'].get_action(
+            self, 'sf_purchase.sf_report_purchasequotation')
