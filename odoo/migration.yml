@@ -127,6 +127,7 @@ migration:
           - sf_drone_info
           - sf_helpdesk
           - sf_invoice_check_duplicate
+          - sf_mrp
           - sf_partner
           - sf_partner_entity_type
           - sf_product

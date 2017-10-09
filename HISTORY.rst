@@ -25,6 +25,7 @@ latest (unreleased)
 * Add stock inventory category filter on inventory adjustments
 
 * Add shipping costs calculated filter
+* Install module sf_mrp
 
 **Bugfixes**
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
