@@ -8,7 +8,9 @@
     'website': 'https://www.sensefly.com',
     'category': 'SenseFly',
     'depends': ['sale', 'account_invoice_fiscal_position_update'],
-    'data': [],
+    'data': [
+        'views/menu.xml'
+    ],
     'demo': [],
     'images': ['static/description/icon.png'],
     'installable': True,
