@@ -196,6 +196,7 @@ latest (unreleased)
 * Install module account tag category
 * Add module rma webhook
 * Install module sf_mrp
+* Do not install PLM and Quality modules
 
 **Bugfixes**
 

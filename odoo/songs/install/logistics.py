@@ -112,7 +112,7 @@ def settings(ctx):
         'group_uom': 0,
         'group_product_variant': 0,
         'group_stock_packaging': 0,
-        'module_quality': True,
+        'module_quality': False,
     }).execute()
 
 

@@ -18,7 +18,7 @@ def settings(ctx):
         'module_mrp_byproduct': False,
         'module_mrp_maintenance': False,
         'module_mrp_mps': 1,
-        'module_mrp_plm': 1,
+        'module_mrp_plm': 0,
         'module_quality_mrp': False}).execute()
     # Manufacturing settings for second company (senseFly Inc USA)
     ctx.env['mrp.config.settings'].create({
@@ -29,7 +29,7 @@ def settings(ctx):
         'module_mrp_byproduct': False,
         'module_mrp_maintenance': False,
         'module_mrp_mps': 1,
-        'module_mrp_plm': 1,
+        'module_mrp_plm': 0,
         'module_quality_mrp': False}).execute()
 
 
