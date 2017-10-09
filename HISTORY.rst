@@ -20,6 +20,8 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+* Add sale terms and confitions on report
 * Add shipped date field and button shipped
 * Add the email template invoicing data
 * Add stock inventory category filter on inventory adjustments

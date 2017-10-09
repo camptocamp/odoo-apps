@@ -204,6 +204,8 @@
                         </div>
                     </div>
                 </t>
+                <t t-set="o" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+                <t t-call="sf_terms_and_conditions.sale_terms_and_conditions" />
             </div>
         </t>
     </template>
