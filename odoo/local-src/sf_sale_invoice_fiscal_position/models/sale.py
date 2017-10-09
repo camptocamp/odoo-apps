@@ -11,6 +11,7 @@ class SaleOrder(models.Model):
 
     @api.multi
     def _prepare_invoice(self):
+        """ Adds fiscal position from picking partner on account invoice"""
         res = super(SaleOrder, self)._prepare_invoice()
         picking_partner = self.picking_ids.filtered(
             lambda p:
@@ -28,4 +29,5 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_invoice_create(self, grouped=False, final=False):
+        """ Ensure one invoice is created per sale order """
         return super(SaleOrder, self).action_invoice_create(grouped=True)

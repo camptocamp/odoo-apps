@@ -11,6 +11,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def compute_taxes(self):
+        """ Ensure taxes are computed from fiscal position """
         res = super(AccountInvoice, self).compute_taxes()
         for invoice in self:
             if invoice.fiscal_position_id:
