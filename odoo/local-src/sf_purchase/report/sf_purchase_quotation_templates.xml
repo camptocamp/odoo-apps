@@ -87,6 +87,8 @@
                 <p t-field="o.notes"/>
 
                 <div class="oe_structure"/>
+
+                <t t-call="sf_terms_and_conditions.purchase_terms_and_conditions" />
             </div>
         </t>
     </template>
