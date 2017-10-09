@@ -34,6 +34,7 @@ latest (unreleased)
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
 * Fix account move view with Team and Project labels
 * Fix MRP Repair flow and use 'To analyze' if RMA is 'To invoice'
+* Fix singleton error when invoicing two orders
 
 **Build**
 * Fix url for account-invoicing repository
