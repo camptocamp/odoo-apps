@@ -25,3 +25,7 @@ class SaleOrder(models.Model):
             raise UserError(_('It is not possible to have more than one '
                               'delivery order partner per sale order!'))
         return res
+
+    @api.multi
+    def action_invoice_create(self, grouped=False, final=False):
+        return super(SaleOrder, self).action_invoice_create(grouped=True)

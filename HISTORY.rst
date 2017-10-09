@@ -27,6 +27,7 @@ latest (unreleased)
 * Add stock inventory category filter on inventory adjustments
 * Add shipping costs calculated filter
 * Install module sf_mrp
+* Always create one invoice per sale order
 
 **Bugfixes**
 
