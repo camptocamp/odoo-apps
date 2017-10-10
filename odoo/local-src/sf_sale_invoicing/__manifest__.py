@@ -2,7 +2,7 @@
 # Part of senseFly.
 
 {
-    'name': 'Sale invoice fiscal position',
+    'name': 'Sensefly sale invoicing',
     'version': '1.0',
     'author': 'Telmo Santos',
     'website': 'https://www.sensefly.com',

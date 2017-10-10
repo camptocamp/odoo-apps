@@ -144,7 +144,7 @@ migration:
           - sf_mysensefly
           - sf_stock_picking_crystal_link
           - mrp_team
-          - sf_sale_invoice_fiscal_position
+          - sf_sale_invoicing
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0
