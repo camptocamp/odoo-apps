@@ -12,10 +12,6 @@ class StockPicking(models.Model):
     show_button_shipped = fields.Boolean(
         related='picking_type_id.show_button_shipped', readonly=True
     )
-    sale_id = fields.Many2one(
-        string='Sale Order',
-        compute='_get_sale_order_id'
-    )
     sale_incoterm_id = fields.Many2one(
         'stock.incoterms',
         string='Sale Incoterm',
