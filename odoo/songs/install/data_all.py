@@ -122,6 +122,39 @@ def import_email_template(ctx):
 
 
 @anthem.log
+def update_picking_type(ctx):
+    """ Update stock picking type names """
+    for record in ctx.env['stock.picking.type'].search(
+            [('name', '=', 'Pick')]):
+        record.name = 'Reserve & Pack'
+    for record in ctx.env['stock.picking.type'].search(
+            [('name', '=', 'Pack')]):
+            record.name = 'Freight Labeling'
+
+
+@anthem.log
+def update_procurement_rule(ctx):
+    """ Update procurement rule names """
+    for record in ctx.env['procurement.rule'].search(
+            [('name', '=', 'WH: Output -> Customers')]):
+        record.name = 'WH: Pickup -> Customers'
+    for record in ctx.env['procurement.rule'].search(
+            [('name', '=', 'WH: Packing Zone -> Output')]):
+        record.name = 'WH: Packs Zone -> Pickup'
+
+
+@anthem.log
+def update_stock_location(ctx):
+    """ Update stock location names """
+    create_or_update(ctx, 'stock.location',
+                     'stock.location_pack_zone',
+                     {'name': 'Packs'})
+    create_or_update(ctx, 'stock.location',
+                     'stock.stock_location_output',
+                     {'name': 'Pickup'})
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -137,3 +170,6 @@ def main(ctx):
     import_account_account(ctx)
     create_date_range(ctx)
     import_email_template(ctx)
+    update_picking_type(ctx)
+    update_procurement_rule(ctx)
+    update_stock_location(ctx)

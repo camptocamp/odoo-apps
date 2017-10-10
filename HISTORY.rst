@@ -20,15 +20,14 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+* Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add shipped date field and button shipped
 * Add the email template invoicing data
 * Add stock inventory category filter on inventory adjustments
-
 * Add shipping costs calculated filter
 
 **Bugfixes**
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
-
 * Fix account move view with Team and Project labels
 
 **Build**
