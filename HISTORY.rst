@@ -27,6 +27,8 @@ latest (unreleased)
 * Add shipping costs calculated filter
 
 **Bugfixes**
+
+* Add missing field show_button_shipped in picking view
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
 * Fix account move view with Team and Project labels
 
