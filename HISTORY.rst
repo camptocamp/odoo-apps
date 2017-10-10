@@ -29,6 +29,7 @@ latest (unreleased)
 * Add stock inventory category filter on inventory adjustments
 * Add shipping costs calculated filter
 * Install module sf_mrp
+* Automatically add Lot/Serial number to next picking packing operation
 
 **Bugfixes**
 
