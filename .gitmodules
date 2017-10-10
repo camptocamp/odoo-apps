@@ -46,5 +46,5 @@
 	url = git@github.com:camptocamp/stock-logistics-workflow.git
 [submodule "odoo/external-src/account-invoicing"]
         path = odoo/external-src/account-invoicing
-        url = git@github.com:camptocamp/account-invoicing.git
+        url = git@github.com:OCA/account-invoicing.git
         branch = 10.0

@@ -31,6 +31,7 @@ latest (unreleased)
 * Fix account move view with Team and Project labels
 
 **Build**
+* Fix url for account-invoicing repository
 
 **Documentation**
 
