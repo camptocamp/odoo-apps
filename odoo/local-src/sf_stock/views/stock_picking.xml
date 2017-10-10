@@ -48,7 +48,7 @@
             <filter name="backorder" position="after">
                  <separator/>
                 <filter name="customer_received" string="Confirmed Reception" domain="[('customer_received','=', True)]" help="Delivery orders with reception confirmed"/>
-                <filter name="customer_received" string="Unconfirmed Reception" domain="[('customer_received','=', False)]"/>
+                <filter name="customer_received_unconfirmed" string="Unconfirmed Reception" domain="[('customer_received','=', False)]"/>
             </filter>
         </field>
     </record>
