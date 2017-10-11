@@ -22,6 +22,8 @@ latest (unreleased)
 **Features and Improvements**
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
+
+* Add field on DO confirming the physical reception of the goods by the customer
 * Add shipped date field and button shipped
 * Add the email template invoicing data
 * Add stock inventory category filter on inventory adjustments

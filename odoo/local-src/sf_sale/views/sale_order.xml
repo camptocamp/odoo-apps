@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_view_order_form_inherit_sale_stock" model="ir.ui.view">
+        <field name="name">sale.order.form.sale.stock.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock" />
+        <field name="arch" type="xml">
+            <field name="incoterm" position="attributes">
+                <attribute name="attrs">{'readonly': [('state','in',('sale','done'))]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
