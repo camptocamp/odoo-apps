@@ -9,7 +9,8 @@
     'category': 'SenseFly',
     'depends': ['sale', 'account_invoice_fiscal_position_update'],
     'data': [
-        'views/menu.xml'
+        'views/menu.xml',
+        'views/partner.xml'
     ],
     'demo': [],
     'images': ['static/description/icon.png'],
