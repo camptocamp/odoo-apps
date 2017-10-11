@@ -51,6 +51,18 @@ class StockPicking(models.Model):
             self.sale_id = self.env['sale.order'].search(
                 [('name', '=', self.origin)])
 
+    @api.multi
+    def do_prepare_partial(self):
+        """ This function ensures that any Lot/Serial number for pack ops
+            is automatically added to the next picking """
+        res = super(StockPicking, self).do_prepare_partial()
+        pack_lots = self.pack_operation_ids.mapped('pack_lot_ids').filtered(
+            lambda p: p.plus_visible
+        )
+        if pack_lots:
+            pack_lots.do_plus()
+        return res
+
 
 class PickingType(models.Model):
     _inherit = "stock.picking.type"

@@ -30,6 +30,7 @@ latest (unreleased)
 * Add shipping costs calculated filter
 * Install module sf_mrp
 * Always create one invoice per sale order
+* Automatically add Lot/Serial number to next picking packing operation
 
 **Bugfixes**
 
