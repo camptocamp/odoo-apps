@@ -7,9 +7,9 @@
     'author': 'Telmo Santos',
     'website': 'https://www.sensefly.com',
     'category': 'SenseFly',
-    'depends': ['sale', 'account_invoice_fiscal_position_update'],
+    'depends': ['sale', 'account_invoice_fiscal_position_update', 'stock'],
     'data': [
-        'views/menu.xml',
+        'views/sale.xml',
         'views/partner.xml'
     ],
     'demo': [],

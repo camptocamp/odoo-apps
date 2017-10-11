@@ -31,6 +31,7 @@ latest (unreleased)
 * Install module sf_mrp
 * Always create one invoice per sale order
 * Automatically add Lot/Serial number to next picking packing operation
+* Add flags down payment required on partner and down payment missing on invoice
 
 **Bugfixes**
 

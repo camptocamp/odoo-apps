@@ -1,13 +1,40 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import models, api, _
+from odoo import models, api, _, fields
 from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
 
     _inherit = "sale.order"
+
+    partner_down_payment_required = fields.Boolean(
+        related='partner_id.down_payment_required')
+    down_payment_missing = fields.Boolean(
+        compute='_compute_down_payment_missing',
+        store=True
+    )
+
+    @api.multi
+    @api.depends('order_line', 'order_line.product_id', 'partner_id',
+                 'partner_id.down_payment_required', 'state', 'invoice_status')
+    def _compute_down_payment_missing(self):
+
+        down_payment_product = self.env[
+            'sale.advance.payment.inv']._default_product_id()
+
+        for sale in self:
+            if (
+                    sale.partner_down_payment_required and
+                    sale.invoice_status != 'invoiced' and
+                    sale.state not in ('cancel', 'done')
+            ):
+                sale.down_payment_missing = not bool(sale.order_line.filtered(
+                    lambda l: l.product_id == down_payment_product
+                ))
+            else:
+                sale.down_payment_missing = False
 
     @api.multi
     def _prepare_invoice(self):
