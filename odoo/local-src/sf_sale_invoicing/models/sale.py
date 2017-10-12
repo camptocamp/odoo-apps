@@ -10,7 +10,9 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     down_payment_required = fields.Boolean(
-        related='payment_term_id.down_payment_required')
+        related='payment_term_id.down_payment_required',
+        readonly=True,
+    )
     down_payment_missing = fields.Boolean(
         compute='_compute_down_payment_missing',
         store=True
@@ -27,7 +29,7 @@ class SaleOrder(models.Model):
 
         for sale in self:
             if (
-                    sale.down_payment_required and
+                    sale.payment_term_id.down_payment_required and
                     sale.invoice_status != 'invoiced' and
                     sale.state not in ('cancel', 'done')
             ):

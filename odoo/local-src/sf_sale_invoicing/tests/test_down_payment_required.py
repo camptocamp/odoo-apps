@@ -55,6 +55,12 @@ class TestDownPaymentRequired(TransactionCase):
             self.down_payment_product,
             self.env['sale.advance.payment.inv']._default_product_id())
 
+        self.assertTrue(self.down_payment_term.down_payment_required)
+
+        self.assertTrue(self.order_1.down_payment_required)
+        self.assertTrue(self.order_2.down_payment_required)
+        self.assertFalse(self.order_3.down_payment_required)
+
         self.assertTrue(self.order_1.down_payment_missing)
         self.assertTrue(self.order_2.down_payment_missing)
         self.assertFalse(self.order_3.down_payment_missing)
@@ -65,6 +71,7 @@ class TestDownPaymentRequired(TransactionCase):
         self.assertFalse(self.order_2.down_payment_missing)
 
         self.down_payment_term.down_payment_required = True
+
         self.assertTrue(self.order_1.down_payment_missing)
         self.assertTrue(self.order_2.down_payment_missing)
 
