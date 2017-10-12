@@ -31,5 +31,10 @@
         </field>
     </record>
 
+    <record id="account.action_invoice_tree1" model="ir.actions.act_window">
+        <field name="name">Customer Invoices / Refunds</field>
+    </record>
+
+    <menuitem name="Customer Invoices / Refunds" action="account.action_invoice_tree1" id="account.menu_action_invoice_tree1" parent="account.menu_finance_receivables" sequence="1"/>
 
 </odoo>
