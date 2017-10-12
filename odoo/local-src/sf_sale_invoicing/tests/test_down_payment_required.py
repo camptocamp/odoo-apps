@@ -74,7 +74,7 @@ class TestDownPaymentRequired(TransactionCase):
             'advance_payment_method': 'percentage',
             'amount': 10.0,
         })
-        invoice_1 = payment_1.with_context(context_1).create_invoices()
+        payment_1.with_context(context_1).create_invoices()
 
         self.assertFalse(self.order_1.down_payment_missing)
 
@@ -92,7 +92,7 @@ class TestDownPaymentRequired(TransactionCase):
         payment_3 = self.env['sale.advance.payment.inv'].create({
             'advance_payment_method': 'all',
         })
-        invoice_3 = payment_3.with_context(context_3).create_invoices()
+        payment_3.with_context(context_3).create_invoices()
         self.assertEqual(self.order_3.invoice_status, 'invoiced')
 
         self.partner_3.down_payment_required = True
