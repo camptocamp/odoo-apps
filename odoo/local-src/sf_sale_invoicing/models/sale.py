@@ -62,6 +62,25 @@ class SaleOrder(models.Model):
         """ Ensure one invoice is created per sale order """
         return super(SaleOrder, self).action_invoice_create(grouped=True)
 
+    @api.multi
+    def action_done(self):
+        """ Do not set sale order as done if procurements are not created"""
+        done_sales = self.filtered(lambda s: not s.down_payment_missing)
+        res = super(SaleOrder, done_sales).action_done()
+        return res
+
+    @api.multi
+    def action_create_procurements(self):
+        """ Action to be called when no down payment is missing to create
+        the procurements and stock pickings"""
+        orders_to_procure = self.filtered(lambda s: not s.down_payment_missing)
+        for order in orders_to_procure:
+            order.order_line._action_procurement_create()
+        if self.env['ir.values'].get_default('sale.config.settings',
+                                             'auto_done_setting'):
+            self.action_done()
+        return True
+
 
 class SaleOrderLine(models.Model):
 
