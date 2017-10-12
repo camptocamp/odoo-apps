@@ -61,3 +61,18 @@ class SaleOrder(models.Model):
     def action_invoice_create(self, grouped=False, final=False):
         """ Ensure one invoice is created per sale order """
         return super(SaleOrder, self).action_invoice_create(grouped=True)
+
+
+class SaleOrderLine(models.Model):
+
+    _inherit = 'sale.order.line'
+
+    @api.multi
+    def _action_procurement_create(self):
+        """ Do not create procurement if down payment is missing on
+        sale order"""
+        lines_to_procure = self.filtered(
+            lambda l: not l.order_id.down_payment_missing)
+        res = super(SaleOrderLine,
+                    lines_to_procure)._action_procurement_create()
+        return res
