@@ -20,6 +20,8 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+* Invoice delivered quantities configuration
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
 

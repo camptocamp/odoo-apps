@@ -13,7 +13,7 @@ def settings(ctx):
          'alias_prefix': u'info',
          'auto_done_setting': False,
          'company_id': ctx.env.ref('base.main_company').id,
-         'default_invoice_policy': u'order',
+         'default_invoice_policy': u'delivery',
          'default_picking_policy': False,
          'deposit_product_id_setting': False,
          'generate_sales_team_alias': True,
