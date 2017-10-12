@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_delivery_method_manager" model="res.groups">
+            <field name="name">Manage delivery method</field>
+            <field name="category_id" ref="sf_stock.module_category_shipping"/>
+        </record>
+    </data>
+</odoo>

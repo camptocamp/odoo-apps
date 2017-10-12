@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
+* Add delivery method manager group and reset delivery method onchange SO line
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
 
