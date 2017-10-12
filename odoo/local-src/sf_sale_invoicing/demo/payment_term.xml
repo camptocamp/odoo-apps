@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="down_payment_required_term" model="account.payment.term">
+        <field name="name">Down payment required</field>
+        <field name="down_payment_required" eval="True" />
+    </record>
+</odoo>

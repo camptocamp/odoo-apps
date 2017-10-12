@@ -7,7 +7,7 @@ from odoo.tests.common import TransactionCase
 
 class TestDownPaymentRequired(TransactionCase):
 
-    def create_sale_order(self, partner, product):
+    def create_sale_order(self, partner, product, payment_term):
         return self.env['sale.order'].create({
             'partner_id': partner.id,
             'partner_invoice_id': partner.id,
@@ -17,6 +17,7 @@ class TestDownPaymentRequired(TransactionCase):
                 'product_uom_qty': 1,
             })],
             'pricelist_id': self.env.ref('product.list0').id,
+            'payment_term_id': payment_term.id,
         })
 
     def setUp(self):
@@ -27,22 +28,26 @@ class TestDownPaymentRequired(TransactionCase):
             'deposit_product_id_setting': self.down_payment_product.id
         }).execute()
 
+        self.end_of_month_payment_term = self.env.ref(
+            'account.account_payment_term')
+
+        self.down_payment_term = self.env.ref(
+            'sf_sale_invoicing.down_payment_required_term')
+
         self.product_to_sell = self.env.ref('product.product_product_7')
         self.product_to_sell.invoice_policy = 'order'
 
-        self.partner_1 = self.env.ref('base.res_partner_12')
-        self.partner_2 = self.env.ref('base.res_partner_2')
-        self.partner_3 = self.env.ref('base.res_partner_3')
+        self.partner = self.env.ref('base.res_partner_12')
 
-        self.partner_1.down_payment_required = True
-        self.partner_2.down_payment_required = True
-
-        self.order_1 = self.create_sale_order(self.partner_1,
-                                              self.product_to_sell)
-        self.order_2 = self.create_sale_order(self.partner_2,
-                                              self.product_to_sell)
-        self.order_3 = self.create_sale_order(self.partner_3,
-                                              self.product_to_sell)
+        self.order_1 = self.create_sale_order(self.partner,
+                                              self.product_to_sell,
+                                              self.down_payment_term)
+        self.order_2 = self.create_sale_order(self.partner,
+                                              self.product_to_sell,
+                                              self.down_payment_term)
+        self.order_3 = self.create_sale_order(self.partner,
+                                              self.product_to_sell,
+                                              self.end_of_month_payment_term)
 
     def test_customer_down_payment_required(self):
 
@@ -54,11 +59,13 @@ class TestDownPaymentRequired(TransactionCase):
         self.assertTrue(self.order_2.down_payment_missing)
         self.assertFalse(self.order_3.down_payment_missing)
 
-        self.partner_2.down_payment_required = False
+        self.down_payment_term.down_payment_required = False
 
+        self.assertFalse(self.order_1.down_payment_missing)
         self.assertFalse(self.order_2.down_payment_missing)
 
-        self.partner_2.down_payment_required = True
+        self.down_payment_term.down_payment_required = True
+        self.assertTrue(self.order_1.down_payment_missing)
         self.assertTrue(self.order_2.down_payment_missing)
 
         self.order_1.action_confirm()
@@ -82,7 +89,7 @@ class TestDownPaymentRequired(TransactionCase):
         self.order_2.action_cancel()
         self.assertFalse(self.order_2.down_payment_missing)
 
-        # Test if setting partner down payment required does not change
+        # Test if setting payment term down payment required does not change
         # invoiced sale orders
 
         context_3 = {"active_model": 'sale.order',
@@ -95,5 +102,5 @@ class TestDownPaymentRequired(TransactionCase):
         payment_3.with_context(context_3).create_invoices()
         self.assertEqual(self.order_3.invoice_status, 'invoiced')
 
-        self.partner_3.down_payment_required = True
+        self.end_of_month_payment_term.down_payment_required = True
         self.assertFalse(self.order_3.down_payment_missing)

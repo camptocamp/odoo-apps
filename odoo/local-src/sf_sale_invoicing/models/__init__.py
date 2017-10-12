@@ -2,4 +2,4 @@
 # Part of sensefly.
 from . import sale
 from . import invoice
-from . import partner
+from . import account_payment_term

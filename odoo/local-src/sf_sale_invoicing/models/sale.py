@@ -9,16 +9,17 @@ class SaleOrder(models.Model):
 
     _inherit = "sale.order"
 
-    partner_down_payment_required = fields.Boolean(
-        related='partner_id.down_payment_required')
+    down_payment_required = fields.Boolean(
+        related='payment_term_id.down_payment_required')
     down_payment_missing = fields.Boolean(
         compute='_compute_down_payment_missing',
         store=True
     )
 
     @api.multi
-    @api.depends('order_line', 'order_line.product_id', 'partner_id',
-                 'partner_id.down_payment_required', 'state', 'invoice_status')
+    @api.depends('order_line', 'order_line.product_id', 'payment_term_id',
+                 'payment_term_id.down_payment_required', 'state',
+                 'invoice_status')
     def _compute_down_payment_missing(self):
 
         down_payment_product = self.env[
@@ -26,7 +27,7 @@ class SaleOrder(models.Model):
 
         for sale in self:
             if (
-                    sale.partner_down_payment_required and
+                    sale.down_payment_required and
                     sale.invoice_status != 'invoiced' and
                     sale.state not in ('cancel', 'done')
             ):

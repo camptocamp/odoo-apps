@@ -10,9 +10,11 @@
     'depends': ['sale_stock', 'account_invoice_fiscal_position_update'],
     'data': [
         'views/sale.xml',
-        'views/partner.xml'
+        'views/payment_term.xml'
     ],
-    'demo': [],
+    'demo': [
+        'demo/payment_term.xml'
+    ],
     'images': ['static/description/icon.png'],
     'installable': True,
     'auto_install': False,

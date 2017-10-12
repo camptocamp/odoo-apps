@@ -6,7 +6,7 @@
         <field name="res_model">sale.order</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('partner_down_payment_required','=',True),('down_payment_missing','=',True)]</field>
+        <field name="domain">[('down_payment_required','=',True),('down_payment_missing','=',True)]</field>
     </record>
 
     <menuitem id="sale.menu_sale_order_down_payment" parent="account.menu_finance_receivables" string="Sales requiring down payment" action="action_orders_missing_down_payment"/>
