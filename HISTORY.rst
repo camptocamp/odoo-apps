@@ -26,6 +26,7 @@ latest (unreleased)
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
 * Add delivery method manager group and reset delivery method onchange SO line
+* Install sale_partner_incoterm module
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
 

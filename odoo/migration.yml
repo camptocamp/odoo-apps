@@ -146,6 +146,7 @@ migration:
           - sf_stock_picking_crystal_link
           - mrp_team
           - sf_sale_invoicing
+          - sale_partner_incoterm
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0
