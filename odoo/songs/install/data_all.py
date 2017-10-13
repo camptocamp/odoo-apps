@@ -116,6 +116,7 @@ def import_account_account(ctx):
              'account.account')
 
 
+@anthem.log
 def import_email_template(ctx):
     """ Importing email template from csv """
     load_csv(ctx, 'data/install/email_template.csv', 'mail.template')
@@ -155,6 +156,31 @@ def update_stock_location(ctx):
 
 
 @anthem.log
+def delete_payment_term(ctx):
+    """ Delete payment terms standard """
+    # Create list of dictionnaries
+    records = [
+        'account.account_payment_term_15days',
+        'account.account_payment_term_net',
+        'account.account_payment_term_immediate'
+        ]
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record, raise_if_not_found=False)
+        if rec:
+            rec.unlink()
+
+
+@anthem.log
+def import_payment_term(ctx):
+    """ Importing payment terms from csv """
+    load_csv(ctx, 'data/install/payment_term.csv', 'account.payment.term')
+    load_csv(ctx, 'data/install/payment_term_line.csv',
+             'account.payment.term.line')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -173,3 +199,5 @@ def main(ctx):
     update_picking_type(ctx)
     update_procurement_rule(ctx)
     update_stock_location(ctx)
+    delete_payment_term(ctx)
+    import_payment_term(ctx)
