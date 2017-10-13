@@ -63,14 +63,23 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
             else:
                 return
 
+        additional_description = \
+            self.env.user.company_id.rma_service_additional_description
+
         values = []
         for line in self.repair_line_ids:
+
             line_dict = {
-                'name': line.name,
                 'price_unit': line.product_id.list_price,
                 'product_uom_qty': line.product_uom_qty,
                 'product_uom': line.product_uom.id,
             }
+
+            if additional_description:
+                line_dict.update({'name': '\n'.join([line.name,
+                                                     additional_description])})
+            else:
+                line_dict.update({'name': line.name})
 
             line_dict.append(_get_rma_service_placeholder(line.product_id))
 

@@ -46,6 +46,7 @@ latest (unreleased)
 * Add sales order data
 * Add flags down payment required on payment term and down payment missing on sale order
 * Use 3 distinct services to import RMA MRP repair lines
+* Allow to add additional description on sale order lines imported from RMA MRP repair line
 
 **Bugfixes**
 
