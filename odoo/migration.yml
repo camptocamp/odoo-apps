@@ -70,6 +70,7 @@ migration:
           - account_asset_management
           - account_fiscal_year
           - account_reversal
+          - account_tag_category
           - currency_rate_update
           # OCA/bank-payment
           - account_payment_order
