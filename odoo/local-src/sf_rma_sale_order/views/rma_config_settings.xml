@@ -7,7 +7,9 @@
         <field name="arch" type="xml">
             <div id="main" position="inside">
                 <group string="Sale order">
-                    <field name="rma_service_product_id" />
+                    <field name="rma_service_service_product_id" />
+                    <field name="rma_service_consumable_product_id" />
+                    <field name="rma_service_stockable_product_id" />
                 </group>
             </div>
         </field>

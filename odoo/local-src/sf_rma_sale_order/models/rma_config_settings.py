@@ -9,9 +9,25 @@ class RMASettings(models.TransientModel):
 
     _inherit = 'rma.config.settings'
 
-    rma_service_product_id = fields.Many2one(
-        'product.product', string='Repair Service', required=True,
-        related='company_id.rma_service_product_id',
+    rma_service_service_product_id = fields.Many2one(
+        'product.product', string='Repair Service for services', required=True,
+        related='company_id.rma_service_service_product_id',
+        domain=[('type', '=', 'service')],
+        help="This service will appear on RMA sale orders as a placeholder "
+             "for imported repair lines with a service product.")
+
+    rma_service_consumable_product_id = fields.Many2one(
+        'product.product', string='Repair Service for consumables',
+        required=True,
+        related='company_id.rma_service_consumable_product_id',
+        domain=[('type', '=', 'service')],
+        help="This service will appear on RMA sale orders as a placeholder "
+             "for imported repair lines with a consumable product.")
+
+    rma_service_stockable_product_id = fields.Many2one(
+        'product.product', string='Repair Service for stockables',
+        required=True,
+        related='company_id.rma_service_stockable_product_id',
         domain=[('type', '=', 'service')],
         help="This product will appear on RMA sale orders as a placeholder "
-             "for imported repair lines.")
+             "for imported repair lines with a stockable product.")

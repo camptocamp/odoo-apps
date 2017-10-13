@@ -45,6 +45,7 @@ latest (unreleased)
 * Add selection field Validation state on product template
 * Add sales order data
 * Add flags down payment required on payment term and down payment missing on sale order
+* Use 3 distinct services to import RMA MRP repair lines
 
 **Bugfixes**
 

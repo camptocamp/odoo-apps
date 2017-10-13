@@ -37,20 +37,45 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
 
     @api.multi
     def import_lines(self):
-        rma_service = self.env.user.company_id.rma_service_product_id
-        if not rma_service:
-            raise UserError(_('A RMA repair service product has to be defined '
-                              'in the RMA Settings.'))
+
+        def _get_rma_service_placeholder(product):
+
+            comp = self.env.user.company_id
+            rma_service_service = comp.rma_service_service_product_id
+            if not rma_service_service:
+                raise UserError(_('Repair Service for services has to be '
+                                  'defined in the RMA Settings.'))
+            rma_service_consu = comp.rma_service_consumable_product_id
+            if not rma_service_consu:
+                raise UserError(_('Repair Service for consumables has to be '
+                                  'defined in the RMA Settings.'))
+            rma_service_stock = comp.rma_service_stockable_product_id
+            if not rma_service_stock:
+                raise UserError(_('Repair Service for stockables has to be '
+                                  'defined in the RMA Settings.'))
+
+            if product.type == 'service':
+                return {'product_id': rma_service_service.id}
+            elif product.type == 'consu':
+                return {'product_id': rma_service_consu.id}
+            elif line.product_id.type == 'product':
+                return {'product_id': rma_service_stock.id}
+            else:
+                return
+
         values = []
         for line in self.repair_line_ids:
+            line_dict = {
+                'name': line.name,
+                'price_unit': line.product_id.list_price,
+                'product_uom_qty': line.product_uom_qty,
+                'product_uom': line.product_uom.id,
+            }
+
+            line_dict.append(_get_rma_service_placeholder(line.product_id))
+
             values.append(
-                (0, 0, {
-                    'name': line.name,
-                    'product_id': rma_service.id,
-                    'price_unit': line.product_id.list_price,
-                    'product_uom_qty': line.product_uom_qty,
-                    'product_uom': line.product_uom.id,
-                }))
+                (0, 0, line_dict))
 
         self.sale_order_id.write({
             'order_line': values
