@@ -22,9 +22,15 @@
                             </div>
                         </div>
                         <div class="col-xs-3">
-                            <field name="validator_user" invisible="1"/>
-                            <field name="validated"  attrs="{'readonly':[('validator_user','=',False)]}"/>
-                            <label for="validated"/>
+                            <div>
+                                <field name="validator_user" invisible="1"/>
+                                <field name="validated"  attrs="{'readonly':[('validator_user','=',False)]}"/>
+                                <label for="validated"/>
+                            </div>
+                            <div attrs="{'invisible': [('validated', '=', True)]}">
+                                <label for="validation_state" string="State : "/>
+                                <field name="validation_state" />
+                            </div>
                         </div>
                     </div>
                 </div>

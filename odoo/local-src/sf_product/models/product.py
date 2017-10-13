@@ -34,4 +34,12 @@ class ProductTemplate(models.Model):
     validated = fields.Boolean(
         help="This product can be sold/purchased when validated.",
     )
+
     validator_user = fields.Boolean(compute='_compute_validator_user')
+    validation_state = fields.Selection([
+        ('sales', 'Sales'),
+        ('industrialisation', 'Industrialisation'),
+        ('shipping', 'Shipping'),
+        ('css', 'CSS'),
+        ('accounting', 'Accounting'),
+    ])

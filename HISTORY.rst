@@ -36,6 +36,7 @@ latest (unreleased)
 * Add payments term data
 * Add sale layout section data
 * Install module account tag category
+* Add selection field Validation state on product template
 
 **Bugfixes**
 
