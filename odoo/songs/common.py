@@ -96,6 +96,17 @@ def _get_s3_bucket(name=None):
 
 def get_content(req, path):
     if path.startswith('s3://'):
+        # Use local file if USE_S3 env var is false
+        # USE_S3 env var must be set
+        if 'USE_S3' not in os.environ:
+            msg = ('It must be explicit if S3 must be used or not.'
+                   ' Please define USE_S3 environment variable.')
+            raise Exception(msg)
+        if not os.environ.get('USE_S3'):
+            # replace s3://bucket_name/ by data/ to use local file
+            path = '/'.join(['data'] + path[5:].split('/')[1:])
+
+    if path.startswith('s3://'):
         s3uri = S3Uri(path)
         bucket = _get_s3_bucket(name=s3uri.bucket())
         filekey = bucket.get_key(s3uri.item())
