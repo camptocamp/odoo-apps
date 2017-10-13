@@ -40,6 +40,7 @@ latest (unreleased)
 * Fix account move view with Team and Project labels
 * Fix MRP Repair flow and use 'To analyze' if RMA is 'To invoice'
 * Fix singleton error when invoicing two orders
+* Refresh the serial number data
 
 **Build**
 * Fix url for account-invoicing repository
