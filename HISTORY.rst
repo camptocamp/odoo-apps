@@ -35,6 +35,7 @@ latest (unreleased)
 * Automatically add Lot/Serial number to next picking packing operation
 * Add sale layout section data
 * Install module account tag category
+* Add sequences data
 
 **Bugfixes**
 
