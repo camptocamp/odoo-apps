@@ -33,6 +33,7 @@ latest (unreleased)
 * Install module sf_mrp
 * Always create one invoice per sale order
 * Automatically add Lot/Serial number to next picking packing operation
+* Add payments term data
 * Add sale layout section data
 * Install module account tag category
 
