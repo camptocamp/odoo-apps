@@ -31,11 +31,11 @@
    camptocamp: git@github.com:camptocamp/account-analytic.git
  merges:
    - oca 10.0
-     # [10.0][ADD] purchase and sale analytic tag dimension
+     # [10.0][ADD] analytic tag dimension warning for purchase and sale
    - oca refs/pull/127/head
-     # [10.0][ADD] module analytic_tag_default
+     # [10.0][ADD] module account_analytic_default_tag
    - oca refs/pull/128/head
-     # [10.0][ADD] sale and purchase analytic tag default
+     # [10.0][ADD] account_analytic_default_tag for purchase and sale
    - oca refs/pull/129/head
  target: *default_target
 ./external-src/sale-workflow:

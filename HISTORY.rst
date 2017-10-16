@@ -48,6 +48,7 @@ latest (unreleased)
 
 **Build**
 * Fix url for account-invoicing repository
+* Rename modules according to changes in OCA/account-analytic
 
 **Documentation**
 
