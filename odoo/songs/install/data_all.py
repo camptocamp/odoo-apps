@@ -181,6 +181,32 @@ def import_payment_term(ctx):
 
 
 @anthem.log
+def delete_layout_category(ctx):
+    """ Delete layout categories """
+    record = ctx.env.ref('sale.sale_layout_cat_1', raise_if_not_found=False)
+    if record:
+        record.unlink()
+    record = ctx.env.ref('sale.sale_layout_cat_2', raise_if_not_found=False)
+    if record:
+        record.unlink()
+
+
+@anthem.log
+def create_layout_category(ctx):
+    """ Creating layout categories  """
+    create_or_update(ctx, 'sale.layout_category',
+                     '__setup__.layout_category_new_material',
+                     {'name': 'List of new material',
+                      'subtotal': True,
+                      'sequence': 10})
+    create_or_update(ctx, 'sale.layout_category',
+                     '__setup__.layout_category_repair_labor',
+                     {'name': 'Repair labour',
+                      'subtotal': True,
+                      'sequence': 20})
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -201,3 +227,5 @@ def main(ctx):
     update_stock_location(ctx)
     delete_payment_term(ctx)
     import_payment_term(ctx)
+    delete_layout_category(ctx)
+    create_layout_category(ctx)

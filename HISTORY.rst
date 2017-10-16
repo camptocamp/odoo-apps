@@ -20,6 +20,8 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+* Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
 
@@ -32,6 +34,8 @@ latest (unreleased)
 * Always create one invoice per sale order
 * Automatically add Lot/Serial number to next picking packing operation
 * Add payments term data
+* Add sale layout section data
+* Install module account tag category
 
 **Bugfixes**
 
@@ -40,6 +44,7 @@ latest (unreleased)
 * Fix account move view with Team and Project labels
 * Fix MRP Repair flow and use 'To analyze' if RMA is 'To invoice'
 * Fix singleton error when invoicing two orders
+* Refresh the serial number data
 
 **Build**
 * Fix url for account-invoicing repository
