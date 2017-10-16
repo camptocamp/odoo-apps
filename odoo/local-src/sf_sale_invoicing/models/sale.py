@@ -23,6 +23,9 @@ class SaleOrder(models.Model):
                  'payment_term_id.down_payment_required', 'state',
                  'invoice_status')
     def _compute_down_payment_missing(self):
+        """ Computes down payment missing field. The field should be set to
+        True if the payment term requires down payment. Using state and status
+         avoids to recompute old sales if payment terms changes."""
 
         down_payment_product = self.env[
             'sale.advance.payment.inv']._default_product_id()
@@ -64,7 +67,8 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_done(self):
-        """ Do not set sale order as done if procurements are not created"""
+        """ Do not set sale order as done if down payment missing because
+        procurements are not created yet"""
         done_sales = self.filtered(lambda s: not s.down_payment_missing)
         res = super(SaleOrder, done_sales).action_done()
         return res
@@ -78,7 +82,7 @@ class SaleOrder(models.Model):
             order.order_line._action_procurement_create()
         if self.env['ir.values'].get_default('sale.config.settings',
                                              'auto_done_setting'):
-            self.action_done()
+            orders_to_procure.action_done()
         return True
 
 
