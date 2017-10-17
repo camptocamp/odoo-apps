@@ -38,6 +38,7 @@ latest (unreleased)
 * Install module account tag category
 * Add supplier duplicated invoices list view
 * Add selection field Validation state on product template
+* Add sales order data
 
 **Bugfixes**
 
