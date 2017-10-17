@@ -33,9 +33,12 @@ latest (unreleased)
 * Install module sf_mrp
 * Always create one invoice per sale order
 * Automatically add Lot/Serial number to next picking packing operation
+* Add payments term data
 * Add sale layout section data
 * Install module account tag category
 * Add sequences data
+* Add supplier duplicated invoices list view
+* Add selection field Validation state on product template
 
 **Bugfixes**
 
@@ -47,7 +50,10 @@ latest (unreleased)
 * Refresh the serial number data
 
 **Build**
+
+* Update submodule OCA/account-analytic
 * Fix url for account-invoicing repository
+* Rename modules according to changes in OCA/account-analytic
 
 **Documentation**
 

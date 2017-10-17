@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="invoice_supplier_duplicate_form_inherit" model="ir.ui.view">
-            <field name="name">account.invoice.supplier.duplicate.form.inherit</field>
-            <field name="model">account.invoice</field>
-            <field name="inherit_id" ref="account.invoice_supplier_form"/>
-            <field name="priority" eval="10"/>
-            <field name="arch" type="xml">
-                <xpath expr="//sheet/div" position="before">
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/sf_invoice_check_duplicate/static/src/css/invoice.css"/>
+        </xpath>
+    </template>
 
-                <div class="oe_button_box" name="button_box">
-                    <button name="action_view_duplicate_invoices"
-                        type="object"
-                        class="oe_stat_button"
-                        icon="fa-warning"
-                        attrs="{'invisible': [('duplicate_invoice_count', '=', 0)]}">
-                        <field name="duplicate_invoice_count" widget="statinfo" string="Duplicated"/>
-                    </button>
-                </div>
-                </xpath>
-            </field>
-        </record>
+    <record id="invoice_supplier_duplicate_form_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.supplier.duplicate.form.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div" position="before">
+
+            <div class="oe_button_box" name="button_box">
+                <button name="action_view_duplicate_invoices"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-warning"
+                    attrs="{'invisible': [('duplicate_invoice_count', '=', 0)]}">
+                    <field name="duplicate_invoice_count" widget="statinfo" string="Duplicated"/>
+                </button>
+            </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Duplicated invoices list -->
+    <record model="ir.ui.view" id="sf_duplicated_vendor_bills_tree">
+        <field name="name">sf.duplicated.vendor.bills.tree</field>
+        <field name="model">account.invoice</field>
+        <field name="arch" type="xml">
+            <tree string="Duplicated Vendor Bills" create="0" edit="0">
+                <field name="number"/>
+                <field name="reference"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Actions -->
+    <record model="ir.actions.act_window" id="sf_duplicated_vendor_bills_action">
+        <field name="name">Duplicated Vendor Bills</field>
+        <field name="res_model">account.invoice</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="sf_duplicated_vendor_bills_tree"/>
+        <field name="domain">[('type','in',('in_invoice', 'in_refund')),('duplicate_invoice_count', '>', 1)]</field>
+        <field name="context">{'default_type': 'in_invoice', 'type': 'in_invoice', 'group_by':['partner_id', 'amount_total']}</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="sf_report_other_menu" name="Other" parent="account.menu_finance_reports" sequence="200" groups="account.group_account_user"/>
+    <menuitem id="menu_act_sf_duplicated_vendor_bills_view"
+              parent="sf_report_other_menu"
+              action="sf_duplicated_vendor_bills_action"
+              name="Duplicated Vendor Bills"/>
+
 </odoo>
