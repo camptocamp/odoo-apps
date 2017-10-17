@@ -49,6 +49,8 @@ latest (unreleased)
 * Refresh the serial number data
 
 **Build**
+
+* Update submodule OCA/account-analytic
 * Fix url for account-invoicing repository
 
 **Documentation**
