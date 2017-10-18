@@ -53,6 +53,14 @@ latest (unreleased)
 * Update submodule OCA/account-analytic
 * Fix url for account-invoicing repository
 * Rename modules according to changes in OCA/account-analytic
+* Move full mode data to an S3 bucket
+  to configure access on integration and production server
+  the following environment variables must be set:
+
+  - AWS_ACCESS_KEY_ID=xxxxxx
+  - AWS_SECRET_ACCESS_KEY=xxxxxxxx
+  - AWS_BUCKETNAME=prod-sf-odoo-data
+  - AWS_REGION=eu-central-1
 
 **Documentation**
 
