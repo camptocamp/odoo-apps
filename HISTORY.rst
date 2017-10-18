@@ -53,6 +53,7 @@ latest (unreleased)
 
 * Activate pick pack ship delivery steps
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
+* Add purchase order confirmation field
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
