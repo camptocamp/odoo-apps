@@ -102,7 +102,7 @@ def get_content(req, path):
             msg = ('It must be explicit if S3 must be used or not.'
                    ' Please define USE_S3 environment variable.')
             raise Exception(msg)
-        if not os.environ.get('USE_S3'):
+        if os.environ.get('USE_S3').lower() != 'true':
             # replace s3://bucket_name/ by data/ to use local file
             path = '/'.join(['data'] + path[5:].split('/')[1:])
 
