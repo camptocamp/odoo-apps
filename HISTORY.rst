@@ -47,6 +47,7 @@ latest (unreleased)
 * Fix MRP Repair flow and use 'To analyze' if RMA is 'To invoice'
 * Fix singleton error when invoicing two orders
 * Refresh the serial number data
+* Refresh the analytic tag data (add code field )
 
 **Build**
 
