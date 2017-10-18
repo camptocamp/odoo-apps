@@ -13,6 +13,30 @@
         </field>
     </record>
 
+
+    <record id="view_order_form_user_delivery_method" model="ir.ui.view">
+        <field name="name">sf.order.form.carrier.user</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="delivery.view_order_form_with_carrier"/>
+        <field name="arch" type="xml">
+            <field name="carrier_id" position="replace">
+                <field name="carrier_id" context="{'order_id': id}" class="oe_inline" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_order_form_manage_delivery_method" model="ir.ui.view">
+        <field name="name">sf.order.form.carrier.edit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="view_order_form_user_delivery_method"/>
+        <field name="groups_id" eval="[(4, ref('sf_stock.group_delivery_method_manager'))]"/>
+        <field name="arch" type="xml">
+            <field name="carrier_id" position="replace">
+                <field name="carrier_id" context="{'order_id': id}" class="oe_inline" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',('draft','sent'))]}"/>
+            </field>
+        </field>
+    </record>
+
     <record id="sf_view_order_form_inherit_sale_stock" model="ir.ui.view">
         <field name="name">sale.order.form.sale.stock.inherit</field>
         <field name="model">sale.order</field>
@@ -20,17 +44,6 @@
         <field name="arch" type="xml">
             <field name="incoterm" position="attributes">
                 <attribute name="attrs">{'readonly': [('state','in',('sale','done'))]}</attribute>
-            </field>
-        </field>
-    </record>
-
-    <record id="view_sf_sale_order_form" model="ir.ui.view">
-        <field name="name">sf.order.form</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="delivery.view_order_form_with_carrier"/>
-        <field name="arch" type="xml">
-            <field name="carrier_id" position="attributes">
-                <attribute name="readonly">1</attribute>
             </field>
         </field>
     </record>
