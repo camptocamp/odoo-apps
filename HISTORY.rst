@@ -32,6 +32,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Activate auto currency update
+
 * Add group to allow to force availability on stock operations
 
 * Add sensefly emoji module
