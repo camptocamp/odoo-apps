@@ -21,19 +21,6 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="code" required="1"/>
-                <field name="color"/>
-            </field>
-        </field>
-    </record>
-
-    <!-- Analytic tag dimension -->
-    <record id="view_sf_account_analytic_dimension_form" model="ir.ui.view">
-        <field name="name">view.sf.account.analytic.dimension.form</field>
-        <field name="model">account.analytic.dimension</field>
-        <field name="inherit_id" ref="analytic_tag_dimension.view_AccountAnalyticDimension_form"/>
-        <field name="arch" type="xml">
-            <field name="code" position="after">
-                <field name="color"/>
             </field>
         </field>
     </record>
