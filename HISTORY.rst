@@ -42,6 +42,7 @@ latest (unreleased)
 * Add supplier duplicated invoices list view
 * Add selection field Validation state on product template
 * Add sales order data
+* Add flags down payment required on payment term and down payment missing on sale order
 
 **Bugfixes**
 
