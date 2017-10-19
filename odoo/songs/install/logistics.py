@@ -122,3 +122,4 @@ def main(ctx):
     fix_warehouse_sequences_names(ctx)
     create_warehouse_sensefly_inc(ctx)
     settings(ctx)
+    update_warehouse_configuration(ctx)
