@@ -121,6 +121,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Create date ranges (accounting periods) for 2017
+* Purchase reports
 * Install module sf_terms_and_conditions
 * Add and delete the chart of account data
 * RMA decision fields adaptation

@@ -32,7 +32,7 @@
                     </div>
             </div>
             <!-- Placeholder to add title -->
-            <div name="header_title" class="col-xs-3" style="margin-bottom: 10px;text-align: right;position: absolute;bottom: 0;right: 0;"/>
+            <div name="header_title" class="col-xs-4" style="margin-bottom: 10px;text-align: right;position: absolute;bottom: 0;right: 0;"/>
         </div>
     </div>
 </template>

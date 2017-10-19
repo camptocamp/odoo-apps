@@ -10,5 +10,18 @@
                     <field name="user_id"/>
                 </field>
             </field>
-        </record>
+    </record>
+
+    <!-- Analytic tag -->
+    <record id="view_sf_account_analytic_tag_form_view" model="ir.ui.view">
+        <field name="name">sf.account.analytic.tag.form_view</field>
+        <field name="model">account.analytic.tag</field>
+        <field name="inherit_id" ref="analytic.account_analytic_tag_form_view"/>
+        <field name="priority" eval="200"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" required="1"/>
+            </field>
+        </field>
+    </record>
 </odoo>

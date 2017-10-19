@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="purchase.report_purchaseorder"
+                string="Purchase Order"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                file="sf_purchase.sf_report_purchaseorder"
+                name="sf_purchase.sf_report_purchaseorder"
+        />
+
+        <report
+                id="purchase.report_internal_purchaseorder"
+                string="Internal Purchase Order"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                file="sf_purchase.sf_report_internal_purchaseorder"
+                name="sf_purchase.sf_report_internal_purchaseorder"
+        />
+
+        <report
+                id="purchase.report_purchase_quotation"
+                string="Request for Quotation"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                name="sf_purchase.sf_report_purchasequotation"
+                file="sf_purchase.sf_report_purchasequotation"
+        />
+    </data>
+</odoo>

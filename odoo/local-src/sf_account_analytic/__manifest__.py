@@ -6,7 +6,7 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['analytic'],
+    'depends': ['analytic', 'analytic_tag_dimension'],
     'data': ['views/account_analytic.xml'],
     'demo': [],
     'images': ['static/description/icon.png'],

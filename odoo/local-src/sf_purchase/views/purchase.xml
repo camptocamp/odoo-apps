@@ -6,6 +6,9 @@
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
+            <field name="currency_id" position="after">
+                <field name="print_draft"  attrs="{'invisible':[('state','not in',('draft'))]}"/>
+            </field>
             <field name="date_order" position="before">
                 <field name="second_vendor_id"/>
             </field>
