@@ -51,6 +51,7 @@ latest (unreleased)
 * Fix singleton error when invoicing two orders
 * Refresh the serial number data
 * Miss account data
+* Refresh users data
 
 **Build**
 
