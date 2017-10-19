@@ -53,6 +53,8 @@ latest (unreleased)
 
 * Activate pick pack ship delivery steps
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
+* Add account asset category data
+* Add bill of materials data
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
