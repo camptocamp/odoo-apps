@@ -57,6 +57,7 @@ latest (unreleased)
 * Miss account data
 * Refresh users data
 * Refresh the customers data
+* Refresh the analytic tag data (add code field )
 
 **Build**
 
