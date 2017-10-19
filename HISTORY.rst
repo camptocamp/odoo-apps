@@ -23,6 +23,7 @@ latest (unreleased)
 
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
+* Configure Swiss fiscal position
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
 
