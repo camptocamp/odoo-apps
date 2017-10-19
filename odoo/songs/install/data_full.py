@@ -149,6 +149,16 @@ def import_bank_account(ctx):
 
 
 @anthem.log
+def import_sales_order(ctx):
+    """ Importing sales order from csv """
+    model = ctx.env['sale.order'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/install/sale_order_head.csv', model)
+    load_csv(ctx, 'data/install/sale_order_line.csv', 'sale.order.line')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -168,4 +178,5 @@ def main(ctx):
     import_rma_cause(ctx)
     import_bank(ctx)
     import_bank_account(ctx)
+    import_sales_order(ctx)
     return
