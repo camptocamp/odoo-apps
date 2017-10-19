@@ -38,6 +38,7 @@ latest (unreleased)
 * Add payments term data
 * Add sale layout section data
 * Install module account tag category
+* Add sequences data
 * Add supplier duplicated invoices list view
 * Add selection field Validation state on product template
 

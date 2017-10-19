@@ -207,6 +207,12 @@ def create_layout_category(ctx):
 
 
 @anthem.log
+def import_sequence(ctx):
+    """ Importing Sequences from csv """
+    load_csv(ctx, 'data/install/sequence.csv', 'ir.sequence')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -229,3 +235,4 @@ def main(ctx):
     import_payment_term(ctx)
     delete_layout_category(ctx)
     create_layout_category(ctx)
+    import_sequence(ctx)
