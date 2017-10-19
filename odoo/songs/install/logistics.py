@@ -47,6 +47,13 @@ def create_warehouse_sensefly_inc(ctx):
 
 
 @anthem.log
+def update_warehouse_configuration(ctx):
+    """Updating warehouse configuration"""
+    warehouse_sa = ctx.env.ref('stock.warehouse0')
+    warehouse_sa.delivery_steps = 'pick_pack_ship'
+
+
+@anthem.log
 def settings(ctx):
     """ Configure inventory settings """
     # Logistics settings for main company (senseFly SA CH)
@@ -97,7 +104,7 @@ def settings(ctx):
         'module_delivery_usps': False,
         'module_procurement_jit': 0,
         'warehouse_and_location_usage_level': 1,
-        'group_stock_adv_location': 0,
+        'group_stock_adv_location': 1,
         'decimal_precision': 0,
         'module_stock_dropshipping': 1,
         'module_stock_picking_wave': 1,
