@@ -52,6 +52,7 @@ latest (unreleased)
 * Refresh the serial number data
 * Miss account data
 * Refresh users data
+* Refresh the customers data
 
 **Build**
 
