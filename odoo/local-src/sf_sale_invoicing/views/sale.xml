@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_orders_missing_down_payment" model="ir.actions.act_window">
+        <field name="name">Sales missing down payment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('down_payment_required','=',True),('down_payment_missing','=',True)]</field>
+    </record>
+
+    <menuitem id="sale.menu_sale_order_down_payment" parent="account.menu_finance_receivables" string="Sales requiring down payment" action="action_orders_missing_down_payment"/>
+
+    <menuitem id="sale.menu_sale_order_invoice" parent="account.menu_finance_receivables" string="Sales to Invoice" action="sale.action_orders_to_invoice"/>
+</odoo>
