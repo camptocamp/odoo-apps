@@ -9,6 +9,8 @@
     'depends': ['stock', 'sale_stock', 'sf_report', 'delivery'],
     'data': [
         'security/ir.model.access.csv',
+        'security/module_data.xml',
+        'security/stock_security.xml',
         'views/stock_location.xml',
         'views/stock_production_lot.xml',
         'views/stock_picking.xml',

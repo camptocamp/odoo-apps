@@ -6,10 +6,10 @@
     'version': '1.0',
     'author': 'senseFly, Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['sale', 'sf_report', 'sf_product', 'sale_stock'],
+    'depends': ['sale', 'sf_report', 'sf_product', 'sf_stock', 'delivery'],
     'license': 'AGPL-3',
     'data': [
-        'views/sale_order.xml',
+        'security/ir.model.access.csv',
         'report/sf_sale_report_templates.xml',
         'report/sf_sale_report.xml',
         'views/sale_views.xml'
