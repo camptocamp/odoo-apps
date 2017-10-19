@@ -33,7 +33,7 @@ class RMASettings(models.TransientModel):
              "for imported repair lines with a stockable product.")
 
     rma_service_additional_description = fields.Char(
-        string='Additional description', translate=True,
+        string='Additional description',
         related='company_id.rma_service_additional_description',
         help="This text will be appended to the sale order line description, "
              "after the replaced product name, for imported repair lines."

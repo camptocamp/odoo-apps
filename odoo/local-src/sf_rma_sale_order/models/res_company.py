@@ -18,4 +18,4 @@ class ResCompany(models.Model):
     rma_service_stockable_product_id = fields.Many2one(
         'product.product')
 
-    rma_service_additional_description = fields.Char(translate=True)
+    rma_service_additional_description = fields.Char()

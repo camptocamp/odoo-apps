@@ -55,11 +55,11 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
                                   'defined in the RMA Settings.'))
 
             if product.type == 'service':
-                return {'product_id': rma_service_service.id}
+                return rma_service_service
             elif product.type == 'consu':
-                return {'product_id': rma_service_consu.id}
-            elif line.product_id.type == 'product':
-                return {'product_id': rma_service_stock.id}
+                return rma_service_consu
+            elif product.type == 'product':
+                return rma_service_stock
             else:
                 return
 
@@ -75,13 +75,13 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
                 'product_uom': line.product_uom.id,
             }
 
+            name = [line.name]
             if additional_description:
-                line_dict.update({'name': '\n'.join([line.name,
-                                                     additional_description])})
-            else:
-                line_dict.update({'name': line.name})
+                name.append(additional_description)
+            line_dict['name'] = '\n'.join(name)
 
-            line_dict.append(_get_rma_service_placeholder(line.product_id))
+            line_dict['product_id'] = _get_rma_service_placeholder(
+                line.product_id).id
 
             values.append(
                 (0, 0, line_dict))
