@@ -8,7 +8,10 @@
     ],
     'author': "Telmo Santos",
     'category': 'SenseFly',
-    'data': [],
+    'data': [
+        'security/mysensefly_security.xml',
+        'security/ir.model.access.csv'
+    ],
     'demo': [],
     'installable': True,
     'application': True,
