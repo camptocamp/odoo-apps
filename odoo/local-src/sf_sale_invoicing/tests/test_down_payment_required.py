@@ -71,7 +71,6 @@ class TestDownPaymentRequired(TransactionCase):
         self.assertFalse(self.order_2.down_payment_missing)
 
         self.down_payment_term.down_payment_required = True
-
         self.assertTrue(self.order_1.down_payment_missing)
         self.assertTrue(self.order_2.down_payment_missing)
 

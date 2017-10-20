@@ -23,6 +23,9 @@ class SaleOrder(models.Model):
                  'payment_term_id.down_payment_required', 'state',
                  'invoice_status')
     def _compute_down_payment_missing(self):
+        """ Computes down payment missing field. The field should be set to
+        True if the payment term requires down payment. Using state and status
+         avoids to recompute old sales if payment terms changes."""
 
         down_payment_product = self.env[
             'sale.advance.payment.inv']._default_product_id()
@@ -61,3 +64,38 @@ class SaleOrder(models.Model):
     def action_invoice_create(self, grouped=False, final=False):
         """ Ensure one invoice is created per sale order """
         return super(SaleOrder, self).action_invoice_create(grouped=True)
+
+    @api.multi
+    def action_done(self):
+        """ Do not set sale order as done if down payment missing because
+        procurements are not created yet"""
+        done_sales = self.filtered(lambda s: not s.down_payment_missing)
+        res = super(SaleOrder, done_sales).action_done()
+        return res
+
+    @api.multi
+    def action_create_procurements(self):
+        """ Action to be called when no down payment is missing to create
+        the procurements and stock pickings"""
+        orders_to_procure = self.filtered(lambda s: not s.down_payment_missing)
+        for order in orders_to_procure:
+            order.order_line._action_procurement_create()
+        if self.env['ir.values'].get_default('sale.config.settings',
+                                             'auto_done_setting'):
+            orders_to_procure.action_done()
+        return True
+
+
+class SaleOrderLine(models.Model):
+
+    _inherit = 'sale.order.line'
+
+    @api.multi
+    def _action_procurement_create(self):
+        """ Do not create procurement if down payment is missing on
+        sale order"""
+        lines_to_procure = self.filtered(
+            lambda l: not l.order_id.down_payment_missing)
+        res = super(SaleOrderLine,
+                    lines_to_procure)._action_procurement_create()
+        return res
