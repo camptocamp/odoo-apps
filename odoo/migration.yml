@@ -146,6 +146,7 @@ migration:
           - sf_rma_sale_order
           - sf_sale
           - sf_sale_order_delivery_info
+          - sf_sale_state
           - sf_sales_forecast
           - sf_stock
           - sf_terms_and_conditions
