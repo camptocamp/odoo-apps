@@ -51,6 +51,7 @@ latest (unreleased)
 * Add flags down payment required on payment term and down payment missing on sale order
 * Do not create procurements if down payment is missing
 * Allow to create procurements manually once down payment exists
+* Change behavior of invoicing policy on delivered quantity, now only fully delivered sale order lines are invoicable
 
 **Bugfixes**
 
