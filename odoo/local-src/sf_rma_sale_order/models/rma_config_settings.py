@@ -29,7 +29,7 @@ class RMASettings(models.TransientModel):
         required=True,
         related='company_id.rma_service_stockable_product_id',
         domain=[('type', '=', 'service')],
-        help="This product will appear on RMA sale orders as a placeholder "
+        help="This service will appear on RMA sale orders as a placeholder "
              "for imported repair lines with a stockable product.")
 
     rma_service_additional_description = fields.Char(
