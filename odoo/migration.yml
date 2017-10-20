@@ -102,6 +102,7 @@ migration:
           - sale_product_set
           - sale_product_set_layout
           - sale_validity
+          - sale_partner_incoterm
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
           # OCA/account-analytic
@@ -146,6 +147,7 @@ migration:
           - sf_stock_picking_crystal_link
           - mrp_team
           - sf_sale_invoicing
+          - sale_partner_incoterm
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0
