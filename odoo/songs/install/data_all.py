@@ -249,6 +249,14 @@ def import_sequence(ctx):
     load_csv(ctx, 'data/install/sequence.csv', 'ir.sequence')
 
 
+def import_account_asset_category(ctx):
+    """ Importing account asset category from csv """
+    load_csv(
+        ctx,
+        'data/install/account_asset_category.csv', 'account.asset.category'
+    )
+
+
 @anthem.log
 def main(ctx):
     """ Loading data """
@@ -276,3 +284,4 @@ def main(ctx):
     import_payment_term(ctx)
     delete_layout_category(ctx)
     create_layout_category(ctx)
+    import_account_asset_category(ctx)
