@@ -4,7 +4,7 @@
 
 import anthem
 import csv
-from anthem.lyrics.records import create_or_update
+from anthem.lyrics.records import add_xmlid, create_or_update
 from ..common import load_csv
 from pkg_resources import Requirement, resource_stream
 
@@ -112,8 +112,45 @@ def delete_account(ctx):
 @anthem.log
 def import_account_account(ctx):
     """ Importing chart of accounts from csv """
-    load_csv(ctx, 'data/install/account.csv',
-             'account.account')
+    load_csv(ctx, 'data/install/account.csv', 'account.account')
+
+
+@anthem.log
+def add_xmlid_account_journal(ctx):
+    """ Add xml ID to journals"""
+    journals = ctx.env['account.journal'].search([])
+
+    for journal in journals:
+        add_xmlid(
+            ctx, journal,
+            'scenario.account_journal_' + journal.code,
+            noupdate=True
+        )
+
+
+@anthem.log
+def delete_account_journal(ctx):
+    """ Delete standard journals from csv """
+    # Read the CSV
+    content = resource_stream(req, 'data/install/journal_delete.csv')
+
+    # Create list of dictionnaries
+    records = [
+        {k: v for k, v in row.items()}
+        for row in csv.DictReader(content, skipinitialspace=True)
+        ]
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record['id'], raise_if_not_found=False)
+        if rec:
+            rec.unlink()
+
+
+@anthem.log
+def import_account_journal(ctx):
+    """ Importing journals from csv """
+    load_csv(ctx, 'data/install/journal.csv', 'account.journal')
 
 
 @anthem.log
@@ -226,6 +263,10 @@ def main(ctx):
     import_account_fiscal_position(ctx)
     delete_account(ctx)
     import_account_account(ctx)
+    import_sequence(ctx)
+    add_xmlid_account_journal(ctx)
+    delete_account_journal(ctx)
+    import_account_journal(ctx)
     create_date_range(ctx)
     import_email_template(ctx)
     update_picking_type(ctx)
@@ -235,4 +276,3 @@ def main(ctx):
     import_payment_term(ctx)
     delete_layout_category(ctx)
     create_layout_category(ctx)
-    import_sequence(ctx)
