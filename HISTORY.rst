@@ -65,6 +65,7 @@ latest (unreleased)
 * Refresh users data
 * Refresh the customers data
 * Refresh the analytic tag data (add code field )
+* Refresh data for full mode (product, customers, sales order, users)
 
 **Build**
 
