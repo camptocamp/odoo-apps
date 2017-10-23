@@ -29,7 +29,7 @@ class StockPicking(models.Model):
         for picking in self:
             try:
                 picking.packing_list_url = url % picking.id
-            except:
+            except BaseException:
                 raise UserError(_(
                     "Parameter packing.list.crystal.report.url "
                     "is not properly set."))
