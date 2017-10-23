@@ -90,6 +90,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add module rma webhook
 * Add section on quotation and invoice reports
 * Install module sale_validity
 * Labeling analytic account/tags columns as Project/Team
