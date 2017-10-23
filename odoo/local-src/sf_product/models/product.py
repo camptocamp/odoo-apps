@@ -37,9 +37,9 @@ class ProductTemplate(models.Model):
 
     validator_user = fields.Boolean(compute='_compute_validator_user')
     validation_state = fields.Selection([
-        ('sales', 'Sales'),
-        ('industrialisation', 'Industrialisation'),
-        ('shipping', 'Shipping'),
-        ('css', 'CSS'),
-        ('accounting', 'Accounting'),
+        ('1sales', 'Sales'),
+        ('2industrialisation', 'Industrialisation'),
+        ('3shipping', 'Shipping'),
+        ('4css', 'CSS'),
+        ('5accounting', 'Accounting'),
     ])
