@@ -76,21 +76,28 @@ def import_countries(ctx):
 @anthem.log
 def import_customers(ctx):
     """ Importing customers from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/customers.csv',
-             'res.partner')
+    model = ctx.env['res.partner'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/customers.csv', model)
 
 
 @anthem.log
 def import_suppliers(ctx):
     """ Importing suppliers from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/suppliers.csv',
-             'res.partner')
+    model = ctx.env['res.partner'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/suppliers.csv', model)
 
 
 @anthem.log
 def import_crm_team(ctx):
     """ Importing sales team / channel from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/crm_team.csv', 'crm.team')
+    model = ctx.env['crm.team'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/crm_team.csv', model)
 
 
 @anthem.log
@@ -110,8 +117,10 @@ def import_drone_type(ctx):
 @anthem.log
 def import_product(ctx):
     """ Importing products type from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/product.csv',
-             'product.template')
+    model = ctx.env['product.template'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/product.csv', model)
 
 
 @anthem.log

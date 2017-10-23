@@ -43,8 +43,10 @@ def import_analytic_tag(ctx):
 @anthem.log
 def import_analytic_account_project(ctx):
     """ Importing analytic account (project) from csv """
-    load_csv(ctx, 'data/install/analytic_account_project.csv',
-             'account.analytic.account')
+    model = ctx.env['account.analytic.account'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/install/analytic_account_project.csv', model)
 
 
 @anthem.log
