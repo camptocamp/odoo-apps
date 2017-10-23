@@ -19,40 +19,65 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.7.0 (2017-10-23)
++++++++++++++++++++
+
+**Data**
+
+* Add account asset category
+* Add the email template invoicing
+* Add payments term
+* Add sale layout section
+* Add sequences
+* Add sales order
+* Add Journals
+* Refresh users
+* Refresh the customers
+* Refresh the analytic tag (add code field )
+* Refresh data for full mode (product, customers, sales order, users)
+* Refresh the serial number
+* Add missing accounts
+
 **Features and Improvements**
 
 * Activate pick pack ship delivery steps
-* Add account asset category data
+* Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
 * Add delivery method manager group and reset delivery method onchange SO line
-* Install sale_partner_incoterm module
-* Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
 * Add sale terms and conditions on report
-
+* Purchase reports
 * Add field on DO confirming the physical reception of the goods by the customer
 * Add shipped date field and button shipped
-* Add the email template invoicing data
 * Add stock inventory category filter on inventory adjustments
 * Add shipping costs calculated filter
-* Install module sf_mrp
 * Always create one invoice per sale order
 * Automatically add Lot/Serial number to next picking packing operation
-* Add payments term data
-* Add sale layout section data
-* Install module account tag category
-* Add sequences data
 * Add supplier duplicated invoices list view
 * Add selection field Validation state on product template
-* Add sales order data
 * Add flags down payment required on payment term and down payment missing on sale order
-* Add Journals data
 * Add flags down payment required on partner and down payment missing on invoice
 * Add flags down payment required on payment term and down payment missing on sale order
 * Do not create procurements if down payment is missing
 * Allow to create procurements manually once down payment exists
 * Change behavior of invoicing policy on delivered quantity, now only fully delivered sale order lines are invoicable
+
+* Install sale_partner_incoterm module
+* Install module account tag category
+* Add module rma webhook
+* Install module sf_mrp
 
 **Bugfixes**
 
@@ -62,12 +87,6 @@ latest (unreleased)
 * Fix account move view with Team and Project labels
 * Fix MRP Repair flow and use 'To analyze' if RMA is 'To invoice'
 * Fix singleton error when invoicing two orders
-* Refresh the serial number data
-* Miss account data
-* Refresh users data
-* Refresh the customers data
-* Refresh the analytic tag data (add code field )
-* Refresh data for full mode (product, customers, sales order, users)
 
 **Build**
 
@@ -78,20 +97,17 @@ latest (unreleased)
   to configure access on integration and production server
   the following environment variables must be set:
 
+  - USE_S3=True
   - AWS_ACCESS_KEY_ID=xxxxxx
   - AWS_SECRET_ACCESS_KEY=xxxxxxxx
   - AWS_BUCKETNAME=prod-sf-odoo-data
   - AWS_REGION=eu-central-1
-
-**Documentation**
-
 
 10.6.0 (2017-10-02)
 +++++++++++++++++++
 
 **Features and Improvements**
 
-* Add module rma webhook
 * Add section on quotation and invoice reports
 * Install module sale_validity
 * Labeling analytic account/tags columns as Project/Team
@@ -136,7 +152,6 @@ latest (unreleased)
 **Features and Improvements**
 
 * Create date ranges (accounting periods) for 2017
-* Purchase reports
 * Install module sf_terms_and_conditions
 * Add and delete the chart of account data
 * RMA decision fields adaptation
