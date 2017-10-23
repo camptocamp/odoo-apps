@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Activate pick pack ship delivery steps
+* Add account asset category data
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
