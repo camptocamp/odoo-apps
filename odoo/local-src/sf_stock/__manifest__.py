@@ -6,7 +6,13 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['stock', 'sale_stock', 'sf_report', 'delivery'],
+    'depends': [
+        'stock',
+        'sale_stock',
+        'sf_report',
+        'delivery',
+        'stock_disable_force_availability_button'
+    ],
     'data': [
         'security/ir.model.access.csv',
         'security/module_data.xml',

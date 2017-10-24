@@ -6,7 +6,9 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['product', 'base_user_role'],
+    'depends': ['product',
+                'base_user_role',
+                'sf_stock'],
     'description': """
 This is a module for customization of senseFly products
 
