@@ -12,8 +12,7 @@
                 <span><strong>DN / Invoice</strong></span>
                 <span t-field="o.name"/>
             </p>
-            <span t-if="o.date_shipped">Shipping date </span>
-            <span t-if="o.date_shipped" t-field="o.date_shipped"/>
+            <span t-if="o.date_done" t-field="o.date_done" t-field-options='{"format": "d MMMM yyyy"}'/>
         </xpath>
     </template>
 
