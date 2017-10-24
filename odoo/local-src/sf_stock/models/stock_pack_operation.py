@@ -12,8 +12,12 @@ class PackOperation(models.Model):
         'linked_move_operation_ids.move_id.procurement_id.sale_line_id')
     def _compute_sale_lines(self):
         for operation in self:
-            operation.sale_line_ids = operation.linked_move_operation_ids.\
-                mapped('move_id.procurement_id.sale_line_id')
+            stock_move = operation.linked_move_operation_ids.\
+                mapped('move_id')
+
+            while stock_move.procurement_id.move_dest_id:
+                stock_move = stock_move.procurement_id.move_dest_id
+            operation.sale_line_ids = stock_move.procurement_id.sale_line_id
 
     sale_line_ids = fields.One2many(
         'sale.order.line',
