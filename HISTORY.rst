@@ -37,6 +37,7 @@ latest (unreleased)
 * Add sensefly emoji module
 
 * Add invoice bank details linked to payment mode
+* Propagate delivery info from Freight Labeling to Delivery Orders
 
 * Assign technician to Repair Order
 
