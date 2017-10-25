@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Data**
 
+* Add waves data
+
 **Features and Improvements**
 
 **Bugfixes**

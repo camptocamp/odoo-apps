@@ -118,6 +118,12 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_waves(ctx):
+    """ Importing waves from csv """
+    load_csv(ctx, 'data/demo/wave.csv', 'stock.picking.wave')
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -127,6 +133,7 @@ def main(ctx):
     import_customers(ctx)
     import_suppliers(ctx)
     import_crm_team(ctx)
+    import_waves(ctx)
     import_location(ctx)
     import_customers(ctx)
     import_drone_type(ctx)

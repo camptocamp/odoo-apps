@@ -1,0 +1,4 @@
+id,user_id/id,name,state
+__setup__.stock_picking_wave_1,__setup__.res_users_204,Sandra,in_progress
+__setup__.stock_picking_wave_2,__setup__.res_users_189,Gregoire,in_progress
+__setup__.stock_picking_wave_3,__setup__.res_users_11,Alain,in_progress

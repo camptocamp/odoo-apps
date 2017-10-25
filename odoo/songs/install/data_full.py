@@ -159,6 +159,13 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_waves(ctx):
+    """ Importing waves from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/wave.csv',
+             'stock.picking.wave')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -172,6 +179,7 @@ def main(ctx):
     import_crm_team(ctx)
     import_location(ctx)
     import_drone_type(ctx)
+    import_waves(ctx)
     import_product(ctx)
     import_serial_number(ctx)
     import_workcenter(ctx)
