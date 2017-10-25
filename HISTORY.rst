@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add sensefly emoji module
+
 **Bugfixes**
 
 **Build**
