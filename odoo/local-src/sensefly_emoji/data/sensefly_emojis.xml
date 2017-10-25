@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Remove some emojis -->
+    <delete model="mail.shortcode" id="mail.mail_smiley_poop" />
+    <delete model="mail.shortcode" id="mail.mail_smiley_pinky" />
+    <delete model="mail.shortcode" id="mail.mail_smiley_troll" />
+    <delete model="mail.shortcode" id="mail.mail_smiley_musti" />
+
+    <!-- Add new emojis -->
+    <!--<record id="mail_smiley_smiling" model="mail.shortcode">-->
+        <!--<field name="source">:smiling:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/smiling.png'/&gt;</field>-->
+        <!--<field name="description">Smiling face</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_smiley" model="mail.shortcode">
+        <field name="source">:smiley:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/smiley.png'/&gt;</field>
+        <field name="description">Smiling face with open mouth</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_grinning" model="mail.shortcode">
+        <field name="source">:grinning:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/grinning.png'/&gt;</field>
+        <field name="description">Grinning face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_blush" model="mail.shortcode">
+        <field name="source">:blush:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/blush.png'/&gt;</field>
+        <field name="description">Blushed face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_relaxed" model="mail.shortcode">
+        <field name="source">:relaxed:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/relaxed.png'/&gt;</field>
+        <field name="description">Relaxed face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_wink" model="mail.shortcode">-->
+        <!--<field name="source">:wink:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/wink.png'/&gt;</field>-->
+        <!--<field name="description">Winking face</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_heart_eyes" model="mail.shortcode">
+        <field name="source">:heart_eyes:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/heart_eyes.png'/&gt;</field>
+        <field name="description">Heart eyes</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_kissing_heart" model="mail.shortcode">
+        <field name="source">:kissing_heart:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/kissing_heart.png'/&gt;</field>
+        <field name="description">Kissing heart</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_kissing_closed_eyes" model="mail.shortcode">
+        <field name="source">:kissing_closed_eyes:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/kissing_closed_eyes.png'/&gt;</field>
+        <field name="description">Kissing face with closed eyes</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_kissing" model="mail.shortcode">
+        <field name="source">:kissing:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/kissing.png'/&gt;</field>
+        <field name="description">Kissing face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_kissing_smiling_eyes" model="mail.shortcode">
+        <field name="source">:kissing_smiling_eyes:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/kissing_smiling_eyes.png'/&gt;</field>
+        <field name="description">Kissing face with smiling eyes</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_stuck_out_tongue_winking_eyes" model="mail.shortcode">-->
+        <!--<field name="source">:stuck_out_tongue_winking_eyes:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/stuck_out_tongue_winking_eyes.png'/&gt;</field>-->
+        <!--<field name="description">Tongue winning eyes</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_stuck_out_tongue_closed_eyes" model="mail.shortcode">
+        <field name="source">:stuck_out_tongue_closed_eyes:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/stuck_out_tongue_closed_eyes.png'/&gt;</field>
+        <field name="description">Tongue closed eyes</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_stuck_out_tongue" model="mail.shortcode">
+        <field name="source">:stuck_out_tongue:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/stuck_out_tongue.png'/&gt;</field>
+        <field name="description">Tongue</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_flushed" model="mail.shortcode">
+        <field name="source">:flushed:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/flushed.png'/&gt;</field>
+        <field name="description">Flushed</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_grimacing" model="mail.shortcode">
+        <field name="source">:grimacing:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/grimacing.png'/&gt;</field>
+        <field name="description">Grimacing</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_pensive" model="mail.shortcode">
+        <field name="source">:pensive:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/pensive.png'/&gt;</field>
+        <field name="description">Pensive</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_relieved" model="mail.shortcode">
+        <field name="source">:relieved:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/relieved.png'/&gt;</field>
+        <field name="description">Relieved</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_disappointed" model="mail.shortcode">
+        <field name="source">:disappointed:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/disappointed.png'/&gt;</field>
+        <field name="description">Disappointed</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_slight_frown" model="mail.shortcode">-->
+        <!--<field name="source">:slight_frown:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/slight_frown.png'/&gt;</field>-->
+        <!--<field name="description">Sight frown</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_persevere" model="mail.shortcode">
+        <field name="source">:persevere:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/persevere.png'/&gt;</field>
+        <field name="description">Persevere</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_cry" model="mail.shortcode">
+        <field name="source">:cry:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/cry.png'/&gt;</field>
+        <field name="description">Cry</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_joy" model="mail.shortcode">
+        <field name="source">:joy:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/joy.png'/&gt;</field>
+        <field name="description">Joy</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sob" model="mail.shortcode">
+        <field name="source">:sob:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sob.png'/&gt;</field>
+        <field name="description">Sob</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sleepy" model="mail.shortcode">
+        <field name="source">:sleepy:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sleepy.png'/&gt;</field>
+        <field name="description">Sleepy</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_disappointed_relieved" model="mail.shortcode">
+        <field name="source">:disappointed_relieved:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/disappointed_relieved.png'/&gt;</field>
+        <field name="description">Disapponted relieved</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_cold_sweat" model="mail.shortcode">
+        <field name="source">:cold_sweat:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/cold_sweat.png'/&gt;</field>
+        <field name="description">Cold sweat</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sweat_smile" model="mail.shortcode">
+        <field name="source">:sweat_smile:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sweat_smile.png'/&gt;</field>
+        <field name="description">Sweat smile</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sweat" model="mail.shortcode">
+        <field name="source">:sweat:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sweat.png'/&gt;</field>
+        <field name="description">Sweat</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_weary" model="mail.shortcode">
+        <field name="source">:weary:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/weary.png'/&gt;</field>
+        <field name="description">Zeary</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_tired_face" model="mail.shortcode">
+        <field name="source">:tired_face:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/tired_face.png'/&gt;</field>
+        <field name="description">Tired face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_fearful" model="mail.shortcode">
+        <field name="source">:fearful:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/fearful.png'/&gt;</field>
+        <field name="description">Fearful</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_scream" model="mail.shortcode">-->
+        <!--<field name="source">:scream:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/scream.png'/&gt;</field>-->
+        <!--<field name="description">Scream</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_angry" model="mail.shortcode">
+        <field name="source">:angry:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/angry.png'/&gt;</field>
+        <field name="description">Angry</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_rage" model="mail.shortcode">
+        <field name="source">:rage:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/rage.png'/&gt;</field>
+        <field name="description">Rage</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_triumph" model="mail.shortcode">
+        <field name="source">:triumph:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/triumph.png'/&gt;</field>
+        <field name="description">Triumph</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_confounded" model="mail.shortcode">
+        <field name="source">:confounded:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/confounded.png'/&gt;</field>
+        <field name="description">Confounded</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_laughing" model="mail.shortcode">-->
+        <!--<field name="source">:laughing:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/laughing.png'/&gt;</field>-->
+        <!--<field name="description">Laughing</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_yum" model="mail.shortcode">
+        <field name="source">:yum:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/yum.png'/&gt;</field>
+        <field name="description">Yum</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_mask" model="mail.shortcode">
+        <field name="source">:mask:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/mask.png'/&gt;</field>
+        <field name="description">Mask</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sunglasses" model="mail.shortcode">
+        <field name="source">:sunglasses:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sunglasses.png'/&gt;</field>
+        <field name="description">Sunglasses</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_sleeping" model="mail.shortcode">
+        <field name="source">:sleeping:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/sleeping.png'/&gt;</field>
+        <field name="description">Sleeping</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_dizzy_face" model="mail.shortcode">
+        <field name="source">:dizzy_face:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/dizzy_face.png'/&gt;</field>
+        <field name="description">Dizzy face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_dizzy_face2" model="mail.shortcode">
+        <field name="source">:dizzy_face2:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/dizzy_face2.png'/&gt;</field>
+        <field name="description">Dizzy face</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_unamused" model="mail.shortcode">
+        <field name="source">:unamused:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/unamused.png'/&gt;</field>
+        <field name="description">Unamused</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_frowning2" model="mail.shortcode">
+        <field name="source">:frowning2:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/frowning2.png'/&gt;</field>
+        <field name="description">Frowning</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_frowning" model="mail.shortcode">
+        <field name="source">:frowning:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/frowning.png'/&gt;</field>
+        <field name="description">Frowning</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_smiling_imp" model="mail.shortcode">
+        <field name="source">:smiling_imp:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/smiling_imp.png'/&gt;</field>
+        <field name="description">Smiling imp</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_imp" model="mail.shortcode">
+        <field name="source">:imp:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/imp.png'/&gt;</field>
+        <field name="description">Imp</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_open_mouth" model="mail.shortcode">-->
+        <!--<field name="source">:open_mouth:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/open_mouth.png'/&gt;</field>-->
+        <!--<field name="description">Open mouth</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_grimacing" model="mail.shortcode">
+        <field name="source">:grimacing:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/grimacing.png'/&gt;</field>
+        <field name="description">Grimacing</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_neutral_face" model="mail.shortcode">-->
+        <!--<field name="source">:neutral_face:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/neutral_face.png'/&gt;</field>-->
+        <!--<field name="description">Neutral face</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <!--<record id="mail_smiley_confused" model="mail.shortcode">-->
+        <!--<field name="source">:confused:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/confused.png'/&gt;</field>-->
+        <!--<field name="description">Confused</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_hushed" model="mail.shortcode">
+        <field name="source">:hushed:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/hushed.png'/&gt;</field>
+        <field name="description">Hushed</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_no_mouth" model="mail.shortcode">
+        <field name="source">:no_mouth:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/no_mouth.png'/&gt;</field>
+        <field name="description">No mouth</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_innocent" model="mail.shortcode">
+        <field name="source">:innocent:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/innocent.png'/&gt;</field>
+        <field name="description">Innocent</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_smirk" model="mail.shortcode">
+        <field name="source">:smirk:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/smirk.png'/&gt;</field>
+        <field name="description">Smirk</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_expressionless" model="mail.shortcode">
+        <field name="source">:expressionless:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/expressionless.png'/&gt;</field>
+        <field name="description">Expressionless</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <!--<record id="mail_smiley_thumbsup" model="mail.shortcode">-->
+        <!--<field name="source">:thumbsup:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/thumbsup.png'/&gt;</field>-->
+        <!--<field name="description">thumbs up</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <!--<record id="mail_smiley_thumbsdown" model="mail.shortcode">-->
+        <!--<field name="source">:thumbsdown:</field>-->
+        <!--<field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/thumbsdown.png'/&gt;</field>-->
+        <!--<field name="description">thumbs down</field>-->
+        <!--<field name="shortcode_type">image</field>-->
+    <!--</record>-->
+
+    <record id="mail_smiley_ok_hand" model="mail.shortcode">
+        <field name="source">:ok_hand:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/ok_hand.png'/&gt;</field>
+        <field name="description">OK hand</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_v" model="mail.shortcode">
+        <field name="source">:v:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/v.png'/&gt;</field>
+        <field name="description">Victory hand</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_wave" model="mail.shortcode">
+        <field name="source">:wave:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/wave.png'/&gt;</field>
+        <field name="description">Weaving hand</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_raised_hand" model="mail.shortcode">
+        <field name="source">:raised_hand:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/raised_hand.png'/&gt;</field>
+        <field name="description">Raised hand</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_point_up_2" model="mail.shortcode">
+        <field name="source">:point_up_2:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/point_up_2.png'/&gt;</field>
+        <field name="description">Backhand index pointing up</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+    <record id="mail_smiley_point_down" model="mail.shortcode">
+        <field name="source">:point_down:</field>
+        <field name="substitution">&lt;img src='/sensefly_emoji/static/src/img/smiley/point_down.png'/&gt;</field>
+        <field name="description">Backhand index pointing down</field>
+        <field name="shortcode_type">image</field>
+    </record>
+
+</odoo>
