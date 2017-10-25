@@ -159,6 +159,18 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_purchase_order(ctx):
+    """ Importing purchases order from csv """
+    model = ctx.env['purchase.order'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/purchase_order_head.csv',
+             model)
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/purchase_order_line.csv',
+             'purchase.order.line')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -179,4 +191,5 @@ def main(ctx):
     import_bank(ctx)
     import_bank_account(ctx)
     import_sales_order(ctx)
+    import_purchase_order(ctx)
     return
