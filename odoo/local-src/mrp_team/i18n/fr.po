@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-04 21:15+0000\n"
-"PO-Revision-Date: 2017-11-04 21:15+0000\n"
+"POT-Creation-Date: 2017-10-23 19:21+0000\n"
+"PO-Revision-Date: 2017-10-23 19:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,14 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_property_stock_customer
+msgid "Customer Location"
+msgstr "Emplacement Client"
+
+#. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_team_display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr "Afficher le nom"
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
@@ -114,7 +119,7 @@ msgstr "Dernière mise à jour le"
 #. module: mrp_team
 #: model:ir.model,name:mrp_team.model_mrp_production
 msgid "Manufacturing Order"
-msgstr "Ordre de fabrication"
+msgstr "Order de fabrication"
 
 #. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_production_team_id
@@ -147,6 +152,7 @@ msgstr "Recherche des équipes de fabrication"
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_production_workcenter_form_view_filter
 msgid "Manufacturing Technician"
 msgstr "Technicien de fabrication"
 
@@ -161,6 +167,11 @@ msgid "Manufacturing team name..."
 msgstr "Nom de l'équipe de fabrication..."
 
 #. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_picking_warn_msg
+msgid "Message for Stock Picking"
+msgstr "Message pour Colisage"
+
+#. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "More Info"
 msgstr "Plus d'infos"
@@ -172,6 +183,7 @@ msgstr "Mes équipes"
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_production_workcenter_form_view_filter
 msgid "My orders"
 msgstr "Mes ordres"
 
@@ -181,9 +193,24 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_property_product_pricelist
+msgid "Sale Pricelist"
+msgstr "Liste de prix de vente"
+
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_res_users_picking_warn
+msgid "Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" will throw an exception with the message and block the flow. The Message has to be written in the next field."
+msgstr "Sélectionner l'option 'Avertissement' notifiera l'utilisateur avec le Message. Sélectionner 'Message Bloquant' lancera une exception avec le message et bloquera le flux. Le Message doit être encodé dans le champ suivant."
+
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_picking_warn
+msgid "Stock Picking"
+msgstr "Colisage"
+
+#. module: mrp_team
 #: model:mrp.team,name:mrp_team.team_production_1
-msgid "Production Team 1"
-msgstr "Production Team 1"
+msgid "Team 1"
+msgstr "Équipe 1"
 
 #. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_team_user_id
@@ -203,7 +230,9 @@ msgstr "Membres de l'équipe"
 
 #. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_production_technician_id
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_workorder_technician_id
 #: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_production_workcenter_form_view_filter
 msgid "Technician"
 msgstr "Technicien"
 
@@ -211,6 +240,21 @@ msgstr "Technicien"
 #: model:ir.model.fields,help:mrp_team.field_mrp_team_color
 msgid "The color of the team"
 msgstr "La couleur de l'équipe"
+
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_res_users_property_product_pricelist
+msgid "This pricelist will be used, instead of the default one, for sales to the current partner"
+msgstr "Cette liste de prix sera utilisée, à la place de la liste par défaut, pour les ventes faites au partenaire actuel."
+
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_res_users_property_stock_customer
+msgid "This stock location will be used, instead of the default one, as the destination location for goods you send to this partner"
+msgstr "Cette emplacement de stock sera utilisée au lieu de celui par défaut en tant que l'emplacement de destination pour les biens que vous envoyez à ce partenaire."
+
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_res_users_property_stock_supplier
+msgid "This stock location will be used, instead of the default one, as the source location for goods you receive from the current partner"
+msgstr "Cet emplacement de stock sera utilisé au lieu de celle par défaut, comme emplacement source pour les biens reçus du partenaire courant"
 
 #. module: mrp_team
 #: model:ir.actions.act_window,help:mrp_team.mrp_team_act
@@ -226,6 +270,16 @@ msgstr "Utilisez les équipes de fabrication pour organiser les différent techn
 #: model:ir.model,name:mrp_team.model_res_users
 msgid "Users"
 msgstr "Utilisateurs"
+
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_property_stock_supplier
+msgid "Vendor Location"
+msgstr "Adresse du vendeur"
+
+#. module: mrp_team
+#: model:ir.model,name:mrp_team.model_mrp_workorder
+msgid "Work Order"
+msgstr "Ordre de travail"
 
 #. module: mrp_team
 #: code:addons/mrp_team/models/mrp_team.py:35

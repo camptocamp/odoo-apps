@@ -23,17 +23,9 @@ from odoo import models
 from odoo import fields
 
 
-class MrpProduction(models.Model):
-    _inherit = 'mrp.production'
+class MrpWorkorder(models.Model):
+    _inherit = 'mrp.workorder'
 
-    team_id = fields.Many2one(
-        comodel_name='mrp.team',
-        string='Manufacturing Team',
-        required=False,
-        help="""If set, manufacturing team used notably to select the
-        technician who will handle this order.""",
-        ondelete='set null',
-    )
     technician_id = fields.Many2one(
         comodel_name='res.users',
         string='Technician',

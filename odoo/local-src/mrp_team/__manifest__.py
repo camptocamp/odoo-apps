@@ -40,9 +40,13 @@ part of this team.
         # Views
         'views/mrp_team_view.xml',
         'views/mrp_production_view.xml',
+        'views/mrp_workorder_view.xml',
         # Data
         # Security
         'security/ir.model.access.csv',
+    ],
+    'demo': [
+        'data/mrp_production_demo.xml',
     ],
     'application': False,
     'installable': True,
