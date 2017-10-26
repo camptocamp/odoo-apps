@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Data**
 
+* Add account assets
+
 **Features and Improvements**
 
 **Bugfixes**
