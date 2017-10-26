@@ -22,6 +22,10 @@
 [submodule "odoo/external-src/bank-payment"]
 	path = odoo/external-src/bank-payment
 	url = git@github.com:OCA/bank-payment.git
+[submodule "odoo/external-src/bank-statement-reconcile"]
+	path = odoo/external-src/bank-statement-reconcile
+	url = git@github.com:OCA/bank-statement-reconcile.git
+	branch = 10.0
 [submodule "odoo/external-src/account-closing"]
 	path = odoo/external-src/account-closing
 	url = git@github.com:camptocamp/account-closing.git
