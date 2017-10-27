@@ -12,6 +12,7 @@
         'security/ir.model.access.csv',
         'report/sf_sale_report_templates.xml',
         'report/sf_sale_report.xml',
+        'data/mail_template_data.xml',
         'views/sale_views.xml'
     ],
     'images': ['static/description/icon.png'],

@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Replace quotation/order report on mail template
+
 **Build**
 
 **Documentation**

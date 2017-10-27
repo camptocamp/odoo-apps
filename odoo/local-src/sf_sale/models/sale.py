@@ -20,6 +20,26 @@ class SaleOrder(models.Model):
         return self.env['report'].get_action(self,
                                              'sf_sale.sf_report_saleorder')
 
+    @api.multi
+    def action_quotation_send(self):
+        res = super(SaleOrder, self).action_quotation_send()
+
+        # Replace default email template
+        ir_model_data = self.env['ir.model.data']
+
+        try:
+            template_id = ir_model_data.get_object_reference(
+                'sf_sale', 'sf_email_template_edi_sale')[1]
+        except ValueError:
+            template_id = False
+
+        res['context'].update(
+            {
+                'default_use_template': bool(template_id),
+                'default_template_id': template_id
+             })
+        return res
+
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
