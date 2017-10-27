@@ -43,6 +43,7 @@ latest (unreleased)
 Rename button Create procurements to Validate the payment
 
 * Configure SA Invoicing and Payments default purchase tax
+* Install module stock_available_immediately
 
 **Bugfixes**
 
