@@ -159,6 +159,21 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_pricelist(ctx):
+    """ Importing pricelists from csv """
+    model = ctx.env['product.pricelist'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/pricelist.csv',
+             model)
+    model_item = ctx.env['product.pricelist.item'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/pricelist_item.csv',
+             model_item)
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -173,6 +188,7 @@ def main(ctx):
     import_location(ctx)
     import_drone_type(ctx)
     import_product(ctx)
+    import_pricelist(ctx)
     import_serial_number(ctx)
     import_workcenter(ctx)
     import_rma_cause(ctx)

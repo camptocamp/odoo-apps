@@ -258,6 +258,13 @@ def import_account_asset_category(ctx):
 
 
 @anthem.log
+def import_price_category(ctx):
+    """ Importing price category from csv """
+    load_csv(ctx, 'data/install/price_category.csv',
+             'product.price.category')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -285,3 +292,4 @@ def main(ctx):
     delete_layout_category(ctx)
     create_layout_category(ctx)
     import_account_asset_category(ctx)
+    import_price_category(ctx)
