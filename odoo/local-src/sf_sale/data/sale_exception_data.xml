@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    <record id="excep_no_incoterm" model="exception.rule">
+        <field name="name">No incoterms</field>
+        <field name="description">Incoterms is mandatory.</field>
+        <field name="sequence">10</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.incoterm:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_partner_block" model="exception.rule">
+        <field name="name">Partner blocked</field>
+        <field name="description">Partner is blocked.</field>
+        <field name="sequence">20</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if sale.partner_id.sale_warn == 'block' or sale.partner_id.parent_id.sale_warn == 'block':
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_carrier" model="exception.rule">
+        <field name="name">No delivery method</field>
+        <field name="description">Delivery method is required.</field>
+        <field name="sequence">30</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.carrier_id:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Partner (sale) -->
+    <record id="excep_no_sale_partner_phone" model="exception.rule">
+        <field name="name">No customer phone or mobile</field>
+        <field name="description">Customer phone or mobile is required.</field>
+        <field name="sequence">40</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_id.phone and not sale.partner_id.mobile:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_sale_partner_phone" model="exception.rule">
+        <field name="name">No customer email</field>
+        <field name="description">Customer email is required.</field>
+        <field name="sequence">50</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_id.email:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_sale_partner_country" model="exception.rule">
+        <field name="name">No customer country</field>
+        <field name="description">Customer country is required.</field>
+        <field name="sequence">60</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_id.country_id and not sale.partner_id.parent_id.country_id:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_sale_partner_id_number" model="exception.rule">
+        <field name="name">No customer VAT number</field>
+        <field name="description">Customer VAT number is required.</field>
+        <field name="sequence">70</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not any(sale.partner_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT') | sale.partner_id.parent_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT')):
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Partner (delivery) -->
+    <record id="excep_no_partner_shipping_street" model="exception.rule">
+        <field name="name">No delivery address street</field>
+        <field name="description">Delivery address street is required</field>
+        <field name="sequence">80</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_shipping_id.street:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id ="excep_no_partner_shipping_zip" model="exception.rule">
+        <field name="name">No delivery address ZIP</field>
+        <field name="description">Delivery address ZIP code is required</field>
+        <field name="sequence">90</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_shipping_id.zip:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_shipping_country" model="exception.rule">
+        <field name="name">No delivery address country</field>
+        <field name="description">Delivery address country is required</field>
+        <field name="sequence">100</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_shipping_id.country_id and not sale.partner_shipping_id.parent_id.country_id:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_shipping_phone" model="exception.rule">
+        <field name="name">No delivery address phone or mobile</field>
+        <field name="description">Delivery address phone or mobile is required.</field>
+        <field name="sequence">110</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_shipping_id.phone and not sale.partner_shipping_id.mobile:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_shipping_email" model="exception.rule">
+        <field name="name">No delivery address email</field>
+        <field name="description">Delivery address email contact is required</field>
+        <field name="sequence">120</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_shipping_id.email:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_shipping_vat" model="exception.rule">
+        <field name="name">No delivery address VAT number</field>
+        <field name="description">Delivery address VAT number is required</field>
+        <field name="sequence">130</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not any(sale.partner_shipping_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT') | sale.partner_shipping_id.parent_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT')):
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Partner (invoice) -->
+    <record id="excep_no_partner_invoice_street" model="exception.rule">
+        <field name="name">No invoice address street</field>
+        <field name="description">Invoice address street is required</field>
+        <field name="sequence">140</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_invoice_id.street:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_invoice_country" model="exception.rule">
+        <field name="name">No invoice address country</field>
+        <field name="description">Invoice address country is required</field>
+        <field name="sequence">150</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_invoice_id.country_id and not sale.partner_invoice_id.parent_id.country_id:
+    failed=True</field>
+    </record>
+    <record id="excep_no_partner_invoice_phone" model="exception.rule">
+        <field name="name">No invoice address phone or mobile</field>
+        <field name="description">Invoice address phone or mobile is required.</field>
+        <field name="sequence">160</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_invoice_id.phone and not sale.partner_invoice_id.mobile:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_invoice_email" model="exception.rule">
+        <field name="name">No invoice address email</field>
+        <field name="description">Invoice address email contact is required</field>
+        <field name="sequence">170</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not sale.partner_invoice_id.email:
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="excep_no_partner_invoice_vat" model="exception.rule">
+        <field name="name">No invoice address VAT number</field>
+        <field name="description">Invoice address VAT number is required</field>
+        <field name="sequence">130</field>
+        <field name="rule_group">sale</field>
+        <field name="model">sale.order</field>
+        <field name="code">if not any(sale.partner_invoice_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT') | sale.partner_invoice_id.parent_id.id_numbers.filtered(lambda i: i.status not in ('pending', 'close') and i.category_id.code == 'VAT')):
+    failed=True</field>
+        <field name="active" eval="True"/>
+    </record>
+    </data>
+</odoo>

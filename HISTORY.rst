@@ -27,6 +27,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-242: Add sale order exception rules
 * BSSFL-352: Add security group to reset RMAs
 * BSSFL-387: Repair state draft and open
 
