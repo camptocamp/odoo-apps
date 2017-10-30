@@ -118,6 +118,19 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_invoices_supplier(ctx):
+    """ Importing invoices supplier from csv """
+    model = ctx.env['account.invoice'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/invoice_supp_head.csv', model)
+    model_item = ctx.env['account.invoice.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/invoice_supp_line.csv', model_item)
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -137,4 +150,5 @@ def main(ctx):
     import_bank(ctx)
     import_bank_account(ctx)
     import_sales_order(ctx)
+    import_invoices_supplier(ctx)
     return

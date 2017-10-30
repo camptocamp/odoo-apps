@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Data**
 
+* Add account supplier invoices data
+
 **Features and Improvements**
 
 **Bugfixes**
