@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add invoice bank details linked to payment mode
+
 **Bugfixes**
 
 **Build**
