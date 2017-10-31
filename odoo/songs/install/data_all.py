@@ -258,6 +258,12 @@ def import_account_asset_category(ctx):
 
 
 @anthem.log
+def desactive_incoterm(ctx):
+    """ Desactive Incoterm from csv """
+    load_csv(ctx, 'data/install/incoterm.csv', 'stock.incoterms')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -285,3 +291,4 @@ def main(ctx):
     delete_layout_category(ctx)
     create_layout_category(ctx)
     import_account_asset_category(ctx)
+    desactive_incoterm(ctx)
