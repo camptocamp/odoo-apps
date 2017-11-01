@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+Rename button Create procurements to Validate the payment
+
 **Bugfixes**
 
 **Build**
