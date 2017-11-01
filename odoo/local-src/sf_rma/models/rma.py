@@ -270,7 +270,10 @@ class RMA(models.Model):
             'rma_id': self.id,
             'company_id': self.company_id.id,
             'team_id': self.env.ref('sf_rma.crm_team_rma').id,
-            'pricelist_id': self.env.ref('sf_rma.pricelist_rma').id,
+            'pricelist_id':
+                self.partner_id.property_product_pricelist.id
+                if self.decision == 'to_invoice'
+                else self.env.ref('sf_rma.pricelist_rma').id,
             'origin': self.name,
             'type_id': self.env.ref('sf_rma.rma_sale_type').id
         }

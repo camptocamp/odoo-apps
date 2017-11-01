@@ -54,6 +54,8 @@ Rename button Create procurements to Validate the payment
 
 * Reset delivery method (except for delivery method managers)
 
+* Assign pricelist to SO depending on RMA decision
+
 **Build**
 
 **Documentation**
