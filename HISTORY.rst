@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Assign technician to Repair Order
+
 **Bugfixes**
 
 **Build**
