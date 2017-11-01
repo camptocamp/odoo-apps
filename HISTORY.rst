@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Data**
 
+* Add partner vat numbers
+
 **Features and Improvements**
 
 **Bugfixes**

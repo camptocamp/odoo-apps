@@ -168,6 +168,13 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_partner_vat_numbers(ctx):
+    """ Importing partner vat numbers from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/partner_vat_number.csv',
+             'res.partner.id_number')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -188,4 +195,5 @@ def main(ctx):
     import_bank(ctx)
     import_bank_account(ctx)
     import_sales_order(ctx)
+    import_partner_vat_numbers(ctx)
     return
