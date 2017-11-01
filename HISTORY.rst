@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Configure SA Invoicing and Payments default purchase tax
+
 **Bugfixes**
 
 **Build**
