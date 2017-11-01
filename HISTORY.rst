@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+Default invoice methosd
+
 **Build**
 
 **Documentation**
