@@ -52,3 +52,6 @@
         path = odoo/external-src/account-invoicing
         url = git@github.com:OCA/account-invoicing.git
         branch = 10.0
+[submodule "odoo/external-src/odoo-usability"]
+	path = odoo/external-src/odoo-usability
+	url = git@github.com:akretion/odoo-usability.git
