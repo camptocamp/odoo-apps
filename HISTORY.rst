@@ -78,6 +78,9 @@ latest (unreleased)
 * Install module account tag category
 * Add module rma webhook
 * Install module sf_mrp
+* Use 3 distinct services to import RMA MRP repair lines
+* Allow to add additional description on sale order lines imported from RMA MRP repair line
+* Install module sale_layout_category_product
 
 **Bugfixes**
 

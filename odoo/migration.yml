@@ -118,6 +118,8 @@ migration:
           - server_environment_ir_config_parameter
           # OCA/account-invoicing
           - account_invoice_fiscal_position_update
+          # akretion/odoo-usability
+          - sale_layout_category_product
           # SENSEFLY
           - product_price_category
           - sf_account
