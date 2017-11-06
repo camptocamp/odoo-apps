@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Reset delivery method (except for delivery method managers)
+
 **Build**
 
 **Documentation**
