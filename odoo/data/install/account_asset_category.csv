@@ -6,3 +6,4 @@ __setup__.account_asset_category_4,Véhicules,base.main_company,__setup__.accoun
 __setup__.account_asset_category_5,Brevets développements,base.main_company,__setup__.account_journal_5,__setup__.account_account_257,__setup__.account_account_1807,__setup__.account_account_1282,number,60,1,linear,true,true,
 __setup__.account_asset_category_6,Designs,base.main_company,__setup__.account_journal_5,__setup__.account_account_1796,__setup__.account_account_1797,__setup__.account_account_1282,number,60,1,linear,true,true,
 __setup__.account_asset_category_7,Vehicle,__setup__.company_mte,__setup__.account_journal_123,__setup__.account_account_2365,__setup__.account_account_2366,__setup__.account_account_2041,number,36,1,linear,true,true,
+__setup__.account_asset_category_8,Développement 3 ans,base.main_company,__setup__.account_journal_5,__setup__.account_account_257,__setup__.account_account_1807,__setup__.account_account_1282,number,36,1,linear,true,true,

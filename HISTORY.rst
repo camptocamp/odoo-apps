@@ -25,6 +25,8 @@ latest (unreleased)
 
 * Add waves data
 
+* Add account assets
+
 **Features and Improvements**
 
 * Add group to allow to force availability on stock operations
