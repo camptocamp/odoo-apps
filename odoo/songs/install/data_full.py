@@ -168,6 +168,14 @@ def import_sales_order(ctx):
 
 
 @anthem.log
+def import_bom(ctx):
+    """ Importing bill of materials from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/mrp_bom.csv', 'mrp.bom')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/mrp_bom_line.csv',
+             'mrp.bom.line')
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -188,4 +196,5 @@ def main(ctx):
     import_bank(ctx)
     import_bank_account(ctx)
     import_sales_order(ctx)
+    import_bom(ctx)
     return
