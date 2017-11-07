@@ -21,7 +21,6 @@
 
 from odoo import models
 from odoo import fields
-from odoo import api
 
 
 class MrpProduction(models.Model):
@@ -31,7 +30,7 @@ class MrpProduction(models.Model):
         comodel_name='mrp.team',
         string='Manufacturing Team',
         required=False,
-        help="""If set, manufacturing team used notably to select the 
+        help="""If set, manufacturing team used notably to select the
         technician who will handle this order.""",
         ondelete='set null',
     )

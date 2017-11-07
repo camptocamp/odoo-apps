@@ -26,19 +26,6 @@ from odoo import fields
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    @staticmethod
-    def _get_available_member(self, operator, value):
-        """
-        If no value, return all users.
-        :param operator: 
-        :param value: 
-        :return: 
-        """
-        if not value:
-            return [('share', '=', False)]
-        else:
-            return [('mrp_team_ids', operator, value)]
-
     mrp_team_ids = fields.Many2many(
         comodel_name='mrp.team',
         column1='team_id',
@@ -46,9 +33,3 @@ class ResUsers(models.Model):
         relation='mrp_team_users',
         string='MRP Teams',
     )
-    is_mrp_team_member = fields.Boolean(
-        string='Is member of the team ?',
-        compute=lambda *a: True,
-        search=_get_available_member,
-    )
-
