@@ -24,7 +24,7 @@ def settings(ctx):
          'currency_provider': u'ecb',
          'days_between_two_followups': 14,
          'default_purchase_tax_id': ctx.env.ref(
-             'l10n_ch.1_vat_80_purchase_incl').id,
+             'l10n_ch.1_vat_XO').id,
          'default_sale_tax_id': ctx.env.ref('l10n_ch.1_vat_O_exclude').id,
          'expects_chart_of_accounts': True,
          'fiscalyear_last_day': 31,

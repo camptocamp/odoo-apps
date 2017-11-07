@@ -12,7 +12,7 @@ If `USE_S3` is True then you must provide the AWS configuration with the
 following environment variables:
 
 
-    - AWS_ACCES_KEY_ID=xxxxxx
+    - AWS_ACCESS_KEY_ID=xxxxxx
     - AWS_SECRET_ACCESS_KEY=xxxxxx
     - AWS_BUCKETNAME=prod-sf-odoo-data
     - AWS_REGION=eu-central-1

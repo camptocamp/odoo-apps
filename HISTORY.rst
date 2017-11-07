@@ -20,12 +20,39 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Data**
+* Add pricelist data and price category data
+
+* Desactive incoterms data
+
+* Add waves data
+
+* Add account assets
+
+* Add account supplier invoices data
 
 * Add purchase order data
 
 **Features and Improvements**
 
+* Add group to allow to force availability on stock operations
+
+* Add sensefly emoji module
+
+* Add invoice bank details linked to payment mode
+
+* Assign technician to Repair Order
+
+Rename button Create procurements to Validate the payment
+
+* Configure SA Invoicing and Payments default purchase tax
+
 **Bugfixes**
+
+* Rma config webhook base url
+
+* Replace quotation/order report on mail template
+
+* Default invoice method
 
 **Build**
 
@@ -55,6 +82,9 @@ latest (unreleased)
 
 * Activate pick pack ship delivery steps
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
+* Add purchase order confirmation field
+* Add account asset category data
+* Add bill of materials data
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
@@ -80,6 +110,9 @@ latest (unreleased)
 * Install module account tag category
 * Add module rma webhook
 * Install module sf_mrp
+* Use 3 distinct services to import RMA MRP repair lines
+* Allow to add additional description on sale order lines imported from RMA MRP repair line
+* Install module sale_layout_category_product
 
 **Bugfixes**
 

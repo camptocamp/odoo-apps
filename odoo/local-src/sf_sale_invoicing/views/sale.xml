@@ -7,7 +7,9 @@
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button name="action_create_procurements" attrs="{'invisible': ['|', ('down_payment_required', '=', False), '|', ('state', '!=', 'sale'), ('down_payment_missing', '=', True )]}" type="object" string="Create procurements" />
+                <button name="action_create_procurements"
+                        attrs="{'invisible': ['|', ('down_payment_required', '=', False), '|', ('state', '!=', 'sale'), ('down_payment_missing', '=', True )]}"
+                        type="object" string="Validate the payment" groups="account.group_account_user,account.group_account_manager"/>
             </xpath>
             <field name="payment_term_id" position="after">
                 <field name="down_payment_required" invisible="1" />

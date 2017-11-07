@@ -12,7 +12,9 @@
             <field name="date_order" position="before">
                 <field name="second_vendor_id"/>
             </field>
-
+            <field name="date_order" position="after">
+                <field name="confirmation_date"/>
+            </field>
             <field name="analytic_tag_ids" position="replace"/>
             <field name="account_analytic_id" position="before">
                 <field name="analytic_tag_ids" string="Team" groups="purchase.group_analytic_accounting" widget="many2many_tags"/>
@@ -23,4 +25,17 @@
             </field>
         </field>
     </record>
+
+    <record id="sf_purchase_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sf.purchase.order.tree.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <field name="date_planned" position="after">
+                <field name="confirmation_date"/>
+            </field>
+        </field>
+    </record>
+
 </odoo>

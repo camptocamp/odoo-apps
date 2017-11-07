@@ -43,8 +43,10 @@ def import_analytic_tag(ctx):
 @anthem.log
 def import_analytic_account_project(ctx):
     """ Importing analytic account (project) from csv """
-    load_csv(ctx, 'data/install/analytic_account_project.csv',
-             'account.analytic.account')
+    model = ctx.env['account.analytic.account'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/install/analytic_account_project.csv', model)
 
 
 @anthem.log
@@ -258,6 +260,19 @@ def import_account_asset_category(ctx):
 
 
 @anthem.log
+def desactive_incoterm(ctx):
+    """ Desactive Incoterm from csv """
+    load_csv(ctx, 'data/install/incoterm.csv', 'stock.incoterms')
+
+
+@anthem.log
+def import_price_category(ctx):
+    """ Importing price category from csv """
+    load_csv(ctx, 'data/install/price_category.csv',
+             'product.price.category')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -285,3 +300,5 @@ def main(ctx):
     delete_layout_category(ctx)
     create_layout_category(ctx)
     import_account_asset_category(ctx)
+    desactive_incoterm(ctx)
+    import_price_category(ctx)

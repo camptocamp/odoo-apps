@@ -2,6 +2,6 @@
 <odoo noupdate="0">
     <record id="group_product_validator" model="res.groups">
         <field name="name">Product Validator</field>
-        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="category_id" ref="sf_stock.module_category_shipping"/>
     </record>
 </odoo>

@@ -210,8 +210,9 @@
                     </div>
 
                     <!-- Bank details -->
-                    <div class="row" t-foreach="o.company_id.partner_id.bank_ids" t-as="b">
-                        <div class="col-xs-8 pull-left" t-if="b.currency_id == o.currency_id">
+                    <t t-set="b" t-value="o.payment_mode_id.fixed_journal_id.bank_account_id"/>
+                    <div class="row" t-if="b and b.bank_id">
+                        <div class="col-xs-8 pull-left">
                             <span>Payment for: </span><span t-field="o.company_id.name"/> <span t-field="o.company_id.partner_id.city"/>
                             <br />
                             <span>Bank: </span><span t-field="b.bank_id.name"/>, <span t-field="b.bank_id.country.code"/>-<span t-field="b.bank_id.zip"/>

@@ -49,7 +49,7 @@ def settings(ctx):
     ctx.env['sale.config.settings'].create({
         'auto_done_setting': False,
         'company_id': ctx.env.ref('__setup__.company_mte').id,
-        'default_invoice_policy': u'order',
+        'default_invoice_policy': u'delivery',
         'default_picking_policy': False,
         'deposit_product_id_setting': False,
         'group_discount_per_so_line': 1,
