@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add group to allow to force availability on stock operations
+
 **Bugfixes**
 
 **Build**

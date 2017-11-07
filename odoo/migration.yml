@@ -105,6 +105,7 @@ migration:
           - sale_partner_incoterm
           # OCA/stock-logistics-workflow
           - stock_picking_invoice_link
+          - stock_disable_force_availability_button
           # OCA/account-analytic
           - account_analytic_default_tag
           - account_analytic_default_tag_purchase
