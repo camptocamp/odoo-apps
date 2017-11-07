@@ -52,6 +52,8 @@ Rename button Create procurements to Validate the payment
 
 * Default invoice method
 
+* Reset delivery method (except for delivery method managers)
+
 **Build**
 
 **Documentation**
