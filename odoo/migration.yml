@@ -151,7 +151,6 @@ migration:
           - mrp_team
           - sf_sale_invoicing
           - sale_partner_incoterm
-          - sf_sale_invoice_fiscal_position
           - sf_rma_webhook
     - version: 10.1.0
     - version: 10.2.0
