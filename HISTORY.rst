@@ -42,6 +42,8 @@ latest (unreleased)
 
 Rename button Create procurements to Validate the payment
 
+* Configure SA Invoicing and Payments default purchase tax
+
 **Bugfixes**
 
 * Rma config webhook base url
