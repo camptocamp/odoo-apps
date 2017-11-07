@@ -9,8 +9,10 @@ class SaleOrder(models.Model):
     @api.multi
     def write(self, vals):
         for sale_order in self:
-            # Reset delivery method
-            if sale_order.state in ('draft', 'sent') and 'order_line' in vals:
+            # Reset delivery method (except for delivery method managers)
+            if sale_order.state in ('draft', 'sent') and 'order_line' in vals\
+                    and not self.env.user.has_group(
+                        'sf_stock.group_delivery_method_manager'):
                 self.carrier_id = False
         return super(SaleOrder, self).write(vals)
 
