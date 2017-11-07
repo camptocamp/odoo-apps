@@ -31,8 +31,7 @@ services:
       - PG_SYSTEM_MAINTENANCE_WORK_MEM=256MB
       - PG_SYSTEM_WAL_BUFFERS=8MB
       - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
-    ports:
-      - "5440:5432"
+
     volumes:
       - "data-db:/var/lib/postgresql/data"
 

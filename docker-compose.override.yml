@@ -30,5 +30,6 @@ services:
   nginx:
     ports:
       - 80:80
+
 volumes:
   data-odoo-pytest-cache:
