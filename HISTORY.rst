@@ -40,6 +40,8 @@ latest (unreleased)
 
 * Assign technician to Repair Order
 
+Rename button Create procurements to Validate the payment
+
 **Bugfixes**
 
 * Rma config webhook base url
