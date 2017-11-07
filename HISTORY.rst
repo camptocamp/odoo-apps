@@ -28,6 +28,8 @@ latest (unreleased)
 
 * Add account assets
 
+* Add account supplier invoices data
+
 **Features and Improvements**
 
 * Add group to allow to force availability on stock operations
