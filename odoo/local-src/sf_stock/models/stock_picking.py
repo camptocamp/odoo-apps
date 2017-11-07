@@ -36,7 +36,7 @@ class StockPicking(models.Model):
     @api.one
     def compute_procurement_group_sale(self):
         for order in self.env['sale.order'].search(
-                [('name', '=', self.group_id.name)]):
+                [('name', '=', self.group_id.name)], limit=1):
             self.procurement_group_sale_id = order
 
     @api.one
