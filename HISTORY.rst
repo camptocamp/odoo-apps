@@ -38,6 +38,8 @@ latest (unreleased)
 
 * Add invoice bank details linked to payment mode
 
+* Assign technician to Repair Order
+
 **Bugfixes**
 
 * Rma config webhook base url
