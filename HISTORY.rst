@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Data**
 
+* Desactive incoterms data
+
 **Features and Improvements**
 
 **Bugfixes**
