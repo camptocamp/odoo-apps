@@ -48,6 +48,8 @@ Rename button Create procurements to Validate the payment
 
 * Replace quotation/order report on mail template
 
+* Default invoice method
+
 **Build**
 
 **Documentation**
