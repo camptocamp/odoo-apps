@@ -37,6 +37,8 @@ latest (unreleased)
 
 * Rma config webhook base url
 
+* Replace quotation/order report on mail template
+
 **Build**
 
 **Documentation**
