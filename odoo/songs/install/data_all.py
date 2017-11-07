@@ -284,7 +284,7 @@ def create_rate_auto_download(ctx):
                       'next_run': fields.Date.to_string(
                           date.today().replace(day=1)
                       ),
-                      'currency_to_uodate': [(6, 0,
+                      'currency_to_update': [(6, 0,
                                               (ctx.env.ref('base.CHF')),
                                               (ctx.env.ref('base.USD')),
                                               (ctx.env.ref('base.EUR'))
