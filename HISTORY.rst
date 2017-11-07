@@ -36,6 +36,8 @@ latest (unreleased)
 
 * Add sensefly emoji module
 
+* Add invoice bank details linked to payment mode
+
 **Bugfixes**
 
 * Rma config webhook base url
