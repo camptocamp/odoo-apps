@@ -44,6 +44,9 @@ part of this team.
         # Security
         'security/ir.model.access.csv',
     ],
+    'demo': [
+        'data/mrp_production_demo.xml',
+    ],
     'application': False,
     'installable': True,
 }

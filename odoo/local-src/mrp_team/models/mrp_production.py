@@ -21,6 +21,7 @@
 
 from odoo import models
 from odoo import fields
+from odoo import api
 
 
 class MrpProduction(models.Model):
@@ -29,12 +30,14 @@ class MrpProduction(models.Model):
     team_id = fields.Many2one(
         comodel_name='mrp.team',
         string='Manufacturing Team',
-        help="""If set, manufacturing team used notably to select the
+        required=False,
+        help="""If set, manufacturing team used notably to select the 
         technician who will handle this order.""",
         ondelete='set null',
     )
     technician_id = fields.Many2one(
         comodel_name='res.users',
         string='Technician',
+        required=False,
         ondelete='set null',
     )
