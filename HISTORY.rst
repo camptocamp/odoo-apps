@@ -20,6 +20,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Data**
+* Add pricelist data and price category data
 
 * Desactive incoterms data
 
