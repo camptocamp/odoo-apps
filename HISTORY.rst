@@ -23,6 +23,8 @@ latest (unreleased)
 
 * Desactive incoterms data
 
+* Add waves data
+
 **Features and Improvements**
 
 * Add group to allow to force availability on stock operations
