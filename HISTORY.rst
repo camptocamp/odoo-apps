@@ -29,6 +29,8 @@ latest (unreleased)
 
 * Add group to allow to force availability on stock operations
 
+* Add sensefly emoji module
+
 **Bugfixes**
 
 **Build**

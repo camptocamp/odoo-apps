@@ -152,6 +152,7 @@ migration:
           - sf_sale_invoicing
           - sale_partner_incoterm
           - sf_rma_webhook
+          - sf_emoji
     - version: 10.1.0
     - version: 10.2.0
     - version: 10.3.0
