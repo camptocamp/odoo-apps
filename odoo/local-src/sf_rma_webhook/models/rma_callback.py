@@ -15,7 +15,7 @@ class RmaCallBack(models.Model):
 
     @api.model
     def call(self, url_suffix, rma_ids):
-        base_url = self.env['rma.config.settings'].default_web_hook_base_url()
+        base_url = self.env.user.company_id.web_hook_base_url
         if not base_url:
             raise MissingError(_("Rma web hook base url not configured!"))
 

@@ -33,6 +33,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Rma config webhook base url
+
 **Build**
 
 **Documentation**
