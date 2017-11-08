@@ -67,10 +67,12 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
             self.env.user.company_id.rma_service_additional_description
 
         values = []
-        for line in self.repair_line_ids:
+
+        for line in self.with_context(
+                pricelist=self.sale_order_id.pricelist_id.id).repair_line_ids:
 
             line_dict = {
-                'price_unit': line.product_id.list_price,
+                'price_unit': line.product_id.price,
                 'product_uom_qty': line.product_uom_qty,
                 'product_uom': line.product_uom.id,
             }
