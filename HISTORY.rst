@@ -32,6 +32,8 @@ latest (unreleased)
 
 * Add purchase order data
 
+* Add partner vat numbers
+
 **Features and Improvements**
 
 * Activate auto currency update
