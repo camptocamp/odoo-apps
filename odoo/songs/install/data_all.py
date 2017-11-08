@@ -7,6 +7,8 @@ import csv
 from anthem.lyrics.records import add_xmlid, create_or_update
 from ..common import load_csv
 from pkg_resources import Requirement, resource_stream
+from datetime import date
+from odoo import fields
 
 
 """ Data loaded in all modes
@@ -273,6 +275,24 @@ def import_price_category(ctx):
 
 
 @anthem.log
+def create_rate_auto_download(ctx):
+    """ Creating currency rate download configuration"""
+    create_or_update(ctx, 'currency.rate.update.service',
+                     '__setup__.rate_auto_download_sa',
+                     {'service': 'CH_ADMIN',
+                      'interval_type': 'months',
+                      'interval_number': 1,
+                      'next_run': fields.Date.to_string(
+                          date.today().replace(day=1)
+                      ),
+                      'currency_to_update': [(6, 0,
+                                              [ctx.env.ref('base.CHF').id,
+                                               ctx.env.ref('base.USD').id,
+                                               ctx.env.ref('base.EUR').id]
+                                              )]})
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -302,3 +322,4 @@ def main(ctx):
     import_account_asset_category(ctx)
     desactive_incoterm(ctx)
     import_price_category(ctx)
+    create_rate_auto_download(ctx)
