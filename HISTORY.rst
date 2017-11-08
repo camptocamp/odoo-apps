@@ -30,6 +30,8 @@ latest (unreleased)
 
 * Add account supplier invoices data
 
+* Add purchase order data
+
 **Features and Improvements**
 
 * Activate auto currency update
