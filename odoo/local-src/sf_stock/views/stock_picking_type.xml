@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <field name="use_existing_lots" position="after">
                     <field name="show_button_shipped"/>
+                    <field name="propagate_delivery_info"/>
                 </field>
             </field>
     </record>

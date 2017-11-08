@@ -171,7 +171,8 @@ def update_picking_type(ctx):
         record.name = 'Reserve & Pack'
     for record in ctx.env['stock.picking.type'].search(
             [('name', '=', 'Pack')]):
-            record.name = 'Freight Labeling'
+        record.name = 'Freight Labeling'
+        record.propagate_delivery_info = True
 
 
 @anthem.log
