@@ -274,6 +274,7 @@ def import_price_category(ctx):
              'product.price.category')
 
 
+@anthem.log
 def create_rate_auto_download(ctx):
     """ Creating currency rate download configuration"""
     create_or_update(ctx, 'currency.rate.update.service',
@@ -285,11 +286,10 @@ def create_rate_auto_download(ctx):
                           date.today().replace(day=1)
                       ),
                       'currency_to_update': [(6, 0,
-                                              (ctx.env.ref('base.CHF')),
-                                              (ctx.env.ref('base.USD')),
-                                              (ctx.env.ref('base.EUR'))
-                                              )
-                                             ]})
+                                              [ctx.env.ref('base.CHF').id,
+                                               ctx.env.ref('base.USD').id,
+                                               ctx.env.ref('base.EUR').id]
+                                              )]})
 
 
 @anthem.log
