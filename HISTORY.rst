@@ -120,6 +120,7 @@ Rename button Create procurements to Validate the payment
 
 **Bugfixes**
 
+* Layout DN/Invoice
 * Add mysensefly.interface security rules
 * Add missing field show_button_shipped in picking view
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders

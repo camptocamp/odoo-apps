@@ -27,6 +27,26 @@ class StockPicking(models.Model):
         help="Confirm that the customer received physically the goods."
     )
 
+    procurement_group_sale_id = fields.Many2one(
+        'sale.order',
+        string='Procurement group sale',
+        compute='compute_procurement_group_sale'
+    )
+
+    @api.one
+    def compute_procurement_group_sale(self):
+        for order in self.env['sale.order'].search(
+                [('name', '=', self.group_id.name)], limit=1):
+            self.procurement_group_sale_id = order
+
+    @api.one
+    @api.depends('move_lines.procurement_id.sale_line_id.order_id')
+    def _compute_sale_id(self):
+        for move in self.move_lines:
+            if move.procurement_id.sale_line_id:
+                self.sale_id = move.procurement_id.sale_line_id.order_id
+                return
+
     @api.multi
     def copy(self, default=None):
         self.ensure_one()
@@ -44,12 +64,6 @@ class StockPicking(models.Model):
         for pick in self:
             pick.customer_received = not pick.confirm_customer_received
         return super(StockPicking, self).do_new_transfer()
-
-    @api.one
-    def _get_sale_order_id(self):
-        if self.origin and self.picking_type_id.code == 'outgoing':
-            self.sale_id = self.env['sale.order'].search(
-                [('name', '=', self.origin)])
 
     @api.multi
     def do_prepare_partial(self):
