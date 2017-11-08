@@ -29,7 +29,6 @@ class MrpProduction(models.Model):
     team_id = fields.Many2one(
         comodel_name='mrp.team',
         string='Manufacturing Team',
-        required=False,
         help="""If set, manufacturing team used notably to select the
         technician who will handle this order.""",
         ondelete='set null',
@@ -37,6 +36,5 @@ class MrpProduction(models.Model):
     technician_id = fields.Many2one(
         comodel_name='res.users',
         string='Technician',
-        required=False,
         ondelete='set null',
     )

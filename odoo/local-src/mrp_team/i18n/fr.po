@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* sensefly_user_op
+#	* mrp_team
 #
 msgid ""
 msgstr ""
@@ -15,206 +15,206 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_active
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_active
 msgid "Active"
 msgstr "Actif"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_mrpteams_search
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Archived"
 msgstr "Archivé"
 
-#. module: sensefly_user_op
-#: model:ir.actions.act_window,help:sensefly_user_op.mrp_team_act
-#: model:ir.actions.act_window,help:sensefly_user_op.mrp_team_mrpteams_act
+#. module: mrp_team
+#: model:ir.actions.act_window,help:mrp_team.mrp_team_act
+#: model:ir.actions.act_window,help:mrp_team.mrp_team_mrpteams_act
 msgid "Click here to define a new manufacturing team."
 msgstr "Cliquez ici pour définir une nouvelle équipe de production."
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_code
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_code
 msgid "Code"
 msgstr "Code"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_color
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_color
 msgid "Color Index"
 msgstr "Couleur"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_company_id
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_company_id
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Company"
 msgstr "Société"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_create_uid
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_create_uid
 msgid "Created by"
 msgstr "Créé par"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_create_date
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_create_date
 msgid "Created on"
 msgstr "Créé le"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_display_name
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Follow this manufacturing team to automatically track the events associated to users of this team."
 msgstr "Suivez cette équipe de production pour automatiquement suivre les évènements associés aux utilisateurs de cette équipe."
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_mrpteams_search
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Group By..."
 msgstr "Regrouper par..."
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_id
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_id
 msgid "ID"
 msgstr "ID"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,help:sensefly_user_op.field_mrp_production_team_id
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_mrp_production_team_id
 msgid "If set, manufacturing team used notably to select the \n"
 "        technician who will handle this order."
 msgstr "Si rempli, l'équipe de production va être utiliser pour sélectionner le \n"
 "        technicien qui prendra en charge cet ordre."
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,help:sensefly_user_op.field_mrp_team_active
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_mrp_team_active
 msgid "If the active field is set to false, \n"
 "it will allow you to hide the MRP team without removing it."
 msgstr "Si le champ actif est non coché, \n"
 "cela va vous permettre de cache les équipes sans les supprimer."
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_res_users_is_mrp_team_member
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_is_mrp_team_member
 msgid "Is member of the team ?"
 msgstr "Est un membre de l'équipe ?"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team___last_update
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team___last_update
 msgid "Last Modified on"
 msgstr "Dernière Modification le"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_write_uid
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_write_date
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
-#. module: sensefly_user_op
-#: model:ir.model,name:sensefly_user_op.model_mrp_production
+#. module: mrp_team
+#: model:ir.model,name:mrp_team.model_mrp_production
 msgid "Manufacturing Order"
 msgstr "Ordre de fabrication"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_production_team_id
-#: model:ir.model.fields,field_description:sensefly_user_op.field_res_users_mrp_team_id
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_production_mrp_filter_view
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_tree
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_production_team_id
+#: model:ir.model.fields,field_description:mrp_team.field_res_users_mrp_team_id
+#: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_tree
 msgid "Manufacturing Team"
 msgstr "Équipe de production"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,help:sensefly_user_op.field_res_users_mrp_team_id
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_res_users_mrp_team_id
 msgid "Manufacturing Team the user is member of.\n"
 "Used to compute the members of a mrp team through the inverse one2many"
 msgstr "Équipe de fabrication dont l'utilisateur est membre.\n"
 "Utilisé pour calculer les membres d'une équipe de production à travers le one2many"
 
-#. module: sensefly_user_op
-#: model:ir.actions.act_window,name:sensefly_user_op.mrp_team_act
-#: model:ir.actions.act_window,name:sensefly_user_op.mrp_team_mrpteams_act
-#: model:ir.model,name:sensefly_user_op.model_mrp_team
-#: model:ir.ui.menu,name:sensefly_user_op.menu_mrp_team
+#. module: mrp_team
+#: model:ir.actions.act_window,name:mrp_team.mrp_team_act
+#: model:ir.actions.act_window,name:mrp_team.mrp_team_mrpteams_act
+#: model:ir.model,name:mrp_team.model_mrp_team
+#: model:ir.ui.menu,name:mrp_team.menu_mrp_team
 msgid "Manufacturing Teams"
 msgstr "Équipes de fabrication"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_mrpteams_search
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Manufacturing Teams Search"
 msgstr "Recherche des équipes de fabrication"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_production_mrp_filter_view
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
 msgid "Manufacturing Technician"
 msgstr "Technicien de fabrication"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Manufacturing team"
 msgstr "Équipe de fabrication"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Manufacturing team name..."
 msgstr "Nom de l'équipe de fabrication..."
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "More Info"
 msgstr "Plus d'infos"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_mrpteams_search
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "My Teams"
 msgstr "Mes équipes"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_production_mrp_filter_view
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
 msgid "My orders"
 msgstr "Mes ordres"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_name
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_name
 msgid "Name"
 msgstr "Nom"
 
-#. module: sensefly_user_op
-#: model:mrp.team,name:sensefly_user_op.team_production_1
+#. module: mrp_team
+#: model:mrp.team,name:mrp_team.team_production_1
 msgid "Production Team 1"
 msgstr "Production Team 1"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_user_id
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_mrpteams_search
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_user_id
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Team Leader"
 msgstr "Leader de l'équipe"
 
-#. module: sensefly_user_op
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_team_view_form
+#. module: mrp_team
+#: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Team Members"
 msgstr "Membres de l'équipe"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_team_member_ids
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_team_member_ids
 msgid "Team members"
 msgstr "Membres de l'équipe"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,field_description:sensefly_user_op.field_mrp_production_technician_id
-#: model:ir.ui.view,arch_db:sensefly_user_op.mrp_production_mrp_filter_view
+#. module: mrp_team
+#: model:ir.model.fields,field_description:mrp_team.field_mrp_production_technician_id
+#: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
 msgid "Technician"
 msgstr "Technicien"
 
-#. module: sensefly_user_op
-#: model:ir.model.fields,help:sensefly_user_op.field_mrp_team_color
+#. module: mrp_team
+#: model:ir.model.fields,help:mrp_team.field_mrp_team_color
 msgid "The color of the team"
 msgstr "La couleur de l'équipe"
 
-#. module: sensefly_user_op
-#: model:ir.actions.act_window,help:sensefly_user_op.mrp_team_act
-#: model:ir.actions.act_window,help:sensefly_user_op.mrp_team_mrpteams_act
+#. module: mrp_team
+#: model:ir.actions.act_window,help:mrp_team.mrp_team_act
+#: model:ir.actions.act_window,help:mrp_team.mrp_team_mrpteams_act
 msgid "Use manufacturing team to organize your different technicians into\n"
 "                separate teams. Each team will work in its own list of\n"
 "                manufacturing orders."
@@ -222,13 +222,13 @@ msgstr "Utilisez les équipes de fabrication pour organiser les différent techn
 "                à l'intérieur d'équipes séparées. Chaque équipe va travailler sur sa propre liste \n"
 "                d'ordres de fabrication."
 
-#. module: sensefly_user_op
-#: model:ir.model,name:sensefly_user_op.model_res_users
+#. module: mrp_team
+#: model:ir.model,name:mrp_team.model_res_users
 msgid "Users"
 msgstr "Utilisateurs"
 
-#. module: sensefly_user_op
-#: code:addons/sensefly_user_op/models/mrp_team.py:35
+#. module: mrp_team
+#: code:addons/mrp_team/models/mrp_team.py:35
 #: sql_constraint:mrp.team:0
 #, python-format
 msgid "You cannot have two teams with the same code"

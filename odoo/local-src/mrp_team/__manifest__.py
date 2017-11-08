@@ -44,8 +44,6 @@ part of this team.
         # Security
         'security/ir.model.access.csv',
     ],
-    'demo': [
-    ],
     'application': False,
     'installable': True,
 }
