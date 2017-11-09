@@ -42,6 +42,7 @@ migration:
           - account_cancel
           - analytic
           - auth_ldap
+          - auth_signup
           - board
           - contacts
           - l10n_ch
