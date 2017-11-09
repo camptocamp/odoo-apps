@@ -20,49 +20,41 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Data**
+
 * Add pricelist data and price category data
-
 * Desactive incoterms data
-
 * Add waves data
-
 * Add account assets
-
 * Add account supplier invoices data
-
 * Add purchase order data
-
 * Add partner vat numbers
 
 **Features and Improvements**
 
 * Activate auto currency update
-
 * Add group to allow to force availability on stock operations
-
 * Add sensefly emoji module
-
 * Add invoice bank details linked to payment mode
 * Propagate delivery info from Freight Labeling to Delivery Orders
-
 * Assign technician to Repair Order
-
-Rename button Create procurements to Validate the payment
-
+* Rename button Create procurements to Validate the payment
 * Configure SA Invoicing and Payments default purchase tax
 * Install module stock_available_immediately
+* Add purchase order confirmation field
+* Add account asset category data
+* Add bill of materials data
+* Use 3 distinct services to import RMA MRP repair lines
+* Allow to add additional description on sale order lines imported from RMA MRP repair line
+* Install module sale_layout_category_product
 
 **Bugfixes**
 
 * Rma config webhook base url
-
 * Replace quotation/order report on mail template
-
 * Default invoice method
-
 * Reset delivery method (except for delivery method managers)
-
 * Assign pricelist to SO depending on RMA decision
+* Layout DN/Invoice
 
 **Build**
 
@@ -92,9 +84,6 @@ Rename button Create procurements to Validate the payment
 
 * Activate pick pack ship delivery steps
 * Renaming Pick and Pack types to  Reserve & Pack and Freight labeling
-* Add purchase order confirmation field
-* Add account asset category data
-* Add bill of materials data
 * Renaming menu entry Customer Invoices to Customer Invoices / Refunds
 * Invoice delivered quantities configuration
 * Configure Swiss fiscal position
@@ -115,18 +104,13 @@ Rename button Create procurements to Validate the payment
 * Do not create procurements if down payment is missing
 * Allow to create procurements manually once down payment exists
 * Change behavior of invoicing policy on delivered quantity, now only fully delivered sale order lines are invoicable
-
 * Install sale_partner_incoterm module
 * Install module account tag category
 * Add module rma webhook
 * Install module sf_mrp
-* Use 3 distinct services to import RMA MRP repair lines
-* Allow to add additional description on sale order lines imported from RMA MRP repair line
-* Install module sale_layout_category_product
 
 **Bugfixes**
 
-* Layout DN/Invoice
 * Add mysensefly.interface security rules
 * Add missing field show_button_shipped in picking view
 * Rename button, make "Start Working" invisible and fix move creation on mrp.workorders
