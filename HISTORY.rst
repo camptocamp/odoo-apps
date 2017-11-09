@@ -68,6 +68,78 @@ latest (unreleased)
 * Assign pricelist to SO depending on RMA decision
 * Layout DN/Invoice
 
+**Build**
+
+* Updates in odoo/external-src/account-analytic
+* Updates in odoo/external-src/account-closing
+* Updates in odoo/external-src/account-financial-reporting
+* Updates in odoo/external-src/account-financial-tools
+
+  * Remove all pending PR
+
+* Updates in odoo/external-src/account-invoicing
+
+    * New version of module account_invoice_fiscal_position_update
+
+* Updates in odoo/external-src/bank-payment
+
+    * New version of module account_payment_mode
+    * New version of module account_payment_order
+
+* Updates in odoo/external-src/bank-statement-reconcile
+* Updates in odoo/external-src/enterprise
+
+    * New version of module mrp_plm
+    * New version of module helpdesk
+    * New version of module account_reports_followup
+    * New version of module account_reports
+
+* Updates in odoo/external-src/l10n-switzerland
+
+  * Remove all pending PR
+
+* Updates in odoo/external-src/odoo-prototype
+* Updates in odoo/external-src/odoo-usability
+* Updates in odoo/external-src/partner-contact
+* Updates in odoo/external-src/reporting-engine
+* Updates in odoo/external-src/sale-workflow
+* Updates in odoo/external-src/server-tools
+
+  * Remove all pending PR
+
+* Updates in odoo/external-src/stock-logistics-warehouse
+* Updates in odoo/external-src/stock-logistics-workflow
+* Updates in odoo/external-src/web
+
+  * Remove all pending PR
+
+* Updates in odoo/src
+
+    * New version of module mrp_repair
+    * New version of module sale
+    * New version of module calendar
+    * New version of module base_action_rule
+    * New version of module web
+    * New version of module base_setup
+    * New version of module board
+    * New version of module mail
+    * New version of module sale_stock
+    * New version of module stock
+    * New version of module product
+    * New version of module bus
+    * New version of module web_calendar
+    * New version of module delivery
+    * New version of module base
+    * New version of module report
+    * New version of module purchase
+    * New version of module account
+    * New version of module resource
+    * New version of module mrp
+    * New version of module account_asset
+    * New version of module web_kanban
+    * New version of module crm
+    * New version of module sales_team
+    * New version of module stock_account
 
 10.7.0 (2017-10-23)
 +++++++++++++++++++
