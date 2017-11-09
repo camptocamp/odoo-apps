@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.8.0 (2017-11-09)
++++++++++++++++++++
+
 **Data**
 
 * Add pricelist data and price category data
@@ -55,10 +67,6 @@ latest (unreleased)
 * Reset delivery method (except for delivery method managers)
 * Assign pricelist to SO depending on RMA decision
 * Layout DN/Invoice
-
-**Build**
-
-**Documentation**
 
 
 10.7.0 (2017-10-23)
