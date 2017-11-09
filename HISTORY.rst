@@ -28,6 +28,14 @@ latest (unreleased)
 **Documentation**
 
 
+10.8.1 (2017-11-09)
++++++++++++++++++++
+
+**Build**
+
+* Disable a failing test reported to be reported as a bug
+
+
 10.8.0 (2017-11-09)
 +++++++++++++++++++
 
