@@ -22,6 +22,7 @@ latest (unreleased)
 **Data**
 
 * Update units of measure data
+* Add RMA inventory route
 
 **Features and Improvements**
 
