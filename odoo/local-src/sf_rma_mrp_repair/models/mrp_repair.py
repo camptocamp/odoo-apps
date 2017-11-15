@@ -39,6 +39,7 @@ class MrpRepair(models.Model):
 
     invoicable_rma = fields.Boolean(store=True, compute='_is_rma_invoicable')
 
+    @api.depends('rma_id.decision')
     def _is_rma_invoicable(self):
         for repair in self:
             repair.invoicable_rma = repair.rma_id \
