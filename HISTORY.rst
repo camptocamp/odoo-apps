@@ -21,9 +21,13 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Do not install PLM and Quality modules
+
 **Bugfixes**
 
 **Build**
+
+* Update users group in demo mode
 
 **Documentation**
 
