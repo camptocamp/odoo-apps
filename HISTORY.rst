@@ -21,9 +21,13 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Do not install PLM and Quality modules
+
 **Bugfixes**
 
 **Build**
+
+* Update users group in demo mode
 
 **Documentation**
 
@@ -196,7 +200,6 @@ latest (unreleased)
 * Install module account tag category
 * Add module rma webhook
 * Install module sf_mrp
-* Do not install PLM and Quality modules
 
 **Bugfixes**
 
