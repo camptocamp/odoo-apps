@@ -26,6 +26,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Update company logo
+* Install account_financial_report_qweb module
 * Do not install PLM and Quality modules
 * Zendesk ticket numbers validation
 
