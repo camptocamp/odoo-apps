@@ -337,9 +337,10 @@ class RMA(models.Model):
             sale = self.env['sale.order'].create_with_onchanges(
                 so_data, ['partner_id'])
 
-            so_line_data = self._prepare_so_line_data(sale)
-            self.env['sale.order.line'].create_with_onchanges(
-                so_line_data, ['product_id'])
+            if rec.to_receive and not rec.to_exchange:
+                so_line_data = self._prepare_so_line_data(sale)
+                self.env['sale.order.line'].create_with_onchanges(
+                    so_line_data, ['product_id'])
 
             if rec.to_receive:
                 picking_data = self._prepare_picking_data()
