@@ -30,7 +30,7 @@ def setup_companies(ctx):
 
     with ctx.log(u'Set report company logo'):
         logo_content = resource_string(
-            req, 'data/images/report_logo_sensefly_sa.png')
+            req, 'data/images/senseFly-logo-small.png')
         b64_logo = b64encode(logo_content)
         holding.report_logo = b64_logo
 

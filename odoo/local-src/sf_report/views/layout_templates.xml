@@ -22,7 +22,7 @@
     <div class="header">
         <div class="row" style="border-bottom:2px solid #ccc;position: relative;">
             <div class="col-xs-9" id="header_company" style="margin-bottom: 10px;">
-                    <img style="max-height: 100px" src="/sf_report/static/src/img/report_logo_sensefly_sa.png"/>
+                    <img style="max-height: 100px" src="/sf_report/static/src/img/senseFly-logo-small.png"/>
                     <div style="display: inline-block; vertical-align: bottom;">
                         <p style="font-weight:bold"> <span t-field="company.name"/></p>
                         <span t-field="company.partner_id"
