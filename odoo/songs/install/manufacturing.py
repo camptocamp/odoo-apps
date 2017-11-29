@@ -26,6 +26,7 @@ def settings(ctx):
         'group_mrp_routings': 1,
         'group_product_variant': False,
         'manufacturing_lead': 0.0,
+        'manufacturing_period': u'week',
         'module_mrp_byproduct': False,
         'module_mrp_maintenance': False,
         'module_mrp_mps': 1,

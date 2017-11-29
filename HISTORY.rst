@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Setting the week period the manufacturing
+
 **Build**
 
 * Update users group in demo mode
