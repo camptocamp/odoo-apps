@@ -34,6 +34,7 @@ ENV ADDONS_PATH="/opt/odoo/external-src/enterprise, \
   /opt/odoo/external-src/account-analytic, \
   /opt/odoo/external-src/server-tools, \
   /opt/odoo/external-src/stock-logistics-workflow, \
+  /opt/odoo/external-src/stock-logistics-warehouse, \
   /opt/odoo/external-src/web, \
   /opt/odoo/external-src/account-invoicing, \
   /opt/odoo/local-src," \

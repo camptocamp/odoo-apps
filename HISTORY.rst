@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Add stock-logistics-warehouse in Dockerfile
+
 **Build**
 
 * Update users group in demo mode
