@@ -29,6 +29,7 @@ latest (unreleased)
 * Update company logo
 * Install account_financial_report_qweb module
 * Country date formats
+* Make team mandatory on PO
 * Do not install PLM and Quality modules
 * Zendesk ticket numbers validation
 * BSSFL-306: Create a Sensefly state on sale order
