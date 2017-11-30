@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* MRP Repair invoicable field not updated
+
 **Build**
 
 * Update users group in demo mode
