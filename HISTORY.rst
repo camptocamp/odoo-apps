@@ -33,6 +33,7 @@ latest (unreleased)
 
 * Add stock-logistics-warehouse in Dockerfile
 * Setting the week period the manufacturing
+* Print custom invoice report
 * MRP Repair invoicable field not updated
 * Pick and Pack picking types active
 
