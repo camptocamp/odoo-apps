@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* Update units of measure data
+
 **Features and Improvements**
 
 * Do not install PLM and Quality modules
