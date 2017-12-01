@@ -1,3 +1,5 @@
 "id","name","category_id/id","uom_type","rounding","factor","active"
 "product.product_uom_jx","Jx","product.product_uom_categ_unit","bigger","1.0","1.0","true"
+"product.product_uom_10pce","Set of 10 pcs","product.product_uom_categ_unit","bigger","0.001","0.1","false"
+"product.product_uom_500pce","Set of 500 pcs","product.product_uom_categ_unit","bigger","0.001","0.002","false"
 "product.product_uom_licence","Licence","product.product_uom_categ_unit","reference","1.0","1.0","true"
