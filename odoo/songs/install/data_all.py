@@ -165,14 +165,30 @@ def import_email_template(ctx):
 
 @anthem.log
 def update_picking_type(ctx):
-    """ Update stock picking type names """
+    """ Update stock picking type. Only for sensefly SA """
     for record in ctx.env['stock.picking.type'].search(
-            [('name', '=', 'Pick')]):
+            [('name', 'in', ('Pick', 'Reserve & Pack')),
+             ('active', '=', False),
+             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id)]):
         record.name = 'Reserve & Pack'
+        record.active = True
+        add_xmlid(
+            ctx, record,
+            '__setup__.stock_pick_type_reserve_pack',
+            noupdate=True
+        )
     for record in ctx.env['stock.picking.type'].search(
-            [('name', '=', 'Pack')]):
+            [('name', 'in', ('Pack', 'Freight Labeling')),
+             ('active', '=', False),
+             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id)]):
         record.name = 'Freight Labeling'
+        record.active = True
         record.propagate_delivery_info = True
+        add_xmlid(
+            ctx, record,
+            '__setup__.stock_pick_type_freight_labeling',
+            noupdate=True
+        )
 
 
 @anthem.log

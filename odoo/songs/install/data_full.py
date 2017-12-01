@@ -126,8 +126,10 @@ def import_product(ctx):
 @anthem.log
 def import_serial_number(ctx):
     """ Importing serial number from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/serial.csv',
-             'stock.production.lot')
+    model = ctx.env['stock.production.lot'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/serial.csv', model)
 
 
 @anthem.log
@@ -147,14 +149,20 @@ def import_rma_cause(ctx):
 @anthem.log
 def import_bank(ctx):
     """ Importing bank from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/bank.csv', 'res.bank')
+    model = ctx.env['res.bank'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/bank.csv', model)
 
 
 @anthem.log
 def import_bank_account(ctx):
     """ Importing bank account partners from csv """
+    model = ctx.env['res.partner.bank'].with_context({
+        'tracking_disable': True,
+    })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/bank_account.csv',
-             'res.partner.bank')
+             model)
 
 
 @anthem.log
@@ -163,8 +171,13 @@ def import_sales_order(ctx):
     model = ctx.env['sale.order'].with_context({
         'tracking_disable': True,
     })
-    load_csv(ctx, 'data/install/sale_order_head.csv', model)
-    load_csv(ctx, 'data/install/sale_order_line.csv', 'sale.order.line')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/sale_order_head.csv',
+             model)
+    model_item = ctx.env['sale.order.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/sale_order_line.csv',
+             model_item)
 
 
 @anthem.log
@@ -175,23 +188,34 @@ def import_purchase_order(ctx):
     })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/purchase_order_head.csv',
              model)
+    model_item = ctx.env['purchase.order.line'].with_context({
+        'tracking_disable': True,
+    })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/purchase_order_line.csv',
-             'purchase.order.line')
+             model_item)
 
 
 @anthem.log
 def import_bom(ctx):
     """ Importing bill of materials from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/mrp_bom.csv', 'mrp.bom')
+    model = ctx.env['mrp.bom'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/mrp_bom.csv', model)
+    model_line = ctx.env['mrp.bom.line'].with_context({
+        'tracking_disable': True,
+    })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/mrp_bom_line.csv',
-             'mrp.bom.line')
+             model_line)
 
 
 @anthem.log
 def import_waves(ctx):
     """ Importing waves from csv """
-    load_csv(ctx, 's3://prod-sf-odoo-data/install/wave.csv',
-             'stock.picking.wave')
+    model = ctx.env['stock.picking.wave'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/wave.csv', model)
 
 
 @anthem.log
@@ -227,8 +251,11 @@ def import_invoices_supplier(ctx):
 @anthem.log
 def import_partner_vat_numbers(ctx):
     """ Importing partner vat numbers from csv """
+    model = ctx.env['res.partner.id_number'].with_context({
+        'tracking_disable': True,
+    })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/partner_vat_number.csv',
-             'res.partner.id_number')
+             model)
 
 
 @anthem.log

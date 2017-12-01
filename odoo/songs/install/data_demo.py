@@ -92,7 +92,10 @@ def import_product(ctx):
 @anthem.log
 def import_serial_number(ctx):
     """ Importing serial number from csv """
-    load_csv(ctx, 'data/demo/serial.csv', 'stock.production.lot')
+    model = ctx.env['stock.production.lot'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/serial.csv', model)
 
 
 @anthem.log
@@ -110,13 +113,19 @@ def import_rma_cause(ctx):
 @anthem.log
 def import_bank(ctx):
     """ Importing bank from csv """
-    load_csv(ctx, 'data/demo/bank.csv', 'res.bank')
+    model = ctx.env['res.bank'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/bank.csv', model)
 
 
 @anthem.log
 def import_bank_account(ctx):
     """ Importing bank account partners from csv """
-    load_csv(ctx, 'data/demo/bank_account.csv', 'res.partner.bank')
+    model = ctx.env['res.partner.bank'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/bank_account.csv', model)
 
 
 @anthem.log
@@ -126,7 +135,10 @@ def import_sales_order(ctx):
         'tracking_disable': True,
     })
     load_csv(ctx, 'data/demo/sale_order_head.csv', model)
-    load_csv(ctx, 'data/demo/sale_order_line.csv', 'sale.order.line')
+    model_item = ctx.env['sale.order.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/sale_order_line.csv', model_item)
 
 
 @anthem.log
@@ -136,14 +148,19 @@ def import_purchase_order(ctx):
         'tracking_disable': True,
     })
     load_csv(ctx, 'data/demo/purchase_order_head.csv', model)
-    load_csv(ctx, 'data/demo/purchase_order_line.csv',
-             'purchase.order.line')
+    model_item = ctx.env['purchase.order.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/purchase_order_line.csv', model_item)
 
 
 @anthem.log
 def import_waves(ctx):
     """ Importing waves from csv """
-    load_csv(ctx, 'data/demo/wave.csv', 'stock.picking.wave')
+    model = ctx.env['stock.picking.wave'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/wave.csv', model)
 
 
 @anthem.log
