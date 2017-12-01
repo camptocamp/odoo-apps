@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* Update units of measure data
+
 **Features and Improvements**
 
 * Do not install PLM and Quality modules
@@ -26,6 +30,7 @@ latest (unreleased)
 **Bugfixes**
 
 * Setting the week period the manufacturing
+* MRP Repair invoicable field not updated
 
 **Build**
 
