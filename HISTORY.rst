@@ -30,6 +30,7 @@ latest (unreleased)
 **Bugfixes**
 
 * MRP Repair invoicable field not updated
+* Pick and Pack picking types active
 
 **Build**
 
