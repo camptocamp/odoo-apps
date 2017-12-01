@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 import json
+import re
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError, UserError
 
@@ -464,16 +465,27 @@ class RMA(models.Model):
             ):
                 raise ValidationError(_('This product requires a lot number.'))
 
+    @api.multi
+    @api.constrains('zendesk_ref')
+    def _check_zendesk_ref(self):
+        for rma in self:
+            # Valid references:
+            # 1. 5 digits not duplicated
+            # 2. For legacy data compatibility, D followed by 5 digits
+            #    and eventually duplicated
+            if not re.match('^D{0,1}(\d{5})$', rma.zendesk_ref):
+                raise ValidationError(
+                    _('Ticket num (Zendesk) must be 5 digits'))
+
+            if not rma.zendesk_ref.startswith('D') and self.search(
+                    [('id', '!=', rma.id),
+                     ('zendesk_ref', '=', rma.zendesk_ref),
+                     ('state', '!=', 'cancel')]):
+                raise ValidationError(
+                    _('Ticket num (Zendesk) already exist'))
+
     def _get_order_products(self, sale_order):
         order_lines = self.env['sale.order.line'].search(
             [('order_id', '=', sale_order.id)])
         if order_lines:
             return order_lines.mapped('product_id')
-
-    _sql_constraints = [
-        ('zendesk_ref_5_digits',
-         "CHECK(CHAR_LENGTH(zendesk_ref) = 5 AND zendesk_ref ~ '^[0-9]+$')",
-         'Ticket num (Zendesk) must be 5 digits'),
-        ('zendesk_ref_unique', 'unique(zendesk_ref)',
-         'This ticket num (Zendesk) is already used on another RMA.')
-    ]
