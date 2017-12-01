@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rma_callback_user,access_rma_callback_user,model_rma_callback,sf_rma.group_rma_user,1,0,0,0
+access_rma_callback_reader,access_rma_callback_reader,model_rma_callback,sf_rma.group_rma_reader,1,0,0,0
+access_rma_callback_user,access_rma_callback_user,model_rma_callback,sf_rma.group_rma_user,1,1,1,0
 access_rma_callback_manager,access_rma_callback_manager,model_rma_callback,sf_rma.group_rma_manager,1,1,1,1
