@@ -30,6 +30,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Add stock-logistics-warehouse in Dockerfile
 * Setting the week period the manufacturing
 * MRP Repair invoicable field not updated
 * Pick and Pack picking types active
