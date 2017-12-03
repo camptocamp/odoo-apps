@@ -25,6 +25,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Update company logo
 * Do not install PLM and Quality modules
 * Zendesk ticket numbers validation
 
