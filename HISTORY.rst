@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* Add customer invoices data
+
 **Features and Improvements**
 
 **Bugfixes**
@@ -35,6 +39,7 @@ latest (unreleased)
 
 * Update units of measure data
 * Add RMA inventory route
+
 
 **Features and Improvements**
 
@@ -58,7 +63,7 @@ latest (unreleased)
 * Print custom invoice report
 * MRP Repair invoicable field not updated
 * Pick and Pack picking types active
-RMA open, with product to receive and not to exchange, generates SO line
+* RMA open, with product to receive and not to exchange, generates SO line
 
 **Build**
 

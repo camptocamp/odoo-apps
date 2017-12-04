@@ -259,6 +259,21 @@ def import_partner_vat_numbers(ctx):
 
 
 @anthem.log
+def import_invoices_customer(ctx):
+    """ Importing customers invoice from csv """
+    model = ctx.env['account.invoice'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/invoice_cust_head.csv',
+             model)
+    model_item = ctx.env['account.invoice.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/invoice_cust_line.csv',
+             model_item)
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -284,5 +299,6 @@ def main(ctx):
     import_purchase_order(ctx)
     import_bom(ctx)
     import_invoices_supplier(ctx)
+    import_invoices_customer(ctx)
     import_partner_vat_numbers(ctx)
     return
