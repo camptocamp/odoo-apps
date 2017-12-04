@@ -198,6 +198,7 @@ def update_procurement_rule(ctx):
             [('name', '=', 'WH: Stock -> Packing Zone')]):
         if record.warehouse_id.company_id.id == ctx.env.ref(
                 'base.main_company').id:
+            record.delay = 1
             add_xmlid(ctx, record,
                       '__setup__.procurement_rule_stock_packs_sa',
                       noupdate=False)
