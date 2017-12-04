@@ -195,11 +195,32 @@ def update_picking_type(ctx):
 def update_procurement_rule(ctx):
     """ Update procurement rule names """
     for record in ctx.env['procurement.rule'].search(
-            [('name', '=', 'WH: Output -> Customers')]):
-        record.name = 'WH: Pickup -> Customers'
+            [('name', '=', 'WH: Stock -> Packing Zone')]):
+        if record.warehouse_id.company_id.id == ctx.env.ref(
+                'base.main_company').id:
+            add_xmlid(ctx, record,
+                      '__setup__.procurement_rule_stock_packs_sa',
+                      noupdate=False)
+
     for record in ctx.env['procurement.rule'].search(
-            [('name', '=', 'WH: Packing Zone -> Output')]):
-        record.name = 'WH: Packs Zone -> Pickup'
+            [('name', 'in', ('WH: Packing Zone -> Output',
+                             'WH: Packs -> Pickup'))]):
+        record.name = 'WH: Packs -> Pickup'
+        if record.warehouse_id.company_id.id == ctx.env.ref(
+                'base.main_company').id:
+            add_xmlid(ctx, record,
+                      '__setup__.procurement_rule_packs_pickup_sa',
+                      noupdate=False)
+
+    for record in ctx.env['procurement.rule'].search(
+            [('name', 'in', ('WH: Output -> Customers',
+                             'WH: Pickup -> Customers'))]):
+        record.name = 'WH: Pickup -> Customers'
+        if record.warehouse_id.company_id.id == ctx.env.ref(
+                'base.main_company').id:
+            add_xmlid(ctx, record,
+                      '__setup__.procurement_rule_pickup_customers_sa',
+                      noupdate=False)
 
 
 @anthem.log
@@ -310,6 +331,56 @@ def create_rate_auto_download(ctx):
 
 
 @anthem.log
+def create_rma_route(ctx):
+    """Creating rma route"""
+
+    # Add xml_id on stock location RMA to sensefly SA
+    location_rma_sa = ctx.env['stock.location'].search(
+        [('name', '=', 'RMA'),
+         ('company_id', '=', ctx.env.ref('base.main_company').id)])
+    add_xmlid(
+        ctx, location_rma_sa,
+        '__setup__.stock_location_rma_sa',
+        noupdate=True)
+
+    # RMA procurement rule
+    create_or_update(ctx, 'procurement.rule',
+                     '__setup__.procurement_rule_rma_packs_sa',
+                     {
+                         'name': 'WH: RMA -> Packs',
+                         'action': 'move',
+                         'location_id':
+                             ctx.env.ref('stock.location_pack_zone').id,
+                         'location_src_id': location_rma_sa.id,
+                         'warehouse_id': ctx.env.ref('stock.warehouse0').id,
+                         'procure_method': 'make_to_order',
+                         'picking_type_id': ctx.env.ref(
+                             '__setup__.stock_pick_type_reserve_pack').id
+                     })
+
+    # RMA route
+    create_or_update(ctx, 'stock.location.route',
+                     '__setup__.stock_location_route_rma_sa',
+                     {'company_id': ctx.env.ref('base.main_company').id,
+                      'name': 'senseFly SA: RMA Pick + Pack + Ship',
+                      'warehouse_ids': [(6, 0,
+                                        [ctx.env.ref('stock.warehouse0').id]
+                                         )],
+                      'sale_selectable': True,
+                      'pull_ids': [(6, 0, [
+                          ctx.env.ref(
+                              '__setup__.procurement_rule_stock_packs_sa'
+                          ).id,
+                          ctx.env.ref(
+                               '__setup__.procurement_rule_packs_pickup_sa'
+                          ).id,
+                          ctx.env.ref(
+                               '__setup__.procurement_rule_rma_packs_sa'
+                          ).id])]
+                      })
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -340,3 +411,4 @@ def main(ctx):
     desactive_incoterm(ctx)
     import_price_category(ctx)
     create_rate_auto_download(ctx)
+    create_rma_route(ctx)
