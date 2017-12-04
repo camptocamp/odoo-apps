@@ -27,6 +27,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * Procurement rule Stock -> Packs with 1 day of delay
+* RMA closed is readonly
 * Update company logo
 * Install account_financial_report_qweb module
 * Country date formats
