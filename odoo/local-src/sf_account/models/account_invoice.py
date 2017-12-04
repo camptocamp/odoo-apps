@@ -22,5 +22,16 @@ class AccountInvoice(models.Model):
             template and template.id or False
         return res
 
+    @api.multi
+    def invoice_print(self):
+        """ Print the invoice and mark it as sent, so that we can see more
+            easily the next step of the workflow
+            Note: override standard method replacing the report.
+        """
+        self.ensure_one()
+        self.sent = True
+        return self.env['report'].get_action(
+            self, 'sf_account.sf_report_invoice')
+
     order_ids = fields.Many2many(
         'sale.order', string='Orders', compute='_compute_sale_orders')
