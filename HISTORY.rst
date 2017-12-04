@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-352: Add security group to reset RMAs
+
 **Bugfixes**
 
 **Build**
