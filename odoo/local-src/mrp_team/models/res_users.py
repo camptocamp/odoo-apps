@@ -19,42 +19,17 @@
 #
 ##############################################################################
 
-from odoo import models, fields, api
+from odoo import models
+from odoo import fields
 
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    @api.multi
-    @api.depends('mrp_team_id')
-    def _compute_is_mrp_team_member(self):
-        for user in self:
-            user.is_mrp_team_member = bool(self.mrp_team_id)
-
-    @api.multi
-    def _get_available_member(self, operator, _):
-        """
-        If no value, return all users.
-        :param operator:
-        :param value:
-        :return:
-        """
-        if operator == '=':
-            member_ids = self.search([('mrp_team_id', '!=', False)])
-        else:
-            member_ids = self.search([('mrp_team_id', '=', False)])
-
-        return [('id', 'in', [x.id for x in member_ids])]
-
-    mrp_team_id = fields.Many2one(
+    mrp_team_ids = fields.Many2many(
         comodel_name='mrp.team',
-        string='Manufacturing Team',
-        help="""Manufacturing Team the user is member of.
-Used to compute the members of a mrp team through the inverse one2many""",
-        ondelete='set null',
-    )
-    is_mrp_team_member = fields.Boolean(
-        string='Is member of the team ?',
-        compute='_compute_is_mrp_team_member',
-        search='_get_available_member',
+        column1='team_id',
+        column2='user_id',
+        relation='mrp_team_users',
+        string='MRP Teams',
     )

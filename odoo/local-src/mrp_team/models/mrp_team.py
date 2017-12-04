@@ -71,9 +71,11 @@ it will allow you to hide the MRP team without removing it.""",
         string='Team Leader',
         ondelete='set null',
     )
-    member_ids = fields.One2many(
+    member_ids = fields.Many2many(
         comodel_name='res.users',
-        inverse_name='mrp_team_id',
+        column1='team_id',
+        column2='user_id',
+        relation='mrp_team_users',
         string='Team members',
     )
     color = fields.Integer(

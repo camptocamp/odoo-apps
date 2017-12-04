@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 15:16+0000\n"
-"PO-Revision-Date: 2017-08-28 15:16+0000\n"
+"POT-Creation-Date: 2017-11-04 21:15+0000\n"
+"PO-Revision-Date: 2017-11-04 21:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "Nom affiché"
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
 msgid "Follow this manufacturing team to automatically track the events associated to users of this team."
-msgstr "Suivez cette équipe de production pour automatiquement enregistrer les évènements associés aux utilisateurs de cette équipe"
+msgstr "Suivez cette équipe de production pour automatiquement suivre les évènements associés aux utilisateurs de cette équipe."
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
@@ -81,20 +81,20 @@ msgstr "ID"
 #: model:ir.model.fields,help:mrp_team.field_mrp_production_team_id
 msgid "If set, manufacturing team used notably to select the \n"
 "        technician who will handle this order."
-msgstr "Si rempli, l'équipe de fabrication sera utilisée pour sélectionner \n"
-"        le technicien qui prendra en charge cet ordre."
+msgstr "Si rempli, l'équipe de production va être utiliser pour sélectionner le \n"
+"        technicien qui prendra en charge cet ordre."
 
 #. module: mrp_team
 #: model:ir.model.fields,help:mrp_team.field_mrp_team_active
 msgid "If the active field is set to false, \n"
 "it will allow you to hide the MRP team without removing it."
-msgstr "Si le champ actif est mis à faux, \n"
-"il vous permettra de cacher l'équipe de fabrication sans la supprimer."
+msgstr "Si le champ actif est non coché, \n"
+"cela va vous permettre de cache les équipes sans les supprimer."
 
 #. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_res_users_is_mrp_team_member
 msgid "Is member of the team ?"
-msgstr "Est-il membre de l'équipe ?"
+msgstr "Est un membre de l'équipe ?"
 
 #. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_team___last_update
@@ -130,7 +130,7 @@ msgstr "Équipe de production"
 msgid "Manufacturing Team the user is member of.\n"
 "Used to compute the members of a mrp team through the inverse one2many"
 msgstr "Équipe de fabrication dont l'utilisateur est membre.\n"
-"Utilisée pour afficher les membres d'une équipe de fabrication à travers le one2many inverse"
+"Utilisé pour calculer les membres d'une équipe de production à travers le one2many"
 
 #. module: mrp_team
 #: model:ir.actions.act_window,name:mrp_team.mrp_team_act
@@ -143,7 +143,7 @@ msgstr "Équipes de fabrication"
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Manufacturing Teams Search"
-msgstr "Recherche d'équipes de fabrication"
+msgstr "Recherche des équipes de fabrication"
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_production_mrp_filter_view
@@ -181,10 +181,15 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: mrp_team
+#: model:mrp.team,name:mrp_team.team_production_1
+msgid "Production Team 1"
+msgstr "Production Team 1"
+
+#. module: mrp_team
 #: model:ir.model.fields,field_description:mrp_team.field_mrp_team_user_id
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_mrpteams_search
 msgid "Team Leader"
-msgstr "Chef d'équipe"
+msgstr "Leader de l'équipe"
 
 #. module: mrp_team
 #: model:ir.ui.view,arch_db:mrp_team.mrp_team_view_form
@@ -213,8 +218,8 @@ msgstr "La couleur de l'équipe"
 msgid "Use manufacturing team to organize your different technicians into\n"
 "                separate teams. Each team will work in its own list of\n"
 "                manufacturing orders."
-msgstr "Utilisez les équipes de fabrication pour organiser les techniciens\n"
-"                dans des équipes séparées. Chaque équipe travaillera sur sa propre liste\n"
+msgstr "Utilisez les équipes de fabrication pour organiser les différent techniciens\n"
+"                à l'intérieur d'équipes séparées. Chaque équipe va travailler sur sa propre liste \n"
 "                d'ordres de fabrication."
 
 #. module: mrp_team
