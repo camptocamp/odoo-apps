@@ -31,6 +31,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* DN/Invoice report, column delivered quantity alignment
 * Add stock-logistics-warehouse in Dockerfile
 * Setting the week period the manufacturing
 * MRP Repair invoicable field not updated
