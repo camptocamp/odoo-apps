@@ -88,6 +88,8 @@ migration:
           - partner_identification
           # OCA/reporting-engine
           - report_xlsx
+          # OCA/account-financial-reporting
+          - account_financial_report_qweb
           # OCA/server-tools
           - auth_totp
           - base_technical_features
