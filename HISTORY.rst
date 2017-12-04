@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.9.0 (2017-12-04)
++++++++++++++++++++
+
 **Data**
 
 * Update units of measure data
