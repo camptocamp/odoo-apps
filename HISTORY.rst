@@ -38,6 +38,7 @@ latest (unreleased)
 **Bugfixes**
 
 * DN/Invoice report, column delivered quantity alignment
+* RMA reception with source document
 * Add stock-logistics-warehouse in Dockerfile
 * Setting the week period the manufacturing
 * Print custom invoice report
