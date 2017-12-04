@@ -27,6 +27,7 @@ latest (unreleased)
 
 * Update company logo
 * Install account_financial_report_qweb module
+* Country date formats
 * Do not install PLM and Quality modules
 * Zendesk ticket numbers validation
 

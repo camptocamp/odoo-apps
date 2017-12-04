@@ -38,12 +38,18 @@ def setup_companies(ctx):
 @anthem.log
 def setup_language(ctx):
     """ Installing language and configuring locale formatting """
-    for code in ('fr_FR',):
+    for code in ('fr_CH', 'en_GB'):
         ctx.env['base.language.install'].create({'lang': code}).lang_install()
     ctx.env['res.lang'].search([]).write({
         'grouping': [3, 0],
         'date_format': '%d/%m/%Y',
     })
+    en_US = ctx.env['res.lang'].search([('code', '=', 'en_US')])
+    en_US.write({'date_format': '%m/%d/%y'})
+    en_UK = ctx.env['res.lang'].search([('code', '=', 'en_GB')])
+    en_UK.write({'date_format': '%d/%m/%y'})
+    fr_CH = ctx.env['res.lang'].search([('code', '=', 'fr_CH')])
+    fr_CH.write({'date_format': '%d.%m.%y'})
 
 
 @anthem.log
