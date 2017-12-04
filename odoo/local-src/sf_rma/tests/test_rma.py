@@ -104,8 +104,7 @@ class TestRMA(TransactionCase):
                           self.env.ref('sf_rma.pricelist_rma'))
         self.assertEquals(self.rma.sale_ids.team_id,
                           self.env.ref('sf_rma.crm_team_rma'))
-        self.assertEquals(self.rma.sale_ids.order_line.product_id,
-                          self.rma.product_id)
+        self.assertEquals(len(self.rma.sale_ids.order_line), 0)
 
     def test_rma_cancel_reset(self):
         """Create a RMA and cancel it and reset it

@@ -36,6 +36,7 @@ latest (unreleased)
 * Setting the week period the manufacturing
 * MRP Repair invoicable field not updated
 * Pick and Pack picking types active
+RMA open, with product to receive and not to exchange, generates SO line
 
 **Build**
 
