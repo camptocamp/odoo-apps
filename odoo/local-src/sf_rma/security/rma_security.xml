@@ -5,25 +5,33 @@
 <odoo>
 
 <record id="module_category_rma" model="ir.module.category">
-  <field name="name">RMA</field>
+    <field name="name">RMA</field>
+</record>
+
+<record id="group_rma_reader" model="res.groups">
+    <field name="name">Reader</field>
+    <field name="category_id" ref="module_category_rma"/>
+    <field name="comment">
+    The user will be able to read RMA info
+    </field>
 </record>
 
 <record id="group_rma_user" model="res.groups">
-  <field name="name">User</field>
-  <field name="category_id" ref="module_category_rma"/>
-  <field name="comment">
-    The user will be able to browse RMA.
-  </field>
+    <field name="name">User</field>
+    <field name="category_id" ref="module_category_rma"/>
+    <field name="comment">
+        The user will be able to write on RMAs.
+    </field>
 </record>
 
 <record id="group_rma_manager" model="res.groups">
-  <field name="name">Manager</field>
-  <field name="category_id" ref="module_category_rma"/>
-  <field name="implied_ids" eval="[(4, ref('sf_rma.group_rma_user'))]"/>
-  <field name="comment">
-    The user will be able to manage RMA causes.
-  </field>
-  <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    <field name="name">Manager</field>
+    <field name="category_id" ref="module_category_rma"/>
+    <field name="implied_ids" eval="[(4, ref('sf_rma.group_rma_user'))]"/>
+    <field name="comment">
+        The user will be able to write,delete and configure RMAs.
+    </field>
+    <field name="users" eval="[(4, ref('base.user_root'))]"/>
 </record>
 
 </odoo>

@@ -5,12 +5,18 @@
   <menuitem id="menu_rma_root" name="RMA"
     sequence="25"
     web_icon="sf_rma,static/description/icon.png"
-    groups="group_rma_user"/>
+    groups="group_rma_reader,group_rma_user"/>
   <menuitem id="menu_rma_config" name="Configuration"
     sequence="100" parent="menu_rma_root"
     groups="group_rma_manager"/>
   <menuitem id="menu_rma" name="RMA"
-    groups="group_rma_user"
+    groups="group_rma_reader,group_rma_user"
     parent="menu_rma_root" sequence="5" />
+
+  <menuitem action="mrp_repair.action_repair_order_tree"
+          id="mrp_repair.menu_repair_order"
+          groups="group_rma_reader,group_rma_user,group_rma_manager"
+          name="Repairs" sequence="36"
+          web_icon="mrp_repair,static/description/icon.png"/>
 
 </odoo>

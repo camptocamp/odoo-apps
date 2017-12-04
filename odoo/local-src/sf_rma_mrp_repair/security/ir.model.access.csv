@@ -1,4 +1,46 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_repair_cause_reader,access_mrp_repair_cause_reader,model_mrp_repair_cause,sf_rma.group_rma_reader,1,0,0,0
 access_mrp_repair_cause_user,access_mrp_repair_cause_user,model_mrp_repair_cause,sf_rma.group_rma_user,1,0,0,0
 access_mrp_repair_cause_manager,access_mrp_repair_cause_manager,model_mrp_repair_cause,sf_rma.group_rma_manager,1,1,1,1
+
 access_mrp_repair_stage,access_mrp_repair_stage,model_mrp_repair_stage,,1,0,0,0
+
+access_rma_mrp_repair_reader,Permission to read senseFly RMA Repair,model_mrp_repair,sf_rma.group_rma_reader,1,0,0,0
+access_rma_mrp_repair_user,Permission to write senseFly RMA Repair,model_mrp_repair,sf_rma.group_rma_user,1,1,1,0
+access_rma_mrp_repair_manager,Permission to write and delete senseFly RMA Repair,model_mrp_repair,sf_rma.group_rma_manager,1,1,1,1
+
+access_rma_mrp_repair_line_reader,Permission to read senseFly RMA Repair Line,model_mrp_repair_line,sf_rma.group_rma_reader,1,0,0,0
+access_rma_mrp_repair_line_user,Permission to write senseFly RMA Repair Line,model_mrp_repair_line,sf_rma.group_rma_user,1,1,1,0
+access_rma_mrp_repair_line_manager,Permission to write and delete senseFly RMA Repair Line,model_mrp_repair_line,sf_rma.group_rma_manager,1,1,1,1
+
+access_rma_mrp_repair_fee_reader,RMA MRP Repair Fee reader,mrp_repair.model_mrp_repair_fee,sf_rma.group_rma_reader,1,0,0,0
+access_rma_mrp_repair_fee_user,RMA MRP Repair Fee user,mrp_repair.model_mrp_repair_fee,sf_rma.group_rma_user,1,1,1,1
+access_rma_mrp_repair_fee_manager,RMA MRP Repair Fee manager,mrp_repair.model_mrp_repair_fee,sf_rma.group_rma_manager,1,1,1,1
+
+access_rma_product_pricelist_reader,RMA product.pricelist reader,product.model_product_pricelist,sf_rma.group_rma_reader,1,0,0,0
+access_rma_product_pricelist_user,RMA product.pricelist user,product.model_product_pricelist,sf_rma.group_rma_user,1,0,0,0
+access_rma_product_pricelist_manager,RMA product.pricelist manager,product.model_product_pricelist,sf_rma.group_rma_manager,1,0,0,0
+
+access_rma_stock_production_lot_reader,RMA stock.production.lot reader,stock.model_stock_production_lot,sf_rma.group_rma_reader,1,0,0,0
+access_rma_stock_production_lot_user,RMA stock.production.lot user,stock.model_stock_production_lot,sf_rma.group_rma_user,1,1,1,0
+access_rma_stock_production_lot_manager,RMA stock.production.lot reader,stock.model_stock_production_lot,sf_rma.group_rma_manager,1,1,1,0
+
+access_rma_account_tax_reader,RMA account.tax,account.model_account_tax,sf_rma.group_rma_reader,1,0,0,0
+access_rma_account_tax_user,RMA account.tax,account.model_account_tax,sf_rma.group_rma_user,1,1,1,0
+access_rma_account_tax_manager,RMA account.tax,account.model_account_tax,sf_rma.group_rma_manager,1,1,1,0
+
+access_rma_account_invoice_reader,RMA account.invoice reader,account.model_account_invoice,sf_rma.group_rma_reader,1,0,0,0
+access_rma_account_invoice_user,RMA account.invoice user,account.model_account_invoice,sf_rma.group_rma_user,1,1,1,0
+access_rma_account_invoice_manager,RMA account.invoice manager,account.model_account_invoice,sf_rma.group_rma_reader,1,1,1,0
+
+access_rma_account_invoice_line_reader,RMA account.invoice.line reader,account.model_account_invoice_line,sf_rma.group_rma_reader,1,0,0,0
+access_rma_account_invoice_line_user,RMA account.invoice.line user,account.model_account_invoice_line,sf_rma.group_rma_user,1,1,1,0
+access_rma_account_invoice_line_manager,RMA account.invoice.line manager,account.model_account_invoice_line,sf_rma.group_rma_manager,1,1,1,0
+
+access_rma_account_invoice_tax_reader,RMA account.invoice.tax,account.model_account_invoice_tax,sf_rma.group_rma_reader,1,0,0,0
+access_rma_account_invoice_tax_user,RMA account.invoice.tax,account.model_account_invoice_tax,sf_rma.group_rma_user,1,0,0,0
+access_rma_account_invoice_tax_manager,RMA account.invoice.tax,account.model_account_invoice_tax,sf_rma.group_rma_manager,1,0,0,0
+
+access_rma_account_journal_reader,RMA account.journal,account.model_account_journal,sf_rma.group_rma_reader,1,0,0,0
+access_rma_account_journal_user,RMA account.journal,account.model_account_journal,sf_rma.group_rma_user,1,0,0,0
+access_rma_account_journal_manager,RMA account.journal,account.model_account_journal,sf_rma.group_rma_manager,1,0,0,0
