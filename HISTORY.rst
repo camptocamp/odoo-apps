@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Product responsibles
+
 **Build**
 
 **Documentation**
