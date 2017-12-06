@@ -19,6 +19,8 @@ migration:
           - anthem songs.install.sa.stock::main
           - anthem songs.install.inc.purchase::main
           - anthem songs.install.sa.purchase::main
+          - anthem songs.install.inc.account::main
+          - anthem songs.install.sa.account::main
       modes:
         full:
           operations:
