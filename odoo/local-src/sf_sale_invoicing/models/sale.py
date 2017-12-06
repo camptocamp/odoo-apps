@@ -92,7 +92,7 @@ class SaleOrder(models.Model):
         """
         super(SaleOrder, self)._get_invoiced()
         for order in self:
-            if order.invoice_status == 'to_invoice':
+            if order.invoice_status == 'to invoice':
                 deposit_product_id = self.env['sale.advance.payment.inv'].\
                     _default_product_id()
                 line_invoice_status = [line.invoice_status for line in
