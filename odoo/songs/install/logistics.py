@@ -27,7 +27,7 @@ def fix_warehouse_sequences_names(ctx):
 @anthem.log
 def create_warehouse_sensefly_inc(ctx):
     """ Creating warehouse """
-    company = ctx.env.ref('__setup__.company_mte')
+    company = ctx.env.ref('__setup__.company_inc')
     ctx.env.user.company_id = company
     warehouse = ctx.env['stock.warehouse'].create({
         'name': company.name,
@@ -89,7 +89,7 @@ def settings(ctx):
     ).execute()
     # Logistics settings for second company (senseFly Inc USA)
     ctx.env['stock.config.settings'].create({
-        'company_id': ctx.env.ref('__setup__.company_mte').id,
+        'company_id': ctx.env.ref('__setup__.company_inc').id,
         'group_stock_production_lot': 1,
         'module_product_expiry': 0,
         'group_stock_tracking_lot': 0,

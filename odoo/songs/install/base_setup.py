@@ -50,7 +50,7 @@ def settings(ctx):
          'auth_signup_template_user_id': ctx.env.ref(
              'auth_signup.default_template_user').id,
          'auth_signup_uninvited': False,
-         'company_id': ctx.env.ref('__setup__.company_mte').id,
+         'company_id': ctx.env.ref('__setup__.company_inc').id,
          'company_share_partner': False,
          'company_share_product': False,
          'custom_footer': False,

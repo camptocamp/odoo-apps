@@ -48,7 +48,7 @@ def settings(ctx):
     # Sales settings for second company (senseFly Inc USA)
     ctx.env['sale.config.settings'].create({
         'auto_done_setting': False,
-        'company_id': ctx.env.ref('__setup__.company_mte').id,
+        'company_id': ctx.env.ref('__setup__.company_inc').id,
         'default_invoice_policy': u'delivery',
         'default_picking_policy': False,
         'deposit_product_id_setting': False,

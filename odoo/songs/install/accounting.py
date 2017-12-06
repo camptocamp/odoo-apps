@@ -75,7 +75,7 @@ def settings(ctx):
          'chart_template_id': False,
          'code_digits': 5,
          'company_footer': False,
-         'company_id': ctx.env.ref('__setup__.company_mte').id,
+         'company_id': ctx.env.ref('__setup__.company_inc').id,
          'complete_tax_set': False,
          'currency_exchange_journal_id': False,
          'currency_id': ctx.env.ref('base.USD').id,
