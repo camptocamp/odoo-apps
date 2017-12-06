@@ -38,7 +38,7 @@ def create_analytic_dimension(ctx):
 @anthem.log
 def import_analytic_tag(ctx):
     """ Importing Analytic tag (team) from csv """
-    load_csv(ctx, 'data/install/analytic_tag.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/analytic_tag.csv',
              'account.analytic.tag')
 
 
@@ -48,49 +48,52 @@ def import_analytic_account_project(ctx):
     model = ctx.env['account.analytic.account'].with_context({
         'tracking_disable': True,
     })
-    load_csv(ctx, 'data/install/analytic_account_project.csv', model)
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/analytic_account_project.csv',
+             model)
 
 
 @anthem.log
 def import_partner_entity(ctx):
     """ Importing partner entity from csv """
-    load_csv(ctx, 'data/install/partner_entity.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/partner_entity.csv',
              'res.partner.entity.type')
 
 
 @anthem.log
 def import_product_category(ctx):
     """ Importing product category from csv """
-    load_csv(ctx, 'data/install/product_category.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/product_category.csv',
              'product.category')
 
 
 @anthem.log
 def import_unit_measure(ctx):
     """ Importing unit measure from csv """
-    load_csv(ctx, 'data/install/unitmeasure.csv', 'product.uom')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/unitmeasure.csv',
+             'product.uom')
 
 
 @anthem.log
 def import_account_tag_pl_name(ctx):
     """ Importing account tag (PL name)  from csv """
-    load_csv(ctx, 'data/install/account_tag_pl.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/account_tag_pl.csv',
              'account.account.tag')
 
 
 @anthem.log
 def import_account_tag_parrot_category(ctx):
     """ Importing account tag (parrot category) from csv """
-    load_csv(ctx, 'data/install/account_tag_parrot.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/account_tag_parrot.csv',
              'account.account.tag')
 
 
 @anthem.log
 def import_account_fiscal_position(ctx):
     """ Importing account fiscal postition from csv """
-    load_csv(ctx, 'data/install/fiscal_position.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/fiscal_position.csv',
              'account.fiscal.position')
-    load_csv(ctx, 'data/install/fiscal_position_tax.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/fiscal_position_tax.csv',
              'account.fiscal.position.tax')
 
 
@@ -116,7 +119,8 @@ def delete_account(ctx):
 @anthem.log
 def import_account_account(ctx):
     """ Importing chart of accounts from csv """
-    load_csv(ctx, 'data/install/account.csv', 'account.account')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/account.csv',
+             'account.account')
 
 
 @anthem.log
@@ -154,13 +158,15 @@ def delete_account_journal(ctx):
 @anthem.log
 def import_account_journal(ctx):
     """ Importing journals from csv """
-    load_csv(ctx, 'data/install/journal.csv', 'account.journal')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/journal.csv',
+             'account.journal')
 
 
 @anthem.log
 def import_email_template(ctx):
     """ Importing email template from csv """
-    load_csv(ctx, 'data/install/email_template.csv', 'mail.template')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/email_template.csv',
+             'mail.template')
 
 
 @anthem.log
@@ -255,8 +261,9 @@ def delete_payment_term(ctx):
 @anthem.log
 def import_payment_term(ctx):
     """ Importing payment terms from csv """
-    load_csv(ctx, 'data/install/payment_term.csv', 'account.payment.term')
-    load_csv(ctx, 'data/install/payment_term_line.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/payment_term.csv',
+             'account.payment.term')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/payment_term_line.csv',
              'account.payment.term.line')
 
 
@@ -289,27 +296,30 @@ def create_layout_category(ctx):
 @anthem.log
 def import_sequence(ctx):
     """ Importing Sequences from csv """
-    load_csv(ctx, 'data/install/sequence.csv', 'ir.sequence')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/sequence.csv',
+             'ir.sequence')
 
 
 def import_account_asset_category(ctx):
     """ Importing account asset category from csv """
     load_csv(
         ctx,
-        'data/install/account_asset_category.csv', 'account.asset.category'
+        's3://prod-sf-odoo-data/install/account_asset_category.csv',
+        'account.asset.category'
     )
 
 
 @anthem.log
 def desactive_incoterm(ctx):
     """ Desactive Incoterm from csv """
-    load_csv(ctx, 'data/install/incoterm.csv', 'stock.incoterms')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/incoterm.csv',
+             'stock.incoterms')
 
 
 @anthem.log
 def import_price_category(ctx):
     """ Importing price category from csv """
-    load_csv(ctx, 'data/install/price_category.csv',
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/price_category.csv',
              'product.price.category')
 
 

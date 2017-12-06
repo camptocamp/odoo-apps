@@ -32,6 +32,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-382: Product responsibles
+* Add S3 read in data_all.py
 
 **Build**
 
