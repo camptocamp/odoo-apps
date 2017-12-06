@@ -85,6 +85,25 @@ class SaleOrder(models.Model):
             orders_to_procure.action_done()
         return True
 
+    @api.depends('state', 'order_line.invoice_status')
+    def _get_invoiced(self):
+        """
+        Reset invoicing for sale order if not all its lines can be invoiced
+        """
+        super(SaleOrder, self)._get_invoiced()
+        for order in self:
+            if order.invoice_status == 'to_invoice':
+                deposit_product_id = self.env['sale.advance.payment.inv'].\
+                    _default_product_id()
+                line_invoice_status = [line.invoice_status for line in
+                                       order.order_line if
+                                       line.product_id != deposit_product_id]
+                if not all(invoice_status == 'to invoice' for invoice_status in
+                           line_invoice_status):
+                    order.update({
+                        'invoice_status': 'no',
+                    })
+
 
 class SaleOrderLine(models.Model):
 
