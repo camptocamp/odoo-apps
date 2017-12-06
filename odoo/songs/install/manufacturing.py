@@ -22,7 +22,7 @@ def settings(ctx):
         'module_quality_mrp': False}).execute()
     # Manufacturing settings for second company (senseFly Inc USA)
     ctx.env['mrp.config.settings'].create({
-        'company_id': ctx.env.ref('__setup__.company_mte').id,
+        'company_id': ctx.env.ref('__setup__.company_inc').id,
         'group_mrp_routings': 1,
         'group_product_variant': False,
         'manufacturing_lead': 0.0,

@@ -25,7 +25,7 @@ def settings(ctx):
     # Purchases settings for second company (senseFly Inc USA)
     ctx.env['purchase.config.settings'].create({
         'company_currency_id': ctx.env.ref('base.USD').id,
-        'company_id': ctx.env.ref('__setup__.company_mte').id,
+        'company_id': ctx.env.ref('__setup__.company_inc').id,
         'group_costing_method': False,
         'group_manage_vendor_price': False,
         'group_product_variant': False,
