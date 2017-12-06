@@ -17,6 +17,8 @@ migration:
           - anthem songs.install.ldap::main
           - anthem songs.install.inc.stock::main
           - anthem songs.install.sa.stock::main
+          - anthem songs.install.inc.purchase::main
+          - anthem songs.install.sa.purchase::main
       modes:
         full:
           operations:
