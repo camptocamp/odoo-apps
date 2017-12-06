@@ -7,4 +7,6 @@
 **/README.md
 **/i18n/*.po
 # installable lang
+!**/i18n/en_GB.po
 !**/i18n/fr.po
+!**/i18n/fr_CH.po
