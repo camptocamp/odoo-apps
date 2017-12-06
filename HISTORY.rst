@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Build**
 
+* Remove unused PO files to reduce docker image size
+
 **Documentation**
 
 
