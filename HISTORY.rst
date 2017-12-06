@@ -331,6 +331,8 @@ RMA open, with product to receive and not to exchange, generates SO line
 
 **Build**
 
+* Remove unused PO files to reduce docker image size
+
 **Documentation**
 
 
