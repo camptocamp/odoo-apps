@@ -9,7 +9,8 @@ import anthem
 @anthem.log
 def account_config_settings_sa(ctx):
     """ Setup account.config.settings for senseFly SA """
-    model = ctx.env['account.config.settings'].with_context({'tracking_disable': 1})
+    model = ctx.env['account.config.settings'].with_context(
+        {'tracking_disable': 1})
     model.create({
         # Lock Date  # noqa
         'fiscalyear_lock_date': False,
@@ -25,7 +26,8 @@ def account_config_settings_sa(ctx):
         'currency_id': ctx.env.ref('base.CHF').id,
         # Multiple identifiers  # noqa
         'group_pain_multiple_identifier': False,
-        # Full accounting features: journals, legal statements, chart of accounts, etc.  # noqa
+        # Full accounting features: journals, legal statements, chart of
+        # accounts, etc.  # noqa
         'module_account_accountant': True,
         # Automatic Currency Rates Download  # noqa
         'auto_currency_up': True,
@@ -34,7 +36,8 @@ def account_config_settings_sa(ctx):
         # Number of days between two follow-ups *  # noqa
         'days_between_two_followups': 14,
         # Budget period range type  # noqa
-        'budget_range_type_id': ctx.env.ref('sf_date_range.sf_date_range_type_month_sa').id,
+        'budget_range_type_id': ctx.env.ref(
+            'sf_date_range.sf_date_range_type_month_sa').id,
         # This company has its own chart of accounts  # noqa
         'expects_chart_of_accounts': True,
         # Plaid Connector  # noqa
@@ -53,7 +56,8 @@ def account_config_settings_sa(ctx):
         'company_id': ctx.env.ref('base.main_company').id,
         # Analytic accounting for sales  # noqa
         'group_analytic_account_for_sales': False,
-        # Warning: An informative or blocking warning can be set on a partner  # noqa
+        # Warning: An informative or blocking warning can be set on a partner
+        # noqa
         'group_warning_account': 1,
         # Template  # noqa
         'chart_template_id': False,
@@ -104,8 +108,10 @@ def account_config_settings_sa(ctx):
         # Overdue Payments Message *  # noqa
         'overdue_msg': """Dear Sir/Madam,
 
-Our records indicate that some payments on your account are still due. Please find details below.
-If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.
+Our records indicate that some payments on your account are still due.
+Please find details below.
+If the amount has already been paid, please disregard this notice.
+Otherwise, please forward us the total amount stated below.
 If you have any queries regarding your account, Please contact us.
 
 Thank you in advance for your cooperation.

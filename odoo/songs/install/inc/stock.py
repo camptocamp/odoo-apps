@@ -4,15 +4,13 @@
 # -- This file has been generated --
 
 import anthem
-from ...common import load_csv
-
-
 
 
 @anthem.log
 def stock_config_settings_inc(ctx):
     """ Setup stock.config.settings for senseFly Inc """
-    model = ctx.env['stock.config.settings'].with_context({'tracking_disable': 1})
+    model = ctx.env['stock.config.settings'].with_context(
+        {'tracking_disable': 1})
     model.create({
         # Landed Costs: No landed costs  # noqa
         'module_stock_landed_costs': False,

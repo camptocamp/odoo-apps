@@ -8,7 +8,8 @@ import anthem
 @anthem.log
 def stock_config_settings_sa(ctx):
     """ Setup stock.config.settings for senseFly SA """
-    model = ctx.env['stock.config.settings'].with_context({'tracking_disable': 1})
+    model = ctx.env['stock.config.settings'].with_context(
+        {'tracking_disable': 1})
     model.create({
         # Landed Costs: No landed costs  # noqa
         'module_stock_landed_costs': False,
