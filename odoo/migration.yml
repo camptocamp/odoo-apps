@@ -173,3 +173,4 @@ migration:
     - version: 10.8.0
     - version: 10.8.1
     - version: 10.9.0
+    - version: 10.9.1

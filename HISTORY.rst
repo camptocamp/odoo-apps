@@ -28,6 +28,17 @@ latest (unreleased)
 **Documentation**
 
 
+10.9.1 (2017-12-06)
++++++++++++++++++++
+
+**Features and Improvements**
+
+* BSSFL-379: Fix xmlid __setup__.company_mte
+* BIZ-905: Settings Purchase
+* BIZ-908: Settings Inventory
+* BIZ-909: Settings Accounting
+
+
 10.9.0 (2017-12-04)
 +++++++++++++++++++
 
