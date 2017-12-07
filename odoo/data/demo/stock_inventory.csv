@@ -1,0 +1,3 @@
+"id","company_id/id","state","name","location_id/id","filter","exhausted","date"
+"__setup__.stock_location_stock_inc_inventory","__setup__.company_inc","confirm","Start Stock","__setup__.stock_location_stock_inc","partial","false","2017-12-14"
+"stock.stock_location_stock_inventory","base.main_company","confirm","Start Stock","stock.stock_location_stock","partial","false","2017-12-14"
