@@ -5,6 +5,7 @@
 import anthem
 from anthem.lyrics.records import create_or_update
 from ..common import load_csv
+from . import rma
 
 """ File for full (production) data
 
@@ -274,6 +275,53 @@ def import_invoices_customer(ctx):
 
 
 @anthem.log
+def import_rma(ctx):
+    """ Importing rma"""
+    rma.settings(ctx)
+
+    mrp_repair_seq = ctx.env.ref('mrp_repair.seq_mrp_repair')
+    mrp_repair_seq.prefix = 'FAKE'
+
+    rma.process_rma_draft(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_draft.csv',
+        's3://prod-sf-odoo-data/install/rma_draft_repair.csv'
+    )
+
+    rma.process_rma_received(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_received.csv',
+        's3://prod-sf-odoo-data/install/rma_received_repair.csv'
+    )
+
+    rma.process_rma_under_repair(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_under_repair.csv',
+        's3://prod-sf-odoo-data/install/rma_under_repair_repair.csv'
+    )
+
+    rma.process_rma_2binvoiced(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_2binvoiced.csv',
+        's3://prod-sf-odoo-data/install/rma_2binvoiced_repair.csv'
+    )
+
+    rma.process_rma_done_undelivered(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_done_not_delivered.csv',
+        's3://prod-sf-odoo-data/install/rma_done_not_delivered_repair.csv'
+    )
+
+    rma.process_rma_done_delivered(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_done_delivered.csv',
+        's3://prod-sf-odoo-data/install/rma_done_delivered_repair.csv'
+    )
+
+    mrp_repair_seq.prefix = 'RMA'
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -301,4 +349,5 @@ def main(ctx):
     import_invoices_supplier(ctx)
     import_invoices_customer(ctx)
     import_partner_vat_numbers(ctx)
+    import_rma(ctx)
     return

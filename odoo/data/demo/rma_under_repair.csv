@@ -1,0 +1,4 @@
+"id","name","lot_id/id","product_id/id","partner_id/id","original_order_id/id","original_customer_id/id","date","zendesk_ref","user_id/id","decision","offer_reason","warranty_limit","to_exchange","to_receive","problem_description","resolution_description","drone_flight_time","drone_flight_num","drone_firmware_version","company_id/id"
+"__setup__.rma_5492","RMA07098","__setup__.stock_production_lot_623477","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-11-24","33996","__setup__.res_users_16","free","","2018-04-17","false","true","eBee lost power int he air and crashed. 
+BB3 file stops int he air. 
+Suspected fault on the AP. Please replace with HW08","","12.283333333333333","42","3.3.4","base.main_company","under_repair","0"

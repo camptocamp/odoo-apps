@@ -4,6 +4,7 @@
 
 import anthem
 from ..common import load_csv
+from . import rma
 
 """ File for demo data
 
@@ -197,6 +198,53 @@ def import_invoices_customer(ctx):
 
 
 @anthem.log
+def import_rma(ctx):
+    """ Importing rma"""
+    rma.settings(ctx)
+
+    mrp_repair_seq = ctx.env.ref('mrp_repair.seq_mrp_repair')
+    mrp_repair_seq.prefix = 'FAKE'
+
+    rma.process_rma_draft(
+        ctx,
+        'data/demo/rma_draft.csv',
+        'data/demo/rma_draft_repair.csv'
+    )
+
+    rma.process_rma_received(
+        ctx,
+        'data/demo/rma_received.csv',
+        'data/demo/rma_received_repair.csv'
+    )
+
+    rma.process_rma_under_repair(
+        ctx,
+        'data/demo/rma_under_repair.csv',
+        'data/demo/rma_under_repair_repair.csv'
+    )
+
+    rma.process_rma_2binvoiced(
+        ctx,
+        'data/demo/rma_2binvoiced.csv',
+        'data/demo/rma_2binvoiced_repair.csv'
+    )
+
+    rma.process_rma_done_undelivered(
+        ctx,
+        'data/demo/rma_done_not_delivered.csv',
+        'data/demo/rma_done_not_delivered_repair.csv'
+    )
+
+    rma.process_rma_done_delivered(
+        ctx,
+        'data/demo/rma_done_delivered.csv',
+        'data/demo/rma_done_delivered_repair.csv'
+    )
+
+    mrp_repair_seq.prefix = 'RMA'
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -221,4 +269,5 @@ def main(ctx):
     import_purchase_order(ctx)
     import_invoices_supplier(ctx)
     import_invoices_customer(ctx)
+    import_rma(ctx)
     return
