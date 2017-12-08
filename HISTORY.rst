@@ -21,7 +21,7 @@ latest (unreleased)
 
 **Data**
 
-* Add customer invoices data
+* [BSSFL-287] Add customer invoices data
 
 **Features and Improvements**
 
@@ -39,7 +39,6 @@ latest (unreleased)
 
 * Update units of measure data
 * Add RMA inventory route
-
 
 **Features and Improvements**
 
