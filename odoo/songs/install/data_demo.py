@@ -71,6 +71,78 @@ def import_customers(ctx):
 
 
 @anthem.log
+def import_customers_properties_account(ctx):
+    """ Importing customers properties account from csv """
+    model = ctx.env['ir.property'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/customers_proper_a.csv', model)
+
+    # Change XMLID to database id
+    # Read the CSV
+    content = resource_stream(req, 'data/demo/customers_proper_a.csv')
+
+    # Create list of dictionnaries
+    records = list(csv.DictReader(content, skipinitialspace=True))
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record['id'])
+        if rec:
+                # Customers / source
+                cust_tmp = ctx.env.ref(rec.res_id,
+                                       raise_if_not_found=False)
+                if not cust_tmp:
+                    continue
+                rec.res_id = cust_tmp._name + "," + str(cust_tmp.id)
+                # Account / destination
+                account_tmp = ctx.env.ref(rec.value_reference,
+                                          raise_if_not_found=False)
+                if account_tmp:
+                    rec.value_reference = account_tmp._name + "," + str(
+                        account_tmp.id)
+                else:
+                    ctx.log_line(str(rec.res_id) + ":" + rec.value_reference)
+                    rec.unlink()
+
+
+@anthem.log
+def import_customers_properties_payterm(ctx):
+    """ Importing customers properties payment terms from csv """
+    model = ctx.env['ir.property'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/customers_proper_p.csv', model)
+
+    # Change XMLID to database id
+    # Read the CSV
+    content = resource_stream(req, 'data/demo/customers_proper_p.csv')
+
+    # Create list of dictionnaries
+    records = list(csv.DictReader(content, skipinitialspace=True))
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record['id'])
+        if rec:
+            # Customer / source
+            cust_tmp = ctx.env.ref(rec.res_id,
+                                   raise_if_not_found=False)
+            if not cust_tmp:
+                continue
+            rec.res_id = cust_tmp._name + "," + str(cust_tmp.id)
+            # Payment term / destination
+            payterm_tmp = ctx.env.ref(rec.value_reference,
+                                      raise_if_not_found=False)
+            if payterm_tmp:
+                rec.value_reference = payterm_tmp._name + "," + str(
+                    payterm_tmp.id)
+            else:
+                ctx.log_line(str(rec.res_id) + ":" + rec.value_reference)
+                rec.unlink()
+
+
+@anthem.log
 def import_suppliers(ctx):
     """ Importing suppliers from csv """
     model = ctx.env['res.partner'].with_context({
@@ -293,6 +365,8 @@ def main(ctx):
     import_countries(ctx)
     import_customers(ctx)
     import_suppliers(ctx)
+    import_customers_properties_account(ctx)
+    import_customers_properties_payterm(ctx)
     import_crm_team(ctx)
     import_waves(ctx)
     import_location(ctx)
