@@ -7,7 +7,8 @@ from odoo.exceptions import UserError
 
 
 MRP_REPAIR_STATE_SELECTION = [
-        ('draft', 'Open'),
+        ('draft', 'Draft'),
+        ('open', 'Open'),
         ('to_analyze', 'To analyze'),
         ('to_quotation', 'To quotation'),
         ('under_repair', 'To repair'),
@@ -54,6 +55,12 @@ class MrpRepair(models.Model):
         for repair in self:
             repair.stage_id = self.env['mrp.repair.stage'].search(
                 [('name', '=', repair.state)]).id
+
+    @api.multi
+    def action_repair_open(self):
+        if self.filtered(lambda repair: repair.state != 'draft'):
+            raise UserError(_("Repair must be in Draft in order to Open"))
+        return self.write({'state': 'open'})
 
     @api.multi
     def action_repair_done(self):
@@ -108,7 +115,7 @@ class MrpRepair(models.Model):
 
     @api.multi
     def action_repair_to_analyze(self):
-        if self.filtered(lambda repair: not (repair.state == 'draft'
+        if self.filtered(lambda repair: not (repair.state == 'open'
                                              and repair.invoicable_rma)):
             raise UserError(_('Repair must be Open and his RMA invoicable '
                               'in order to be analyzed.'))
@@ -124,7 +131,7 @@ class MrpRepair(models.Model):
 
     @api.multi
     def action_repair_to_repair(self):
-        if self.filtered(lambda repair: not ((repair.state == 'draft'
+        if self.filtered(lambda repair: not ((repair.state == 'open'
                                               and not repair.invoicable_rma)
                                              or (repair.state == 'to_quotation'
                                                  and repair.invoicable_rma))):
