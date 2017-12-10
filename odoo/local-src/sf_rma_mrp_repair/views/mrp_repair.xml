@@ -68,6 +68,21 @@
             <xpath expr="//field[@name='operations']" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', '=', 'done')]}</attribute>
             </xpath>
+            <xpath expr="//sheet/label" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_rma"
+                      type="object"
+                      class="oe_stat_button"
+                      icon="fa-level-up">
+                      <div class="o_stat_info">
+                          <span class="o_stat_text">RMA :</span>
+                          <span class="o_stat_text">
+                              <field name="rma_state" class="oe_inline"/>
+                          </span>
+                      </div>
+                    </button>
+                </div>
+            </xpath>
         </field>
     </record>
 

@@ -188,6 +188,17 @@ class MrpRepair(models.Model):
             repair.write(vals)
         return True
 
+    @api.multi
+    def action_view_rma(self):
+        action = self.env.ref('sf_rma.sf_rma_action').read()[0]
+        if self.rma_id:
+            action['views'] = [(self.env.ref('sf_rma.sf_rma_form_view').id,
+                                'form')]
+            action['res_id'] = self.rma_id.id
+        else:
+            action = {'type': 'ir.actions.act_window_close'}
+        return action
+
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         """ Read group customization in order to display all the stages in the
