@@ -23,7 +23,7 @@ latest (unreleased)
 
 **Bugfixes**
 
-* Product responsibles
+* BSSFL-382: Product responsibles
 
 **Build**
 
