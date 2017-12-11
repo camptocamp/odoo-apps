@@ -24,6 +24,7 @@ latest (unreleased)
 * BSSFL-287: Add customer invoices data
 * BSSFL-316: RMA data migration
 * BSSFL-397: Inventory categories
+* [BSSFL-373]: Add product accounts data
 
 **Features and Improvements**
 

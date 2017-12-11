@@ -2,9 +2,13 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
+
 import anthem
-from ..common import load_csv
 from . import rma
+import csv
+from ..common import load_csv, req
+from pkg_resources import resource_stream
+
 
 """ File for demo data
 
@@ -88,6 +92,42 @@ def import_product(ctx):
         'tracking_disable': True,
     })
     load_csv(ctx, 'data/demo/product.csv', model)
+
+
+@anthem.log
+def import_product_account(ctx):
+    """ Importing products accounts from csv """
+    model = ctx.env['ir.property'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/product_account.csv', model)
+
+    # Change XMLID to database id
+    # Read the CSV
+    content = resource_stream(req, "data/demo/product_account.csv")
+
+    # Create list of dictionnaries
+    records = list(csv.DictReader(content, skipinitialspace=True))
+
+    # Delete data
+    for record in records:
+        rec = ctx.env.ref(record['id'])
+        if rec:
+            # Product / source
+            prod_tmp = ctx.env.ref(rec.res_id,
+                                   raise_if_not_found=False)
+            if not prod_tmp:
+                continue
+            rec.res_id = prod_tmp._name + "," + str(prod_tmp.id)
+            # Account / destination
+            account_tmp = ctx.env.ref(rec.value_reference,
+                                      raise_if_not_found=False)
+            if account_tmp:
+                rec.value_reference = account_tmp._name + "," + str(
+                    account_tmp.id)
+            else:
+                ctx.log_line(str(rec.id) + "" + rec.value_reference)
+                rec.unlink()
 
 
 @anthem.log
@@ -259,6 +299,7 @@ def main(ctx):
     import_customers(ctx)
     import_drone_type(ctx)
     import_product(ctx)
+    import_product_account(ctx)
     import_pricelist(ctx)
     import_serial_number(ctx)
     import_workcenter(ctx)
