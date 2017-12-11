@@ -18,13 +18,13 @@ class TestToInvoiceStatus(test_common.TransactionCase):
             'name': 'eWasp',
             'type': 'product',
             'uom_id': self.env.ref('product.product_uom_unit').id,
-            'invoice_policy' : 'delivery',
+            'invoice_policy': 'delivery',
         })
         self.product2 = Product.create({
             'name': 'eWasp 2017',
             'type': 'product',
             'uom_id': self.env.ref('product.product_uom_unit').id,
-            'invoice_policy' : 'delivery',
+            'invoice_policy': 'delivery',
         })
         self.sale = SaleOrder.create({
             'partner_id': partner.id,
