@@ -1,0 +1,13 @@
+id,routing_id/id,workcenter_id/id,name,sequence,time_cycle_manual
+"__setup__.mrp_routing_workcenter_1","__setup__.mrp_routing_1","__setup__.mrp_workcenter_ASS","EP Assembly","100","60"
+"__setup__.mrp_routing_workcenter_2","__setup__.mrp_routing_2","__setup__.mrp_workcenter_ASS","COLA Assembly,COLA Test & Quality","100","8"
+"__setup__.mrp_routing_workcenter_3","__setup__.mrp_routing_3","__setup__.mrp_workcenter_QUS","Finalization Quality","100","30"
+"__setup__.mrp_routing_workcenter_4","__setup__.mrp_routing_4","__setup__.mrp_workcenter_GTS","Ground Test","100","60"
+"__setup__.mrp_routing_workcenter_5","__setup__.mrp_routing_5","__setup__.mrp_workcenter_ASS","Optic Flow Assembly & Test","100","3"
+"__setup__.mrp_routing_workcenter_6","__setup__.mrp_routing_6","__setup__.mrp_workcenter_ASS","Remote control Sticker assembly,RC modul shielding","100","1"
+"__setup__.mrp_routing_workcenter_7","__setup__.mrp_routing_7","__setup__.mrp_workcenter_ASS","modem air assembly & Test","100","1"
+"__setup__.mrp_routing_workcenter_8","__setup__.mrp_routing_8","__setup__.mrp_workcenter_ASS","Pitot assembls & test","100","2"
+"__setup__.mrp_routing_workcenter_9","__setup__.mrp_routing_9","__setup__.mrp_workcenter_ASS","EPES Motor Assembly,EPES Motor test","100","15"
+"__setup__.mrp_routing_workcenter_10","__setup__.mrp_routing_10","__setup__.mrp_workcenter_ASS","RTK antenna & cover assembly","100","2"
+"__setup__.mrp_routing_workcenter_11","__setup__.mrp_routing_11","__setup__.mrp_workcenter_ASS","Ground modem assembly & test","100","15"
+"__setup__.mrp_routing_workcenter_12","__setup__.mrp_routing_12","__setup__.mrp_workcenter_ASS","Servo assembly & test","100","1"
