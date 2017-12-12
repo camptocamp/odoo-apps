@@ -19,7 +19,6 @@ Custom fields:
     """,
     'data': [
         'security/product_security.xml',
-        'data/product_responsible_role.xml',
         'views/product.xml'
     ],
     'demo': [],

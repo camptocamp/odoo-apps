@@ -35,8 +35,8 @@ def import_users_groups(ctx):
 def import_product_responsibles(ctx):
     """ Importing product responsibles from csv """
     load_csv(
-        ctx, 's3://prod-sf-odoo-data/install/product_responsibles.csv',
-        'res.users.role.line'
+        ctx, 'data/install/product_responsibles.csv',
+        'res.users'
     )
 
 
@@ -52,9 +52,9 @@ def create_action_product_followers(ctx):
                          'kind': 'on_create',
                          'act_followers':
                              [(6, 0, ctx.env.ref(
-                                 'sf_product.sf_product_responsible_role'
+                                 'sf_product.group_product_responsible'
                              ).mapped(
-                                 'line_ids.user_id.partner_id.id'
+                                 'users.partner_id.id'
                              )
                                )]
                       })
