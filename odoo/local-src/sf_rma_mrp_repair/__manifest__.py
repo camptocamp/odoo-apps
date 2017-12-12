@@ -12,11 +12,13 @@
     "depends": [
         "sf_rma",
         "mrp_repair",
+        "sf_report"
     ],
     "data": [
         "data/mrp_repair_stage.xml",
         "security/ir.model.access.csv",
-        "views/mrp_repair.xml"
+        "views/mrp_repair.xml",
+        "report/sf_repair_report.xml"
     ],
     "application": False,
     "installable": True,

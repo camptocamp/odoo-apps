@@ -66,6 +66,7 @@ latest (unreleased)
 * Country date formats
 * Make team mandatory on PO
 * RMA security groups
+* Repair report
 * Do not install PLM and Quality modules
 * Zendesk ticket numbers validation
 * BSSFL-306: Create a Sensefly state on sale order

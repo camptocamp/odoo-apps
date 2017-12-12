@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sf_external_layout_repair_header_right" inherit_id="sf_report.sf_external_layout" primary="True">
+        <xpath expr="//t[@t-call='sf_report.sf_external_layout_header']" position="attributes">
+            <attribute name="t-call">sf_rma_mrp_repair.sf_report_repair_header_right</attribute>
+        </xpath>
+    </template>
+
+    <template id="sf_report_repair_header_right" inherit_id="sf_report.sf_external_layout_header" primary="True">
+            <xpath expr="//div[@name='header_title']" position="inside">
+                <h3>Repair Report</h3>
+                <p style="font-size:16px; font-weight: bold;">
+                    <span t-field="o.name"/>
+                </p>
+            </xpath>
+    </template>
+
+    <template id="sf_report_repair_document">
+        <t t-call="sf_rma_mrp_repair.sf_external_layout_repair_header_right">
+            <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+        </t>
+    </template>
+
+        <template id="sf_report_repair">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="sf_rma_mrp_repair.sf_report_repair_document" t-lang="o.partner_id.lang"/>
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <span>Customer:</span><br/>
+                            <strong t-if="o.partner_id.commercial_company_name" t-field="o.partner_id.commercial_company_name"/>
+                            <span t-if="not o.partner_id.commercial_company_name" t-field="o.partner_id.name"/>
+                            <div t-field="o.partner_id"
+                                t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}'/>
+                        </div>
+                    </div>
+
+                    <hr style="border-top: 1px solid #ccc"/>
+
+                    <div class="row mt32 mb32" id="informations">
+                            <div class="col-xs-3">
+                                <strong>Zendesk Reference</strong>
+                                <p t-field="o.rma_id.zendesk_ref"/>
+                            </div>
+
+                            <t t-set="picking_in"
+                               t-value="o.rma_id.picking_ids.filtered(lambda p: p.picking_type_id.code == 'incoming' and p.state != 'cancel')"/>
+
+                            <div class="col-xs-3">
+                                <strong>Date Received</strong>
+                                <p t-field="picking_in.date_done" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <strong>Date Closed</strong>
+                                <p t-field="o.rma_id.date_closed" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <strong>Warranty Expiration</strong>
+                                <p t-field="o.guarantee_limit" t-field-options='{"format": "dd/MM/yyyy"}'/>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <strong>Problem description</strong>
+                                <p t-field="o.rma_id.problem_description"/>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <strong>Resolution description</strong>
+                                <p t-field="o.rma_id.resolution_description"/>
+                            </div>
+
+                        </div>
+
+                    <table class="table table-condensed mt48">
+                        <thead>
+                            <tr style="background: #ccc;">
+                                <th><strong>Product</strong></th>
+                                <th><strong>Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.operations" t-as="operation">
+                                <td>
+                                    <span t-field="operation.product_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="operation.product_uom_qty"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="font-size: small">
+                        <p>Important:<br/>
+                            As a routine part of our after-sales service, we check to see whether your drone's internal firmware is up to date. If it isn't, we update it to the latest version.
+                            Please also make sure that you install the latest version of eMotion on any computers that you will use to fly your senseFly drone.
+                            If eMotion and your drone's firmware are out of step, they won't be able to communicate.
+                            You can find the latest version of eMotion, as well as other useful software and helpful Knowledge Base articles, in my.senseFly.com.
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <report
+        id="sf_rma_mrp_repair"
+        model="mrp.repair"
+        string="Repair"
+        report_type="qweb-pdf"
+        name="sf_rma_mrp_repair.sf_report_repair"
+        file="sf_rma_mrp_repair.sf_report_repair"
+        attachment_use="True"
+        attachment="((object.name or '').replace('/','')+'.pdf')"
+    />
+</odoo>
