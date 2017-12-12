@@ -21,8 +21,7 @@ latest (unreleased)
 
 **Data**
 
-* [BSSFL-287] Add customer invoices data
-* RMA data migration
+* BSSFL-287: Add customer invoices data
 * BSSFL-316: RMA data migration
 
 **Features and Improvements**
@@ -32,7 +31,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-382: Product responsibles
-* Add S3 read in data_all.py
+* BSSFL-383: Add S3 read in data_all.py
 
 **Build**
 
