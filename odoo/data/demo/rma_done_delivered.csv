@@ -1,0 +1,418 @@
+"id","name","lot_id/id","product_id/id","partner_id/id","original_order_id/id","original_customer_id/id","date","zendesk_ref","user_id/id","decision","offer_reason","warranty_limit","to_exchange","to_receive","problem_description","resolution_description","drone_flight_time","drone_flight_num","drone_firmware_version","company_id/id"
+"__setup__.rma_5379","RMA02225_SINC","__setup__.stock_production_lot_522233","__setup__.product_template_1657","__setup__.res_partner_1020","","","2017-11-01","33833","__setup__.res_users_16","to_invoice","","2018-05-10","false","true","Motor foam cracked as a result of a back wind landing.","New:
+   Lower body
+   Propeller (2)
+   Rubber bands (10)
+   S.O.D.A. spare protective lenses (3)
+   Underbody skin
+
+Full flight test and calibrations","13.25","31","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4965","RMA01970_SINC","__setup__.stock_production_lot_622558","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_7791","__setup__.res_partner_1020","2017-09-01","32196","__setup__.res_users_16","free","","2018-03-15","false","true","eBee Plus landed short of intended location. Landing was conducted with a moderate backwind and over an uphill grade. 
+
+Damage includes loose motor mount and a free-spinning servo. ","New:
+   Servo set
+   Motor set
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+   
+Full flight test and calibrations","1.9166666666666665","12","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5249","RMA02152_SINC","__setup__.stock_production_lot_215039","__setup__.product_template_1257","__setup__.res_partner_5","","","2017-10-13","D33363","__setup__.res_users_16","to_invoice","","2017-03-04","false","true","Weak ESC current.","New:
+   Connector plate camera/USB
+   Air modem PCB
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+   Motor set
+
+Full flight test and calibrations","18.35","77","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5137","RMA02077_SINC","__setup__.stock_production_lot_216846","__setup__.product_template_1257","__setup__.res_partner_1020","__setup__.sale_order_7548","__setup__.res_partner_1020","2017-09-26","32812","__setup__.res_users_16","free","","2018-02-21","false","true","Pre-flight checks failed: Ground Sensor Malfunction","New:
+   Optical flow sensor
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+   Blisters set
+   Autopilot 
+
+Full flight test and calibrations","3.466666666666667","18","2.4.13","__setup__.company_inc","done","1"
+"__setup__.rma_5082","RMA06655","__setup__.stock_production_lot_621848","__setup__.product_template_1580","__setup__.res_partner_3","__setup__.sale_order_7613","__setup__.res_partner_3","2017-09-18","32625","__setup__.res_users_16","to_invoice","","2018-03-07","false","true","Dust in pitot tube","","94.83333333333333","291","3.3.1","base.main_company","done","1"
+"__setup__.rma_3379","RMA00943_SINC","__setup__.stock_production_lot_4562","__setup__.product_template_1257","__setup__.res_partner_1020","","","2016-11-17","D23602","__setup__.res_users_16","to_invoice","","2015-11-01","false","true","Really poor uplink quality and camera malfunctions with WX / IXUS","eBee maintenance kit including:
+ - Pitot sensor
+ - Optical flow sensor
+ - Brushless motor + ESC
+ - Servo set
+ - Blisters
+ - Underbody skin
+ - Ground station antenna 
+ 
+Other items:
+ - RC controller - paired with eBee
+ - Lower body swap
+ - Camera PCB
+ - eBee radio modem PCB
+
+
+Full eBee flight tests with airspeed sensor and trims calibrations.
+","85.06666666666666","238","","__setup__.company_inc","done","1"
+"__setup__.rma_5391","RMA02236_SINC","__setup__.stock_production_lot_522133","__setup__.product_template_1657","__setup__.res_partner_1020","__setup__.sale_order_9084","__setup__.res_partner_1020","2017-11-02","33894","__setup__.res_users_16","free","","2018-06-27","false","true","Poor and unstable decibel coverage (L1). Drone's RTK antenna needs replacement.
+Logic error revealed by RD. Drone thinks it landed but has not. Alex Haabersat could not find rootcause. ","New:
+   EP RTK antenna
+   Motor set
+   Autopilot
+   Servo set
+   RC receiver
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+   Lower body
+   Wing pair
+
+Full flight test and calibrations","12.483333333333333","32","3.3.4","__setup__.company_inc","done","1"
+"__setup__.rma_5195","RMA02123_SINC","__setup__.stock_production_lot_627609","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_9217","__setup__.res_partner_1020","2017-10-06","32821","__setup__.res_users_16","free","","2018-08-25","false","true","Servo issue causing instability and bad airspeed readings.","New:
+   Servo set
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+   Wing pair
+   S.O.D.A. and integration kit
+
+Full flight test and calibrations","5.45","15","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5405","RMA02243_SINC","__setup__.stock_production_lot_624760","__setup__.product_template_1658","__setup__.res_partner_3970","__setup__.sale_order_8315","__setup__.res_partner_3970","2017-11-07","33897","__setup__.res_users_16","free","","2018-05-11","false","true","eBee Plus and SODA have trigger sync issue during flight.","New:
+   Integration kit for S.O.D.A.
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+   GNSS interface board
+   Pitot sensor
+   Servo set
+   EP RTK antenna
+   Motor set
+   Connector plate camera/USB
+
+Full flight test and calibrations","1.95","18","3.3.4","__setup__.company_inc","done","1"
+"__setup__.rma_5263","RMA02160_SINC","__setup__.stock_production_lot_624195","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_8156","__setup__.res_partner_1020","2017-10-17","33430","__setup__.res_users_16","free","","2018-08-04","false","true","Servo head removed during installation of new vertical stabilizers. ","New:
+   Servo set
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","4.116666666666666","17","3.3.4","__setup__.company_inc","done","1"
+"__setup__.rma_3830","RMA01255_SINC","__setup__.stock_production_lot_220919","__setup__.product_template_1657","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-03-13","26952","__setup__.res_users_16","free","","2018-01-31","false","true","Motor loose from damage done upon launches","New:
+   Motor set
+   Underbody skin
+
+Full flight test and calibrations","0.6","26","","__setup__.company_inc","done","1"
+"__setup__.rma_3822","RMA05416","__setup__.stock_production_lot_220973","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_7298","__setup__.res_partner_3","2017-03-10","26940","__setup__.res_users_16","free","","2018-01-31","false","true","- Complete GPS dropout","- Pitot changed
+- GPS interface board changed
+- GPS board changed
+
+- Test flight okay ","2.0","28","","base.main_company","done","1"
+"__setup__.rma_2190","RMA00090_SINC ","__setup__.stock_production_lot_103768","__setup__.product_template_1257","__setup__.res_partner_1020","","","2016-03-11","17183","__setup__.res_users_16","to_invoice","","2016-03-11","false","true"," eBee nose dives on take-off, he tried to launch the eBee three times same result gets to an elevation of about 10 ft. and then nose dives into to the ground","New ESC motor
+New wing chip board and cable
+Lower body swap 
+Optical flow lens and board
+
+Underbody skin
+Blister set
+
+Trims and pitot calibrations
+Flight tests pass","47.95","160","","__setup__.company_inc","done","1"
+"__setup__.rma_3779","RMA01217_SINC","__setup__.stock_production_lot_221286","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_7285","__setup__.res_partner_1020","2017-02-28","26630","__setup__.res_users_16","free","","2018-01-30","true","false","""This unit was working fine the other day. The customer went to fly the drone and it will not connect between the ground modem and the drone. When the drone is powered on the three lights on the radio go solid for about 15 seconds then they start cycling again. I tried multiple USB cables and a restart of the system to no avail.""
+","New eBee Plus central body including modem and RC controller
+   s/n: EP-01-05746
+
+","4.716666666666667","14","","__setup__.company_inc","done","1"
+"__setup__.rma_3946","RMA05552","__setup__.stock_production_lot_220880","__setup__.product_template_1580","__setup__.res_partner_3","__setup__.sale_order_7261","__setup__.res_partner_3","2017-04-05","26951","__setup__.res_users_16","free","","2018-01-25","true","false","Crash: wing not correctly connected","Replacement with ES-11-08197
+Delivery to Korec/Hummingbird Technologies Ltd > 04.04.2017","54.81666666666667","120","","base.main_company","done","1"
+"__setup__.rma_4028","RMA01374_SINC","__setup__.stock_production_lot_220627","__setup__.product_template_1657","__setup__.res_partner_1020","__setup__.sale_order_7240","__setup__.res_partner_1020","2017-04-14","28049","__setup__.res_users_16","free","","2018-01-25","false","true","Servo is loose after landing","New:
+   Servo set
+   Underbody skin
+
+Full flight test and calibrations","2.9833333333333334","15","","__setup__.company_inc","done","1"
+"__setup__.rma_3923","RMA05524","__setup__.stock_production_lot_622400","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_7729","__setup__.res_partner_3","2017-03-31","27596","__setup__.res_users_16","free","","2018-03-15","true","false","Client reported a servo failure 
+In bbx left servo failure in preflight checks
+Camera USB is also very difficult to remove from the PCB","- Replaced with new drone
+
+- Test flight okay","0.0","0","","base.main_company","done","1"
+"__setup__.rma_3902","RMA01297_SINC","__setup__.stock_production_lot_220925","__setup__.product_template_1657","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-03-28","26693","__setup__.res_users_16","free","","2018-01-31","false","true","Drone power-cutoff mid-launch","Autopilot swap
+New lower body for eBee Plus
+Underbody skin
+
+Flight tests pass with airspeed and trims calibrations","0.3","9","","__setup__.company_inc","done","1"
+"__setup__.rma_4248","RMA01488_SINC","__setup__.stock_production_lot_221336","__setup__.product_template_1658","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-05-16","28953","__setup__.res_users_16","free","","2018-01-31","false","true","Damage to servos and vertical stabilzers due to back/side wind landing approach","New:
+   Vertical surfaces
+   Servo set
+   Underbody skin
+
+Full flight test and calibrations","7.183333333333334","39","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_3683","RMA05292","__setup__.stock_production_lot_220878","__setup__.product_template_1580","__setup__.res_partner_3","__setup__.sale_order_7261","__setup__.res_partner_3","2017-02-08","D25937","__setup__.res_users_16","free","","2018-01-25","true","false","eBee SQ does take photos in flight, but BBX-file does not contain any geotags. Consequently post-processing fails ","eBee SQ will be replaced (full package)","0.0","0","","base.main_company","done","1"
+"__setup__.rma_3855","RMA05454","__setup__.stock_production_lot_222306","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_7519","__setup__.res_partner_1099","2017-03-20","27085","__setup__.res_users_16","to_invoice","","2018-02-28","true","false","1. When EP powered on, the LED showed white and no sound during its preflight check. 
+2. Connected the USB cable, BBX could not be read. 
+3. RC could not control the servos and motor, moreover, the body badly damaged.","Replaced by central body EP-11-20648","0.0","0","","base.main_company","done","1"
+"__setup__.rma_4116","RMA05705","__setup__.stock_production_lot_220973","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_7298","__setup__.res_partner_3","2017-04-24","28257","__setup__.res_users_16","free","","2018-01-31","false","true","Reseller reported eBee had a failed takeoff.
+On hitting the ground the eBees motor did not turn off. 
+The reseller reported a burning smell from the motor and esc. 
+","eBee will be returned for repair. 
+","3.5","38","","base.main_company","done","1"
+"__setup__.rma_4245","RMA01484_SINC","__setup__.stock_production_lot_4562","__setup__.product_template_1257","__setup__.res_partner_1020","","","2017-05-16","28919","__setup__.res_users_16","to_invoice","","2015-11-01","false","true","Consistently poor landings and optical flow errors","New: 
+   Optical flow sensor
+   Pitot sensor
+   Lower body (V3)
+   Underbody skin
+
+Full flight test and calibrations","101.58333333333333","289","3.2.1","__setup__.company_inc","done","1"
+"__setup__.rma_4999","RMA06579","__setup__.stock_production_lot_623191","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_7923","__setup__.res_partner_3","2017-09-06","32320","__setup__.res_users_16","to_invoice","","2018-04-04","false","true","crash on start: autopilot burned","autopilot and servos exchanged","1.2333333333333334","7","3.3.1","base.main_company","done","1"
+"__setup__.rma_4493","RMA06092","__setup__.stock_production_lot_622653","__setup__.product_template_1580","__setup__.res_partner_3","__setup__.sale_order_7784","__setup__.res_partner_3","2017-06-21","29463","__setup__.res_users_16","free","","2018-03-20","true","false","Sequoia camera not fully functional, camera malfunction after a few minutes ","","0.0","0","","base.main_company","done","1"
+"__setup__.rma_4391","RMA01600_SINC","__setup__.stock_production_lot_221336","__setup__.product_template_1658","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-06-09","29699","__setup__.res_users_16","to_invoice","","2018-01-31","false","true","Hard landing during backwind landing approach.
+
+Damage to underbody skin, battery, battery canopy. Internal memory not accessible to extract BBX logs from unit.","New:
+   Pitot sensor
+   Optical flow sensor
+   Lower body
+   Underbody skin
+   Servo set
+   Propeller (2)
+   Rubber bands (10)
+   Canopy for battery
+   Wing pair
+
+Full flight test and calibrations","9.833333333333334","46","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4536","RMA06136","__setup__.stock_production_lot_221396","__setup__.product_template_1657","__setup__.res_partner_3","__setup__.sale_order_7367","__setup__.res_partner_3","2017-06-27","30199","__setup__.res_users_16","free","","2018-02-06","true","false","Drone doesn't turn on","Replaced by EP-11-01569 under warranty","0.0","0","3.2.4","base.main_company","done","1"
+"__setup__.rma_4313","RMA01534_SINC","__setup__.stock_production_lot_623878","__setup__.product_template_1658","__setup__.res_partner_5","__setup__.sale_order_8057","__setup__.res_partner_5","2017-05-30","29229","__setup__.res_users_16","free","","2018-04-18","false","true","Servo damage from weak launch and poor servo response
+Autopilot swap required","New:
+   Servo set
+   Autopilot
+   Underbody skin
+
+Full flight test and calibrations","1.0","6","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4522","RMA06129","__setup__.stock_production_lot_222311","__setup__.product_template_1657","__setup__.res_partner_1099","__setup__.sale_order_7519","__setup__.res_partner_1099","2017-06-26","30162","__setup__.res_users_16","free","","2018-04-03","false","true","Motor + autopilot burned","","0.0","0","3.2.4","base.main_company","done","1"
+"__setup__.rma_4610","RMA06237","__setup__.stock_production_lot_623474","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-07-07","30471","__setup__.res_users_16","free","","2018-04-17","false","true","Crash","
+Performed retrofit and replaced:
+- Autopilot
+- Pitot tube
+- Servos
+
+Test flight performed successfully
+","69.48333333333333","134","3.2.4","base.main_company","done","1"
+"__setup__.rma_5254","RMA06820","__setup__.stock_production_lot_624497","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_8189","__setup__.res_partner_1099","2017-10-16","33360","__setup__.res_users_16","free","","2018-05-22","false","true","- Failed take off, autopilot damaged (no longer powers on)","- Replacement central body","41.266666666666666","91","3.3.4","base.main_company","done","1"
+"__setup__.rma_5267","RMA02164_SINC","__setup__.stock_production_lot_625040","__setup__.product_template_1658","__setup__.res_partner_5","__setup__.sale_order_8335","__setup__.res_partner_5","2017-10-17","D33383","__setup__.res_users_16","free","","2018-05-23","false","true","Left wing lost during flight results in crash.","New:
+   Wing clips
+   Retrofit service
+   Underbody skin
+   Servo set
+   Motor set
+   Spare protective lenses for S.O.D.A.
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","26.2","57","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4830","RMA06418","__setup__.stock_production_lot_623190","__setup__.product_template_1657","__setup__.res_partner_3","__setup__.sale_order_7923","__setup__.res_partner_3","2017-08-09","31471","__setup__.res_users_16","free","","2018-04-04","false","true","eBee start on bench killed the motor","Replaced motor + autopilot + vertical surfaces.","27.116666666666667","86","3.2.4","base.main_company","done","1"
+"__setup__.rma_4470","RMA01620_SINC","__setup__.stock_production_lot_522019","__setup__.product_template_1657","__setup__.res_partner_1020","__setup__.sale_order_8337","__setup__.res_partner_1020","2017-06-16","29873","__setup__.res_users_16","free","","2018-05-11","true","false","Bad servo trims on newly delivered unit. Left servo is unstable and has inconsistent flutter.","Replacement eBee Plus central body incl. modem and RC controller
+> EP-01-03646
+
+Provide pre-paid return label to return EP-01-20216 to senseFly, incl. modem and RC controller.","0.0","0","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4580","RMA06199","__setup__.stock_production_lot_623473","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-07-03","30368","__setup__.res_users_16","free","","2018-04-17","false","true","Crash on takeoff","
+Replaced:
+- Motor
+- Autopilot
+- RTK antenna
+- Left servo extender
+- Pitot tube
+
+Test flight performed successfully
+","0.0","0","3.2.4","base.main_company","done","1"
+"__setup__.rma_5261","RMA06835","__setup__.stock_production_lot_623472","__setup__.product_template_1658","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-10-16","33399","__setup__.res_users_16","free","","2018-04-17","false","true","- General eBee Plus maintenance
+- LED stays purple","- Autopilot replaced
+- Pitot replaced
+- Motor replaced 
+- Servos Updated 
+
+- Flight test okay","55.166666666666664","135","3.3.4","base.main_company","done","1"
+"__setup__.rma_4356","RMA01579_SINC","__setup__.stock_production_lot_3565","__setup__.product_template_1257","__setup__.res_partner_1020","","","2017-06-05","29550","__setup__.res_users_16","to_invoice","","2015-04-30","false","true","eBee damaged during bad landing. ","New:
+   Pitot sensor
+   Optical flow sensor
+   Underbody skin
+   Retrofit
+   Air modem PCB
+   Propeller (4)
+   Rubber bands (10)
+
+Full flight test and calibrations","28.583333333333332","160","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_5109","RMA06685","__setup__.stock_production_lot_622636","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_7774","__setup__.res_partner_3","2017-09-22","32461","__setup__.res_users_16","free","","2018-03-22","false","true","eBee landed in Salt water due to poor landing. 
+From landing analysis the eBee dropped short of its landing target. 
+","Warranty claim still under investigation by R&D
+eBee landed in Salt water and is returning to SenseFly fro repair. 
+
+","9.633333333333333","41","3.3.1","base.main_company","done","1"
+"__setup__.rma_5213","RMA02136_SINC","__setup__.stock_production_lot_105618","__setup__.product_template_1257","__setup__.res_partner_5","__setup__.sale_order_7830","__setup__.res_partner_5","2017-10-09","32100","__setup__.res_users_16","free","","2018-03-27","false","true","eBee badly damaged in crash.","New:
+   Autopilot
+   Retro-fit service
+   Motor set
+   Servo set
+   Onboard modem+antenna
+   Ground station modem+antenna
+   Pitot sensor
+   Optical flow sensor
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+
+Full flight test and calibrations","78.11666666666666","249","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5065","RMA06641","__setup__.stock_production_lot_106006","__setup__.product_template_1257","__setup__.res_partner_3","__setup__.sale_order_7828","__setup__.res_partner_3","2017-09-15","32561","__setup__.res_users_16","to_invoice","","2018-03-30","false","true","- Bird attack on drone","- RTK antenna and board interface replaced
+
+- Test flight okay ","18.333333333333332","60","2.4.13","base.main_company","done","1"
+"__setup__.rma_4616","RMA01714_SINC","__setup__.stock_production_lot_105557","__setup__.product_template_1257","__setup__.res_partner_5","__setup__.sale_order_8179","__setup__.res_partner_5","2017-07-07","30356","__setup__.res_users_16","to_offer","unknown","2018-04-28","true","false","eBee unable to follow 'Go Land' commands resulting in emergency landing procedure with empty battery. 
+
+Severe damage to:
+- eBee central body
+- wing set
+- battery","Provide replacement items:
+
+-eBee central body (incl. modem and RC): EB-03-12176
+-Update my.senseFly portal with new serial number
+-Wing pair
+-eBee battery
+
+","6.95","23","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4550","RMA01670_SINC","__setup__.stock_production_lot_624759","__setup__.product_template_1658","__setup__.res_partner_3970","__setup__.sale_order_8315","__setup__.res_partner_3970","2017-06-28","30242","__setup__.res_users_16","free","","2018-05-11","false","true","Faulting optic flow sensor.","New:
+   Optical flow sensor
+   Servo set
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","2.216666666666667","10","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4903","RMA01924_SINC","__setup__.stock_production_lot_624977","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_8360","__setup__.res_partner_1020","2017-08-18","31844","__setup__.res_users_16","free","","2018-05-18","false","true","Crash while orbiting at Start - Poor GNSS coverage in-flight leading to the crash","New:
+   S.O.D.A. protective lenses (3)
+   Lower body
+   Vertical surfaces
+   Underbody skin
+   Pitot sensor 
+   RTK antenna
+   Propeller (2)
+   Rubber bands (10)
+   Ground station antenna
+   Autopilot
+   Motor set
+   Servo set
+   Optical flow sensor
+
+Full flight test and calibrations   ","18.866666666666667","48","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4896","RMA01918_SINC","__setup__.stock_production_lot_622229","__setup__.product_template_1658","__setup__.res_partner_5","__setup__.sale_order_7693","__setup__.res_partner_5","2017-08-17","31795","__setup__.res_users_16","free","","2018-03-10","false","true","Impact with tree during linear landing approach
+""...they gave the drone the command to jump out of mission and come in for a landing. They stated the approach was good but it then it went off course and hit the top of a tree.""","New:
+   Wing pair
+   Retro-fit service
+   Servo set
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+   Autopilot
+   Motor set
+   
+Full flight test and calibrations","0.21666666666666667","3","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4276","RMA05875","__setup__.stock_production_lot_222006","__setup__.product_template_1580","__setup__.res_partner_1162","__setup__.sale_order_7409","__setup__.res_partner_1162","2017-05-22","29090","__setup__.res_users_16","free","","2018-02-22","false","true","eBee not switching on anymore. The negative of battery do not have continuity with the negative of system (motor, servos etc) and the motor seems burnt. ","
+Replaced:
+- Motor
+- AutoPilot
+- propeller and oring
+
+- Remote control re-binding : instruction sheet
+
+Test flight performed successfully
+","34.0","10","3.2.3","base.main_company","done","1"
+"__setup__.rma_5104","RMA02053_SINC","__setup__.stock_production_lot_627714","__setup__.product_template_1658","__setup__.res_partner_5","__setup__.sale_order_9251","__setup__.res_partner_5","2017-09-21","32726","__setup__.res_users_16","to_offer","DM: Client is at fault, but we will repair this drone under warranty. They are new users and we should build their confidence through reviewing proper landing procedures.","2018-08-30","false","true","eBee Plus struck tree while landing.
+Motor disconnected from airframe.","New:
+   Retrofit service
+   Onboard modem+antenna
+   Underbody skin
+   Motor set
+   Ground station modem+antenna
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","0.13333333333333333","4","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5015","RMA06589","__setup__.stock_production_lot_106040","__setup__.product_template_1257","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-09-08","31813","__setup__.res_users_16","free","","2018-04-17","false","true","Upper body replacement","Performed retrofit,and replaced servos and motor.
+
+Test flight performed successfully","16.0","56","2.4.13","base.main_company","done","1"
+"__setup__.rma_4818","RMA01859_SINC","__setup__.stock_production_lot_522312","__setup__.product_template_1657","__setup__.res_partner_1020","__setup__.sale_order_8960","__setup__.res_partner_1020","2017-08-07","31408","__setup__.res_users_16","to_offer","This drone may have been damaged during 2 back-wind landings (logs 18 and 19). Its not completely clear when damage occurred, and client is claiming damage may have occurred during 'transport'. I will required the reseller to cover proper takeoff and landing procedures before returning repaired unit to client. Covering as commercial gesture because time of damage is not clear and the product is relatively new. ","2018-07-24","false","true","Motor detached from airframe.","New:
+   Retro-fit service
+   Servo set
+   Motor set
+   Underbody skin
+   Optic flow sensor
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","7.75","23","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4576","RMA06195","__setup__.stock_production_lot_422226","__setup__.product_template_1580","__setup__.res_partner_1162","__setup__.sale_order_8098","__setup__.res_partner_1162","2017-07-03","30330","__setup__.res_users_16","free","","2018-05-16","false","true","Crash on takeoff","
+Replaced Autopilot, motor and servos.
+
+Test flight performed successfully.
+","0.0","0","3.2.4","base.main_company","done","1"
+"__setup__.rma_4834","RMA01866_SINC","__setup__.stock_production_lot_106047","__setup__.product_template_1257","__setup__.res_partner_5","__setup__.sale_order_8179","__setup__.res_partner_5","2017-08-09","30973","__setup__.res_users_16","free","","2018-04-28","false","true","To complete repairs at SINC from Ag Business & Crop. 
+- Issues with calibrating the autopilot
+- ESC current weak
+- Pitot possibly dirty","New:
+   Autopilot 
+   Motor set
+   Servo set
+   Pitot sensor
+   Lower body
+   Underbody skin
+   Ground station antenna 
+   Propeller (2) and rubber bands (10)
+   Payload bay inserts
+
+Full flight test and calibrations","21.016666666666666","66","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4357","RMA01580_SINC","__setup__.stock_production_lot_220919","__setup__.product_template_1657","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-06-05","29542","__setup__.res_users_16","free","","2018-01-31","false","true","High trims resulting in poor surface control","New:
+   Servo set
+   Underbody skin
+
+Full flight test and calibrations","2.8333333333333335","38","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4737","RMA01785_SINC","__setup__.stock_production_lot_623823","__setup__.product_template_1658","__setup__.res_partner_3970","__setup__.sale_order_8061","__setup__.res_partner_3970","2017-07-26","31068","__setup__.res_users_16","to_invoice","","2018-04-12","false","true","servo control horn broken while inserting drone to case
+servo protector was not used","New:
+   Servo set
+   Underbody skin
+
+Full flight test and calibrations","1.8","31","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4389","RMA01597_SINC","__setup__.stock_production_lot_220627","__setup__.product_template_1657","__setup__.res_partner_1020","__setup__.sale_order_7240","__setup__.res_partner_1020","2017-06-09","D29419","__setup__.res_users_16","free","","2018-01-25","false","true","Drone not detecting SODA camera, with provided new integration kit (RMA01558_SINC)","New:
+   Autopilot
+   Pitot sensor
+   Underbody skin
+
+Full flight test and calibrations","5.416666666666667","25","3.2.4","__setup__.company_inc","done","1"
+"__setup__.rma_4772","RMA01825_SINC","__setup__.stock_production_lot_220909","__setup__.product_template_1657","__setup__.res_partner_3970","__setup__.sale_order_7356","__setup__.res_partner_3970","2017-08-01","31275","__setup__.res_users_16","free","","2018-01-31","false","true","eBee Plus has intermittent communications with eMotion3","New:
+   Servo set
+   Air modem PCB
+   Onboard communication antenna
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+
+Full flight test and calibrations","16.35","43","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_4833","RMA01865_SINC","__setup__.stock_production_lot_522071","__setup__.product_template_1657","__setup__.res_partner_5","__setup__.sale_order_7953","__setup__.res_partner_5","2017-08-09","31337","__setup__.res_users_16","to_invoice","","2018-04-12","false","true","Blind linear landing warning during the landing approach, resulting in a difficult landing and damage to the motor and eBee body.
+
+The optical flow sensor is working well during many parts of the flight, which indicates that the blind linear landing is not a hardware issue with the sensor, but is instead related to the terrain underneath the eBee's landing approach.","New:
+   Retro-fit
+   Motor set
+   Underbody skin
+   S.O.D.A. lens protectors
+   Wing pair
+   Servo set
+   Propeller (2)
+   Rubber bands (10)
+
+Full flight test and calibrations","36.2","84","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5012","RMA01995_SINC","__setup__.stock_production_lot_622069","__setup__.product_template_1658","__setup__.res_partner_1020","__setup__.sale_order_7667","__setup__.res_partner_1020","2017-09-07","32360","__setup__.res_users_16","free","","2018-03-06","false","true","eBee Plus experienced harsh landing, resulting in a broken servo.","New:
+   Servo set
+   Motor set
+   Retrofit service
+   Autopilot
+   Pitot sensor
+   SODA integration kit
+   Propeller (2)
+   Rubber bands (10)
+   Underbody skin
+
+Full flight test and calibrations","9.866666666666667","38","3.3.1","__setup__.company_inc","done","1"
+"__setup__.rma_5196","RMA06755","__setup__.stock_production_lot_628424","__setup__.product_template_1658","__setup__.res_partner_3","__setup__.sale_order_9495","__setup__.res_partner_3","2017-10-06","33195","__setup__.res_users_16","free","","2018-10-03","false","true","- eBee Plus damaged on receipt","- Replacement body","0.0","0","3.3.4","base.main_company","done","1"

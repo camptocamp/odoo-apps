@@ -22,6 +22,8 @@ latest (unreleased)
 **Data**
 
 * [BSSFL-287] Add customer invoices data
+* RMA data migration
+* BSSFL-316: RMA data migration
 
 **Features and Improvements**
 

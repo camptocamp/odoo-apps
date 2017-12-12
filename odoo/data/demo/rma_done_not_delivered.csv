@@ -1,0 +1,18 @@
+"id","name","lot_id/id","product_id/id","partner_id/id","original_order_id/id","original_customer_id/id","date","zendesk_ref","user_id/id","decision","offer_reason","warranty_limit","to_exchange","to_receive","problem_description","resolution_description","drone_flight_time","drone_flight_num","drone_firmware_version","company_id/id"
+"__setup__.rma_5473","RMA02283_SINC","__setup__.stock_production_lot_220925","__setup__.product_template_1657","__setup__.res_partner_3970","__setup__.sale_order_7358","__setup__.res_partner_3970","2017-11-21","34384","__setup__.res_users_16","to_invoice","","2018-01-30","false","true","Bird attack caused damage to foam around nose. Repair and checkup needed.","New:
+   Servo set
+   Wing clip set
+   Lower body
+   Underbody skin
+   Propeller (2)
+   Rubber bands (10)
+   Vertical surfaces
+
+Full flight test and calibrations","0.5166666666666667","4","3.3.4","__setup__.company_inc","done","0"
+"__setup__.rma_5077","RMA06653","__setup__.stock_production_lot_622775","__setup__.product_template_1658","__setup__.res_partner_91","__setup__.sale_order_7772","__setup__.res_partner_91","2017-09-15","D32479","__setup__.res_users_16","free","","2018-05-01","true","false","GNSS errors in flight and crash.
+The cause of this is a technical failure on the GPS antenna or cable. 
+","Replacement ","0.0","0","","base.main_company","done","0"
+"__setup__.rma_5351","RMA06945","__setup__.stock_production_lot_623467","__setup__.product_template_1657","__setup__.res_partner_1099","__setup__.sale_order_7825","__setup__.res_partner_1099","2017-10-30","33778","__setup__.res_users_16","to_invoice","","2018-05-11","false","true","eBee Plus crashed on start - now it is unresponsive (autopilot damaged)","The following items have been exchanged: 
+Autopilot and board
+Motor set
+Servo set","5.4","45","3.2.4","base.main_company","done","0"
