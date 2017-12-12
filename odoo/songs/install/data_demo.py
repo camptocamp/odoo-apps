@@ -190,6 +190,13 @@ def import_invoices_supplier(ctx):
 
 
 @anthem.log
+def import_invoices_customer(ctx):
+    """ Importing customers invoice from csv """
+    load_csv(ctx, 'data/demo/invoice_cust_head.csv', 'account.invoice')
+    load_csv(ctx, 'data/demo/invoice_cust_line.csv', 'account.invoice.line')
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -213,4 +220,5 @@ def main(ctx):
     import_sales_order(ctx)
     import_purchase_order(ctx)
     import_invoices_supplier(ctx)
+    import_invoices_customer(ctx)
     return
