@@ -21,6 +21,7 @@ services:
       - ADMIN_PASSWD=mijaebohb8Thae1g
       - RUNNING_ENV=dev
       - ODOO_CONNECTOR_CHANNELS=root:4
+      - USE_S3=False
 
   db:
     image: camptocamp/postgresql:pg9.5-latest
