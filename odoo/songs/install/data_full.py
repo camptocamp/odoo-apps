@@ -49,7 +49,7 @@ def create_action_product_followers(ctx):
                      {
                          'name': 'Product Followers',
                          'model_id': ctx.env.ref(
-                             'stock_landed_costs.model_product_template').id,
+                             'sf_product.model_product_template').id,
                          'kind': 'on_create',
                          'act_followers':
                              [(6, 0, ctx.env.ref(
