@@ -68,6 +68,13 @@ def import_product_category(ctx):
 
 
 @anthem.log
+def import_inventory_category(ctx):
+    """ Importing inventory category from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/inventory_category.csv',
+             'sf.inventory.category')
+
+
+@anthem.log
 def import_unit_measure(ctx):
     """ Importing unit measure from csv """
     load_csv(ctx, 's3://prod-sf-odoo-data/install/unitmeasure.csv',
@@ -399,6 +406,7 @@ def main(ctx):
     import_analytic_account_project(ctx)
     import_partner_entity(ctx)
     import_product_category(ctx)
+    import_inventory_category(ctx)
     import_unit_measure(ctx)
     import_account_tag_pl_name(ctx)
     import_account_tag_parrot_category(ctx)
