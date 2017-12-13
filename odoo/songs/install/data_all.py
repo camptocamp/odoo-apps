@@ -431,6 +431,13 @@ def create_rma_route(ctx):
 
 
 @anthem.log
+def import_delivery_methode(ctx):
+    """ Importing delivery methode from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/delivery_methode.csv',
+             'delivery.carrier')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -463,3 +470,4 @@ def main(ctx):
     import_price_category(ctx)
     create_rate_auto_download(ctx)
     create_rma_route(ctx)
+    import_delivery_methode(ctx)

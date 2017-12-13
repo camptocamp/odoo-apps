@@ -26,6 +26,7 @@ latest (unreleased)
 * BSSFL-397: Inventory categories
 * [BSSFL-373]: Add product accounts data
 * BSSFL-392: Add the partners properties data
+* BSSFL-396: Add Delivery methode data
 
 **Features and Improvements**
 
