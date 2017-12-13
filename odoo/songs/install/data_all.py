@@ -339,6 +339,8 @@ def create_rate_auto_download(ctx):
                                                ctx.env.ref('base.USD').id,
                                                ctx.env.ref('base.EUR').id]
                                               )]})
+    record = ctx.env.ref('__setup__.rate_auto_download_sa')
+    record.refresh_currency()
 
 
 @anthem.log

@@ -22,6 +22,7 @@ latest (unreleased)
 **Data**
 
 * BSSFL-287: Add customer invoices data
+* BSSFL-381: Run currency update after install
 * BSSFL-316: RMA data migration
 
 **Features and Improvements**
