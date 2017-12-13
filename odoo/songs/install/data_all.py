@@ -181,8 +181,8 @@ def update_picking_type(ctx):
     """ Update stock picking type. Only for sensefly SA """
     for record in ctx.env['stock.picking.type'].search(
             [('name', 'in', ('Pick', 'Reserve & Pack')),
-             ('active', '=', False),
-             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id)]):
+             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id),
+             ('active', '=', False)]):
         record.name = 'Reserve & Pack'
         record.active = True
         add_xmlid(
@@ -192,8 +192,8 @@ def update_picking_type(ctx):
         )
     for record in ctx.env['stock.picking.type'].search(
             [('name', 'in', ('Pack', 'Freight Labeling')),
-             ('active', '=', False),
-             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id)]):
+             ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id),
+             ('active', '=', False)]):
         record.name = 'Freight Labeling'
         record.active = True
         record.propagate_delivery_info = True
@@ -361,11 +361,11 @@ def create_rma_route(ctx):
         '__setup__.stock_location_rma_sa',
         noupdate=True)
 
-    # RMA procurement rule
+    # RMA procurement rules
     create_or_update(ctx, 'procurement.rule',
                      '__setup__.procurement_rule_rma_packs_sa',
                      {
-                         'name': 'WH: RMA -> Packs',
+                         'name': 'RMA -> Packs',
                          'action': 'move',
                          'location_id':
                              ctx.env.ref('stock.location_pack_zone').id,
@@ -376,25 +376,57 @@ def create_rma_route(ctx):
                              '__setup__.stock_pick_type_reserve_pack').id
                      })
 
+    create_or_update(ctx, 'procurement.rule',
+                     '__setup__.procurement_rule_rma_packs_pickup_sa',
+                     {
+                         'name': 'WH: Packs -> Pickup',
+                         'action': 'move',
+                         'location_id':
+                             ctx.env.ref('stock.stock_location_output').id,
+                         'location_src_id':
+                             ctx.env.ref('stock.location_pack_zone').id,
+                         'warehouse_id': ctx.env.ref('stock.warehouse0').id,
+                         'procure_method': 'make_to_order',
+                         'picking_type_id': ctx.env.ref(
+                             '__setup__.stock_pick_type_freight_labeling').id
+                     })
+
+    create_or_update(ctx, 'procurement.rule',
+                     '__setup__.procurement_rule_rma_pickup_customers_sa',
+                     {
+                         'name': 'WH: Pickup -> Customers',
+                         'action': 'move',
+                         'location_id':
+                             ctx.env.ref('stock.stock_location_customers').id,
+                         'location_src_id':
+                             ctx.env.ref('stock.stock_location_output').id,
+                         'warehouse_id': ctx.env.ref('stock.warehouse0').id,
+                         'procure_method': 'make_to_order',
+                         'picking_type_id': ctx.env.ref(
+                             'stock.picking_type_out').id
+                     })
+
     # RMA route
     create_or_update(ctx, 'stock.location.route',
                      '__setup__.stock_location_route_rma_sa',
                      {'company_id': ctx.env.ref('base.main_company').id,
                       'name': 'senseFly SA: RMA Pick + Pack + Ship',
-                      'warehouse_ids': [(6, 0,
-                                        [ctx.env.ref('stock.warehouse0').id]
-                                         )],
+                      'warehouse_ids': [
+                          (4, ctx.env.ref('stock.warehouse0').id)
+                      ],
                       'sale_selectable': True,
-                      'pull_ids': [(6, 0, [
-                          ctx.env.ref(
-                              '__setup__.procurement_rule_stock_packs_sa'
-                          ).id,
-                          ctx.env.ref(
-                               '__setup__.procurement_rule_packs_pickup_sa'
-                          ).id,
-                          ctx.env.ref(
-                               '__setup__.procurement_rule_rma_packs_sa'
-                          ).id])]
+                      'sequence': 20,
+                      'pull_ids': [
+                          (4, ctx.env.ref(
+                              '__setup__.procurement_rule_rma_packs_sa')
+                           .id),
+                          (4, ctx.env.ref(
+                              '__setup__.procurement_rule_rma_packs_pickup_sa')
+                           .id),
+                          (4, ctx.env.ref(
+                              '__setup__.'
+                              'procurement_rule_rma_pickup_customers_sa').id)
+                      ]
                       })
 
 

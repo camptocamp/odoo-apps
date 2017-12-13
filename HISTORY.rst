@@ -34,6 +34,7 @@ latest (unreleased)
 * BSSFL-382: Product responsibles
 * BSSFL-383: Add S3 read in data_all.py
 * BSSFL-394: Product followers
+BSSFL-385: Routes configuration
 
 **Build**
 

@@ -52,6 +52,15 @@ def update_warehouse_configuration(ctx):
     warehouse_sa = ctx.env.ref('stock.warehouse0')
     warehouse_sa.delivery_steps = 'pick_pack_ship'
 
+    for route in ctx.env['stock.location.route'].search(
+            [('name', '=', 'senseFly SA: Pick + Pack + Ship')]):
+        route.active = True
+        add_xmlid(
+            ctx, route,
+            '__setup__.pick_pack_ship_sa',
+            noupdate=True
+        )
+
 
 @anthem.log
 def settings(ctx):
