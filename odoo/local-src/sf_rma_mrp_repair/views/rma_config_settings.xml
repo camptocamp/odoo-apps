@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rma_mrp_repair_config_settings_inherit" model="ir.ui.view">
+        <field name="name">rma settings inherit</field>
+        <field name="model">rma.config.settings</field>
+        <field name="inherit_id" ref="sf_rma.view_rma_config_settings" />
+        <field name="arch" type="xml">
+            <div id="main" position="inside">
+                <group string="Repair order">
+                    <field name="rma_repair_location_id" />
+                    <field name="rma_repair_line_src_location_id" />
+                </group>
+            </div>
+        </field>
+    </record>
+</odoo>

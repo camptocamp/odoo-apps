@@ -18,6 +18,7 @@
         "data/mrp_repair_stage.xml",
         "security/ir.model.access.csv",
         "views/mrp_repair.xml",
+        "views/rma_config_settings.xml",
         "report/sf_repair_report.xml"
     ],
     "application": False,
