@@ -26,10 +26,28 @@ from odoo import fields
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    mrp_team_ids = fields.Many2many(
+    @staticmethod
+    def _get_available_member(self, operator, value):
+        """
+        If no value, return all users.
+        :param operator:
+        :param value:
+        :return:
+        """
+        if not value:
+            return [('share', '=', False)]
+        else:
+            return [('mrp_team_id', operator, value)]
+
+    mrp_team_id = fields.Many2one(
         comodel_name='mrp.team',
-        column1='team_id',
-        column2='user_id',
-        relation='mrp_team_users',
-        string='MRP Teams',
+        string='Manufacturing Team',
+        help="""Manufacturing Team the user is member of.
+Used to compute the members of a mrp team through the inverse one2many""",
+        ondelete='set null',
+    )
+    is_mrp_team_member = fields.Boolean(
+        string='Is member of the team ?',
+        compute=lambda *a: True,
+        search=_get_available_member,
     )

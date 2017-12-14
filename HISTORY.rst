@@ -30,6 +30,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-242: Add sale order exception rules
+* BSSFL-262: Add work order user
 * BSSFL-352: Add security group to reset RMAs
 * BSSFL-387: Repair state draft and open
 * BSSFL-391: Add RMA smart button in repair

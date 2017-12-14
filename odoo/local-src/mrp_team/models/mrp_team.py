@@ -36,6 +36,34 @@ class MRPTeam(models.Model):
                                                'with the same code')),
     ]
 
+    @api.model
+    @api.returns('self', lambda value: value.id if value else False)
+    def _get_default_team_id(self, user_id=None):
+        if not user_id:
+            user_id = self.env.uid
+        team = None
+        if 'default_team_id' in self.env.context:
+            team = self.env['mrp.team'].browse(
+                self.env.context.get('default_team_id'),
+            )
+        if not team or not team.exists():
+            company_id = self.sudo(user_id).company_id.id
+            team = self.env['mrp.team'].sudo().search([
+                '|', ('user_id', '=', user_id),
+                ('member_ids', '=', user_id),
+                '|', ('company_id', '=', False),
+                ('company_id', 'child_of', [company_id])
+            ], limit=1)
+        if not team:
+            default_team_id = self.env.ref(
+                'mrp_team.team_mrp_department',
+                raise_if_not_found=False,
+            )
+            lead_type = self.env.context.get('default_type') != 'lead'
+            if default_team_id and lead_type or default_team_id.use_leads:
+                team = default_team_id
+        return team
+
     def _default_company(self):
         """
         Return the default companny for the mrp.team

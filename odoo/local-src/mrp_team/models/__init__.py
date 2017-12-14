@@ -22,3 +22,4 @@
 from . import mrp_team
 from . import res_users
 from . import mrp_production
+from . import mrp_workorder
