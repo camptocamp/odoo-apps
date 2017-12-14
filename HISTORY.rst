@@ -25,6 +25,7 @@ latest (unreleased)
 * BSSFL-316: RMA data migration
 * BSSFL-397: Inventory categories
 * [BSSFL-373]: Add product accounts data
+* BSSFL-392: Add the partners properties data
 
 **Features and Improvements**
 
