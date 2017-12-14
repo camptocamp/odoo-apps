@@ -9,6 +9,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     date_shipped = fields.Date('Date Shipped')
+    date_delivered = fields.Date('Date Delivered')
     show_button_shipped = fields.Boolean(
         related='picking_type_id.show_button_shipped', readonly=True
     )

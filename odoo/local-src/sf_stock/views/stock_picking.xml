@@ -19,7 +19,8 @@
             <field name="priority" eval="100"/>
             <field name="arch" type="xml">
                 <field name="min_date" position="after">
-                    <field name="date_shipped" attrs="{'invisible':[('date_shipped', '=', False)]}"/>
+                    <field name="date_shipped" attrs="{'invisible':[('date_shipped', '=', False)], 'readonly': [('state', '!=', 'assigned')]}"/>
+                    <field name="date_delivered" attrs="{'invisible':['|', ('date_shipped', '=', False), ('state', '=', 'assigned')]}"/>
                     <field name="date_done" attrs="{'invisible':[('date_done', '=', False)]}"/>
                 </field>
 
