@@ -14,6 +14,7 @@ class MRPRepair(models.Model):
             repair.user_id = self.env.uid
 
     rma_id = fields.Many2one('sf.rma', string="RMA")
+    rma_state = fields.Selection(related='rma_id.state', readonly=True)
 
     user_id = fields.Many2one('res.users', string="Technician",
                               compute='_compute_user_id', store=True,
