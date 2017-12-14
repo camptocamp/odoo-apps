@@ -10,8 +10,10 @@
     "application": False,
     "installable": True,
     "depends": [
+        'partner_identification'
     ],
     "data": [
+        'data/id_number_category_data.xml',
         'views/partner.xml'
     ],
     'images': ['static/description/icon.png'],

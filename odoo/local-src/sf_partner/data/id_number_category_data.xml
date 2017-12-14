@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id ="id_number_cat_vat" model="res.partner.id_category">
+        <field name="name">VAT</field>
+        <field name="code">VAT</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id ="id_number_cat_ein" model="res.partner.id_category">
+        <field name="name">Employer Identification Number</field>
+        <field name="code">EIN</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

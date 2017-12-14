@@ -24,7 +24,8 @@ class TestSale(test_common.TransactionCase):
             'partner_invoice_id': partner.id,
             'partner_shipping_id': partner.id,
             'date_order': datetime.today(),
-            'pricelist_id': self.env.ref('product.list0').id
+            'pricelist_id': self.env.ref('product.list0').id,
+            'ignore_exception': True
         })
         SaleOrderLine.create({
             'order_id': self.sale.id,
