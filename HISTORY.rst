@@ -367,6 +367,7 @@ BSSFL-385: Routes configuration
 **Build**
 
 * Remove unused PO files to reduce docker image size
+* Upgrade docker-compose to 1.17.1
 
 **Documentation**
 
