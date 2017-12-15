@@ -27,6 +27,7 @@ latest (unreleased)
 * [BSSFL-373]: Add product accounts data
 * BSSFL-392: Add the partners properties data
 * BSSFL-396: Add Delivery methode data
+* BSSFL-107: Add routing data
 
 **Features and Improvements**
 

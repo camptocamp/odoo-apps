@@ -218,6 +218,13 @@ def import_workcenter(ctx):
 
 
 @anthem.log
+def import_routing(ctx):
+    """ Importing Routing from csv """
+    load_csv(ctx, 'data/demo/routing.csv', 'mrp.routing')
+    load_csv(ctx, 'data/demo/routing_line.csv', 'mrp.routing.workcenter')
+
+
+@anthem.log
 def import_rma_cause(ctx):
     """ Importing RMA causes from csv """
     load_csv(ctx, 'data/demo/rma_cause.csv', 'sf.rma.cause')
@@ -377,6 +384,7 @@ def main(ctx):
     import_pricelist(ctx)
     import_serial_number(ctx)
     import_workcenter(ctx)
+    import_routing(ctx)
     import_rma_cause(ctx)
     import_bank(ctx)
     import_bank_account(ctx)

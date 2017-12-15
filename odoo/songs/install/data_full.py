@@ -264,6 +264,14 @@ def import_workcenter(ctx):
 
 
 @anthem.log
+def import_routing(ctx):
+    """ Importing Routing from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/routing.csv', 'mrp.routing')
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/routing_line.csv',
+             'mrp.routing.workcenter')
+
+
+@anthem.log
 def import_rma_cause(ctx):
     """ Importing RMA causes from csv """
     load_csv(ctx, 's3://prod-sf-odoo-data/install/rma_cause.csv',
@@ -466,6 +474,7 @@ def main(ctx):
     import_pricelist(ctx)
     import_serial_number(ctx)
     import_workcenter(ctx)
+    import_routing(ctx)
     import_rma_cause(ctx)
     import_bank(ctx)
     import_bank_account(ctx)
