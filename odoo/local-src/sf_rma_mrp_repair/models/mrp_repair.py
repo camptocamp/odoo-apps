@@ -22,6 +22,25 @@ class MrpRepair(models.Model):
 
     _inherit = 'mrp.repair'
 
+    @api.model
+    def _default_stock_location(self):
+        """
+        Override _default_stock_location to pick the repair location
+        in RMA configuration, if defined.
+        """
+        comp = self.env.user.company_id
+        if comp.rma_repair_location_id:
+            return comp.rma_repair_location_id.id
+        else:
+            return super(MrpRepair, self)
+
+    location_id = fields.Many2one(
+        'stock.location', 'Current Location',
+        default=_default_stock_location,
+        index=True, readonly=True, required=True,
+        states={'draft': [('readonly', False)],
+                'confirmed': [('readonly', True)]})
+
     state = fields.Selection(
         MRP_REPAIR_STATE_SELECTION, required=True, default='draft',
         help="* The \'Open\' status is used when a user is encoding a new and "
@@ -218,6 +237,17 @@ class MrpRepairLine(models.Model):
 
     cause_id = fields.Many2one('mrp.repair.cause', string='Cause',
                                ondelete='restrict')
+
+    @api.onchange('type', 'repair_id')
+    def onchange_operation_type(self):
+        """Override onchange_operation_type to pick the source location from
+        RMA configuration.
+        """
+        super(MrpRepairLine, self).onchange_operation_type()
+        if self.type == 'add':
+            comp = self.env.user.company_id
+            if comp.rma_repair_line_src_location_id:
+                self.location_id = comp.rma_repair_line_src_location_id
 
 
 class MrpRepairCause(models.Model):

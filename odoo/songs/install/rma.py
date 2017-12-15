@@ -29,7 +29,11 @@ def settings(ctx):
          'rma_service_stockable_product_id':
              ctx.env.ref('__setup__.product_template_521').id,
          'rma_service_additional_description': 'Original value:',
-         'webhook_base_url': 'http://translator.sensefly.com'
+         'webhook_base_url': 'http://translator.sensefly.com',
+         'rma_repair_location_id':
+             ctx.env.ref('__setup__.stock_location_rma_sa').id,
+         'rma_repair_line_src_location_id':
+             ctx.env.ref('__setup__.stock_location_81').id
          }
     ).execute()
 
@@ -43,7 +47,11 @@ def settings(ctx):
          'rma_service_stockable_product_id':
              ctx.env.ref('__setup__.product_template_521').id,
          'rma_service_additional_description': 'Original value:',
-         'webhook_base_url': 'http://translator.sensefly.com'
+         'webhook_base_url': 'http://translator.sensefly.com',
+         'rma_repair_location_id':
+             ctx.env.ref('__setup__.stock_location_rma_inc').id,
+         'rma_repair_line_src_location_id':
+             ctx.env.ref('__setup__.stock_location_stock_inc').id
          }
     ).execute()
 

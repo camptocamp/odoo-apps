@@ -352,13 +352,20 @@ def create_rate_auto_download(ctx):
 def create_rma_route(ctx):
     """Creating rma route"""
 
-    # Add xml_id on stock location RMA to sensefly SA
+    # Add xml_id on stock location RMA
     location_rma_sa = ctx.env['stock.location'].search(
         [('name', '=', 'RMA'),
          ('company_id', '=', ctx.env.ref('base.main_company').id)])
     add_xmlid(
         ctx, location_rma_sa,
         '__setup__.stock_location_rma_sa',
+        noupdate=True)
+    location_rma_inc = ctx.env['stock.location'].search(
+        [('name', '=', 'RMA'),
+         ('company_id', '=', ctx.env.ref('__setup__.company_inc').id)])
+    add_xmlid(
+        ctx, location_rma_inc,
+        '__setup__.stock_location_rma_inc',
         noupdate=True)
 
     # RMA procurement rules
