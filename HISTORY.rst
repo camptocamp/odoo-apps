@@ -19,12 +19,24 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.10.0 (2017-12-15)
+++++++++++++++++++++
+
 **Data**
 
 * BSSFL-287: Add customer invoices data
 * BSSFL-316: RMA data migration
 * BSSFL-397: Inventory categories
-* [BSSFL-373]: Add product accounts data
+* BSSFL-373: Add product accounts data
 * BSSFL-392: Add the partners properties data
 * BSSFL-396: Add Delivery methode data
 * BSSFL-107: Add routing data
@@ -44,11 +56,7 @@ latest (unreleased)
 * BSSFL-382: Product responsibles
 * BSSFL-383: Add S3 read in data_all.py
 * BSSFL-394: Product followers
-BSSFL-385: Routes configuration
-
-**Build**
-
-**Documentation**
+* BSSFL-385: Routes configuration
 
 
 10.9.1 (2017-12-06)
