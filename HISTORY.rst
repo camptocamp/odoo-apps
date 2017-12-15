@@ -32,6 +32,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-389: Move drone info into repair order
 * BSSFL-242: Add sale order exception rules
 * BSSFL-262: Add work order user
 * BSSFL-395: Configure Repair locations
