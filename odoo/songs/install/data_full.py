@@ -453,6 +453,25 @@ def import_rma(ctx):
 
 
 @anthem.log
+def import_stock_inventory(ctx):
+    """ Importing stock inventory from csv """
+    model = ctx.env['stock.inventory'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/stock_inventory.csv', model)
+
+    model_line = ctx.env['stock.inventory.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/stock_inventory_line.csv',
+             model_line)
+
+    inventories = ctx.env['stock.inventory'].search([])
+    for inventory in inventories:
+        inventory.action_done()
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -485,4 +504,5 @@ def main(ctx):
     import_invoices_customer(ctx)
     import_partner_vat_numbers(ctx)
     import_rma(ctx)
+    import_stock_inventory(ctx)
     return
