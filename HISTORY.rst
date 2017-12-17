@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-408: SO exception rules archive
+
 **Build**
 
 **Documentation**
