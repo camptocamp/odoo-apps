@@ -243,7 +243,7 @@ def import_product_account(ctx):
                 rec.value_reference = account_tmp._name + "," + str(
                     account_tmp.id)
             else:
-                ctx.log_line(str(rec.id) + "" + rec.value_reference)
+                ctx.log_line(str(rec.res_id) + ":" + rec.value_reference)
                 rec.unlink()
 
 

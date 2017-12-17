@@ -27,6 +27,7 @@ latest (unreleased)
 
 * BSSFL-408: SO exception rules archive
 * BSSFL-409: Update customer payment term
+* BSSFL-410: Update product account
 
 **Build**
 
