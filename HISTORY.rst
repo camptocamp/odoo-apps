@@ -19,11 +19,14 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
 **Features and Improvements**
 
 **Bugfixes**
 
 * BSSFL-408: SO exception rules archive
+* BSSFL-409: Update customer payment term
 
 **Build**
 
