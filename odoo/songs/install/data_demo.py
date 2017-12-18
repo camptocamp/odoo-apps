@@ -382,6 +382,15 @@ def import_stock_inventory(ctx):
 
 
 @anthem.log
+def import_stock_warehouse_orderpoint(ctx):
+    """ Importing stock warehouse reordering rules from csv """
+    model = ctx.env['stock.warehouse.orderpoint'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/stock_warehouse_orderpoint.csv', model)
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -412,4 +421,5 @@ def main(ctx):
     import_invoices_customer(ctx)
     import_rma(ctx)
     import_stock_inventory(ctx)
+    import_stock_warehouse_orderpoint(ctx)
     return
