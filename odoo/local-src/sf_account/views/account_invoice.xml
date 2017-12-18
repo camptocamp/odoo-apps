@@ -20,6 +20,9 @@
         <field name="inherit_id" ref="account.invoice_supplier_form"/>
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="partner_ref"/>
+            </field>
             <field name="analytic_tag_ids" position="replace"/>
             <field name="account_analytic_id" position="before">
                 <field name="analytic_tag_ids" string="Team" groups="analytic.group_analytic_accounting" widget="many2many_tags"/>

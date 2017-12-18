@@ -35,3 +35,7 @@ class AccountInvoice(models.Model):
 
     order_ids = fields.Many2many(
         'sale.order', string='Orders', compute='_compute_sale_orders')
+    partner_ref = fields.Char(
+        string='Partner Reference',
+        help='Invoice number of the partner'
+    )
