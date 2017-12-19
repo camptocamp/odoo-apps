@@ -27,7 +27,7 @@ latest (unreleased)
 
 * BSSFL-408: SO exception rules archive
 * BSSFL-409: Update customer payment term
-
+* BIZ-930 All sale order lines must be ready to invoice to set the sale order status as ready to invoice
 * BSSFL-410: Update product account
 
 **Build**
@@ -55,8 +55,6 @@ latest (unreleased)
 * BSSFL-262: Add work order user
 * BSSFL-395: Configure Repair locations
 * BSSFL-352: Add security group to reset RMAs
-* BIZ-930 All sale order lines must be ready to invoice to set the sale order status as ready to invoice
-
 * BSSFL-387: Repair state draft and open
 * BSSFL-391: Add RMA smart button in repair
 
