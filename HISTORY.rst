@@ -27,6 +27,7 @@ latest (unreleased)
 
 * BSSFL-408: SO exception rules archive
 * BSSFL-409: Update customer payment term
+
 * BSSFL-410: Update product account
 
 **Build**
@@ -54,6 +55,7 @@ latest (unreleased)
 * BSSFL-262: Add work order user
 * BSSFL-395: Configure Repair locations
 * BSSFL-352: Add security group to reset RMAs
+
 * BSSFL-387: Repair state draft and open
 * BSSFL-391: Add RMA smart button in repair
 
@@ -437,7 +439,7 @@ latest (unreleased)
 * Smart button on supplier invoice showing duplicated invoices
 * BSSFL-65: Add LDAP configuration
 * Add RMA module
-  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.  
+  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.
   This object will be used from zendesk.
 * Add an icon to the RMA module
 * Add Work centers data
