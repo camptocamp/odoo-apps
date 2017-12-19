@@ -504,6 +504,15 @@ def import_cutoff_settings(ctx):
 
 
 @anthem.log
+def import_taxes(ctx):
+    """ Importing taxes from csv """
+    load_csv(ctx, 'data/install/account_account_tag.csv',
+             'account.account.tag')
+    load_csv(ctx, 'data/install/account_tax.csv',
+             'account.tax')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -539,3 +548,4 @@ def main(ctx):
     import_delivery_methode(ctx)
     import_currency_rate(ctx)
     import_cutoff_settings(ctx)
+    import_taxes(ctx)
