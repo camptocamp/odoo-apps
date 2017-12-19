@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Generic exception on receive rma data
+
 **Build**
 
 **Documentation**
