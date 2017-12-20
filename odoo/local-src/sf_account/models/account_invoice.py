@@ -39,3 +39,5 @@ class AccountInvoice(models.Model):
         string='Partner Reference',
         help='Invoice number of the partner'
     )
+    linked_partner_bank_id = fields.Many2one(
+        related='partner_id.bank_ids.linked_partner_id', readonly=True)

@@ -31,6 +31,12 @@
                 <attribute name="string">Project</attribute>
                 <attribute name="help">Analytic Account means Project</attribute>
             </field>
+            <field name="partner_bank_id" position="after">
+                <field name="linked_partner_bank_id" invisible="1"/>
+            </field>
+            <field name="partner_bank_id" position="attributes">
+                <attribute name="domain">['|', ('partner_id', '=', partner_id), ('partner_id', '=',  linked_partner_bank_id)]</attribute>
+            </field>
         </field>
     </record>
 
@@ -39,5 +45,4 @@
     </record>
 
     <menuitem name="Customer Invoices / Refunds" action="account.action_invoice_tree1" id="account.menu_action_invoice_tree1" parent="account.menu_finance_receivables" sequence="1"/>
-
 </odoo>
