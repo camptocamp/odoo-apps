@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-421: No customer phone or mobile, sale exception not found
+
 **Build**
 
 **Documentation**
