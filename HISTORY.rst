@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-418: Settings email
+
 **Bugfixes**
 
 **Build**
