@@ -42,6 +42,8 @@ latest (unreleased)
 
 **Data**
 
+* BSSFL-405: Reordering Rules
+
 **Features and Improvements**
 
 **Bugfixes**

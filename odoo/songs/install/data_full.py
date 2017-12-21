@@ -472,6 +472,17 @@ def import_stock_inventory(ctx):
 
 
 @anthem.log
+def import_stock_warehouse_orderpoint(ctx):
+    """ Importing stock warehouse reordering rules from csv """
+    model = ctx.env['stock.warehouse.orderpoint'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/stock_warehouse_orderpoint.csv',
+             model)
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -505,4 +516,4 @@ def main(ctx):
     import_partner_vat_numbers(ctx)
     import_rma(ctx)
     import_stock_inventory(ctx)
-    return
+    import_stock_warehouse_orderpoint(ctx)
