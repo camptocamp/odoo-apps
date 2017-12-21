@@ -422,4 +422,3 @@ def main(ctx):
     import_rma(ctx)
     import_stock_inventory(ctx)
     import_stock_warehouse_orderpoint(ctx)
-    return
