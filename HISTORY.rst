@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* BSSFL-426: Currency rate
+
 **Features and Improvements**
 
 * BSSFL-418: Settings email
