@@ -94,7 +94,7 @@ def import_customers_properties_account(ctx):
     })
     load_csv(
         ctx,
-        'data/install/customers_proper_a.csv',
+        's3://prod-sf-odoo-data/install/customers_proper_a.csv',
         model
     )
 
@@ -136,7 +136,7 @@ def import_customers_properties_payterm(ctx):
         'tracking_disable': True,
     })
     load_csv(
-        ctx, 'data/install/customers_proper_p.csv',
+        ctx, 's3://prod-sf-odoo-data/install/customers_proper_p.csv',
         model
     )
 
@@ -218,7 +218,10 @@ def import_product_account(ctx):
     model = ctx.env['ir.property'].with_context({
         'tracking_disable': True,
     })
-    load_csv(ctx, 'data/install/product_account.csv', model)
+    load_csv(
+        ctx, 's3://prod-sf-odoo-data/install/product_account.csv',
+        model
+    )
 
     # Change XMLID to database id
     # Read the CSV
