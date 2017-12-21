@@ -7,8 +7,7 @@ import anthem
 import csv
 from anthem.lyrics.records import create_or_update
 from . import rma
-from ..common import load_csv, req
-from pkg_resources import resource_stream
+from ..common import load_csv, req, get_content
 
 
 """ File for full (production) data
@@ -101,9 +100,9 @@ def import_customers_properties_account(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(
+    content = get_content(
         req,
-        'data/install/customers_proper_a.csv'
+        's3://prod-sf-odoo-data/install/customers_proper_a.csv'
     )
 
     # Create list of dictionnaries
@@ -143,9 +142,9 @@ def import_customers_properties_payterm(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(
+    content = get_content(
         req,
-        'data/install/customers_proper_p.csv'
+        's3://prod-sf-odoo-data/install/customers_proper_p.csv'
     )
 
     # Create list of dictionnaries
@@ -223,7 +222,10 @@ def import_product_account(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(req, "data/install/product_account.csv")
+    content = get_content(
+        req,
+        "s3://prod-sf-odoo-data/install/product_account.csv"
+    )
 
     # Create list of dictionnaries
     records = list(csv.DictReader(content, skipinitialspace=True))
