@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-418: Settings email
 * BSSFL-365: Import repair line
+* BSSFL-402: Add date delivered field on DO
 
 **Bugfixes**
 
@@ -70,7 +71,6 @@ latest (unreleased)
 * BSSFL-242: Add sale order exception rules
 * BSSFL-262: Add work order user
 * BSSFL-395: Configure Repair locations
-* BSSFL-402: Add date delivered field on DO
 * BSSFL-352: Add security group to reset RMAs
 * BSSFL-387: Repair state draft and open
 * BSSFL-391: Add RMA smart button in repair
