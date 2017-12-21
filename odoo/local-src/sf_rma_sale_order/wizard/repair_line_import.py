@@ -74,7 +74,6 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
             line_dict = {
                 'price_unit': line.product_id.price,
                 'product_uom_qty': line.product_uom_qty,
-                'product_uom': line.product_uom.id,
             }
 
             name = [line.name]
@@ -82,8 +81,10 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
                 name.append(additional_description)
             line_dict['name'] = '\n'.join(name)
 
-            line_dict['product_id'] = _get_rma_service_placeholder(
-                line.product_id).id
+            rma_service_placeholder = \
+                _get_rma_service_placeholder(line.product_id)
+            line_dict['product_id'] = rma_service_placeholder.id
+            line_dict['product_uom'] = rma_service_placeholder.uom_id.id
 
             values.append(
                 (0, 0, line_dict))

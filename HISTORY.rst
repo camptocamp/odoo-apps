@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-418: Settings email
+* BSSFL-365: Import repair line
 
 **Bugfixes**
 
