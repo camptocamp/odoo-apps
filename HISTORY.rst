@@ -41,6 +41,7 @@ latest (unreleased)
 
 * BSSFL-408: SO exception rules archive
 * BSSFL-409: Update customer payment term
+* BIZ-930 All sale order lines must be ready to invoice to set the sale order status as ready to invoice
 * BSSFL-410: Update product account
 
 **Build**
@@ -452,7 +453,7 @@ latest (unreleased)
 * Smart button on supplier invoice showing duplicated invoices
 * BSSFL-65: Add LDAP configuration
 * Add RMA module
-  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.  
+  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.
   This object will be used from zendesk.
 * Add an icon to the RMA module
 * Add Work centers data
