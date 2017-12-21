@@ -68,6 +68,16 @@
             <xpath expr="//field[@name='operations']" position="attributes">
                 <attribute name="attrs">{'readonly': [('state', '=', 'done')]}</attribute>
             </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Drone info">
+                     <group>
+                         <field name="drone_flight_time" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                         <field name="drone_flight_num" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                         <field name="drone_firmware_version" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                     </group>
+                 </page>
+             </xpath>
             <xpath expr="//sheet/label" position="before">
                 <div class="oe_button_box" name="button_box">
                     <button name="action_view_rma"
