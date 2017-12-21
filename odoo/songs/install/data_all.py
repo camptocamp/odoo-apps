@@ -5,8 +5,7 @@
 import anthem
 import csv
 from anthem.lyrics.records import add_xmlid, create_or_update
-from ..common import load_csv
-from pkg_resources import Requirement, resource_stream
+from ..common import load_csv, req, get_content
 from datetime import date
 from odoo import fields
 
@@ -15,9 +14,6 @@ from odoo import fields
 The data loaded here will be loaded in the 'demo' and
 'full' modes.
 """
-
-
-req = Requirement.parse('sensefly-odoo')
 
 
 @anthem.log
@@ -108,7 +104,8 @@ def import_account_fiscal_position(ctx):
 def delete_account(ctx):
     """ Delete standard chart of accounts from csv """
     # Read the CSV
-    content = resource_stream(req, 'data/install/account_delete.csv')
+    content = get_content(req,
+                          's3://prod-sf-odoo-data/install/account_delete.csv')
 
     # Create list of dictionnaries
     records = [
@@ -147,7 +144,8 @@ def add_xmlid_account_journal(ctx):
 def delete_account_journal(ctx):
     """ Delete standard journals from csv """
     # Read the CSV
-    content = resource_stream(req, 'data/install/journal_delete.csv')
+    content = get_content(req,
+                          's3://prod-sf-odoo-data/install/journal_delete.csv')
 
     # Create list of dictionnaries
     records = [

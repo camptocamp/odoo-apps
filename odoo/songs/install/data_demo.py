@@ -6,8 +6,7 @@
 import anthem
 from . import rma
 import csv
-from ..common import load_csv, req
-from pkg_resources import resource_stream
+from ..common import load_csv, req, get_content
 
 
 """ File for demo data
@@ -80,7 +79,7 @@ def import_customers_properties_account(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(req, 'data/demo/customers_proper_a.csv')
+    content = get_content(req, 'data/demo/customers_proper_a.csv')
 
     # Create list of dictionnaries
     records = list(csv.DictReader(content, skipinitialspace=True))
@@ -116,7 +115,7 @@ def import_customers_properties_payterm(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(req, 'data/demo/customers_proper_p.csv')
+    content = get_content(req, 'data/demo/customers_proper_p.csv')
 
     # Create list of dictionnaries
     records = list(csv.DictReader(content, skipinitialspace=True))
@@ -176,7 +175,7 @@ def import_product_account(ctx):
 
     # Change XMLID to database id
     # Read the CSV
-    content = resource_stream(req, "data/demo/product_account.csv")
+    content = get_content(req, "data/demo/product_account.csv")
 
     # Create list of dictionnaries
     records = list(csv.DictReader(content, skipinitialspace=True))

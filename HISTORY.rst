@@ -22,6 +22,7 @@ latest (unreleased)
 **Data**
 
 * BSSFL-426: Currency rate
+* BSSFL-427: Load with S3
 
 **Features and Improvements**
 
