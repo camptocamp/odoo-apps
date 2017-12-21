@@ -43,7 +43,7 @@
     failed=True</field>
         <field name="active" eval="False"/>
     </record>
-    <record id="excep_no_sale_partner_phone" model="exception.rule">
+    <record id="excep_no_sale_partner_email" model="exception.rule">
         <field name="name">No customer email</field>
         <field name="description">Customer email is required.</field>
         <field name="sequence">50</field>
