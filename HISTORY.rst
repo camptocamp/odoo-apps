@@ -46,6 +46,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-413: PO partner reference
+
 **Bugfixes**
 
 * BSSFL-408: SO exception rules archive
