@@ -35,6 +35,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-420: Generic exception on receive rma data
+* BSSFL-430: Invoice compute_sale_orders
 * BSSFL-421: No customer phone or mobile, sale exception not found
 * BSSFL-425: Add xml_id in sensefly inc partner
 * BSSFL-428: Reconfigure RMA routes for both companies

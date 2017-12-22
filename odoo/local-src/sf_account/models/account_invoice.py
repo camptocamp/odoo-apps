@@ -9,7 +9,7 @@ class AccountInvoice(models.Model):
 
     def _compute_sale_orders(self):
         for invoice in self:
-            self.order_ids = invoice.invoice_line_ids.mapped(
+            invoice.order_ids = invoice.invoice_line_ids.mapped(
                 'sale_line_ids').mapped('order_id')
 
     @api.multi
