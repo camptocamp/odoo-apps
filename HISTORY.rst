@@ -33,6 +33,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-421: No customer phone or mobile, sale exception not found
+* BSSFL-425: Add xml_id in sensefly inc partner
 
 **Build**
 

@@ -10,6 +10,7 @@ from pkg_resources import resource_string, resource_stream
 import anthem
 
 from anthem.lyrics.loaders import load_csv_stream
+from anthem.lyrics.records import add_xmlid
 
 from ..common import req
 
@@ -21,6 +22,10 @@ def setup_companies(ctx):
     load_csv_stream(ctx, 'res.company', content, delimiter=',')
 
     holding = ctx.env.ref('base.main_company')
+    company_inc = ctx.env.ref('__setup__.company_inc')
+    add_xmlid(
+        ctx, company_inc.partner_id, '_setup_.company_partner_inc',
+        noupdate=True)
 
     with ctx.log(u'Set main company logo'):
         logo_content = resource_string(
