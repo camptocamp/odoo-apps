@@ -29,6 +29,7 @@ latest (unreleased)
 * BSSFL-418: Settings email
 * BSSFL-365: Import repair line
 * BSSFL-402: Add date delivered field on DO
+* BSSFL-272 : Update res.company to include account cutoff settings
 
 **Bugfixes**
 
