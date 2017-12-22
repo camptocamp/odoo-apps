@@ -111,7 +111,7 @@ def delete_account(ctx):
     records = [
         {k: v for k, v in row.items()}
         for row in csv.DictReader(content, skipinitialspace=True)
-        ]
+    ]
 
     # Delete data
     for record in records:
@@ -151,7 +151,7 @@ def delete_account_journal(ctx):
     records = [
         {k: v for k, v in row.items()}
         for row in csv.DictReader(content, skipinitialspace=True)
-        ]
+    ]
 
     # Delete data
     for record in records:
@@ -254,7 +254,7 @@ def delete_payment_term(ctx):
         'account.account_payment_term_15days',
         'account.account_payment_term_net',
         'account.account_payment_term_immediate'
-        ]
+    ]
 
     # Delete data
     for record in records:
@@ -420,10 +420,10 @@ def create_rma_route(ctx):
                       'name': 'senseFly SA: RMA Pick + Pack + Ship',
                       'warehouse_ids': [
                           (4, ctx.env.ref('stock.warehouse0').id)
-                      ],
-                      'sale_selectable': True,
-                      'sequence': 20,
-                      'pull_ids': [
+                     ],
+                         'sale_selectable': True,
+                         'sequence': 20,
+                         'pull_ids': [
                           (4, ctx.env.ref(
                               '__setup__.procurement_rule_rma_packs_sa')
                            .id),
@@ -433,8 +433,8 @@ def create_rma_route(ctx):
                           (4, ctx.env.ref(
                               '__setup__.'
                               'procurement_rule_rma_pickup_customers_sa').id)
-                      ]
-                      })
+                     ]
+                     })
 
 
 @anthem.log
@@ -449,6 +449,13 @@ def import_currency_rate(ctx):
     """ Importing currency rate from csv """
     load_csv(ctx, 's3://prod-sf-odoo-data/install/currency_rate.csv',
              'res.currency.rate')
+
+
+@anthem.log
+def import_cutoff_settings(ctx):
+    """ Importing settings cutoff from csv """
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/res.company.cutoff.csv',
+             'res.company')
 
 
 @anthem.log
@@ -486,3 +493,4 @@ def main(ctx):
     create_rma_route(ctx)
     import_delivery_methode(ctx)
     import_currency_rate(ctx)
+    import_cutoff_settings(ctx)
