@@ -35,6 +35,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSSFL-432: Validate inventory
 * BSSFL-420: Generic exception on receive rma data
 * BSSFL-430: Invoice compute_sale_orders
 * BSSFL-421: No customer phone or mobile, sale exception not found
