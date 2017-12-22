@@ -102,6 +102,8 @@ def process_rma_received(ctx, rma_data, repair_data):
                     _logger.warning(
                         "%s Serial number already received." % rma.name
                     )
+                except Exception as e:
+                    _logger.warning("Unexpected error: %s" % str(e))
     return rmas
 
 
