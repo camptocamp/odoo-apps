@@ -176,7 +176,8 @@ def import_email_template(ctx):
 
 @anthem.log
 def update_picking_type(ctx):
-    """ Update stock picking type. Only for sensefly SA """
+    """ Update stock picking type."""
+    # Sensefly SA
     for record in ctx.env['stock.picking.type'].search(
             [('name', 'in', ('Pick', 'Reserve & Pack')),
              ('warehouse_id', '=', ctx.env.ref('stock.warehouse0').id),
@@ -198,6 +199,17 @@ def update_picking_type(ctx):
         add_xmlid(
             ctx, record,
             '__setup__.stock_pick_type_freight_labeling',
+            noupdate=True
+        )
+
+    # Sensefly Inc
+    for record in ctx.env['stock.picking.type'].search(
+        [('name', '=', 'Delivery Orders'),
+         ('warehouse_id', '=', ctx.env.ref('__setup__.stock_warehouse_inc').id)
+         ]):
+        add_xmlid(
+            ctx, record,
+            '__setup__.picking_type_out_inc',
             noupdate=True
         )
 
@@ -368,7 +380,7 @@ def create_rma_route(ctx):
         '__setup__.stock_location_rma_inc',
         noupdate=True)
 
-    # RMA procurement rules
+    # RMA procurement rules Sensefly SA
     create_or_update(ctx, 'procurement.rule',
                      '__setup__.procurement_rule_rma_packs_sa',
                      {
@@ -378,7 +390,7 @@ def create_rma_route(ctx):
                              ctx.env.ref('stock.location_pack_zone').id,
                          'location_src_id': location_rma_sa.id,
                          'warehouse_id': ctx.env.ref('stock.warehouse0').id,
-                         'procure_method': 'make_to_order',
+                         'procure_method': 'make_to_stock',
                          'picking_type_id': ctx.env.ref(
                              '__setup__.stock_pick_type_reserve_pack').id
                      })
@@ -413,7 +425,23 @@ def create_rma_route(ctx):
                              'stock.picking_type_out').id
                      })
 
-    # RMA route
+    # RMA procurement rules Sensefly INC
+    create_or_update(ctx, 'procurement.rule',
+                     '__setup__.procurement_rule_rma_customers_inc',
+                     {
+                         'name': 'RMA -> Customers',
+                         'action': 'move',
+                         'location_id':
+                             ctx.env.ref('stock.stock_location_customers').id,
+                         'location_src_id': location_rma_inc.id,
+                         'warehouse_id':
+                             ctx.env.ref('__setup__.stock_warehouse_inc').id,
+                         'procure_method': 'make_to_stock',
+                         'picking_type_id': ctx.env.ref(
+                             '__setup__.picking_type_out_inc').id
+                     })
+
+    # RMA route senseFly SA
     create_or_update(ctx, 'stock.location.route',
                      '__setup__.stock_location_route_rma_sa',
                      {'company_id': ctx.env.ref('base.main_company').id,
@@ -433,6 +461,23 @@ def create_rma_route(ctx):
                           (4, ctx.env.ref(
                               '__setup__.'
                               'procurement_rule_rma_pickup_customers_sa').id)
+                      ]
+                      })
+
+    # RMA route senseFly INC
+    create_or_update(ctx, 'stock.location.route',
+                     '__setup__.stock_location_route_rma_inc',
+                     {'company_id': ctx.env.ref('__setup__.company_inc').id,
+                      'name': 'senseFly INC: RMA',
+                      'warehouse_ids': [
+                          (4, ctx.env.ref('__setup__.stock_warehouse_inc').id)
+                      ],
+                      'sale_selectable': True,
+                      'sequence': 20,
+                      'pull_ids': [
+                          (4, ctx.env.ref(
+                              '__setup__.procurement_rule_rma_customers_inc')
+                           .id)
                       ]
                       })
 
