@@ -3,30 +3,51 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-  <record id="view_repair_order_form" model="ir.ui.view">
-    <field name="name">mrp.repair.form</field>
-    <field name="model">mrp.repair</field>
-    <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
-    <field name="arch" type="xml">
-      <xpath expr="//field[@name='guarantee_limit']/.." position="after">
-        <group>
-          <field name="user_id"/>
-          <field name="planned_date"/>
-        </group>
-      </xpath>
-      <notebook position="inside">
-        <page string="Resolution note">
-          <field name="note_resolution"/>
-        </page>
-        <page string="Images">
-          <group>
-            <field name="image_arrival" widget="image"/>
-          </group>
-          <group>
-            <field name="image_departure" widget="image"/>
-          </group>
-        </page>
-      </notebook>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">mrp.repair.form</field>
+        <field name="model">mrp.repair</field>
+        <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='guarantee_limit']/.." position="after">
+                <group>
+                    <field name="user_id"/>
+                    <field name="planned_date"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='guarantee_limit']/.." position="after">
+                <group>
+                      <field name="user_id"/>
+                      <field name="planned_date"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//notebook/page[field[@name='internal_notes']]" position="replace">
+                <page string="Internal Notes">
+                    <group>
+                        <field name="internal_notes" string="Content" placeholder="Content..."/>
+                        <field name="invoice_notes" placeholder="Invoice notes..."/>
+                        <field name="other_notes" placeholder="Other notes..."/>
+                    </group>
+                </page>
+            </xpath>
+
+            <notebook position="inside">
+                <page string="Action Resolution">
+                    <group>
+                        <field name="action_todo" placeholder="Action to do..."/>
+                        <field name="note_resolution" placeholder="Resolution..."/>
+                    </group>
+                </page>
+                <page string="Images">
+                    <group>
+                        <field name="image_arrival" widget="image"/>
+                    </group>
+                    <group>
+                        <field name="image_departure" widget="image"/>
+                    </group>
+                </page>
+            </notebook>
     </field>
   </record>
 </odoo>

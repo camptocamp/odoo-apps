@@ -20,7 +20,10 @@ class MRPRepair(models.Model):
                               compute='_compute_user_id', store=True,
                               track_visibility='onchange')
     planned_date = fields.Date()
-    note_resolution = fields.Text(string="Resolution note")
+    other_notes = fields.Text(string="Other")
+    invoice_notes = fields.Text(string="Invoice")
+    note_resolution = fields.Text(string="Resolution")
+    action_todo = fields.Text(string="Action to do")
     image_arrival = fields.Binary(attachment=True)
     image_departure = fields.Binary(attachment=True)
     # TODO time spent fields TBD
