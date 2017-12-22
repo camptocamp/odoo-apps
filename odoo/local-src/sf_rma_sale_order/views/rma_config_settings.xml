@@ -5,16 +5,12 @@
         <field name="model">rma.config.settings</field>
         <field name="inherit_id" ref="sf_rma.view_rma_config_settings" />
         <field name="arch" type="xml">
-            <div id="main" position="inside">
-                <group string="Sale order">
-                    <field name="rma_service_service_product_id" />
-                    <field name="rma_service_consumable_product_id" />
-                    <field name="rma_service_stockable_product_id" />
-                    <field name="rma_service_additional_description" />
-                </group>
-            </div>
+            <group name="sale" position="inside">
+                <field name="rma_service_service_product_id" />
+                <field name="rma_service_consumable_product_id" />
+                <field name="rma_service_stockable_product_id" />
+                <field name="rma_service_additional_description" />
+            </group>
         </field>
     </record>
-
-
 </odoo>

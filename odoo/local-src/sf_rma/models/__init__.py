@@ -10,3 +10,4 @@ from . import rma_config_settings
 from . import sale
 from . import stock_move
 from . import warehouse
+from . import res_company
