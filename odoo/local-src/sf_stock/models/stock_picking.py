@@ -9,6 +9,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     date_shipped = fields.Date('Date Shipped')
+    date_delivered = fields.Date('Date Delivered')
     show_button_shipped = fields.Boolean(
         related='picking_type_id.show_button_shipped', readonly=True
     )
@@ -73,6 +74,7 @@ class StockPicking(models.Model):
         for pick in self:
             pick.customer_received = not pick.confirm_customer_received
             pick.propagate_delivery_info()
+            pick.date_delivered = fields.Date.today()
         return super(StockPicking, self).do_new_transfer()
 
     @api.multi

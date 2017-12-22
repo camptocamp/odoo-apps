@@ -33,7 +33,9 @@ def settings(ctx):
          'rma_repair_location_id':
              ctx.env.ref('__setup__.stock_location_rma_sa').id,
          'rma_repair_line_src_location_id':
-             ctx.env.ref('__setup__.stock_location_81').id
+             ctx.env.ref('__setup__.stock_location_81').id,
+         'rma_sale_line_route_id':
+             ctx.env.ref('__setup__.stock_location_route_rma_sa').id
          }
     ).execute()
 
@@ -51,7 +53,9 @@ def settings(ctx):
          'rma_repair_location_id':
              ctx.env.ref('__setup__.stock_location_rma_inc').id,
          'rma_repair_line_src_location_id':
-             ctx.env.ref('__setup__.stock_location_stock_inc').id
+             ctx.env.ref('__setup__.stock_location_stock_inc').id,
+         'rma_sale_line_route_id':
+             ctx.env.ref('__setup__.stock_location_route_rma_inc').id
          }
     ).execute()
 

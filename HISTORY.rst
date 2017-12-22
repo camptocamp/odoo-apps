@@ -19,11 +19,25 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* BSSFL-426: Currency rate
+* BSSFL-427: Load with S3
+
 **Features and Improvements**
+
+* BSSFL-429: Repair form design
+* BSSFL-418: Settings email
+* BSSFL-365: Import repair line
+* BSSFL-402: Add date delivered field on DO
+* BSSFL-272 : Update res.company to include account cutoff settings
 
 **Bugfixes**
 
-* Generic exception on receive rma data
+* BSSFL-420: Generic exception on receive rma data
+* BSSFL-421: No customer phone or mobile, sale exception not found
+* BSSFL-425: Add xml_id in sensefly inc partner
+* BSSFL-428: Reconfigure RMA routes for both companies
 
 **Build**
 
@@ -35,12 +49,17 @@ latest (unreleased)
 
 **Data**
 
+* BSSFL-405: Reordering Rules
+
 **Features and Improvements**
+
+* BSSFL-413: PO partner reference
 
 **Bugfixes**
 
 * BSSFL-408: SO exception rules archive
 * BSSFL-409: Update customer payment term
+* BIZ-930 All sale order lines must be ready to invoice to set the sale order status as ready to invoice
 * BSSFL-410: Update product account
 
 **Build**
@@ -54,6 +73,7 @@ latest (unreleased)
 **Data**
 
 * BSSFL-287: Add customer invoices data
+* BSSFL-381: Run currency update after install
 * BSSFL-316: RMA data migration
 * BSSFL-397: Inventory categories
 * BSSFL-373: Add product accounts data
@@ -64,6 +84,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-389: Move drone info into repair order
 * BSSFL-242: Add sale order exception rules
 * BSSFL-262: Add work order user
 * BSSFL-395: Configure Repair locations
@@ -395,6 +416,7 @@ latest (unreleased)
 **Build**
 
 * Remove unused PO files to reduce docker image size
+* Upgrade docker-compose to 1.17.1
 
 **Documentation**
 
@@ -451,7 +473,7 @@ latest (unreleased)
 * Smart button on supplier invoice showing duplicated invoices
 * BSSFL-65: Add LDAP configuration
 * Add RMA module
-  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.  
+  Create new object sf.rma to link with mrp.repair, sale.order and stock.picking.
   This object will be used from zendesk.
 * Add an icon to the RMA module
 * Add Work centers data

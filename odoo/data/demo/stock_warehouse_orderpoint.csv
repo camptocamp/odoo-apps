@@ -1,0 +1,3 @@
+"id","name","product_id/id","warehouse_id/id","location_id/id","company_id/id","product_min_qty","product_max_qty","qty_multiple","lead_days"
+"__setup__.stock_warehouse_orderpoint_190","60050","__setup__.product_template_190","stock.warehouse0","stock.stock_location_stock","base.main_company","15.0","16.0","1","1"
+"__setup__.stock_warehouse_orderpoint_800","60308","__setup__.product_template_800","stock.warehouse0","stock.stock_location_stock","base.main_company","2500.0","2501.0","1","1"

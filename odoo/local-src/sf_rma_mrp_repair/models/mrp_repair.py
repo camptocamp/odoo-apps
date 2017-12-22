@@ -34,12 +34,54 @@ class MrpRepair(models.Model):
         else:
             return super(MrpRepair, self)
 
+    def _get_drone_flight_time(self):
+        for record in self:
+            record.drone_flight_time = record.rma_id.drone_flight_time
+
+    def _set_drone_flight_time(self):
+        for record in self:
+            record.rma_id.drone_flight_time = record.drone_flight_time
+
+    def _get_drone_flight_num(self):
+        for record in self:
+            record.drone_flight_num = record.rma_id.drone_flight_num
+
+    def _set_drone_flight_num(self):
+        for record in self:
+            record.rma_id.drone_flight_num = record.drone_flight_num
+
+    def _get_drone_firmware_version(self):
+        for record in self:
+            record.drone_firmware_version = \
+                record.rma_id.drone_firmware_version
+
+    def _set_drone_firmware_version(self):
+        for record in self:
+            record.rma_id.drone_firmware_version = \
+                record.drone_firmware_version
+
     location_id = fields.Many2one(
         'stock.location', 'Current Location',
         default=_default_stock_location,
         index=True, readonly=True, required=True,
         states={'draft': [('readonly', False)],
                 'confirmed': [('readonly', True)]})
+    # Drone info
+    drone_flight_time = fields.Float(
+        "Hours of flight",
+        compute='_get_drone_flight_time',
+        inverse='_set_drone_flight_time',
+        help="Drone hours of flight")
+    drone_flight_num = fields.Integer(
+        "Number of flights",
+        compute='_get_drone_flight_num',
+        inverse='_set_drone_flight_num',
+        help="Drone number of flights")
+    drone_firmware_version = fields.Char(
+        "Firmware number",
+        compute='_get_drone_firmware_version',
+        inverse='_set_drone_firmware_version',
+        help="Drone firmware number")
 
     state = fields.Selection(
         MRP_REPAIR_STATE_SELECTION, required=True, default='draft',
