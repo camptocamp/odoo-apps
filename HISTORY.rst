@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-426: Currency rate
 * BSSFL-427: Load with S3
+* BSSFL-416: Add new taxes
 
 **Features and Improvements**
 
