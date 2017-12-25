@@ -57,6 +57,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-413: PO partner reference
+* BSSFL-414: Invoice taxes
 
 **Bugfixes**
 
