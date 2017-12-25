@@ -471,9 +471,11 @@ def import_stock_inventory(ctx):
     load_csv(ctx, 's3://prod-sf-odoo-data/install/stock_inventory_line.csv',
              model_line)
 
+    """
     inventories = ctx.env['stock.inventory'].search([])
     for inventory in inventories:
         inventory.action_done()
+    """
 
 
 @anthem.log
