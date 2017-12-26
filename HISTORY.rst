@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-426: Currency rate
 * BSSFL-427: Load with S3
+* BSSFL-416: Add new taxes
 
 **Features and Improvements**
 
@@ -31,11 +32,14 @@ latest (unreleased)
 * BSSFL-365: Import repair line
 * BSSFL-402: Add date delivered field on DO
 * BSSFL-272 : Update res.company to include account cutoff settings
+* BSSFL-417: Pay PO to another partner bank account
 
 **Bugfixes**
 
 * BSSFL-431: Cant retrieve lot on stock
+* BSSSFL-432: Validate inventory
 * BSSFL-420: Generic exception on receive rma data
+* BSSFL-430: Invoice compute_sale_orders
 * BSSFL-421: No customer phone or mobile, sale exception not found
 * BSSFL-425: Add xml_id in sensefly inc partner
 * BSSFL-428: Reconfigure RMA routes for both companies
@@ -55,6 +59,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-413: PO partner reference
+* BSSFL-414: Invoice taxes
 
 **Bugfixes**
 

@@ -6,13 +6,15 @@
     'version': '1.0',
     'author': 'Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['account', 'sf_report'],
+    'depends': ['account',
+                'sf_report'],
     'data': [
         'data/invoice_action_data.xml',
         'views/account_journal.xml',
         'views/account_account.xml',
         'views/account_invoice.xml',
         'views/account_move.xml',
+        'views/res_bank.xml',
         'report/sf_report_invoice.xml',
         'report/sf_account_report.xml'
         ],
