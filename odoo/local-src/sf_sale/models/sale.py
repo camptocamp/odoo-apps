@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 from odoo import models, api, _
+from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
@@ -56,7 +57,7 @@ class SaleOrder(models.Model):
 
         # if counter is different of 1 or 3 means that something goes wrong
         if lot_count not in (1, 3):
-            raise Warning(_('Can\'t retrieve lot on stock'))
+            raise ValidationError(_('Can\'t retrieve lot on stock'))
         return move
 
 
