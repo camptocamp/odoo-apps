@@ -36,6 +36,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-431: Cant retrieve lot on stock
 * BSSSFL-432: Validate inventory
 * BSSFL-420: Generic exception on receive rma data
 * BSSFL-430: Invoice compute_sale_orders

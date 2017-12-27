@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
-from odoo import models, api
+from odoo import models, api, _
+from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
@@ -41,6 +42,23 @@ class SaleOrder(models.Model):
                 'default_template_id': template_id
              })
         return res
+
+    @api.model
+    def get_move_from_line(self, line):
+        """Override standard method to cope with 3 steps delivery config"""
+        move = self.env['stock.move']
+        lot_count = 0
+        for p in line.order_id.picking_ids.sorted(
+                key=lambda r: r.picking_type_id.sequence, reverse=True):
+            for m in p.move_lines:
+                if line.lot_id == m.restrict_lot_id:
+                    move = m
+                    lot_count += 1
+
+        # if counter is different of 1 or 3 means that something goes wrong
+        if lot_count not in (1, 3):
+            raise ValidationError(_('Can\'t retrieve lot on stock'))
+        return move
 
 
 class SaleOrderLine(models.Model):
