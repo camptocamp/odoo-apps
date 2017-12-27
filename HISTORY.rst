@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.11.0 (2017-12-27)
+++++++++++++++++++++
+
 **Data**
 
 * BSSFL-426: Currency rate
