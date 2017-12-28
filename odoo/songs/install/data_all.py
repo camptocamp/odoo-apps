@@ -515,8 +515,7 @@ def import_taxes(ctx):
 @anthem.log
 def import_so_type(ctx):
     """ Importing sale order type from csv"""
-    load_csv(ctx, 'data/install/so_type.csv',
-             'sale.order.type')
+    load_csv(ctx, 'data/install/so_type.csv', 'sale.order.type')
 
 
 @anthem.log

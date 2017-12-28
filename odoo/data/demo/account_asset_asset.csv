@@ -1,0 +1,2 @@
+"id","name","method_number","code","prorata","salvage_value","currency_id/id","method_time","active","partner_id/id","method_progress_factor","value","company_id/id","state","method_period","category_id/id","method"
+"__setup__.account_asset_asset_653","Outillage R&D","48","EXJ/2014/4264","true","","base.CHF","number","true","__setup__.res_partner_65","0.3","4543.01","base.main_company","open","1","__setup__.account_asset_category_1","linear"

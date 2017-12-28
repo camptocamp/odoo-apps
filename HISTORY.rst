@@ -22,6 +22,7 @@ latest (unreleased)
 **Data**
 
 * BSSFL-434: Payment mode
+* BSSFL-437: Assets data
 
 **Features and Improvements**
 
