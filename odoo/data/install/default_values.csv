@@ -1,0 +1,13 @@
+"id","name","model","value","key","key2","company_id/id"
+"__setup__.ir_values_133","customer_payment_mode_id","res.partner","I4
+.","default","","__setup__.company_inc"
+"__setup__.ir_values_134","supplier_payment_mode_id","res.partner","I3
+.","default","","__setup__.company_inc"
+"__setup__.ir_values_135","customer_payment_mode_id","res.partner","I2
+.","default","","base.main_company"
+"__setup__.ir_values_136","supplier_payment_mode_id","res.partner","I1
+.","default","","base.main_company"
+"__setup__.ir_values_137","property_account_receivable_id","res.partner","I387
+.","default","","__setup__.company_inc"
+"__setup__.ir_values_138","property_account_payable_id","res.partner","I410
+.","default","","__setup__.company_inc"
