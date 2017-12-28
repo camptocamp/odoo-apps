@@ -29,6 +29,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-436: Sale order type for inc
+* BSSFL-435: Default values for partners
 
 **Build**
 

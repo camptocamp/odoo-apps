@@ -525,6 +525,12 @@ def import_payment_mode(ctx):
 
 
 @anthem.log
+def import_default_values(ctx):
+    """ Importing default values / ir.values from csv """
+    load_csv(ctx, 'data/install/default_values.csv', 'ir.values')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -563,3 +569,4 @@ def main(ctx):
     import_taxes(ctx)
     import_so_type(ctx)
     import_payment_mode(ctx)
+    import_default_values(ctx)
