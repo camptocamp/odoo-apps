@@ -306,6 +306,16 @@ def import_invoices_supplier(ctx):
         'tracking_disable': True,
     })
     load_csv(ctx, 'data/demo/invoice_supp_line.csv', model_item)
+    # Update the amount tax
+    invoices = ctx.env['account.invoice'].search([('type', 'in',
+                                                   ['in_invoice',
+                                                    'in_refund'])])
+    for invoice in invoices:
+        invoice._onchange_invoice_line_ids()
+        try:
+            invoice.action_invoice_open()
+        except ValueError:
+            pass
 
 
 @anthem.log
@@ -313,6 +323,16 @@ def import_invoices_customer(ctx):
     """ Importing customers invoice from csv """
     load_csv(ctx, 'data/demo/invoice_cust_head.csv', 'account.invoice')
     load_csv(ctx, 'data/demo/invoice_cust_line.csv', 'account.invoice.line')
+    # Update the amount tax
+    invoices = ctx.env['account.invoice'].search([('type', 'in',
+                                                   ['out_invoice',
+                                                    'out_refund'])])
+    for invoice in invoices:
+        invoice._onchange_invoice_line_ids()
+        try:
+            invoice.action_invoice_open()
+        except ValueError:
+            pass
 
 
 @anthem.log

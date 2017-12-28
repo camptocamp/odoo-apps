@@ -383,6 +383,16 @@ def import_invoices_supplier(ctx):
     })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/invoice_supp_line.csv',
              model_item)
+    # Update the amount tax
+    invoices = ctx.env['account.invoice'].search([('type', 'in',
+                                                   ['in_invoice',
+                                                    'in_refund'])])
+    for invoice in invoices:
+        invoice._onchange_invoice_line_ids()
+        try:
+            invoice.action_invoice_open()
+        except ValueError:
+            pass
 
 
 @anthem.log
@@ -408,6 +418,16 @@ def import_invoices_customer(ctx):
     })
     load_csv(ctx, 's3://prod-sf-odoo-data/install/invoice_cust_line.csv',
              model_item)
+    # Update the amount tax
+    invoices = ctx.env['account.invoice'].search([('type', 'in',
+                                                   ['out_invoice',
+                                                    'out_refund'])])
+    for invoice in invoices:
+        invoice._onchange_invoice_line_ids()
+        try:
+            invoice.action_invoice_open()
+        except ValueError:
+            pass
 
 
 @anthem.log

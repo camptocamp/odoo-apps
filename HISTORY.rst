@@ -30,6 +30,7 @@ latest (unreleased)
 
 * BSSFL-436: Sale order type for inc
 * BSSFL-435: Default values for partners
+* BSSFL-438: Calculate the invoices amount tax
 
 **Build**
 
