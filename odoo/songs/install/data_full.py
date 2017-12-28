@@ -490,6 +490,22 @@ def import_stock_warehouse_orderpoint(ctx):
 
 
 @anthem.log
+def import_assets(ctx):
+    """ Importing assets from csv """
+    model = ctx.env['account.asset.asset'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/account_asset_asset.csv',
+             model)
+    model_line = ctx.env['account.asset.depreciation.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/account_asset_depre_line.csv',
+             model_line)
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
@@ -520,6 +536,7 @@ def main(ctx):
     import_bom(ctx)
     import_invoices_supplier(ctx)
     import_invoices_customer(ctx)
+    import_assets(ctx)
     import_partner_vat_numbers(ctx)
     import_rma(ctx)
     import_stock_inventory(ctx)
