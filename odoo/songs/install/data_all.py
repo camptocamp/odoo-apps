@@ -513,6 +513,13 @@ def import_taxes(ctx):
 
 
 @anthem.log
+def import_so_type(ctx):
+    """ Importing sale order type from csv"""
+    load_csv(ctx, 'data/install/so_type.csv',
+             'sale.order.type')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -549,3 +556,4 @@ def main(ctx):
     import_currency_rate(ctx)
     import_cutoff_settings(ctx)
     import_taxes(ctx)
+    import_so_type(ctx)

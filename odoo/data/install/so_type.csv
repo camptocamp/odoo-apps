@@ -1,0 +1,2 @@
+"id","company_id/id","name","picking_policy","warehouse_id/id","sequence_id/id"
+"__setup__.sale_order_type_3","__setup__.company_inc","Normal Order","direct","__setup__.stock_warehouse_inc","sale.seq_sale_order_inc"
