@@ -1,6 +1,6 @@
 "id","company_id/id","partner_id/id","number","currency_id/id","date_invoice","journal_id/id","account_id/id","type","state","origin","reference_type","reference","comment"
 "__setup__.account_invoice_35392","base.main_company","__setup__.res_partner_68","EXJ/2017/22867","base.CHF","2017-12-01","__setup__.account_journal_8","l10n_ch.1_ch_coa_2000","in_invoice","draft","PO201710174171","none","","17/00887"
-"__setup__.account_invoice_35929","base.main_company","__setup__.res_partner_185","ecnj/2017/0219","base.CHF","2017-10-30","__setup__.account_journal_10","l10n_ch.1_ch_coa_2000","in_refund","draft","","none","","37113346"
+"__setup__.account_invoice_35929","base.main_company","__setup__.res_partner_185","ecnj/2017/0219","base.CHF","2017-10-30","__setup__.account_journal_8","l10n_ch.1_ch_coa_2000","in_refund","draft","","none","","37113346"
 "__setup__.account_invoice_36425","base.main_company","__setup__.res_partner_65","EXJ/2017/22873","base.CHF","2017-12-01","__setup__.account_journal_8","l10n_ch.1_ch_coa_2000","in_invoice","draft","PO201711234317","none","","2060978"
 "__setup__.account_invoice_36494","base.main_company","__setup__.res_partner_65","EXJ/2017/22774","base.CHF","2017-11-21","__setup__.account_journal_8","l10n_ch.1_ch_coa_2000","in_invoice","draft","","none","","2060729"
 "__setup__.account_invoice_36538","base.main_company","__setup__.res_partner_68","EXJ/2017/23044","base.CHF","2017-12-01","__setup__.account_journal_8","l10n_ch.1_ch_coa_2000","in_invoice","draft","PO201710274211","none","","17//00937"

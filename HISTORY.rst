@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* BSSFL-434: Payment mode
+
 **Features and Improvements**
 
 **Bugfixes**

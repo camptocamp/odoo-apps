@@ -520,6 +520,12 @@ def import_so_type(ctx):
 
 
 @anthem.log
+def import_payment_mode(ctx):
+    """ Importing payment mode from csv """
+    load_csv(ctx, 'data/install/payment_mode.csv', 'account.payment.mode')
+
+
+@anthem.log
 def main(ctx):
     """ Loading data """
     create_analytic_dimension(ctx)
@@ -557,3 +563,4 @@ def main(ctx):
     import_cutoff_settings(ctx)
     import_taxes(ctx)
     import_so_type(ctx)
+    import_payment_mode(ctx)
