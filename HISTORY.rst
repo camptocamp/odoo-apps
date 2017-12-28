@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-436: Sale order type for inc
+
 **Build**
 
 **Documentation**
