@@ -177,3 +177,4 @@ migration:
     - version: 10.10.0
     - version: 10.10.1
     - version: 10.11.0
+    - version: 10.11.1
