@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.11.1 (2017-12-29)
+++++++++++++++++++++
+
 **Data**
 
 * BSSFL-434: Payment mode
