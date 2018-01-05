@@ -178,3 +178,8 @@ migration:
     - version: 10.10.1
     - version: 10.11.0
     - version: 10.11.1
+    - version: 10.11.2
+      addons:
+        upgrade:
+          # SENSEFLY
+          - sf_stock

@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-444: Add notes on serial number
+* BIZ-1089: Adaptation du rapport DN-Invoice
 
 **Bugfixes**
 

@@ -11,7 +11,8 @@
         'sale_stock',
         'sf_report',
         'delivery',
-        'stock_disable_force_availability_button'
+        'stock_disable_force_availability_button',
+        'sf_country',
     ],
     'data': [
         'security/ir.model.access.csv',
