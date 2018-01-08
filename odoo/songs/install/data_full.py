@@ -5,7 +5,7 @@
 
 import anthem
 import csv
-from anthem.lyrics.records import create_or_update
+from anthem.lyrics.records import add_xmlid, create_or_update
 from . import rma
 from ..common import load_csv, req, get_content
 
@@ -523,6 +523,32 @@ def import_assets(ctx):
     load_csv(ctx,
              's3://prod-sf-odoo-data/install/account_asset_depre_line.csv',
              model_line)
+
+
+@anthem.log
+def import_serial_number_stock_moves(ctx):
+    """ Importing stock_moves with serial number from csv """
+    pick_id = ctx.env['stock.picking'].create(
+        {'name': 'Migration SN stock moves',
+         'partner_id': ctx.env.ref('base.main_partner').id,
+         'origin': 'MIGRDATA',
+         'location_id': ctx.env.ref('stock.stock_location_stock').id,
+         'location_dest_id': ctx.env.ref('stock.stock_location_stock').id,
+         'picking_type_id': ctx.env.ref('stock.picking_type_internal').id
+         })
+
+    add_xmlid(
+        ctx, pick_id,
+        '__setup__.sn_stock_moves_migrdata',
+        noupdate=True)
+
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/serial_histo.csv',
+             'stock.move')
+
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/serial_stock_move.csv',
+             'stock.production.lot')
 
 
 @anthem.log

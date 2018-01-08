@@ -19,6 +19,10 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* BSSFL-445: Serial number history stock moves
+
 **Features and Improvements**
 
 * BSSFL-444: Add notes on serial number
