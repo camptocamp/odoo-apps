@@ -21,7 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* Add notes on serial number
+* BSSFL-444: Add notes on serial number
 
 **Bugfixes**
 
