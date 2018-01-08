@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add notes on serial number
+
 **Bugfixes**
 
 **Build**

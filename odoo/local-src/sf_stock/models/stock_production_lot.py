@@ -15,3 +15,5 @@ class ProductionLot(models.Model):
     product_tracking = fields.Selection(related='product_id.tracking',
                                         readonly=True,
                                         string='Product tracking')
+
+    notes = fields.Text(string='Comment')
