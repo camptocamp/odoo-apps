@@ -27,6 +27,7 @@ latest (unreleased)
 
 * BSSFL-444: Add notes on serial number
 * BIZ-1089: Adaptation du rapport DN-Invoice
+* BIZ-1084: Add stock.picking.type column on stock.picking tree view
 
 **Bugfixes**
 
