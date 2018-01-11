@@ -13,6 +13,7 @@
         'delivery',
         'stock_disable_force_availability_button',
         'sf_country',
+        'stock_picking_wave',
     ],
     'data': [
         'security/ir.model.access.csv',

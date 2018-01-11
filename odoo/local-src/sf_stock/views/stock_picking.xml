@@ -41,6 +41,30 @@
             </field>
     </record>
 
+    <record id="sf_view_picking_wave_tree" model="ir.ui.view">
+        <field name="name">sf.view.picking_wave.tree.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_picking_wave.view_stock_picking_wave_tree_inherit" />
+        <field name="arch" type="xml">
+            <field name="wave_id" position="replace" />
+            <field name="state" position="after">
+                <field name="wave_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="sf_view_picking_tree" model="ir.ui.view">
+        <field name="name">sf.view.picking.tree.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <field name="picking_type_id" position="replace" />
+            <field name="location_dest_id" position="after">
+                <field name="picking_type_id" />
+            </field>
+        </field>
+    </record>
+
     <record id="view_picking_internal_search_inherit" model="ir.ui.view">
         <field name="name">stock.picking.internal.search.inherit</field>
         <field name="model">stock.picking</field>
