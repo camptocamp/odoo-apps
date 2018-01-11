@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.12.0 (2018-01-11)
+++++++++++++++++++++
+
 **Data**
 
 * BSSFL-445: Serial number history stock moves
