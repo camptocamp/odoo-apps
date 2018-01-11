@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import fields, models, api
 from datetime import datetime
+
+from odoo import fields, models, api
+import odoo.addons.decimal_precision as dp
 
 
 class StockPicking(models.Model):
@@ -27,12 +29,25 @@ class StockPicking(models.Model):
         string='Customer Received',
         help="Confirm that the customer received physically the goods."
     )
-
     procurement_group_sale_id = fields.Many2one(
         'sale.order',
         string='Procurement group sale',
         compute='compute_procurement_group_sale'
     )
+    shipping_weight = fields.Float(
+        digits=dp.get_precision('Stock Weight')
+    )
+    free_trade_show = fields.Boolean(
+        compute='_compute_free_trade_show'
+    )
+
+    @api.multi
+    def _compute_free_trade_show(self):
+        for rec in self:
+            rec.free_trade_show = bool(rec.move_lines.filtered(
+                lambda r:
+                    r.product_id.origin_id.id == rec.company_id.country_id.id
+            ))
 
     @api.one
     def compute_procurement_group_sale(self):
