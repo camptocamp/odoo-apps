@@ -24,6 +24,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-450: Setting email office 365
+* BSSFL-447: Propagate delivery info
 
 **Build**
 
