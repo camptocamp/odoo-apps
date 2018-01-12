@@ -60,6 +60,18 @@ class SaleOrder(models.Model):
             raise ValidationError(_('Can\'t retrieve lot on stock'))
         return move
 
+    @api.multi
+    def action_confirm(self):
+        # Propagate carrier to Stock picking
+        if self.carrier_id:
+            res = super(
+                SaleOrder, self.with_context(carrier_id=self.carrier_id.id)
+            ).action_confirm()
+        else:
+            res = super(
+                SaleOrder, self).action_confirm()
+        return res
+
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"

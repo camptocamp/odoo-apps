@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-453: Install module account_bank_statement_import_camt
+BSSFL-448: Propagate delivery method from SO to DO
 
 **Bugfixes**
 
