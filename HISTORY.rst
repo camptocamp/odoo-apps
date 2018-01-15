@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-450: Setting email office 365
+
 **Build**
 
 **Documentation**
