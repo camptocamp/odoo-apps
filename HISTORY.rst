@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-453: Install module account_bank_statement_import_camt
+
 **Bugfixes**
 
 * BSSFL-450: Setting email office 365

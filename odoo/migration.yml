@@ -130,6 +130,8 @@ migration:
           - account_invoice_fiscal_position_update
           # akretion/odoo-usability
           - sale_layout_category_product
+          # OCA/bank-statement-import
+          - account_bank_statement_import_camt
           # SENSEFLY
           - product_price_category
           - sf_account
