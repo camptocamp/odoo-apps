@@ -37,6 +37,7 @@ ENV ADDONS_PATH="/opt/odoo/external-src/enterprise, \
   /opt/odoo/external-src/stock-logistics-warehouse, \
   /opt/odoo/external-src/web, \
   /opt/odoo/external-src/account-invoicing, \
+  /opt/odoo/external-src/bank-statement-import, \
   /opt/odoo/local-src," \
   LIMIT_TIME_CPU=86400 \
   LIMIT_TIME_REAL=86400 \
