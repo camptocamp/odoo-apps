@@ -77,7 +77,7 @@ class StockPicking(models.Model):
     def propagate_delivery_info(self):
         """Propagate delivery info to the next delivery stage"""
         if self.picking_type_id.propagate_delivery_info:
-            next_picking = self.move_lines.move_dest_id.picking_id
+            next_picking = self.move_lines.mapped('move_dest_id.picking_id')
             next_picking.carrier_id = self.carrier_id
             next_picking.carrier_tracking_ref = self.carrier_tracking_ref
 
