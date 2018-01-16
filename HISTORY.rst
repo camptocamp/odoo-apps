@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-446: RMA, repair order and sale order with same name
 * BSSFL-453: Install module account_bank_statement_import_camt
 
 **Bugfixes**

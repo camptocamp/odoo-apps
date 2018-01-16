@@ -255,6 +255,7 @@ class RMA(models.Model):
         mrp_repair_data = self.env['mrp.repair'].default_get(
             ['location_id'])
         mrp_repair_data.update({
+            'name': self.name,
             'rma_id': self.id,
             'partner_id': self.partner_id.id,
             'product_id': self.product_id.id,
@@ -267,6 +268,7 @@ class RMA(models.Model):
     def _prepare_so_data(self):
         self.ensure_one()
         return {
+            'name': self.name,
             'partner_id': self.partner_id.id,
             'rma_id': self.id,
             'company_id': self.company_id.id,
