@@ -19,6 +19,9 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+* BSSFL-452: Process missing RMA Wait Cust. OK (quotation sent)
+
 **Features and Improvements**
 
 **Bugfixes**
