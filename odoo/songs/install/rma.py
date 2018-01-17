@@ -235,3 +235,22 @@ def process_rma_done_delivered(ctx, rma_data, repair_data):
         for repair in rma.repair_ids:
             repair.state = 'done'
         rma.state = 'closed'
+
+
+@anthem.log
+def synch_rma_name(ctx):
+    """Synchronize RMA, Repair Order and SO names"""
+
+    rmas = ctx.env['sf.rma'].search([])
+    n_rmas = len(rmas)
+    for rma in rmas:
+        _logger.info("Remaining %s..." % str(n_rmas))
+        n_rmas -= 1
+        if rma.sale_ids:
+            for sale in rma.sale_ids:
+                if sale.name != rma.name and sale.state == 'draft':
+                    sale.name = rma.name
+        if rma.repair_ids:
+            for repair in rma.repair_ids:
+                if repair.name != rma.name:
+                    repair.name = rma.name
