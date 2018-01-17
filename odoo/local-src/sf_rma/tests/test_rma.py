@@ -48,6 +48,8 @@ class TestRMA(TransactionCase):
         self.assertEquals(self.rma.picking_count, 1)
         self.assertEquals(self.rma.sale_count, 1)
 
+        self.assertEquals(self.rma.name,
+                          self.rma.repair_ids.name)
         self.assertEquals(self.rma.repair_ids.product_id,
                           self.rma.product_id)
         self.assertEquals(self.rma.repair_ids.partner_id,
@@ -60,6 +62,8 @@ class TestRMA(TransactionCase):
         self.assertEquals(self.rma.picking_ids.move_lines.product_id,
                           self.rma.product_id)
 
+        self.assertEquals(self.rma.name,
+                          self.rma.sale_ids.name)
         self.assertEquals(self.rma.sale_ids.partner_id,
                           self.rma.partner_id)
         self.assertEquals(self.rma.sale_ids.pricelist_id,
