@@ -41,32 +41,6 @@ class StockPicking(models.Model):
         compute='_compute_free_trade_show'
     )
 
-    @api.model
-    def create(self, values):
-        # Propagate carrier from Sale Order to Stockpicking
-        if self.env.context.get('carrier_id', False) and \
-                values.get('picking_type_id', False):
-
-            pick_type = self.env['stock.picking.type'].browse(
-                values['picking_type_id']
-            )
-            pick_type_xml_id = pick_type.get_xml_id()[pick_type.id]
-            warehouse = self.env['stock.warehouse'].search(
-                [('company_id', '=', self.env.user.company_id.id)], limit=1)
-
-            # - senseFly SA propagate carrier to the Reserve and Pack
-            # - sensefly Inc propagate carrier to the Delivery Order
-            if warehouse.delivery_steps in ('pick_pack_ship', 'ship_only'):
-                if pick_type_xml_id in (
-                        '__setup__.stock_pick_type_reserve_pack',
-                        '__setup__.picking_type_out_inc'):
-                    values.update(
-                        {'carrier_id': self.env.context['carrier_id']}
-                    )
-
-        res = super(StockPicking, self).create(values)
-        return res
-
     @api.multi
     def _compute_free_trade_show(self):
         for rec in self:
