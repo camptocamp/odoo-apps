@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.13.0 (2018-01-18)
+++++++++++++++++++++
+
 **Data**
 * BSSFL-452: Process missing RMA Wait Cust. OK (quotation sent)
 
