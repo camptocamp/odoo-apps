@@ -14,8 +14,29 @@ class SaleOrder(models.Model):
             if sale_order.state in ('draft', 'sent') and 'order_line' in vals\
                     and not self.env.user.has_group(
                         'sf_stock.group_delivery_method_manager'):
-                self.carrier_id = False
+                sale_order.carrier_id = False
+
+            # Propagate carrier to stock.picking when confirming SO
+            # is confirmed
+            if self.env.context.get('action_confirm', False) \
+                    and sale_order.picking_ids:
+                for pick in sale_order.picking_ids:
+                    pick_type = pick.picking_type_id
+                    pick_type_xml_id = pick_type.get_xml_id()[pick_type.id]
+                    # - senseFly SA propagate carrier to the Reserve and Pack
+                    # - sensefly Inc propagate carrier to the Delivery Order
+                    if pick_type_xml_id in (
+                            '__setup__.stock_pick_type_reserve_pack',
+                            '__setup__.picking_type_out_inc'):
+                        pick.carrier_id = sale_order.carrier_id
+
         return super(SaleOrder, self).write(vals)
+
+    @api.multi
+    def action_confirm(self):
+        return super(SaleOrder,
+                     self.with_context(action_confirm=True)
+                     ).action_confirm()
 
     @api.multi
     def print_quotation(self):
@@ -59,18 +80,6 @@ class SaleOrder(models.Model):
         if lot_count not in (1, 3):
             raise ValidationError(_('Can\'t retrieve lot on stock'))
         return move
-
-    @api.multi
-    def action_confirm(self):
-        # Propagate carrier to Stock picking
-        if self.carrier_id:
-            res = super(
-                SaleOrder, self.with_context(carrier_id=self.carrier_id.id)
-            ).action_confirm()
-        else:
-            res = super(
-                SaleOrder, self).action_confirm()
-        return res
 
 
 class SaleOrderLine(models.Model):

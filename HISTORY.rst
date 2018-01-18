@@ -30,6 +30,7 @@ BSSFL-448: Propagate delivery method from SO to DO
 
 **Bugfixes**
 
+* BSSFL-458: Multiple sale orders confirmation
 * BSSFL-455: Module instalation account_bank_statement_import_camt incremental
 * BSSFL-450: Setting email office 365
 * BSSFL-447: Propagate delivery info
