@@ -450,6 +450,12 @@ def import_rma(ctx):
         's3://prod-sf-odoo-data/install/rma_received_repair.csv'
     )
 
+    rma.process_rma_sent(
+        ctx,
+        's3://prod-sf-odoo-data/install/rma_sent.csv',
+        's3://prod-sf-odoo-data/install/rma_sent_repair.csv'
+    )
+
     rma.process_rma_under_repair(
         ctx,
         's3://prod-sf-odoo-data/install/rma_under_repair.csv',

@@ -108,6 +108,35 @@ def process_rma_received(ctx, rma_data, repair_data):
 
 
 @anthem.log
+def process_rma_sent(
+        ctx,
+        rma_data='s3://prod-sf-odoo-data/install/rma_sent.csv',
+        repair_data='s3://prod-sf-odoo-data/install/rma_sent_repair.csv'):
+    """Process sent quotation"""
+    mrp_repair_seq = ctx.env.ref('mrp_repair.seq_mrp_repair')
+    mrp_repair_seq.prefix = 'FAKE'
+
+    rmas = process_rma_received(ctx, rma_data, repair_data)
+    for rma in rmas:
+        # Send quotation
+        for sale in rma.sale_ids:
+            sale.force_quotation_send()
+
+            # Import repair lines
+            wizard = ctx.env['sale.order.repair.lines.import'].with_context(
+                active_id=sale.id
+            ).create(
+                {'rma_id': rma.id,
+                 'sale_order_id': sale.id,
+                 'repair_line_ids': [
+                     (6, 0, rma.repair_ids.mapped('operations').ids)]
+                 })
+            wizard.import_lines()
+
+    mrp_repair_seq.prefix = 'RMA'
+
+
+@anthem.log
 def process_rma_under_repair(ctx, rma_data, repair_data):
     """Process under repair"""
 
