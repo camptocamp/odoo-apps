@@ -191,3 +191,4 @@ migration:
       addons:
         upgrade:
           - sf_purchase
+          - sf_stock

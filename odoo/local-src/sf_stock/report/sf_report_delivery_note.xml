@@ -12,7 +12,7 @@
                 <span><strong>DN / Invoice</strong></span>
                 <span t-field="o.name"/>
             </p>
-            <span t-if="o.date_done" t-field="o.date_done" t-field-options='{"format": "d MMMM yyyy"}'/>
+            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %B %Y')"/>
         </xpath>
     </template>
 
