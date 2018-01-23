@@ -1,0 +1,2 @@
+"id","company_id/id","name","ref","journal_id/id","date","partner_id/id"
+"__setup__.account_move_97640","base.main_company","15263","Ext - Corrections suite audit","__setup__.account_journal_5","2018-01-01",""

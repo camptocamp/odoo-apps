@@ -423,6 +423,20 @@ def import_assets(ctx):
 
 
 @anthem.log
+def import_journal_entries(ctx):
+    """ Importing journal entries from csv """
+    model = ctx.env['account.move'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/account_move.csv', model)
+    model_line = ctx.env['account.move.line'].with_context({
+        'tracking_disable': True,
+        'check_move_validity': False,
+    })
+    load_csv(ctx, 'data/demo/account_move_line.csv', model_line)
+
+
+@anthem.log
 def main(ctx):
     """ Loading demo data """
     import_users(ctx)
@@ -455,3 +469,4 @@ def main(ctx):
     import_rma(ctx)
     import_stock_inventory(ctx)
     import_stock_warehouse_orderpoint(ctx)
+    import_journal_entries(ctx)
