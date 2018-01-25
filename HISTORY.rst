@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-1131: Error validating stock.picking
+
 **Build**
 
 **Documentation**
@@ -38,7 +40,7 @@ latest (unreleased)
 
 * BSSFL-446: RMA, repair order and sale order with same name
 * BSSFL-453: Install module account_bank_statement_import_camt
-BSSFL-448: Propagate delivery method from SO to DO
+* BSSFL-448: Propagate delivery method from SO to DO
 
 **Bugfixes**
 

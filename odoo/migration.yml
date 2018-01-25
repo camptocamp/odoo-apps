@@ -187,3 +187,4 @@ migration:
         upgrade:
           # OCA/bank-statement-import
           - account_bank_statement_import_camt
+    - version: 10.14.0

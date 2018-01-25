@@ -100,8 +100,8 @@ class StockPicking(models.Model):
         pack_lots = self.pack_operation_ids.mapped('pack_lot_ids').filtered(
             lambda p: p.plus_visible
         )
-        if pack_lots:
-            pack_lots.do_plus()
+        for pack_lot in pack_lots:
+            pack_lot.do_plus()
         return res
 
 
