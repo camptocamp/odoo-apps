@@ -25,6 +25,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-462: Payment Terms on the Internal Purchase Order
+* BSSFL-461: DN/Invoice today date
 
 **Bugfixes**
 
