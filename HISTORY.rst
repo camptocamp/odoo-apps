@@ -19,6 +19,9 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+* BSSFL-318: Journal entries
+
 **Features and Improvements**
 
 **Bugfixes**

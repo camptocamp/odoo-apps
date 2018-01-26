@@ -558,6 +558,23 @@ def import_serial_number_stock_moves(ctx):
 
 
 @anthem.log
+def import_journal_entries(ctx):
+    """ Importing journal entries from csv """
+    model = ctx.env['account.move'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 's3://prod-sf-odoo-data/install/account_move.csv',
+             model)
+    model_line = ctx.env['account.move.line'].with_context({
+        'tracking_disable': True,
+        'check_move_validity': False,
+    })
+    load_csv(ctx,
+             's3://prod-sf-odoo-data/install/account_move_line.csv',
+             model_line)
+
+
+@anthem.log
 def main(ctx):
     """ Loading full data """
     import_users(ctx)
