@@ -24,6 +24,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-462: Payment Terms on the Internal Purchase Order
+
 **Bugfixes**
 
 * BIZ-1131: Error validating stock.picking

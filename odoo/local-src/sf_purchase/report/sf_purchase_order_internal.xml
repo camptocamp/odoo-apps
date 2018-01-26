@@ -82,6 +82,10 @@
                         <strong>Incoterm</strong>
                         <p t-field="o.incoterm_id.code"/>
                     </div>
+                    <div t-if="o.payment_term_id" class="col-xs-3">
+                        <strong>Payment Terms</strong>
+                        <p t-field="o.payment_term_id.name"/>
+                    </div>
                 </div>
 
                 <table class="table table-condensed">
