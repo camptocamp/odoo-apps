@@ -196,3 +196,4 @@ migration:
       addons:
         upgrade:
           - sf_stock
+          - sf_account_payment_order

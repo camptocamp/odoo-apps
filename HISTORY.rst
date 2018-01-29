@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-468: Popup reserve stock
+*BSSFL-464: Payment order, payment reference
 
 **Bugfixes**
 
