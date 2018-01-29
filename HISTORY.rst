@@ -19,6 +19,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.14.0 (2018-01-29)
+++++++++++++++++++++
+
 **Data**
 * BSSFL-318: Journal entries
 
