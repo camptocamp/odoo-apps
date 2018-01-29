@@ -41,6 +41,7 @@ latest (unreleased)
 
 **Data**
 * BSSFL-452: Process missing RMA Wait Cust. OK (quotation sent)
+* BSSFL-457: Sync RMA, Repair and Sale names
 
 **Features and Improvements**
 
