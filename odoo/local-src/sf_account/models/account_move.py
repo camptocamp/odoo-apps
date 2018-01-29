@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 
 
 class AccountMove(models.Model):
@@ -33,3 +33,18 @@ class AccountMoveLine(models.Model):
                 self.credit = -self.currency_id.with_context(date=date).\
                     compute(self.amount_currency, company_currency)
                 self.debit = False
+
+class AccountPartialReconcile(models.Model):
+    _inherit = "account.partial.reconcile"
+
+    def _fix_multiple_exchange_rates_diff(
+            self, amls_to_fix, amount_diff, diff_in_currency, currency, move):
+        move_lines, partial_reconciles = super(AccountPartialReconcile, self).\
+            _fix_multiple_exchange_rates_diff(
+            amls_to_fix, amount_diff, diff_in_currency, currency, move)
+
+        for aml in amls_to_fix:
+            if aml.invoice_id.number:
+                move_lines.name = _('Currency exchange rate difference: %s')\
+                                  % aml.invoice_id.number
+        return move_lines, partial_reconciles
