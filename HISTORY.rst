@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-469: Down payment not deducted in the customer Invoice
+
 **Build**
 
 **Documentation**

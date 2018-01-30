@@ -63,7 +63,8 @@ class SaleOrder(models.Model):
     @api.multi
     def action_invoice_create(self, grouped=False, final=False):
         """ Ensure one invoice is created per sale order """
-        return super(SaleOrder, self).action_invoice_create(grouped=True)
+        return super(SaleOrder, self).action_invoice_create(grouped=True,
+                                                            final=final)
 
     @api.multi
     def action_done(self):

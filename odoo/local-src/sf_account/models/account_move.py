@@ -34,6 +34,7 @@ class AccountMoveLine(models.Model):
                     compute(self.amount_currency, company_currency)
                 self.debit = False
 
+
 class AccountPartialReconcile(models.Model):
     _inherit = "account.partial.reconcile"
 
