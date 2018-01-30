@@ -192,3 +192,7 @@ migration:
         upgrade:
           - sf_purchase
           - sf_stock
+    - version: 10.15.0
+      addons:
+        upgrade:
+          - sf_stock

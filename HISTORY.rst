@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-468: Popup reserve stock
+
 **Bugfixes**
 
 **Build**
