@@ -7,13 +7,67 @@ from odoo.exceptions import ValidationError
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    def _reset_delivery_method(self, order_lines):
+        """Check if reset delivery method is needed.
+        Delivery method field must be reseted when a change that
+        affects shipping calculation is applied on sale order lines"""
+
+        def is_service(product_id):
+            if product_id:
+                product = self.env['product.product'].browse(product_id)
+                if product.type == 'service':
+                    return True
+            return False
+
+        # RMAs under warranty? Do not reset delivery method.
+        # SO of type RMA and RMA with decision Free or Commercial Gesture
+        if self.type_id.id == self.env.ref('sf_rma.rma_sale_type').id \
+                and self.rma_id.decision in ('free', 'to_offer'):
+            return False
+
+        # Check the changes on the order lines
+        to_reset = False
+        for line_vals in order_lines:
+            if len(line_vals) > 1 and line_vals[1]:
+                line = self.env['sale.order.line'].browse(line_vals[1])
+                line_product_type = line.product_id.type
+
+            # New record. Adding physical product
+            if line_vals[0] == 0 \
+                    and not is_service(line_vals[2]['product_id']):
+                to_reset = True
+                break
+            # Update linked record.
+            # Changing qty of physical product
+            elif line_vals[0] == 1 \
+                    and line_product_type != 'service' \
+                    and 'product_uom_qty' in line_vals[2]:
+                to_reset = True
+                break
+            # Update linked record.
+            # Changing from a service to a physical product
+            elif line_vals[0] == 1 and line_product_type == 'service' \
+                    and 'product_id' in line_vals[2] \
+                    and not is_service(line_vals[2]['product_id']):
+                to_reset = True
+                break
+            # Remove and delete the linked record
+            elif line_vals[0] == 2 and line_product_type != 'service':
+                to_reset = True
+                break
+        return to_reset
+
     @api.multi
     def write(self, vals):
         for sale_order in self:
             # Reset delivery method (except for delivery method managers)
-            if sale_order.state in ('draft', 'sent') and 'order_line' in vals\
-                    and not self.env.user.has_group(
-                        'sf_stock.group_delivery_method_manager'):
+            delivery_method_man = self.env.user.has_group(
+                'sf_stock.group_delivery_method_manager'
+            )
+            if sale_order.state in ('draft', 'sent') \
+                    and 'order_line' in vals \
+                    and not delivery_method_man \
+                    and self._reset_delivery_method(vals['order_line']):
                 sale_order.carrier_id = False
 
             # Propagate carrier to stock.picking when confirming SO

@@ -25,6 +25,7 @@ latest (unreleased)
 * BSSFL-475: Separation between "Action to do" section and "resolution" in Repairs
 * BSSFL-474: DN/Invoice swap invoice and delivery address
 * BSSFL-473: Downpayment invoice number sequence
+* BSSFL-470: Delivery method reset
 
 **Bugfixes**
 
@@ -46,6 +47,7 @@ latest (unreleased)
 * BSSFL-464: Payment order, payment reference
 * BSSFL-467: MO Produce action set consumed products as Done
 * BSSFL-468: Popup reserve stock
+* BSSFL-464: Payment order, payment reference
 
 **Bugfixes**
 
