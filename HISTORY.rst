@@ -41,6 +41,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-467: MO Produce action set consumed products as Done
 * BSSFL-462: Payment Terms on the Internal Purchase Order
 * BSSFL-461: DN/Invoice today date
 * BSSFL-465: Exchange difference move line label
