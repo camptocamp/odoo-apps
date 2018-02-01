@@ -73,6 +73,47 @@ class StockPicking(models.Model):
     def action_shipped(self):
         self.write({'date_shipped': datetime.today()})
 
+    @api.multi
+    def action_assign(self):
+        """Checks that the quantities available in stock for each product are
+        enough for reservation. If true, reserve the quantities immediately,
+        otherwise open a wizard to list the availability of each stock move.
+        note: show_availability_wizard is configured in stock.picking.type
+        """
+        self.ensure_one()
+        reservation_ok = True
+        show_wizard = self.picking_type_id.show_availability_wizard
+        no_availability_check = self.env.context.get('no_availability_check')
+        if not no_availability_check and show_wizard:
+            # Stock location senseFly SA
+            user_company_id = self.env.user.company_id.id
+            if user_company_id == self.env.ref('base.main_company').id:
+                stock_location_id = self.env.ref(
+                    'stock.stock_location_stock').id
+            # Stock location senseFly INC
+            else:
+                stock_location_id = self.env.ref(
+                    '__setup__.stock_location_stock_inc').id
+
+            for move_line in self.move_lines:
+                product = move_line.product_id
+                qty_available = product.with_context(
+                    {'location': stock_location_id}).qty_available
+                if qty_available < move_line.product_uom_qty:
+                    reservation_ok = False
+                    break
+
+        if reservation_ok:
+            return super(StockPicking, self).action_assign()
+        else:
+            return {
+                'type': 'ir.actions.act_window',
+                'res_model': 'wizard.stock.picking.availability',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'target': 'new'
+            }
+
     @api.one
     def propagate_delivery_info(self):
         """Propagate delivery info to the next delivery stage"""
@@ -115,3 +156,4 @@ class PickingType(models.Model):
                                                   "propagated to the "
                                                   "next stage."
                                              )
+    show_availability_wizard = fields.Boolean('Show availability wizard')

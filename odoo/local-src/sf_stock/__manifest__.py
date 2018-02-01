@@ -27,6 +27,7 @@
         'views/product_inventory_category.xml',
         'views/stock_picking_type.xml',
         'views/stock_incoterms_views.xml',
+        'wizard/wizard_stock_picking_availability.xml',
         'report/sf_report_deliveryslip.xml',
         'report/sf_report_delivery_note.xml',
         'report/sf_stock_report.xml'
