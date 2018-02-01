@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.15.0 (2018-02-01)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-468: Popup reserve stock
 *BSSFL-464: Payment order, payment reference
 
