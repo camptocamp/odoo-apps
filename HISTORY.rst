@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-477: Free RMA, default delivery method
 * BSSFL-475: Separation between "Action to do" section and "resolution" in Repairs
+* BSSFL-474: DN/Invoice swap invoice and delivery address
 
 **Bugfixes**
 
