@@ -12,6 +12,26 @@ class AccountInvoice(models.Model):
             invoice.order_ids = invoice.invoice_line_ids.mapped(
                 'sale_line_ids').mapped('order_id')
 
+    def _is_downpayment_invoice(self):
+        downpay_prod_id = \
+            self.env['sale.advance.payment.inv']._default_product_id()
+        for inv in self:
+            inv.is_down_pay_inv = any(
+                line.product_id == downpay_prod_id
+                for line in inv.invoice_line_ids
+            )
+
+    @api.multi
+    def invoice_validate(self):
+        """Assign downpayment invoice sequence"""
+        res = super(AccountInvoice, self).invoice_validate()
+        for inv in self:
+            if inv.is_down_pay_inv:
+                inv_number = self.env['ir.sequence'].\
+                    next_by_code('downpay.invoice')
+                inv.number = inv_number
+        return res
+
     @api.multi
     def action_invoice_sent(self):
         """Override action_invoice_sent to modify the default template"""
@@ -41,3 +61,8 @@ class AccountInvoice(models.Model):
     )
     linked_partner_bank_id = fields.Many2one(
         related='partner_id.bank_ids.linked_partner_id', readonly=True)
+    is_down_pay_inv = fields.Boolean(
+        string='Downpayment Invoice',
+        compute='_is_downpayment_invoice',
+        help='This is a down payment invoice'
+    )

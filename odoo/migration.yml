@@ -210,3 +210,4 @@ migration:
           - sale_validity
           - sf_rma
           - sf_stock
+          - sf_account

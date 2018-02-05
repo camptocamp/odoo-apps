@@ -10,6 +10,7 @@
                 'sf_report'],
     'data': [
         'data/invoice_action_data.xml',
+        'data/account_data.xml',
         'views/account_journal.xml',
         'views/account_account.xml',
         'views/account_invoice.xml',
