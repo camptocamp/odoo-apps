@@ -35,8 +35,13 @@
             <notebook position="inside">
                 <page string="Action Resolution">
                     <group>
-                        <field name="action_todo" placeholder="Action to do..."/>
-                        <field name="note_resolution" placeholder="Resolution..."/>
+                        <group colspan="4">
+                            <field name="action_todo" placeholder="Action to do..."/>
+                        </group>
+                        <hr colspan="4"/>
+                        <group colspan="4">
+                            <field name="note_resolution" placeholder="Resolution..."/>
+                        </group>
                     </group>
                 </page>
                 <page string="Images">

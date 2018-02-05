@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-477: Free RMA, default delivery method
+* BSSFL-475: Separation between "Action to do" section and "resolution" in Repairs
 
 **Bugfixes**
 
