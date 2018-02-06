@@ -12,6 +12,7 @@ class AccountInvoice(models.Model):
             invoice.order_ids = invoice.invoice_line_ids.mapped(
                 'sale_line_ids').mapped('order_id')
 
+    @api.depends('invoice_line_ids.product_id')
     def _is_downpayment_invoice(self):
         downpay_prod_id = \
             self.env['sale.advance.payment.inv']._default_product_id()
