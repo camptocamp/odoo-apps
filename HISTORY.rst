@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Build**
 
+* Update project from odoo-template
+
 **Documentation**
 
 
