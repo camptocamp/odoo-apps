@@ -11,3 +11,7 @@ class ResCompany(models.Model):
 
     rma_sale_line_route_id = fields.Many2one(
         'stock.location.route')
+
+    rma_so_default_carrier_id = fields.Many2one(
+        'delivery.carrier'
+    )

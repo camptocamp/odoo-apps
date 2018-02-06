@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-477: Free RMA, default delivery method
+
 **Bugfixes**
 
 * BSSFL-476: Zendesk ticket duplicated with canceled RMA

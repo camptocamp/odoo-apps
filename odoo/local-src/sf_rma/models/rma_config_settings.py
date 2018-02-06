@@ -19,3 +19,10 @@ class RMASettings(models.TransientModel):
         required=True,
         related='company_id.rma_sale_line_route_id',
         help="This route will be used in the sale order line.")
+
+    rma_so_default_carrier_id = fields.Many2one(
+        'delivery.carrier',
+        string='Free Repair Default Carrier',
+        related='company_id.rma_so_default_carrier_id',
+        help="This delivery method is applied by default when the decision "
+             "of a RMA is Offer or Commercial Gesture")
