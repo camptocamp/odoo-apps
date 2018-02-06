@@ -27,9 +27,9 @@ class AccountInvoice(models.Model):
         res = super(AccountInvoice, self).invoice_validate()
         for inv in self:
             if inv.is_down_pay_inv:
-                inv_number = self.env['ir.sequence'].\
-                    next_by_code('downpay.invoice')
-                inv.number = inv_number
+                inv.number = self.env['ir.sequence'].next_by_code(
+                    'downpay.invoice'
+                )
         return res
 
     @api.multi
