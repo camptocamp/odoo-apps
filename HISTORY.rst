@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-476: Zendesk ticket duplicated with canceled RMA
+
 **Build**
 
 * Update project from odoo-template

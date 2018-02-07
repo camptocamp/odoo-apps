@@ -485,7 +485,7 @@ class RMA(models.Model):
             if not rma.zendesk_ref.startswith('D') and self.search(
                     [('id', '!=', rma.id),
                      ('zendesk_ref', '=', rma.zendesk_ref),
-                     ('state', '!=', 'cancel')]):
+                     ('state', '!=', 'canceled')]):
                 raise ValidationError(
                     _('Ticket num (Zendesk) already exist'))
 
