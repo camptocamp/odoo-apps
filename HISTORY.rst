@@ -35,8 +35,9 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-464: Payment order, payment reference
+* BSSFL-467: MO Produce action set consumed products as Done
 * BSSFL-468: Popup reserve stock
-*BSSFL-464: Payment order, payment reference
 
 **Bugfixes**
 
