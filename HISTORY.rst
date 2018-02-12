@@ -26,6 +26,7 @@ latest (unreleased)
 **Build**
 
 * Update project from odoo-template
+* BIZ-1277: Update submodule sale-workflow
 
 **Documentation**
 

@@ -197,3 +197,14 @@ migration:
         upgrade:
           - sf_stock
           - sf_account_payment_order
+    - version: 10.16.0
+      addons:
+        upgrade:
+          - product_price_category
+          - sale_exception
+          - sale_order_lot_selection
+          - sale_order_type
+          - sale_partner_incoterm
+          - sale_product_set
+          - sale_product_set_layout
+          - sale_validity
