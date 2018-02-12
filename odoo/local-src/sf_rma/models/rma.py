@@ -267,6 +267,7 @@ class RMA(models.Model):
 
     def _prepare_so_data(self):
         self.ensure_one()
+        comp = self.env.user.company_id
         return {
             'name': self.name,
             'partner_id': self.partner_id.id,
@@ -277,6 +278,11 @@ class RMA(models.Model):
                 self.partner_id.property_product_pricelist.id
                 if self.decision == 'to_invoice'
                 else self.env.ref('sf_rma.pricelist_rma').id,
+            'carrier_id':
+                comp.rma_so_default_carrier_id.id
+                if self.decision in ('free', 'to_offer',)
+                and comp.rma_so_default_carrier_id.id
+                else False,
             'origin': self.name,
             'type_id': self.env.ref('sf_rma.rma_sale_type').id
         }

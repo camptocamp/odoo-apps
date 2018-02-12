@@ -14,6 +14,7 @@
                 <div id="main">
                     <group name="sale" string="Sale order">
                         <field name="rma_sale_line_route_id"/>
+                        <field name="rma_so_default_carrier_id" />
                     </group>
                 </div>
             </form>
