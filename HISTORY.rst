@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.16.0 (2018-02-12)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-477: Free RMA, default delivery method
 * BSSFL-475: Separation between "Action to do" section and "resolution" in Repairs
 * BSSFL-474: DN/Invoice swap invoice and delivery address
