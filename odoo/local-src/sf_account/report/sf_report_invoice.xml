@@ -210,23 +210,25 @@
                     </div>
 
                     <!-- Bank details -->
-                    <t t-set="b" t-value="o.payment_mode_id.fixed_journal_id.bank_account_id"/>
-                    <div class="row" t-if="b and b.bank_id">
-                        <div class="col-xs-8 pull-left">
-                            <span>Payment for: </span><span t-field="o.company_id.name"/> <span t-field="o.company_id.partner_id.city"/>
-                            <br />
-                            <span>Bank: </span><span t-field="b.bank_id.name"/>, <span t-field="b.bank_id.country.code"/>-<span t-field="b.bank_id.zip"/>
-                            <span t-field="b.bank_id.city"/>, <span t-field="b.bank_id.country"/>
-                            <br />
-                            <span>BIC/SWIFT: </span><span t-field="b.bank_id.bic"/><span> / IBAN: </span><span t-field="b.acc_number"/>
+                    <t t-if="o.type not in ['out_refund', 'in_refund']">
+                        <t t-set="b" t-value="o.payment_mode_id.fixed_journal_id.bank_account_id"/>
+                        <div class="row" t-if="b and b.bank_id">
+                            <div class="col-xs-8 pull-left">
+                                <span>Payment for: </span><span t-field="o.company_id.name"/> <span t-field="o.company_id.partner_id.city"/>
+                                <br />
+                                <span>Bank: </span><span t-field="b.bank_id.name"/>, <span t-field="b.bank_id.country.code"/>-<span t-field="b.bank_id.zip"/>
+                                <span t-field="b.bank_id.city"/>, <span t-field="b.bank_id.country"/>
+                                <br />
+                                <span>BIC/SWIFT: </span><span t-field="b.bank_id.bic"/><span> / IBAN: </span><span t-field="b.acc_number"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xs-8 pull-left">
-                            <p style="font-weight: bold;">All bank fees are the responsibility of the customer</p>
+                        <div class="row">
+                            <div class="col-xs-8 pull-left">
+                                <p style="font-weight: bold;">All bank fees are the responsibility of the customer</p>
+                            </div>
                         </div>
-                    </div>
+                    </t>
                 </div>
             </t>
         </t>
