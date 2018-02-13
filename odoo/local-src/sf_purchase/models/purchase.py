@@ -13,7 +13,9 @@ class Purchase(models.Model):
         help='An indirect supplier.')
     confirmation_date = fields.Datetime(
         string='Confirmation Date',
-        readonly=True, index=True,
+        readonly=True,
+        index=True,
+        copy=False,
         help="Date on which the purchase order is confirmed.")
     print_draft = fields.Boolean(
         string='Print Draft',

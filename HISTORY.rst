@@ -27,6 +27,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-491: Fix invoice report (add condition to display bank details)
+* BSSFL-489: Don't duplicate confirmation date on purchase order
 
 **Build**
 
