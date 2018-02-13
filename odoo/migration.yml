@@ -215,4 +215,5 @@ migration:
       addons:
         upgrade:
           - sf_account
+          - sf_purchase
           - sf_sale
