@@ -211,3 +211,7 @@ migration:
           - sf_rma
           - sf_stock
           - sf_account
+    - version: 10.17.0
+      addons:
+        upgrade:
+          - sf_sale

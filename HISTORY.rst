@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-485: Custom sale order report (add field note)
+
 **Bugfixes**
 
 **Build**
