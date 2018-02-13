@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-485: Custom sale order report (add field note)
+* BSSFL-490: On payment, empty the amount when a difference appears
 
 **Bugfixes**
 
