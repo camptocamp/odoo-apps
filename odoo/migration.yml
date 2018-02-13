@@ -214,4 +214,5 @@ migration:
     - version: 10.17.0
       addons:
         upgrade:
+          - sf_account
           - sf_sale
