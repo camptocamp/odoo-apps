@@ -217,3 +217,5 @@ migration:
           - sf_account
           - sf_purchase
           - sf_sale
+          # oca account-financial-tools
+          - account_asset_management

@@ -36,3 +36,12 @@
       # [MIG][10.0] account_cutoff_accrual_picking
     - oca refs/pull/52/head
   target: *default_target
+./external-src/account-financial-tools:
+  remotes:
+    oca: git@github.com:OCA/account-financial-tools.git
+    camptocamp: git@github.com:camptocamp/account-financial-tools.git
+  merges:
+    - oca 8c604ebdf097c15dca6f2a0b3e53a4c65fc25aaf
+      # [10.0] Migration of account_asset_management
+    - oca refs/pull/441/head
+  target: *default_target

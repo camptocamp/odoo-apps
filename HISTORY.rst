@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-485: Custom sale order report (add field note)
 * BSSFL-490: On payment, empty the amount when a difference appears
+* BSSFL-493: Install account_asset_management
 
 **Bugfixes**
 
