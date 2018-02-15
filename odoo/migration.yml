@@ -216,4 +216,5 @@ migration:
         upgrade:
           - sf_account
           - sf_purchase
+          - sf_rma
           - sf_sale

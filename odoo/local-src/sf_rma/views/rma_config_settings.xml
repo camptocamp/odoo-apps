@@ -15,6 +15,8 @@
                     <group name="sale" string="Sale order">
                         <field name="rma_sale_line_route_id"/>
                         <field name="rma_so_default_carrier_id" />
+                        <field name="rma_default_payment_term_from_id" />
+                        <field name="rma_default_payment_term_to_id" />
                     </group>
                 </div>
             </form>

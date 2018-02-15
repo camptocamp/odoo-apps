@@ -15,3 +15,11 @@ class ResCompany(models.Model):
     rma_so_default_carrier_id = fields.Many2one(
         'delivery.carrier'
     )
+
+    rma_default_payment_term_from_id = fields.Many2one(
+        comodel_name='account.payment.term',
+    )
+
+    rma_default_payment_term_to_id = fields.Many2one(
+        comodel_name='account.payment.term',
+    )
