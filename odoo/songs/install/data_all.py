@@ -212,6 +212,15 @@ def update_picking_type(ctx):
             '__setup__.picking_type_out_inc',
             noupdate=True
         )
+    for record in ctx.env['stock.picking.type'].search(
+        [('name', '=', 'Receipts'),
+         ('warehouse_id', '=', ctx.env.ref('__setup__.stock_warehouse_inc').id)
+         ]):
+        add_xmlid(
+            ctx, record,
+            '__setup__.picking_type_receipts_inc',
+            noupdate=True
+        )
 
 
 @anthem.log

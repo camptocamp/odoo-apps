@@ -42,3 +42,7 @@ class RMASettings(models.TransientModel):
         help="When the sale order is generated, "
              "the payment term we need to define",
     )
+
+    rma_receive_picking_type_id = fields.Many2one(
+        related='company_id.rma_receive_picking_type_id'
+    )

@@ -18,6 +18,9 @@
                         <field name="rma_default_payment_term_from_id" />
                         <field name="rma_default_payment_term_to_id" />
                     </group>
+                    <group name="Reception" string="Reception">
+                        <field name="rma_receive_picking_type_id"/>
+                    </group>
                 </div>
             </form>
         </field>

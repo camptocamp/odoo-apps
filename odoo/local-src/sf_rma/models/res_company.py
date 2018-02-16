@@ -23,3 +23,12 @@ class ResCompany(models.Model):
     rma_default_payment_term_to_id = fields.Many2one(
         comodel_name='account.payment.term',
     )
+
+    rma_receive_picking_type_id = fields.Many2one(
+        comodel_name='stock.picking.type',
+        string='Reception operation type',
+        domain="[(code, '=', 'incoming')]",
+        required=True,
+        help="This is the default operation type assigned to the reception "
+             "operation when we open a RMA."
+    )
