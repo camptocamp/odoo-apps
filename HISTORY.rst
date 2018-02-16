@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.17.0 (2018-02-16)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-485: Custom sale order report (add field note)
 * BSSFL-486: Define payment term when sale order is generated from RMA
 * BSSFL-490: On payment, empty the amount when a difference appears
@@ -33,10 +45,6 @@ latest (unreleased)
 * BSSFL-491: Fix invoice report (add condition to display bank details)
 * BSSFL-489: Don't duplicate confirmation date on purchase order
 * BSSFL-483: RMA Inc reception
-
-**Build**
-
-**Documentation**
 
 
 10.16.0 (2018-02-12)
