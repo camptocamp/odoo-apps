@@ -216,6 +216,7 @@ migration:
         upgrade:
           - sf_account
           - sf_purchase
+          - sf_rma
           - sf_sale
           # oca account-financial-tools
           - account_asset_management

@@ -347,6 +347,23 @@ class RMA(models.Model):
             sale = self.env['sale.order'].create_with_onchanges(
                 so_data, ['partner_id'])
 
+            if rec.decision in ['free', 'to_offer']:
+                payment_term_from = (
+                    rec.company_id.rma_default_payment_term_from_id
+                )
+
+                payment_term_to = (
+                    rec.company_id.rma_default_payment_term_to_id
+                )
+
+                change_payment_term = (
+                    payment_term_from and
+                    payment_term_to and
+                    sale.payment_term_id == payment_term_from
+                )
+                if change_payment_term:
+                    sale.payment_term_id = payment_term_to.id
+
             if rec.to_receive and not rec.to_exchange:
                 so_line_data = self._prepare_so_line_data(sale)
                 self.env['sale.order.line'].create_with_onchanges(

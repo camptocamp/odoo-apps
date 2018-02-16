@@ -13,6 +13,7 @@
     "installable": True,
     "post_init_hook": 'post_init_hook',
     "depends": [
+        "account",
         "sale",
         "sale_order_type",
         "stock",

@@ -26,3 +26,19 @@ class RMASettings(models.TransientModel):
         related='company_id.rma_so_default_carrier_id',
         help="This delivery method is applied by default when the decision "
              "of a RMA is Offer or Commercial Gesture")
+
+    rma_default_payment_term_from_id = fields.Many2one(
+        comodel_name='account.payment.term',
+        string='Default payment term from',
+        related='company_id.rma_default_payment_term_from_id',
+        help="When the sale order is generated, "
+             "the payment term we need to replace",
+    )
+
+    rma_default_payment_term_to_id = fields.Many2one(
+        comodel_name='account.payment.term',
+        string='Default payment term to',
+        related='company_id.rma_default_payment_term_to_id',
+        help="When the sale order is generated, "
+             "the payment term we need to define",
+    )
