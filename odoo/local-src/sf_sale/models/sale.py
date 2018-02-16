@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
-from odoo import models, api, _
+from odoo import models, api, fields, _
 from odoo.exceptions import ValidationError
 
 
@@ -162,3 +162,11 @@ class SaleOrderLine(models.Model):
 
         other_lines = self - on_deliver_lines
         super(SaleOrderLine, other_lines)._get_to_invoice_qty()
+
+
+class ProcurementGroup(models.Model):
+    _inherit = 'procurement.group'
+
+    sale_ids = fields.One2many(
+        'sale.order', 'procurement_group_id', string='Sale Orders',
+        readonly=True)

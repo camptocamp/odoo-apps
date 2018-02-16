@@ -25,6 +25,7 @@ latest (unreleased)
 * BSSFL-486: Define payment term when sale order is generated from RMA
 * BSSFL-490: On payment, empty the amount when a difference appears
 * BSSFL-493: Install account_asset_management
+* BSSFL-478: DN/Invoice lines from sale order
 
 **Bugfixes**
 

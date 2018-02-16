@@ -65,6 +65,21 @@ class StockMove(models.Model):
                     })
         return True
 
+    @api.multi
+    def _compute_sale_line(self):
+        for stock_move in self:
+            move_dest_id = stock_move.mapped('procurement_id.move_dest_id')
+            while move_dest_id:
+                if not move_dest_id.mapped('procurement_id.move_dest_id'):
+                    break
+                move_dest_id = move_dest_id.mapped(
+                    'procurement_id.move_dest_id'
+                )
+            if move_dest_id:
+                stock_move.sale_line_id = move_dest_id.mapped(
+                    'procurement_id.sale_line_id'
+                )
+
     currency_id = fields.Many2one(
         related='procurement_id.sale_line_id.currency_id',
         string='Currency',
@@ -80,4 +95,10 @@ class StockMove(models.Model):
     price_total = fields.Monetary(
         compute='_compute_amount',
         string='Total', readonly=True
+    )
+    sale_line_id = fields.Many2one(
+        'sale.order.line',
+        string='Sale line',
+        compute='_compute_sale_line',
+        help='Sale line that gave origin to this move.'
     )
