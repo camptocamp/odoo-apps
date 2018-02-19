@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFW-40: Add serial_owner
+* BSSFL-495: Commercial Invoice
 
 **Bugfixes**
 

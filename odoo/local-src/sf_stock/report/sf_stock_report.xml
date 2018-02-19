@@ -17,4 +17,13 @@
         name="sf_stock.sf_report_deliverynote"
         file="sf_stock.sf_report_deliverynote"
     />
+
+    <report
+        string="Commercial Invoice"
+        id="action_report_commercial_invoice"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="sf_stock.sf_report_commercial_invoice"
+        file="sf_stock.sf_report_commercial_invoice"
+    />
 </odoo>

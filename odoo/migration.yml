@@ -339,3 +339,4 @@ migration:
           - sf_mail
           - sf_serial_owner
           - sf_sale
+          - sf_stock
