@@ -222,3 +222,7 @@ migration:
           - account_asset_management
           - sf_rma
           - sf_stock
+    - version: 10.18.0
+      addons:
+        upgrade:
+          - sf_stock

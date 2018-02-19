@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-497: DN / Invoice Totals
+
 **Build**
 
 * Update with latest from odoo-template

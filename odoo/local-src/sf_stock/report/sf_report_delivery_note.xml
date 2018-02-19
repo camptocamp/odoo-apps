@@ -258,7 +258,7 @@
                                     <td><strong>Total Without Taxes</strong></td>
                                     <td class="text-right">
                                         <t t-set="price_subtotal_products" t-value="sum(stock_move.sale_line_id.price_subtotal * stock_move.product_uom_qty / stock_move.sale_line_id.product_uom_qty
-                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty)"/>
+                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty and stock_move.state in ('assigned', 'done'))"/>
                                         <t t-set="price_subtotal_services" t-value="sum(ol.price_subtotal for ol in sale.order_line if ol.product_id.type == 'service' and not o.backorder_id)"/>
                                         <span t-esc="price_subtotal_products + price_subtotal_services" t-options="{'widget': 'monetary', 'display_currency': sale.pricelist_id.currency_id}"/>
                                     </td>
@@ -267,7 +267,7 @@
                                     <td>Taxes</td>
                                     <td class="text-right">
                                         <t t-set="price_tax_products" t-value="sum(stock_move.sale_line_id.price_tax * stock_move.product_uom_qty / stock_move.sale_line_id.product_uom_qty
-                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty)"/>
+                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty and stock_move.state in ('assigned', 'done'))"/>
                                         <t t-set="price_subtotal_services" t-value="sum(ol.price_tax for ol in sale.order_line if ol.product_id.type == 'service' and not o.backorder_id)"/>
                                         <span t-esc="price_tax_products + price_subtotal_services" t-options="{'widget': 'monetary', 'display_currency': sale.pricelist_id.currency_id}"/>
                                     </td>
@@ -276,7 +276,7 @@
                                     <td><strong>Total</strong></td>
                                     <td class="text-right">
                                         <t t-set="price_total_products" t-value="sum(stock_move.sale_line_id.price_total * stock_move.product_uom_qty / stock_move.sale_line_id.product_uom_qty
-                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty)"/>
+                                        for stock_move in o.move_lines if stock_move.sale_line_id.product_uom_qty and stock_move.state in ('assigned', 'done'))"/>
                                         <t t-set="price_subtotal_services" t-value="sum(ol.price_total for ol in sale.order_line if ol.product_id.type == 'service' and not o.backorder_id)"/>
                                         <span t-esc="price_total_products + price_subtotal_services" t-options="{'widget': 'monetary', 'display_currency': sale.pricelist_id.currency_id}"/>
                                     </td>
