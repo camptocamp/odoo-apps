@@ -32,7 +32,7 @@
     oca: git@github.com:OCA/account-closing.git
     camptocamp: git@github.com:camptocamp/account-closing.git
   merges:
-    - oca 10.0
+    - oca 233b27e52838f8dd4d97b2f99525e40e5589160d
       # [MIG][10.0] account_cutoff_accrual_picking
     - oca refs/pull/52/head
   target: *default_target
