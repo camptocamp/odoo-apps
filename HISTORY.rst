@@ -30,6 +30,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-496: Payment order reference for supplier
+* BSSFL-481: RMA: error message at confirming SO
 
 **Build**
 
@@ -55,6 +56,10 @@ latest (unreleased)
 * BSSFL-491: Fix invoice report (add condition to display bank details)
 * BSSFL-489: Don't duplicate confirmation date on purchase order
 * BSSFL-483: RMA Inc reception
+
+**Build**
+
+**Documentation**
 
 
 10.16.0 (2018-02-12)
