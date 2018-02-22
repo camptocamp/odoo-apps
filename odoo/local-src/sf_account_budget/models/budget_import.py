@@ -196,13 +196,13 @@ class AccountBudgetImport(models.Model):
         return None
 
     @api.model
-    def _get_team_analytic_tag_id(self, team):
+    def _get_team_analytic_tag_id(self, team_code):
         tags = None
         tag_dimensions = self.env['account.analytic.dimension'].search(
-            [('name', '=', 'Team')])
+            [('code', '=', 'T')])
         if tag_dimensions and len(tag_dimensions) == 1:
             tags = self.env['account.analytic.tag'].search(
-                [('name', '=', team),
+                [('code', '=', team_code),
                  ('analytic_dimension_id', '=', tag_dimensions.id)])
             if len(tags) == 1:
                 return tags[0].id
