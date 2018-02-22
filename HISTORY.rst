@@ -21,9 +21,14 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-488: Change RMA rules for Picking generation. The conditions for
+  generating the procurement order have been changed if he is linking to a rma.
+
 **Bugfixes**
 
 **Build**
+
+* Fix nginx version for dev build
 
 **Documentation**
 
