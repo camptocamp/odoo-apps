@@ -22,6 +22,8 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-487; Update account_cutoff_accrual_picking
+* BSSFL-480: Manufacturing orders. Add validation to check if MO consume all
+  necessary parts quantity with LOT/Serial number.
 
 **Bugfixes**
 
