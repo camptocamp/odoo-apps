@@ -423,6 +423,33 @@ def import_assets(ctx):
 
 
 @anthem.log
+def import_account_assets(ctx):
+    """ Importing account assets from csv"""
+
+    model = ctx.env['account.asset'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/account_asset_view.csv',
+             model)
+
+    model_asset_category = ctx.env['account.asset.profile'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/account_asset_profile.csv',
+             model_asset_category)
+
+    load_csv(ctx, 'data/demo/account_asset.csv',
+             model)
+
+    model_line = ctx.env['account.asset.line'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx,
+             'data/demo/account_asset_line.csv',
+             model_line)
+
+
+@anthem.log
 def import_journal_entries(ctx):
     """ Importing journal entries from csv """
     model = ctx.env['account.move'].with_context({
@@ -470,3 +497,4 @@ def main(ctx):
     import_stock_inventory(ctx)
     import_stock_warehouse_orderpoint(ctx)
     import_journal_entries(ctx)
+    import_account_assets(ctx)

@@ -10,10 +10,11 @@ class AccountMoveLine(models.Model):
     @api.multi
     def _prepare_payment_line_vals(self, payment_order):
         self.ensure_one()
-        # Payment reference (name) is the PO partner ref
         vals = super(AccountMoveLine, self)._prepare_payment_line_vals(
             payment_order)
 
-        if self.invoice_id.partner_ref:
-            vals['name'] = self.invoice_id.partner_ref
+        # Payment reference for supplier
+        invoice = self.invoice_id
+        if invoice.partner_ref and invoice.reference_type != 'bvr':
+            vals['communication'] = invoice.partner_ref
         return vals

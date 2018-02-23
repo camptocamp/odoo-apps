@@ -9,6 +9,8 @@
 
 .. **Bugfixes**
 
+* BSSFL-472: Settings email 3
+
 .. **Build**
 
 .. **Documentation**
@@ -19,11 +21,21 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Data**
+
+* BSSFL-502: Import account assets into oca module
+
 **Features and Improvements**
+
+* BSSFL-487; Update account_cutoff_accrual_picking
+* BSSFL-480: Manufacturing orders. Add validation to check if MO consume all
+  necessary parts quantity with LOT/Serial number.
 
 **Bugfixes**
 
+* BSSFL-496: Payment order reference for supplier
 * BSSFL-497: DN / Invoice Totals
+* BSSFL-481: RMA: error message at confirming SO
 
 **Build**
 
@@ -49,6 +61,10 @@ latest (unreleased)
 * BSSFL-491: Fix invoice report (add condition to display bank details)
 * BSSFL-489: Don't duplicate confirmation date on purchase order
 * BSSFL-483: RMA Inc reception
+
+**Build**
+
+**Documentation**
 
 
 10.16.0 (2018-02-12)
