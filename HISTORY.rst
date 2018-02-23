@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-487; Update account_cutoff_accrual_picking
+
 **Bugfixes**
 
 * BSSFL-496: Payment order reference for supplier
