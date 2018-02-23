@@ -1,2 +1,2 @@
-"id","name","method_number","code","prorata","salvage_value","currency_id/id","method_time","active","partner_id/id","method_progress_factor","purchase_value","company_id/id","state","method_period","profile_id/id","method","parent_id/id","date_start","type"
-"__setup__.asset_root","Assets","","","","0","","year","1","","0.3","0","base.main_company","draft","year","","linear","","","view"
+"id","name","method_number","code","prorata","salvage_value","method_time","active","partner_id/id","method_progress_factor","purchase_value","company_id/id","state","method_period","profile_id/id","method","parent_id/id","date_start","type"
+"__setup__.asset_root","Assets","","","","0","year","1","","0.3","0","base.main_company","draft","year","","linear","","","view"
