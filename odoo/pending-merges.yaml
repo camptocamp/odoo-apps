@@ -26,6 +26,8 @@
    - oca 10.0
      # [10.0][add] Module sale_partner_incoterm
    - oca refs/pull/548/head
+     # [10.0][FIX] If res contain action we should return and show it
+   - oca refs/pull/610/head
  target: *default_target
 ./external-src/account-closing:
   remotes:

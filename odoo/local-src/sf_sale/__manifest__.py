@@ -6,8 +6,15 @@
     'version': '1.0',
     'author': 'senseFly, Telmo Santos',
     'category': 'SenseFly',
-    'depends': ['sale', 'sf_report', 'sf_product', 'sf_stock', 'delivery',
-                'sale_exception'],
+    'depends': [
+        'sale',
+        'sf_report',
+        'sf_product',
+        'sf_stock',
+        'delivery',
+        'sale_exception',
+        'sale_order_lot_selection',
+    ],
     'license': 'AGPL-3',
     'data': [
         'security/ir.model.access.csv',
