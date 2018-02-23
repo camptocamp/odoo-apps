@@ -9,6 +9,8 @@
 
 .. **Bugfixes**
 
+* BSSFL-472: Settings email 3
+
 .. **Build**
 
 .. **Documentation**
