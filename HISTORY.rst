@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-496: Payment order reference for supplier
+
 **Build**
 
 * Update with latest from odoo-template
