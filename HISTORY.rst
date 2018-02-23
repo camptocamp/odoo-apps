@@ -21,6 +21,18 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.18.0 (2018-02-23)
+++++++++++++++++++++
+
 **Data**
 
 * BSSFL-502: Import account assets into oca module
