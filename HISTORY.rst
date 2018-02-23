@@ -34,6 +34,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-496: Payment order reference for supplier
+* BSSFL-497: DN / Invoice Totals
 * BSSFL-481: RMA: error message at confirming SO
 
 **Build**
