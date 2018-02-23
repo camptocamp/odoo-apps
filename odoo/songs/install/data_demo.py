@@ -426,17 +426,21 @@ def import_assets(ctx):
 def import_account_assets(ctx):
     """ Importing account assets from csv"""
 
+    model = ctx.env['account.asset'].with_context({
+        'tracking_disable': True,
+    })
+    load_csv(ctx, 'data/demo/account_asset_view.csv',
+             model)
+
     model_asset_category = ctx.env['account.asset.profile'].with_context({
         'tracking_disable': True,
     })
     load_csv(ctx, 'data/demo/account_asset_profile.csv',
              model_asset_category)
 
-    model = ctx.env['account.asset'].with_context({
-        'tracking_disable': True,
-    })
     load_csv(ctx, 'data/demo/account_asset.csv',
              model)
+
     model_line = ctx.env['account.asset.line'].with_context({
         'tracking_disable': True,
     })
