@@ -242,3 +242,12 @@ migration:
           - sf_account_cutoff
           - sf_sale
           - sf_account
+    - version: 10.21.0
+      addons:
+        upgrade:
+          # external-src/account-closing
+          - account_cutoff_accrual_picking
+          # external-src/sale-workflow
+          - sale_order_lot_selection
+          # local-src
+          - sf_sale_state

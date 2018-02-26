@@ -14,4 +14,30 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="view_sale_order_specific_tree">
+        <field name="name">sale.order.specific.list</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+
+            <field name="date_order" position="before">
+                <field name="sf_state"/>
+            </field>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_quotation_specific_tree">
+        <field name="name">quotation.specific.list</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+
+            <field name="date_order" position="before">
+                <field name="sf_state"/>
+            </field>
+
+        </field>
+    </record>
+
 </odoo>
