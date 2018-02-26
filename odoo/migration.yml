@@ -231,3 +231,7 @@ migration:
         upgrade:
           - sf_stock
           - sf_account_cutoff
+    - version: 10.20.0
+      addons:
+        upgrade:
+          - l10n_ch_pain_base
