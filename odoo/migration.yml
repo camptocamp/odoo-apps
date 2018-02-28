@@ -230,3 +230,4 @@ migration:
       addons:
         upgrade:
           - sf_stock
+          - sf_account_cutoff

@@ -9,8 +9,6 @@
 
 .. **Bugfixes**
 
-* BSSFL-472: Settings email 3
-
 .. **Build**
 
 .. **Documentation**
@@ -24,6 +22,8 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-503: DN /Invoice remove text, final invoice will be issued after the delivery.
+* BSSFL-487: (Part 2) Add analytic_account_tag to account.cutoff.line.
+  Display partner_id in account.move.line when create journal entry.
 
 **Bugfixes**
 
@@ -41,7 +41,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* BSSFL-487; Update account_cutoff_accrual_picking
+* BSSFL-487: (Part 1) Update account_cutoff_accrual_picking
 * BSSFL-480: Manufacturing orders. Add validation to check if MO consume all
   necessary parts quantity with LOT/Serial number.
 
@@ -50,6 +50,7 @@ latest (unreleased)
 * BSSFL-496: Payment order reference for supplier
 * BSSFL-497: DN / Invoice Totals
 * BSSFL-481: RMA: error message at confirming SO
+* BSSFL-472: Settings email 3
 
 **Build**
 
