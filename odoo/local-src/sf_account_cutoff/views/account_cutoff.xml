@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ACCOUNT CUTOFF LINES -->
+    <record id="account_cutoff_line_form" model="ir.ui.view">
+        <field name="name">account.cutoff.line.prepaid.form</field>
+        <field name="model">account.cutoff.line</field>
+        <field name="inherit_id" ref="account_cutoff_base.account_cutoff_line_form"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_id" position="after">
+                <field name="analytic_tag_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="account_cutoff_line_tree" model="ir.ui.view">
+        <field name="name">account.cutoff.line.sf.tree</field>
+        <field name="model">account.cutoff.line</field>
+        <field name="inherit_id" ref="account_cutoff_base.account_cutoff_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="analytic_account_code" position="after">
+                <field name="analytic_tag_ids"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
