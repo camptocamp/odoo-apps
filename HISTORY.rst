@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-503: DN /Invoice remove text, final invoice will be issued after the delivery.
+
 **Bugfixes**
 
 **Build**

@@ -293,9 +293,6 @@
                             All items couldn't be shipped, the remaining ones will be shipped as soon as they become available.
                         </t>
                     </p>
-                    <p>
-                      Final invoice will be issued after the delivery.
-                    </p>
 
                     <div class="row" id="fta" name="fta">
                         <div class="col-xs-12" name="fta_col">

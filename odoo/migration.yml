@@ -226,3 +226,7 @@ migration:
       addons:
         upgrade:
           - sf_stock
+    - version: 10.19.0
+      addons:
+        upgrade:
+          - sf_stock
