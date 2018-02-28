@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.19.0 (2018-02-28)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-503: DN /Invoice remove text, final invoice will be issued after the delivery.
 * BSSFL-487: (Part 2) Add analytic_account_tag to account.cutoff.line.
   Display partner_id in account.move.line when create journal entry.
