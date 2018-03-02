@@ -252,3 +252,4 @@ migration:
           # local-src
           - sf_sale_state
           - sf_stock
+          - sf_sale
