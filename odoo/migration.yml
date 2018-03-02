@@ -251,5 +251,6 @@ migration:
           - sale_order_lot_selection
           # local-src
           - sf_sale_state
+          - sf_product
           - sf_stock
           - sf_sale

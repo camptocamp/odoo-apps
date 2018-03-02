@@ -43,3 +43,18 @@ class ProductTemplate(models.Model):
         ('4css', 'CSS'),
         ('5accounting', 'Accounting'),
     ])
+
+
+class ProductProduct(models.Model):
+    _inherit = "product.product"
+
+    def _is_deposit_product(self):
+        deposit_product_id = \
+            self.env['sale.advance.payment.inv']._default_product_id()
+        for product in self:
+            product.is_deposit = product == deposit_product_id
+
+    is_deposit = fields.Boolean(
+        compute='_is_deposit_product',
+        help="Is this product used for upfront payments?",
+    )
