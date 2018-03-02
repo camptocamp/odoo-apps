@@ -26,6 +26,8 @@ latest (unreleased)
 **Bugfixes**
 
 * BIZ-1417: l10n-switzerland fix `pain_base`
+* BIZ-1442: Fix analytic_account_tag on Prepaid Expense, Accrued Revenue and
+  Accrued Expense
 
 **Build**
 

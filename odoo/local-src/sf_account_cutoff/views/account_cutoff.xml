@@ -3,7 +3,7 @@
 
     <!-- ACCOUNT CUTOFF LINES -->
     <record id="account_cutoff_line_form" model="ir.ui.view">
-        <field name="name">account.cutoff.line.prepaid.form</field>
+        <field name="name">account.cutoff.line.sf.form</field>
         <field name="model">account.cutoff.line</field>
         <field name="inherit_id" ref="account_cutoff_base.account_cutoff_line_form"/>
         <field name="arch" type="xml">
