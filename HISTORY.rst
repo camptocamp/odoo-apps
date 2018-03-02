@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BIZ-1419: Override invoice ref check
+
 **Bugfixes**
 
 * BIZ-1417: l10n-switzerland fix `pain_base`
