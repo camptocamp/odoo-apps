@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BIZ-1417: l10n-switzerland fix `pain_base`
+
 **Build**
 
 **Documentation**
