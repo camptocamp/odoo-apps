@@ -40,6 +40,12 @@ class Invoice(models.Model):
                 'duplicate_invoice_count': len(dupl_invs.ids),
                 'duplicate_invoice_ids': dupl_invs.ids})
 
+    def _check_invoice_reference(self):
+        # Override the default method that prevent to have 2 invoices with the
+        # same reference, as in Switzerland a supplier can use the same number
+        # for several invoices. This is especially true for recurring invoices
+        return True
+
     @api.multi
     def action_view_duplicate_invoices(self):
         invoices = self.mapped('duplicate_invoice_ids')
