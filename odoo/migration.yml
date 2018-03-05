@@ -235,3 +235,7 @@ migration:
       addons:
         upgrade:
           - l10n_ch_pain_base
+          - l10n_ch_base_bank
+          - l10n_ch_import_cresus
+          - l10n_ch_payment_slip
+          - l10n_ch_scan_bvr
