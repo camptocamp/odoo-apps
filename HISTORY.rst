@@ -62,6 +62,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSSFL-509: SF account asset management
 * BIZ-1419: Override invoice ref check
 
 **Bugfixes**

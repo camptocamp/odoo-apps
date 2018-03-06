@@ -261,3 +261,4 @@ migration:
           - sf_rma
           - sf_account
           - sf_account_budget
+          - sf_account_asset_management

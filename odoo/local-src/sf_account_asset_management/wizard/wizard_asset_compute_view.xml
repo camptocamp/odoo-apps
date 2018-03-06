@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_view_asset_depreciation_confirmation_wizard" model="ir.ui.view">
+        <field name="name">sf.asset.depreciation.confirmation.wizard</field>
+        <field name="model">asset.depreciation.confirmation.wizard</field>
+        <field name="inherit_id" ref="account_asset_management.view_asset_depreciation_confirmation_wizard"/>
+        <field name="arch" type="xml">
+            <field name="date_end" position="after">
+                <field name="aggregate_move_lines"/>
+                <field name="reference"  attrs="{'required':[('aggregate_move_lines','=',True)], 'invisible': [('aggregate_move_lines', '=', False)]}"/>
+                <field name="journal_id"  attrs="{'required':[('aggregate_move_lines','=',True)], 'invisible': [('aggregate_move_lines', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

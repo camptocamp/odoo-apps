@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import fields, models, _
+from odoo import fields, models, api, _
 
 
 class DateRange(models.Model):
     _inherit = "date.range"
+
+    @api.model
+    def create(self, values):
+        """By default the code will be the name"""
+        if 'name' in values and not values.get('code', False):
+            values['code'] = values['name'].lower()
+        return super(DateRange, self).create(values)
 
     code = fields.Char(required=True)
 
