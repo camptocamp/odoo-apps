@@ -29,6 +29,13 @@ class AccountCutoff(models.Model):
         key_list.append('analytic_tag_ids')
         return key_list
 
+    def _prepare_line(self, line):
+        prep_line = super(AccountCutoff, self)._prepare_line(line)
+        prep_line['analytic_tag_ids'] = [
+            (6, 0, line.analytic_tag_ids.ids)
+        ]
+        return prep_line
+
 
 class AccountCutoffLine(models.Model):
     _inherit = 'account.cutoff.line'

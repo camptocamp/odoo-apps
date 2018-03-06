@@ -7,6 +7,7 @@
     'category': 'SenseFly',
     'depends': [
         'account_cutoff_base',
+        'account_cutoff_accrual_picking',
     ],
     'data': [
         'views/account_cutoff.xml',
