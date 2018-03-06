@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-511: DN /Invoice price line
+
 **Build**
 
 **Documentation**
@@ -45,6 +47,10 @@ latest (unreleased)
 * BIZ-1442: Fix analytic_account_tag on Prepaid Expense, Accrued Revenue and
   Accrued Expense
 * BSSFL-506: Report Sale order / Invoice contact layout
+
+**Build**
+
+**Documentation**
 
 
 10.19.0 (2018-02-28)
