@@ -74,7 +74,7 @@
                         </div>
                         <div name="address" t-if="o.partner_id" class="col-xs-3">
                             <strong>Contact</strong>
-                            <p style="line-height:1px;padding-top:8px;">
+                            <p style="padding-top:8px;">
                                 <span t-field="o.partner_id.name"/>
                                 <span t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["phone", "mobile", "email"], "no_marker": False, "phone_icons": True}'/>
                             </p>

@@ -240,4 +240,5 @@ migration:
           - l10n_ch_payment_slip
           - l10n_ch_scan_bvr
           - sf_account_cutoff
+          - sf_sale
           - sf_account
