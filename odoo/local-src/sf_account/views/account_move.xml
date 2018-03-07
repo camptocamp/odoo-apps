@@ -28,6 +28,9 @@
                 <attribute name="string">Project</attribute>
                 <attribute name="help">Analytic Account means Project</attribute>
             </field>
+            <field name="credit" position="after">
+                <field name="tax_line_id" string="Tax Account"/>
+            </field>
         </field>
     </record>
 

@@ -39,6 +39,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-505: Tax account in journal items tree view
 * BSSFL-503: DN /Invoice remove text, final invoice will be issued after the delivery.
 * BSSFL-487: (Part 2) Add analytic_account_tag to account.cutoff.line.
   Display partner_id in account.move.line when create journal entry.
