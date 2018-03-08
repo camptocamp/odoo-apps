@@ -21,6 +21,10 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-500: Sensefly state enhancement on the Quotations/Sale Order
+  add 2 status Freight labeling in waiting and Paid
+  and correct other case
+
 **Bugfixes**
 
 **Build**

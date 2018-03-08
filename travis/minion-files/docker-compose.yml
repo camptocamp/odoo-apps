@@ -32,6 +32,7 @@ odoo:
     - DB_PASSWORD=${DB_PASSWORD}
     - ODOO_BASE_URL=${ODOO_BASE_URL}
     - ODOO_SESSION_REDIS_PREFIX=${ODOO_SESSION_REDIS_PREFIX}
+    - USE_S3=False
   labels:
     io.rancher.sidekicks: nginx
     odoo.publish: true
