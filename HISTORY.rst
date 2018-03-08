@@ -25,6 +25,7 @@ latest (unreleased)
   add 2 status Freight labeling in waiting and Paid
   and correct other case
 * BSSFL-441: Payment details on Quotation / Sale report
+* BSSFL-507: No downpayment line on DN / Invoice
 
 **Bugfixes**
 
