@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.21.0 (2018-03-08)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-500: Sensefly state enhancement on the Quotations/Sale Order
   add 2 status Freight labeling in waiting and Paid
   and correct other case
@@ -30,10 +42,6 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-511: DN /Invoice price line
-
-**Build**
-
-**Documentation**
 
 
 10.20.0 (2018-03-07)
