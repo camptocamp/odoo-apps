@@ -254,3 +254,8 @@ migration:
           - sf_product
           - sf_stock
           - sf_sale
+    - version: 10.22.0
+      addons:
+        upgrade:
+          # local-src
+          - sf_rma

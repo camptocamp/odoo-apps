@@ -247,6 +247,12 @@ class MrpRepair(models.Model):
             vals['move_id'] = repair.with_context(
                 move_create_context).action_repair_done().get(repair.id)
             repair.write(vals)
+
+            repair.mapped(
+                'rma_id.sale_ids.order_line'
+            ).filtered(
+                lambda l: l.order_id.state == 'sale'
+            )._action_procurement_create()
         return True
 
     @api.multi

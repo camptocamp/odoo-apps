@@ -186,17 +186,46 @@ msgid "Configuration"
 msgstr "Configuration"
 
 #. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_rma_config_settings
+msgid "Configure RMA"
+msgstr "Configuration RMA"
+
+#. module: sf_rma
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:314
+#: code:addons/sf_rma/models/rma.py:314
+#, python-format
+msgid "Configure RMA reception operation type."
+msgstr "Configuration RMA type d'opération de réception."
+
+#. module: sf_rma
+#: model:ir.actions.act_window,name:sf_rma.action_rma_config
+msgid "Configure RMAs"
+msgstr "Configuration RMAs"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_repair_order_form
+msgid "Content"
+msgstr "Contenu"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_repair_order_form
+msgid "Content..."
+msgstr "Contenu..."
+
+#. module: sf_rma
 #: model:ir.actions.act_window,help:sf_rma.act_sf_rma_sale_order
 msgid "Create a Quotation, the first step of a new sale."
 msgstr "Créer un devis, la première étape d'une nouvelle vente."
 
 #. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_rma_config_settings_create_uid
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_create_uid
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_rma_config_settings_create_date
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_create_date
 msgid "Created on"
 msgstr "Créé le"
@@ -299,6 +328,7 @@ msgid "Hours of flight"
 msgstr "Heures de vol"
 
 #. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_rma_config_settings_id
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_cause_id
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_id
 msgid "ID"
@@ -405,8 +435,8 @@ msgid "Original customer"
 msgstr "Client original"
 
 #. module: sf_rma
-#: code:addons/odoo/local-src/sf_rma/models/rma.py:398
-#: code:addons/sf_rma/models/rma.py:398
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:472
+#: code:addons/sf_rma/models/rma.py:472
 #, python-format
 msgid "Original customer has to be the partner from the original sale order : %s."
 msgstr "Le client original doit être le même partenaire que celui de la vente originale : %s"
@@ -417,13 +447,14 @@ msgid "Original sale order"
 msgstr "Vente originale"
 
 #. module: sf_rma
-#: code:addons/odoo/local-src/sf_rma/models/rma.py:375
-#: code:addons/sf_rma/models/rma.py:375
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:449
+#: code:addons/sf_rma/models/rma.py:449
 #, python-format
 msgid "Original sale order has to be the first sale order where the lot was sold : %s"
 msgstr "La vente originale doit être la première vente où le lot a été vendu : %s"
 
 #. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_mrp_repair_other_notes
 #: model:ir.ui.view,arch_db:sf_rma.sf_rma_form_view
 msgid "Other"
 msgstr "Autre"
@@ -432,6 +463,11 @@ msgstr "Autre"
 #: model:ir.model.fields,help:sf_rma.field_sf_rma_history_rma_ids
 msgid "Other RMA for the same serial number"
 msgstr "Autres RMA pour le même numéro de série"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_repair_order_form
+msgid "Other notes..."
+msgstr "Autres notes..."
 
 #. module: sf_rma
 #: model:ir.model.fields,field_description:sf_rma.field_account_bank_statement_import_journal_creation_company_partner_id
@@ -492,6 +528,7 @@ msgstr "Devis et commandes"
 #: model:ir.ui.menu,name:sf_rma.menu_sf_rma-act
 #: model:ir.ui.view,arch_db:sf_rma.sf_rma_search_view
 #: model:ir.ui.view,arch_db:sf_rma.sf_rma_tree_view
+#: model:sale.order.type,name:sf_rma.rma_sale_type
 #, python-format
 msgid "RMA"
 msgstr "RMA"
@@ -512,23 +549,40 @@ msgid "RMA Pricelist"
 msgstr "List de prix RMA"
 
 #. module: sf_rma
-#: code:addons/odoo/local-src/sf_rma/models/rma.py:413
-#: code:addons/sf_rma/models/rma.py:413
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:487
+#: code:addons/sf_rma/models/rma.py:487
 #, python-format
 msgid "RMA Product has to be a product from original sale order."
 msgstr "Le produit du RMA doit être un produit de la commande originale."
 
 #. module: sf_rma
-#: code:addons/odoo/local-src/sf_rma/models/rma.py:406
-#: code:addons/sf_rma/models/rma.py:406
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:480
+#: code:addons/sf_rma/models/rma.py:480
 #, python-format
 msgid "RMA Product has to be the same product from the lot/serial number : %s."
 msgstr "Le produit RMA être le même produit que celui du lot/numéro de série : %s."
 
 #. module: sf_rma
+#: model:stock.picking.type,name:sf_rma.picking_type_rma
+msgid "RMA Receipts"
+msgstr "RMA réceptions"
+
+#. module: sf_rma
+#: code:addons/odoo/local-src/sf_rma/models/rma.py:411
+#: code:addons/sf_rma/models/rma.py:411
+#, python-format
+msgid "RMA cannot be canceled if already closed."
+msgstr "RMA ne peut pas être annulé s'il est déjà fermé."
+
+#. module: sf_rma
 #: model:crm.team,name:sf_rma.crm_team_rma
 msgid "RMA team"
 msgstr "Equipe RMA"
+
+#. module: sf_rma
+#: model:res.groups,name:sf_rma.group_rma_reader
+msgid "Reader"
+msgstr "Lecteur"
 
 #. module: sf_rma
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_offer_reason
@@ -539,6 +593,17 @@ msgstr "Motif"
 #: model:ir.model.fields,help:sf_rma.field_sf_rma_offer_reason
 msgid "Reason of the commercial gesture"
 msgstr "Raison pour le geste commercial"
+
+#. module: sf_rma
+#: model:ir.ui.view,arch_db:sf_rma.view_rma_config_settings
+msgid "Reception"
+msgstr "Réception"
+
+#. module: sf_rma
+#: model:ir.model.fields,field_description:sf_rma.field_res_company_rma_receive_picking_type_id
+#: model:ir.model.fields,field_description:sf_rma.field_rma_config_settings_rma_receive_picking_type_id
+msgid "Reception operation type"
+msgstr "Type d'opération de réception"
 
 #. module: sf_rma
 #: model:ir.model,name:sf_rma.model_mrp_repair
@@ -665,6 +730,7 @@ msgstr "Le Lot/numéro de série du produit retourné"
 msgid "This currency will be used, instead of the default one, for purchases from the current partner"
 msgstr "Cette devise sera utilisée, au lieu de celle par défaut, pour les achats depuis ce partenaire actuel."
 
+
 #. module: sf_rma
 #: model:ir.model.fields,help:sf_rma.field_res_users_property_delivery_carrier_id
 msgid "This delivery method will be used when invoicing from picking."
@@ -724,6 +790,16 @@ msgstr "Entrepôt"
 #: model:ir.model.fields,field_description:sf_rma.field_sf_rma_warranty_limit
 msgid "Warranty limit"
 msgstr "Limite de guarantie"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_rma_config_settings_rma_default_payment_term_to_id
+msgid "When the sale order is generated, the payment term we need to define"
+msgstr "Lorsque la commande de vente est générée, définir le terme de paiement"
+
+#. module: sf_rma
+#: model:ir.model.fields,help:sf_rma.field_rma_config_settings_rma_default_payment_term_from_id
+msgid "When the sale order is generated, the payment term we need to replace"
+msgstr "Lorsque la commande de vente est générée, le délai de paiement que nous devons remplacer"
 
 #. module: sf_rma
 #: model:ir.actions.act_window,help:sf_rma.act_sf_rma_sale_order
