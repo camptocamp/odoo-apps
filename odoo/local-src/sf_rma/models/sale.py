@@ -10,6 +10,15 @@ class SaleOrder(models.Model):
 
     rma_id = fields.Many2one('sf.rma', string="RMA")
 
+    @api.multi
+    def write(self, vals):
+        result = super(SaleOrder, self).write(vals)
+        if 'down_payment_missing' in vals:
+            for sale in self:
+                if sale.state == 'sale':
+                    sale.order_line._action_procurement_create()
+        return result
+
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
