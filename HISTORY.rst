@@ -28,6 +28,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-517: RMA user can change rma causes
+* BSSFL-519: Record invoice payment
 
 **Build**
 
