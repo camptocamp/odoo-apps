@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-516: Team on journal items list view
 * BSSFL-488: Change RMA rules for Picking generation. The conditions for
   generating the procurement order have been changed if he is linking to a rma.
 * BSSFL-499: Generate picking (on conditions) when down payment is paid
