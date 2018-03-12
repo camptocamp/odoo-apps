@@ -100,6 +100,13 @@ class TestBudgetImport(common.SavepointCase):
              }
         )
 
+        # Analytic accounts (Project)
+        cls.env['account.analytic.account'].create(
+            {'name': 'Xproject',
+             'code': 'xxx'
+             }
+        )
+
         # Fiscal Year
         cls.env['date.range'].create(
             {'name': 2017,

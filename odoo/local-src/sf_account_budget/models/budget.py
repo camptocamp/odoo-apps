@@ -35,6 +35,9 @@ class AccountBudgetLine(models.Model):
     tag_id = fields.Many2one(
         'account.analytic.tag', string='Team', required=True
     )
+    analytic_account_id = fields.Many2one(
+        'account.analytic.account', string='Project'
+    )
     fiscal_year_id = fields.Many2one(
         'date.range', related='budget_id.fiscal_year_id'
     )

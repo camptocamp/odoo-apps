@@ -28,6 +28,7 @@
                                 <field name="budget_id" invisible="1"/>
                                 <field name="fiscal_year_id" invisible="1"/>
                                 <field name="tag_id"/>
+                                <field name="analytic_account_id"/>
                                 <field name="period_id"/>
                                 <field name="period_budget" sum="Total Budget"/>
                                 <field name="e1" sum="Total Budget"/>
