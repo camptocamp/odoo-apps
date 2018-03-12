@@ -30,6 +30,7 @@ latest (unreleased)
 
 * BSSFL-517: RMA user can change rma causes
 * BSSFL-519: Record invoice payment
+* BSSFL513: Down payment invoice sequence
 
 **Build**
 

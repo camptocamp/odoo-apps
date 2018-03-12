@@ -17,10 +17,10 @@ class AccountInvoice(models.Model):
         downpay_prod_id = \
             self.env['sale.advance.payment.inv']._default_product_id()
         for inv in self:
-            inv.is_down_pay_inv = any(
-                line.product_id == downpay_prod_id
-                for line in inv.invoice_line_ids
-            )
+            inv.is_down_pay_inv = inv.type == 'out_invoice' and \
+                                  any(line.product_id == downpay_prod_id
+                                      and line.quantity > 0
+                                      for line in inv.invoice_line_ids)
 
     @api.multi
     def invoice_validate(self):
