@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo.tests.common import SavepointCase
+import odoo.tests.common as common
 from os import path
 import base64
 import os
@@ -8,7 +8,9 @@ import calendar
 import pandas as pd
 
 
-class TestBudgetImport(SavepointCase):
+@common.at_install(False)
+@common.post_install(True)
+class TestBudgetImport(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestBudgetImport, cls).setUpClass()
@@ -81,17 +83,19 @@ class TestBudgetImport(SavepointCase):
         # Analytic tag dimensions
         dimension_id = cls.env['account.analytic.dimension'].create(
             {'name': 'Team',
-             'code': 'team'}
+             'code': 'T'}
         ).id
 
         # Analytic tags
         cls.env['account.analytic.tag'].create(
-            {'name': 'FIN',
+            {'name': 'Finance',
+             'code': 'FIN',
              'analytic_dimension_id': dimension_id
              }
         )
         cls.env['account.analytic.tag'].create(
             {'name': 'IT',
+             'code': 'IT',
              'analytic_dimension_id': dimension_id
              }
         )

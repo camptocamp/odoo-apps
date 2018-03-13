@@ -31,6 +31,7 @@ latest (unreleased)
 * BSSFL-517: RMA user can change rma causes
 * BSSFL-519: Record invoice payment
 * BSSFL513: Down payment invoice sequence
+* BSSFL-501: Import budget, search analytic tag by code
 
 **Build**
 
