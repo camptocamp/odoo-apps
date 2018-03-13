@@ -204,7 +204,7 @@
         <field name="name">sf.rma.form.cause.edit</field>
         <field name="model">sf.rma</field>
         <field name="inherit_id" ref="sf_rma.sf_rma_form_view"/>
-        <field name="groups_id" eval="[(4, ref('sf_rma.group_rma_manager'))]"/>
+        <field name="groups_id" eval="[(4, ref('sf_rma.group_rma_user'))]"/>
         <field name="arch" type="xml">
             <field name="cause_ids" position="replace">
                 <field name="cause_ids" widget="many2many_tags" readonly="0"/>

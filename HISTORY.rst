@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-517: RMA user can change rma causes
+
 **Build**
 
 * Fix nginx version for dev build
