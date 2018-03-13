@@ -93,7 +93,7 @@ class AccountBudgetImport(models.Model):
                 project_id = self._get_project_analytic_account_id(project)
                 if not project_id:
                     raise MissingError(
-                        _("Team not found!: Row %s, Project %s") %
+                        _("Project not found!: Row %s, Project %s") %
                         (index, project))
 
             # Account Budget
