@@ -225,9 +225,7 @@ class AccountBudgetImport(models.Model):
     def _get_project_analytic_account_id(self, project_code):
         projects = self.env['account.analytic.account'].search(
             [('code', '=', project_code)])
-        if len(projects) == 1:
-            return projects[0].id
-        return None
+        return projects and projects[0].id
 
     @api.model
     def _get_account_budget(self, company_id, account_id, fiscal_year_id):
