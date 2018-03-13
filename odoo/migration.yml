@@ -266,6 +266,7 @@ migration:
     - version: 10.23.0
       addons:
         upgrade:
+          - mail_see_recipients
           - partner_external_map
           # local-src
           - sf_account_financial_reporting
