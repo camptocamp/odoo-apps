@@ -7,7 +7,8 @@
     'author': 'Telmo Santos',
     'category': 'SenseFly',
     'depends': ['account',
-                'sf_report'],
+                'sf_report',
+                'sale'],
     'data': [
         'data/invoice_action_data.xml',
         'data/account_data.xml',
