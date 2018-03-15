@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-257: Map for partner address
+
 **Bugfixes**
 
 **Build**

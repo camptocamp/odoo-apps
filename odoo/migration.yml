@@ -263,3 +263,7 @@ migration:
           - sf_account_budget
           - sf_account_asset_management
           - sf_helpdesk
+    - version: 10.23.0
+      addons:
+        upgrade:
+          - partner_external_map
