@@ -21,6 +21,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-456: Search ticket by number
 * BSSFL-516: Team on journal items list view
 * BSSFL-514: Budget with project code
 * BSSFL-488: Change RMA rules for Picking generation. The conditions for
