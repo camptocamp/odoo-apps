@@ -11,6 +11,7 @@
         'sf_report',
         'sf_product',
         'sf_stock',
+        'sf_sale_invoicing',
         'delivery',
         'sale_exception',
         'sale_order_lot_selection',
