@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Asset -->
+  <record id="sf_view_account_asset_asset_form" model="ir.ui.view">
+    <field name="name">sf.view.account.asset.asset.form</field>
+    <field name="model">account.asset</field>
+    <field name="inherit_id" ref="account_asset_management.view_account_asset_asset_form"/>
+    <field name="arch" type="xml">
+      <field name="account_analytic_id" position="attributes">
+        <attribute name="string">Project</attribute>
+        <attribute name="help">Analytic Account means Project</attribute>
+      </field>
+      <field name="account_analytic_id" position="before">
+        <field name="analytic_tag_ids" string="Team" widget="many2many_tags"/>
+      </field>
+    </field>
+  </record>
+</odoo>
