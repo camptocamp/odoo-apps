@@ -11,20 +11,21 @@ import pandas as pd
 
 TEMPLATE_MAP = {'account_code': 0,
                 'team': 2,
-                'budget_type': 3,
-                'fiscal_year': 4,
-                'periods': {'01': 5,
-                            '02': 6,
-                            '03': 7,
-                            '04': 8,
-                            '05': 9,
-                            '06': 10,
-                            '07': 11,
-                            '08': 12,
-                            '09': 13,
-                            '10': 14,
-                            '11': 15,
-                            '12': 16}
+                'project': 3,
+                'budget_type': 4,
+                'fiscal_year': 5,
+                'periods': {'01': 6,
+                            '02': 7,
+                            '03': 8,
+                            '04': 9,
+                            '05': 10,
+                            '06': 11,
+                            '07': 12,
+                            '08': 13,
+                            '09': 14,
+                            '10': 15,
+                            '11': 16,
+                            '12': 17}
                 }
 
 BUDGET_TYPE_MAP = {'BU': 'period_budget',
@@ -84,6 +85,17 @@ class AccountBudgetImport(models.Model):
                     _("Team not found!: Row %s, Team %s") %
                     (index, team))
 
+            # Project
+            project = row[TEMPLATE_MAP['project']]
+            is_nan = isinstance(project, float) and math.isnan(project)
+            project_id = None
+            if project and not is_nan:
+                project_id = self._get_project_analytic_account_id(project)
+                if not project_id:
+                    raise MissingError(
+                        _("Project not found!: Row %s, Project %s") %
+                        (index, project))
+
             # Account Budget
             account_budget = self._get_account_budget(
                 company_id, account_id, fiscal_year_id)
@@ -117,7 +129,7 @@ class AccountBudgetImport(models.Model):
                         (period_code, period_range_type))
 
                 budget_line = self._get_account_budget_line(
-                    account_budget.id, tag_id, period_id)
+                    account_budget.id, tag_id, project_id, period_id)
 
                 budget_type = row[TEMPLATE_MAP['budget_type']]
                 if not budget_type \
@@ -129,7 +141,7 @@ class AccountBudgetImport(models.Model):
                 if not budget_line:
                     self.with_context(index=index).create_budget_line(
                         account_budget.id, budget_type, period_id, period,
-                        tag_id, row)
+                        tag_id, project_id, row)
                 else:
                     self.with_context(index=index).write_budget_line(
                         budget_line, budget_type, period, row)
@@ -138,9 +150,10 @@ class AccountBudgetImport(models.Model):
 
     @api.model
     def create_budget_line(self, account_budget_id, budget_type,
-                           period_id, period, tag_id, row):
+                           period_id, period, tag_id, project_id, row):
         vals = {'budget_id': account_budget_id,
                 'tag_id': tag_id,
+                'analytic_account_id': project_id,
                 'period_id': period_id,
                 'active': True
                 }
@@ -209,6 +222,12 @@ class AccountBudgetImport(models.Model):
         return tags
 
     @api.model
+    def _get_project_analytic_account_id(self, project_code):
+        projects = self.env['account.analytic.account'].search(
+            [('code', '=', project_code)])
+        return projects and projects[0].id
+
+    @api.model
     def _get_account_budget(self, company_id, account_id, fiscal_year_id):
         account_budget = self.env['sf.account.budget'].search(
             [('company_id', '=', company_id),
@@ -219,10 +238,12 @@ class AccountBudgetImport(models.Model):
         return account_budget[0]
 
     @api.model
-    def _get_account_budget_line(self, account_budget_id, tag_id, period_id):
+    def _get_account_budget_line(
+            self, account_budget_id, tag_id, project_id, period_id):
         account_budget_lines = self.env['sf.account.budget.line'].search(
             [('budget_id', '=', account_budget_id),
              ('tag_id', '=', tag_id),
+             ('analytic_account_id', '=', project_id),
              ('period_id', '=', period_id)])
 
         if len(account_budget_lines) != 1:
