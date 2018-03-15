@@ -126,7 +126,9 @@ class SaleOrder(models.Model):
 
     @api.model
     def get_move_from_line(self, line):
-        """Override standard method to cope with 3 steps delivery config"""
+        # Override standard method to cope with Warehouse -> Outgoing shipping
+        # configuration: 1. ship_only; 2. two_steps; 3. pick_pack_ship
+
         move = self.env['stock.move']
         lot_count = 0
         for p in line.order_id.picking_ids.sorted(
@@ -136,10 +138,28 @@ class SaleOrder(models.Model):
                     move = m
                     lot_count += 1
 
-        # if counter is different of 1 or 3 means that something goes wrong
-        if lot_count not in (1, 3):
+        delivery_steps = self.warehouse_id.delivery_steps
+        preconditions = [
+            delivery_steps == 'ship_only' and lot_count == 1,
+            delivery_steps == 'pick_ship' and lot_count == 2,
+            delivery_steps == 'pick_pack_ship' and lot_count == 3
+        ]
+
+        lot_count_ok = any(preconditions)
+
+        # if counter is different of the number of delivery steps,
+        # it means that something goes wrong
+        if not lot_count_ok:
             raise ValidationError(_('Can\'t retrieve lot on stock'))
         return move
+
+    @api.model
+    def _check_move_state(self, line):
+        # When the payment term requires a down payment,
+        # there's no need check stock moves state
+        if self.payment_term_id.down_payment_required:
+            return True
+        return super(SaleOrder, self)._check_move_state(line)
 
 
 class SaleOrderLine(models.Model):
