@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.22.0 (2018-03-15)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-456: Search ticket by number
 * BSSFL-516: Team on journal items list view
 * BSSFL-514: Budget with project code
