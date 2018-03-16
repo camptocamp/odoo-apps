@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="rma_web_hook_base_url" model="rma.config.settings">
         <field name="web_hook_base_url">http://translator.sensefly.com</field>
     </record>

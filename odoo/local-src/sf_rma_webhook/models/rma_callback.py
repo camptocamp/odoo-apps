@@ -28,20 +28,26 @@ class RmaCallBack(models.Model):
                 # We do not make the call twice but we want to log it
                 rma_call.count += 1
             else:
-                r = requests.get(url)
-                self.env['rma.callback'].create(
-                    {
-                        'url': url,
-                        'status_code': r.status_code,
-                        'count': 1
-                    }
-                )
+                response = None
+                try:
+                    response = requests.get(url)
 
-                log_msg = "Called %s. Status code %s." % (url, r.status_code, )
-                if r.status_code == 200:
-                    _logger.info(log_msg)
-                else:
+                    self.env['rma.callback'].create(
+                        {
+                            'url': url,
+                            'status_code': response.status_code,
+                            'count': 1
+                        }
+                    )
+                except Exception, e:
+                    log_msg = "Called %s. %s." % (
+                        url, e.message,)
                     _logger.warning(log_msg)
+
+                if response:
+                    log_msg = "Called %s. Status code %s." % (
+                        url, response.status_code,)
+                    _logger.info(log_msg)
 
     url = fields.Char(required=True)
     status_code = fields.Integer(required=True)
