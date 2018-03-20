@@ -270,3 +270,4 @@ migration:
           # local-src
           - sf_account_financial_reporting
           - sf_sale
+          - sf_account

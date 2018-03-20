@@ -40,12 +40,22 @@ class AccountPartialReconcile(models.Model):
 
     def _fix_multiple_exchange_rates_diff(
             self, amls_to_fix, amount_diff, diff_in_currency, currency, move):
-        move_lines, partial_reconciles = super(AccountPartialReconcile, self).\
-            _fix_multiple_exchange_rates_diff(
-            amls_to_fix, amount_diff, diff_in_currency, currency, move)
+        move_lines = self.env['account.move.line']
+        partial_reconciles = self.env['account.partial.reconcile']
 
-        for aml in amls_to_fix:
-            if aml.invoice_id.number:
-                move_lines.name = _('Currency exchange rate difference: %s')\
-                                  % aml.invoice_id.number
+        for aml_to_fix in amls_to_fix:
+            move_line, partial_reconcile = super(AccountPartialReconcile,
+                                                 self).\
+                _fix_multiple_exchange_rates_diff(aml_to_fix,
+                                                  amount_diff,
+                                                  diff_in_currency,
+                                                  currency,
+                                                  move)
+
+            if aml_to_fix.invoice_id.number:
+                move_line.name = _('Currency exchange rate difference: %s')\
+                                  % aml_to_fix.invoice_id.number
+                move_lines |= move_line
+                partial_reconciles |= partial_reconcile
+
         return move_lines, partial_reconciles
