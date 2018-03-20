@@ -269,3 +269,4 @@ migration:
           - partner_external_map
           # local-src
           - sf_account_financial_reporting
+          - sf_sale

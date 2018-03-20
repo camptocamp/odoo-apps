@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFL-257: Map for partner address
 * BSSFL-515: OCA General Ledger account type filter
+* Add 2nd sales person to keep track Phillip Ray sales
 
 **Bugfixes**
 
