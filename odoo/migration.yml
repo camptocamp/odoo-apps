@@ -272,5 +272,5 @@ migration:
           - sf_account_financial_reporting
           - sf_sale
           - sf_account
-          - sf_sale
           - sf_rma_webhook
+          - sf_rma_mrp_repair

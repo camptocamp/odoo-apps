@@ -27,6 +27,7 @@ latest (unreleased)
 *BSSFL-510: Proforma invoice
 * BSSFL-510: Proforma invoice
 * BSSFL-504: Improve email, add all followers in mailto
+* BSSFL-524: Stock picking smart button to repair
 
 **Bugfixes**
 

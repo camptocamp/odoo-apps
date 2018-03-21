@@ -19,6 +19,7 @@
         "security/ir.model.access.csv",
         "views/mrp_repair.xml",
         "views/rma_config_settings.xml",
+        "views/stock_picking.xml",
         "report/sf_repair_report.xml"
     ],
     "application": False,
