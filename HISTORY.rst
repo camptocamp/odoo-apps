@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-257: Map for partner address
+* BSSFL-515: OCA General Ledger account type filter
 
 **Bugfixes**
 

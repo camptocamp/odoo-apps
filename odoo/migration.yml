@@ -267,3 +267,5 @@ migration:
       addons:
         upgrade:
           - partner_external_map
+          # local-src
+          - sf_account_financial_reporting
