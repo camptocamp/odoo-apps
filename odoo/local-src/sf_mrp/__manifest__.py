@@ -7,7 +7,11 @@
     'author': 'Anar Baghirli',
     'category': 'SenseFly',
     'depends': ['mrp'],
-    'data': ['views/sf_mrp_workorder.xml'],
+    'data': [
+        'security/res_groups.xml',
+        'views/sf_mrp_workorder.xml',
+        'views/sf_mrp_production.xml'
+    ],
     'demo': [],
     'images': ['static/description/icon.png'],
     'installable': True,

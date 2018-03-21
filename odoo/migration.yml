@@ -273,4 +273,9 @@ migration:
           - sf_sale
           - sf_account
           - sf_rma_webhook
+    - version: 10.24.0
+      addons:
+        upgrade:
+          # local-src
+          - sf_mrp
           - sf_rma_mrp_repair

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="mrp_production_inherit">
+        <field name="name">mrp.production.inherit.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id"
+               ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[last()]" position="after">
+                <button
+                    name="button_cancel_mo"
+                    string="Cancel MO"
+                    type="object"
+                    attrs="{'invisible': [('state','=','cancel')]}"
+                    groups="sf_mrp.group_mrp_cancel_mo"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
