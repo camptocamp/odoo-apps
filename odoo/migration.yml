@@ -271,3 +271,4 @@ migration:
           - sf_account_financial_reporting
           - sf_sale
           - sf_account
+          - sf_sale

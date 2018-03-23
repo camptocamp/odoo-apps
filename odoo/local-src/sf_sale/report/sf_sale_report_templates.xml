@@ -9,8 +9,11 @@
     <template id="sf_report_quotation_header_right" inherit_id="sf_report.sf_external_layout_header" primary="True">
             <xpath expr="//div[@name='header_title']" position="inside">
                 <p style="font-size:16px; font-weight: bold;">
-                    <span t-if="doc.state not in ['draft','sent']"><strong>Order</strong></span>
-                    <span t-if="doc.state in ['draft','sent']"><strong>Quotation: </strong></span>
+                    <t t-if="not doc.env.context.get('proforma')">
+                        <span t-if="doc.state not in ['draft','sent']"><strong>Order</strong></span>
+                        <span t-if="doc.state in ['draft','sent']"><strong>Quotation: </strong></span>
+                    </t>
+                    <span t-if="doc.env.context.get('proforma')"><strong>Proforma Invoice: </strong></span>
                     <span t-field="doc.name"/>
                 </p>
                 <span t-field="doc.date_order" t-field-options='{"format": "d MMMM yyyy"}'/>
@@ -20,7 +23,7 @@
 
     <template id="sf_report_saleorder_document">
         <t t-call="sf_sale.sf_external_layout_quotation_header_right">
-            <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})" />
+            <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
             <div class="page">
                 <div class="oe_structure"/>
                 <div class="row">
@@ -223,6 +226,16 @@
         <t t-call="report.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="sf_sale.sf_report_saleorder_document" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="sf_report_proforma">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="sf_sale.sf_report_saleorder_document" t-lang="doc.partner_id.lang">
+                    <t t-set="doc" t-value="doc.with_context(proforma=True)" />
+                </t>
             </t>
         </t>
     </template>

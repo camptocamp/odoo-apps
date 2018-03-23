@@ -8,4 +8,13 @@
         file="sf_sale.sf_report_saleorder"
         name="sf_sale.sf_report_saleorder"
     />
+
+    <report
+        id="report_proforma"
+        string="Proforma"
+        model="sale.order"
+        report_type="qweb-pdf"
+        file="sf_sale.sf_report_proforma"
+        name="sf_sale.sf_report_proforma"
+    />
 </odoo>
