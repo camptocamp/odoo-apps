@@ -273,3 +273,4 @@ migration:
           - sf_sale
           - sf_account
           - sf_sale
+          - sf_rma_webhook

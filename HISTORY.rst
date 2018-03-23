@@ -31,6 +31,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-525: Invoices & Payments Matching
+* BSSFL-522: Just try to contact web hook when repair is done
 
 **Build**
 
