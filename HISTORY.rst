@@ -24,7 +24,6 @@ latest (unreleased)
 * BSSFL-257: Map for partner address
 * BSSFL-515: OCA General Ledger account type filter
 * Add 2nd sales person to keep track Phillip Ray sales
-*BSSFL-510: Proforma invoice
 * BSSFL-510: Proforma invoice
 * BSSFL-504: Improve email, add all followers in mailto
 
