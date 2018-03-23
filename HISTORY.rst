@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.23.0 (2018-03-23)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-257: Map for partner address
 * BSSFL-515: OCA General Ledger account type filter
 * Add 2nd sales person to keep track Phillip Ray sales
@@ -31,10 +43,6 @@ latest (unreleased)
 
 * BSSFL-525: Invoices & Payments Matching
 * BSSFL-522: Just try to contact web hook when repair is done
-
-**Build**
-
-**Documentation**
 
 
 10.22.0 (2018-03-15)
