@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-525: Invoices & Payments Matching
+
 **Build**
 
 **Documentation**
