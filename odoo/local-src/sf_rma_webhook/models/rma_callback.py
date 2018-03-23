@@ -42,7 +42,7 @@ class RmaCallBack(models.Model):
                 except Exception, e:
                     log_msg = "Called %s. %s." % (
                         url, e.message,)
-                    _logger.warning(log_msg)
+                    _logger.exception(log_msg)
 
                 if response:
                     log_msg = "Called %s. Status code %s." % (
