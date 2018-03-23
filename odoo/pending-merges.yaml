@@ -47,3 +47,12 @@
       # [10.0] Migration of account_asset_management
     - oca refs/pull/441/head
   target: *default_target
+./external-src/odoo-apps:
+  remotes:
+    bistaray: git@github.com:bistaray/odoo-apps.git
+    camptocamp: git@github.com:camptocamp/odoo-apps.git
+  merges:
+    - bistaray 10.0
+      # [10.0] Remove crash with non ascii characters
+    - bistaray refs/pull/6/head
+  target: *default_target

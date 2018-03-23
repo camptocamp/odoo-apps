@@ -59,3 +59,7 @@
 	path = odoo/external-src/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
 	branch = 10.0
+[submodule "odoo/external-src/odoo-apps"]
+	path = odoo/external-src/odoo-apps
+	url = git@github.com:camptocamp/odoo-apps.git
+	branch = 10.0
