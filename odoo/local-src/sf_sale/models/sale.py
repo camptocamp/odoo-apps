@@ -7,6 +7,12 @@ from odoo.exceptions import ValidationError
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    second_user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='Salesperson (2nd)',
+        help='This person is also related with the sale.'
+    )
+
     def _reset_delivery_method(self, order_lines):
         """Check if reset delivery method is needed.
         Delivery method field must be reseted when a change that
