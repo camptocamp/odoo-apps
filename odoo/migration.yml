@@ -284,3 +284,4 @@ migration:
         upgrade:
           # local-src
           - sf_account
+          - sf_rma

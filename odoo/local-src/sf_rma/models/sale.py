@@ -29,6 +29,16 @@ class SaleOrder(models.Model):
                     sale.order_line._action_procurement_create()
         return result
 
+    @api.multi
+    def action_confirm(self):
+        result = super(SaleOrder, self).action_confirm()
+        # RMA in this conditions is not invoiced
+        is_rma = self.type_id.id == self.env.ref('sf_rma.rma_sale_type').id
+        under_warranty_rma = self.rma_id.decision in ('free', 'to_offer')
+        if is_rma and under_warranty_rma and self.amount_total == 0:
+            self.invoice_status = 'no'
+        return result
+
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
