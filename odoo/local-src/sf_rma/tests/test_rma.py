@@ -123,3 +123,10 @@ class TestRMA(TransactionCase):
         self.assertEquals(self.rma.state, 'closed')
         self.rma.action_reset()
         self.assertEquals(self.rma.state, 'draft')
+
+    def test_rma_under_warranty_not_invoiced(self):
+        """RMA under warranty is not invoiced"""
+        self.rma.to_receive = True
+        self.rma.action_open()
+        self.rma.sale_ids.action_confirm()
+        self.assertEquals(self.rma.sale_ids.invoice_status, 'no')
