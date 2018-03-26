@@ -34,7 +34,7 @@ class AccountAsset(models.Model):
 
         if self.env.context.get('aggregate_move_lines'):
             # 1 move for all depreciations
-            result = depreciations.create_move()
+            result = [depreciations.create_move()]
         else:
             # 1 move per depreciation
             for depreciation in depreciations:

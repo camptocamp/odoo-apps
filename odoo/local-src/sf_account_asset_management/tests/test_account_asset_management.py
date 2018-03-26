@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+from odoo import fields
 from odoo.addons.account_asset_management.tests.test_account_asset_management \
     import TestAssetManagement
 
@@ -24,32 +25,45 @@ class SenseflyTestAssetManagement(TestAssetManagement):
         asset01.compute_depreciation_board()
         asset02.compute_depreciation_board()
 
-        asset_compute_context = dict(self.env.context or {})
-        asset_compute_context.update(
-            {'aggregate_move_lines': True,
-             'reference': 'Test assets computation with aggregation',
-             'journal_id': self.journal.id
-             }
-        )
-
         # Depreciation lines
         dl = self.dl_model.search(
             [('asset_id', 'in', (asset01.id, asset02.id)),
              ('type', '=', 'depreciate')])
 
-        move_id = dl.with_context(asset_compute_context).create_move()
+        move_id = dl.with_context(
+            aggregate_move_lines=True,
+            reference='Test assets computation with aggregation',
+            journal_id=self.journal.id
+        ).create_move()
 
         # we've got a single account move as expected
         self.assertIsInstance(move_id, int)
         move = self.env['account.move'].browse(move_id)
 
         self.assertEqual(move.ref,
-                         asset_compute_context['reference'])
+                         'Test assets computation with aggregation')
         self.assertEqual(move.journal_id.id,
-                         asset_compute_context['journal_id'])
+                         self.journal.id)
 
         # analytic account (Project) and analytic tag (Team)
         # assigned to move lines
         for line in move.line_ids.filtered(lambda l: l.asset_id):
             self.assertEqual(line.analytic_account_id, account_analytic)
             self.assertEqual(line.analytic_tag_ids.ids, [tag.id])
+
+    def test_asset_compute_entries(self):
+        """As a result of the computation of the assets entries,
+        with context aggregation of move lines, we get a list with a single
+        account move id
+        """
+        asset = self.env.ref(
+            "account_asset_management.account_asset_vehicle0")
+
+        today = fields.Date.today()
+        move_ids = asset.with_context(
+            aggregate_move_lines=True,
+            reference='Test assets computation with aggregation',
+            journal_id=self.journal.id)._compute_entries(today)
+
+        self.assertIsInstance(move_ids, list)
+        self.assertEqual(len(move_ids), 1)

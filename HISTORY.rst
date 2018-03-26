@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-527: Asset compute with move lines aggregation returns single move
+
 **Build**
 
 **Documentation**
