@@ -36,6 +36,9 @@ class AccountInvoice(models.Model):
                 inv.number = self.env['ir.sequence'].next_by_code(
                     'downpay.invoice'
                 )
+                # Sync invoice number and move name
+                if inv.move_id:
+                    inv.move_id.name = inv.number
         return res
 
     @api.multi
