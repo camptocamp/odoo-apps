@@ -8,7 +8,7 @@
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
             <field name="analytic_account_id" position="before">
-                <field name="analytic_tag_ids" string="Team"/>
+                <field name="analytic_tag_ids" string="Team" widget="many2many_tags"/>
             </field>
             <field name="analytic_account_id" position="attributes">
                 <attribute name="string">Project</attribute>

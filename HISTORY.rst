@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-528: Account move form in edit mode do not present well team field
+
 **Build**
 
 **Documentation**
