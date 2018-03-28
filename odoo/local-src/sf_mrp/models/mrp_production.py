@@ -2,6 +2,7 @@
 
 from datetime import date
 from odoo import api, models, fields
+from odoo.tools.translate import _
 from odoo.exceptions import ValidationError, UserError
 
 
@@ -28,7 +29,9 @@ class MrpProduction(models.Model):
             'location_id': move.location_dest_id.id,
             'location_dest_id': move.location_id.id,
             'origin_returned_move_id': move.id,
-            'procure_method': 'make_to_stock'
+            'procure_method': 'make_to_stock',
+            'production_id': None,
+            'raw_material_production_id': None
         })
         move.move_dest_id = new_move
         new_move.action_confirm()
@@ -42,11 +45,11 @@ class MrpProduction(models.Model):
             raise UserError("Only users in group "
                             "'sf_mrp.group_mrp_cancel_mo' can cancel MO")
         limit_date = date.today().replace(day=1)
-        for mo in self:
+        for mo in self.filtered(lambda m: m.state != 'cancel'):
             if (mo.state == 'done' and
                     fields.Date.from_string(mo.date_finished) < limit_date):
-                raise ValidationError(
-                    'Cannot cancel done order from last month or older')
+                raise UserError(
+                    _('Cannot cancel done order from last month or older'))
 
             mo.post_inventory()
             for move in mo.move_finished_ids.filtered(
@@ -55,12 +58,11 @@ class MrpProduction(models.Model):
                     move.action_cancel()
                 else:
                     if not all(
-                            location_id == move.location_dest_id
-                            for location_id in
-                            move.quant_ids.mapped('location_id')):
-                        raise ValidationError(
-                            'Cannot cancel order if finished products are '
-                            'no longer in stock')
+                            loc == mo.location_dest_id
+                            for loc in move.mapped('quant_ids.location_id')):
+                        raise UserError(
+                            _('Cannot cancel order if finished products '
+                              'are no longer in stock'))
                     self._revert_stock_move(move)
 
             for move in mo.move_raw_ids.filtered(
