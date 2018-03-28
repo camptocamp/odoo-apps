@@ -29,6 +29,7 @@ latest (unreleased)
 * BSSFL-529: Down payment invoice number and related account move name in sync
 BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-526: RMA under warranty is not invoiced
+* BSSFL-530: Repair blocked in to quotation status
 
 **Build**
 

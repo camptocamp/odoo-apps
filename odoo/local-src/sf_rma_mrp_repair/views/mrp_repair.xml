@@ -53,7 +53,7 @@
                 <header>
                     <button name="action_repair_to_analyze" attrs="{'invisible':['|', ('state', '!=', 'open'), ('invoicable_rma', '=', False)]}" string="To analyze" type="object" class="oe_highlight"/>
                     <button name="action_repair_to_quotation" states="to_analyze" string="To quotation" type="object" class="oe_highlight"/>
-                    <button name="action_repair_to_repair" attrs="{'invisible': ['!', '|', '&amp;', ('state', '=', 'open'), ('invoicable_rma', '=', False), '&amp;', ('state', '=', 'to_quotation'), ('invoicable_rma', '=', True)]}" string="To repair" type="object" class="oe_highlight"/>
+                    <button name="action_repair_to_repair" attrs="{'invisible': ['!', '|', '&amp;', ('state', '=', 'open'), ('invoicable_rma', '=', False), ('state', '=', 'to_quotation')]}" string="To repair" type="object" class="oe_highlight"/>
                     <button name="action_repair_to_test" states="under_repair" string="To test" type="object" class="oe_highlight"/>
                     <button name="action_repair_back_to_analyze" attrs="{'invisible':['|', ('state', '!=', 'under_repair'), ('invoicable_rma', '=', False)]}" string="Back to analyze" type="object" />
                     <button name="action_repair_to_finalize" states="to_test" string="To finalize" type="object" class="oe_highlight"/>

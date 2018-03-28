@@ -26,6 +26,8 @@ class TestRMA(TransactionCase):
         comp = self.env.user.company_id
         comp.rma_receive_picking_type_id = \
             self.env.ref('sf_rma.picking_type_rma')
+        comp.rma_repair_location_id = self.env.ref(
+            'stock.stock_location_stock').id
 
     def test_rma_sequence(self):
         self.assertEquals(self.rma.name[:3], 'RMA')

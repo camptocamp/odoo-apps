@@ -195,7 +195,7 @@ class MrpRepair(models.Model):
         if self.filtered(lambda repair: not ((repair.state == 'open'
                                               and not repair.invoicable_rma)
                                              or (repair.state == 'to_quotation'
-                                                 and repair.invoicable_rma))):
+                                                 ))):
             raise UserError(_('Repair must be either To Analyze for '
                               'invoicable RMA or Open for non invoicable '
                               'RMA, in order to be repaired.'))
