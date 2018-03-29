@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sf_rma_view_picking_form" model="ir.ui.view">
+            <field name="name">sf.rma.view.picking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="priority" eval="100"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button name="action_view_repair"
+                      type="object"
+                      class="oe_stat_button"
+                      icon="fa-wrench"
+                      attrs="{'invisible': [('repair_count', '=', 0)]}">
+                      <div class="o_stat_info">
+                        <span class="o_stat_text" attrs="{'invisible': [('repair_count', '!=', 1)]}">Repair :</span>
+                        <span class="o_stat_text" attrs="{'invisible': [('repair_count', '!=', 1)]}">
+                          <field name="repair_state" class="oe_inline"/>
+                        </span>
+                        <field name="repair_count" class="o_stat_value" attrs="{'invisible': [('repair_count', '=', 1)]}"/>
+                        <span class="o_stat_text" attrs="{'invisible': [('repair_count', '=', 1)]}">
+                          Repairs
+                        </span>
+                      </div>
+                    </button>
+                </div>
+            </field>
+    </record>
+</odoo>
