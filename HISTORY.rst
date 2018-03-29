@@ -21,15 +21,23 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.24.0 (2018-03-29)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-512: Add button to cancel MO no matter the state
 
 **Bugfixes**
 
 * BSSFL-527: Asset compute with move lines aggregation returns single move
-
-**Build**
-
-**Documentation**
 
 
 10.23.0 (2018-03-23)
