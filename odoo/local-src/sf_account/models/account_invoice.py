@@ -2,6 +2,7 @@
 # Part of sensefly.
 
 from odoo import fields, models, api
+import json
 
 
 class AccountInvoice(models.Model):
@@ -53,6 +54,15 @@ class AccountInvoice(models.Model):
         self.sent = True
         return self.env['report'].get_action(
             self, 'sf_account.sf_report_invoice')
+
+    @api.one
+    def get_payment_info(self):
+        # Just load JSON payment info
+        json_data = self.payments_widget
+        payment_info = json.loads(json_data)
+        if payment_info:
+            return payment_info.get('content', False)
+        return False
 
     order_ids = fields.Many2many(
         'sale.order', string='Orders', compute='_compute_sale_orders')
