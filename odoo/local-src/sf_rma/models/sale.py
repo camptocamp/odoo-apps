@@ -10,6 +10,16 @@ class SaleOrder(models.Model):
 
     rma_id = fields.Many2one('sf.rma', string="RMA")
 
+    @api.model
+    def _check_move_state(self, line):
+        # When the rma decision is to invoice, we need to be able to
+        # confirm the SO + create Invoice.
+        # At this point the repair is not finished yet, no procurements
+        # were created, so no need to check move state.
+        if self.rma_id and self.rma_id.decision == 'to_invoice':
+            return True
+        return super(SaleOrder, self)._check_move_state(line)
+
     @api.multi
     def write(self, vals):
         result = super(SaleOrder, self).write(vals)

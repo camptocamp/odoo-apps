@@ -80,7 +80,10 @@ class StockPicking(models.Model):
         otherwise open a wizard to list the availability of each stock move.
         note: show_availability_wizard is configured in stock.picking.type
         """
-        self.ensure_one()
+        # This function does not make sense to run for multiple stock.pickings
+        if len(self) > 1:
+            return super(StockPicking, self).action_assign()
+
         reservation_ok = True
         show_wizard = self.picking_type_id.show_availability_wizard
         no_availability_check = self.env.context.get('no_availability_check')

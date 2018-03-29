@@ -61,6 +61,7 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-519: Can't retrieve lot on stock
 * BSSFL-517: RMA user can change rma causes
 * BSSFL-518: Record invoice payment
 * BSSFL-513: Down payment invoice sequence
