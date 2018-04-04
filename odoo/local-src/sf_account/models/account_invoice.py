@@ -2,7 +2,11 @@
 # Part of sensefly.
 
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 import json
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class AccountInvoice(models.Model):
@@ -59,7 +63,13 @@ class AccountInvoice(models.Model):
     def get_payment_info(self):
         # Just load JSON payment info
         json_data = self.payments_widget
-        payment_info = json.loads(json_data)
+        try:
+            payment_info = json.loads(json_data)
+        except Exception, e:
+            log_msg = "Error loading payment info. %s." % (e.message,)
+            _logger.exception(log_msg)
+            raise ValidationError('Error loading payment info. %s' % e.message)
+
         if payment_info:
             return payment_info.get('content', False)
         return False
