@@ -2,6 +2,7 @@
 # Part of sensefly.
 
 from odoo import fields, models, api, _
+import uuid
 
 
 class ProductTemplate(models.Model):
@@ -43,6 +44,9 @@ class ProductTemplate(models.Model):
         ('4css', 'CSS'),
         ('5accounting', 'Accounting'),
     ])
+    uuid = fields.Char(
+        'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),
+        required=True)
 
 
 class ProductProduct(models.Model):
