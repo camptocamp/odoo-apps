@@ -40,6 +40,7 @@ class TestDownpaymentInvoice(AccountingTestCase):
         })
 
     def test_downpay_invoice(self):
+        self.invoice.action_move_create()
         self.invoice.invoice_validate()
 
         # Is a downpayment invoice
@@ -47,3 +48,6 @@ class TestDownpaymentInvoice(AccountingTestCase):
 
         # Using down payment sequence like Ayyyymmdd
         self.assertTrue(self.invoice.number.startswith('A'))
+
+        # Invoice number in sync with account move name
+        self.assertEqual(self.invoice.number, self.invoice.move_id.name)
