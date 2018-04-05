@@ -13,6 +13,10 @@ class ProductionLot(models.Model):
     uuid = fields.Char(
         'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),
         required=True)
+    invitation_key = fields.Char(
+        string='Invitation key',
+        help='The person or entity with this key, owns the product '
+             'with this serial number')
     warranty_end_date = fields.Date('Warranty end date')
     first_outgoing_stock_move_id = fields.Many2one(
         'stock.move', string='First outgoing stock move')

@@ -41,6 +41,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFW-35: Invitation key on serial number
 * BSSFL-375: Payment statement report
 * BIZ-1503: Set move date equal to Payment Execution when
   Payment Execution Date Type == Fixed Date
