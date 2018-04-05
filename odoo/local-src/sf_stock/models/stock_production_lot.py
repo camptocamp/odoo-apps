@@ -21,3 +21,7 @@ class ProductionLot(models.Model):
                                         string='Product tracking')
 
     notes = fields.Text(string='Comment')
+
+    _sql_constraints = [
+        ('unique_uuid', 'UNIQUE(uuid)', 'UUID must be unique!'),
+    ]

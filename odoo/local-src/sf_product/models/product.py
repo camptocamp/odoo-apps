@@ -48,6 +48,10 @@ class ProductTemplate(models.Model):
         'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),
         required=True)
 
+    _sql_constraints = [
+        ('unique_uuid', 'UNIQUE(uuid)', 'UUID must be unique!'),
+    ]
+
 
 class ProductProduct(models.Model):
     _inherit = "product.product"

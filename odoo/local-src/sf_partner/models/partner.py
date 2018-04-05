@@ -12,3 +12,7 @@ class Partner(models.Model):
     uuid = fields.Char(
         'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),
         required=True)
+
+    _sql_constraints = [
+        ('unique_uuid', 'UNIQUE(uuid)', 'UUID must be unique!'),
+    ]
