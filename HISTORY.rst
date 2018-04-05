@@ -34,9 +34,11 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-512: Add button to cancel MO no matter the state
+* BSSFL-524: Stock picking smart button to repair
 
 **Bugfixes**
 
+* BSSFL-519: Can't retrieve lot on stock
 * BSSFL-527: Asset compute with move lines aggregation returns single move
 
 
@@ -50,7 +52,6 @@ latest (unreleased)
 * BSSFL-521: Add 2nd sales person to keep track Phillip Ray sales
 * BSSFL-510: Proforma invoice
 * BSSFL-504: Improve email, add all followers in mailto
-* BSSFL-524: Stock picking smart button to repair
 
 **Bugfixes**
 
@@ -72,7 +73,6 @@ latest (unreleased)
 
 **Bugfixes**
 
-* BSSFL-519: Can't retrieve lot on stock
 * BSSFL-517: RMA user can change rma causes
 * BSSFL-518: Record invoice payment
 * BSSFL-513: Down payment invoice sequence
