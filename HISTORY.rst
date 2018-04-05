@@ -53,6 +53,8 @@ latest (unreleased)
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-530: Repair blocked in to quotation status
+* BIZ-1140: Multiple currencies in same B-Level block of Pain XML files are not allowed
+  according to Swiss Payment Standards
 
 
 10.24.0 (2018-03-29)
