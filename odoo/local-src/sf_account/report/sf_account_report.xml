@@ -10,4 +10,13 @@
         attachment_use="True"
          attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
     />
+
+    <report
+        id="account_invoice_payment"
+        model="account.invoice"
+        string="Payment Statement"
+        report_type="qweb-pdf"
+        name="sf_account.sf_report_invoice_payment"
+        file="sf_account.sf_report_invoice_payment"
+    />
 </odoo>

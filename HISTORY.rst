@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-375: Payment statement report
+
 **Bugfixes**
 
 **Build**
