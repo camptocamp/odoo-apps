@@ -7,6 +7,14 @@ from odoo import fields, models, api, _
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+    @api.model
+    def create(self, vals):
+        """ override default 'date' value if 'date' is in vals """
+        move = super(AccountMove, self).create(vals)
+        if vals.get('date'):
+            move.date = vals.get('date')
+        return move
+
     @api.onchange('date')
     def _onchange_date(self):
         """On the form view, a change on the date will trigger onchange()
