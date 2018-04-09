@@ -99,6 +99,16 @@ class MrpRepair(models.Model):
              "order."
     )
 
+    # State dates
+    date_open = fields.Datetime('Open')
+    date_to_analyze = fields.Datetime('To Analyze')
+    date_to_quotation = fields.Datetime('To Quotation')
+    date_under_repair = fields.Datetime('Under Repair')
+    date_to_test = fields.Datetime('To Test')
+    date_to_finalize = fields.Datetime('Finalize')
+    date_done = fields.Datetime('Done')
+    date_cancel = fields.Datetime('Cancelled')
+
     invoicable_rma = fields.Boolean(store=True, compute='_is_rma_invoicable')
 
     @api.depends('rma_id.decision')
@@ -117,11 +127,29 @@ class MrpRepair(models.Model):
             repair.stage_id = self.env['mrp.repair.stage'].search(
                 [('name', '=', repair.state)]).id
 
+    def _update_state_date(self, state):
+        vals = {}
+        tracked_states = ('open', 'done', 'to_analyze', 'to_quotation',
+                          'under_repair', 'to_test', 'to_finalize', 'cancel')
+        if state in tracked_states:
+            vals['date_' + state] = fields.Datetime.now()
+        return vals
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('state'):
+            vals.update(self._update_state_date(vals['state']))
+        result = super(MrpRepair, self).write(vals)
+        return result
+
+
     @api.multi
     def action_repair_open(self):
         if self.filtered(lambda repair: repair.state != 'draft'):
             raise UserError(_("Repair must be in Draft in order to Open"))
-        return self.write({'state': 'open'})
+        return self.write({'state': 'open',
+                           'date_open': fields.Datetime.now()
+                           })
 
     @api.multi
     def action_repair_done(self):
@@ -254,6 +282,11 @@ class MrpRepair(models.Model):
                 lambda l: l.order_id.state == 'sale'
             )._action_procurement_create()
         return True
+
+    @api.multi
+    def action_repair_cancel(self):
+        res = super(MrpRepair, self).action_repair_cancel()
+        return res
 
     @api.multi
     def action_view_rma(self):

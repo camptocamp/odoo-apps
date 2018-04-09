@@ -46,6 +46,7 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-375: Repair status dates
 * BSSFL-375: Payment statement report
 * BIZ-1503: Set move date equal to Payment Execution when
   Payment Execution Date Type == Fixed Date

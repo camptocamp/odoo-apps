@@ -93,6 +93,25 @@
                     </button>
                 </div>
             </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Dates">
+                    <group>
+                        <group>
+                            <field name="date_open" readonly="1"/>
+                            <field name="date_to_analyze" readonly="1"/>
+                            <field name="date_to_quotation" readonly="1"/>
+                            <field name="date_under_repair" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="date_to_test" readonly="1"/>
+                            <field name="date_to_finalize" readonly="1"/>
+                            <field name="date_done" readonly="1"/>
+                            <field name="date_cancel" readonly="1"/>
+                        </group>
+                    </group>
+                 </page>
+             </xpath>
         </field>
     </record>
 
