@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.25.0 (2018-04-09)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-375: Payment statement report
 * BIZ-1503: Set move date equal to Payment Execution when
   Payment Execution Date Type == Fixed Date
@@ -33,10 +45,6 @@ latest (unreleased)
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-530: Repair blocked in to quotation status
-
-**Build**
-
-**Documentation**
 
 
 10.24.0 (2018-03-29)
