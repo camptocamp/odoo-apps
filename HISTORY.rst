@@ -24,12 +24,13 @@ latest (unreleased)
 * BSSFL-375: Payment statement report
 * BIZ-1503: Set move date equal to Payment Execution when
   Payment Execution Date Type == Fixed Date
+* BSSFW-34: Partner, product and serial number UUID
 
 **Bugfixes**
 
 * BSSFL-528: Account move form in edit mode do not present well team field
 * BSSFL-529: Down payment invoice number and related account move name in sync
-BSSFL-526: RMA under warranty is not invoiced
+* BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-530: Repair blocked in to quotation status
 

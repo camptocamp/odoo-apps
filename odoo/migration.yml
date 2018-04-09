@@ -280,9 +280,15 @@ migration:
           - sf_mrp
           - sf_rma_mrp_repair
     - version: 10.25.0
+      operations:
+        post:
+          - anthem songs.install.entity_uuid::assign_uuid
       addons:
         upgrade:
           # local-src
           - sf_account
           - sf_rma
           - sf_rma_mrp_repair
+          - sf_product
+          - sf_partner
+          - sf_stock
