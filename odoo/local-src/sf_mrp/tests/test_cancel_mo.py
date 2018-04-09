@@ -146,27 +146,28 @@ class TestCancelMO(common.SavepointCase):
         self.assertEqual(keyboard_qty, 20)
         self.assertEqual(charger_qty, 20)
 
-    # TODO: Fix test
-    # def test_cancel_mo_finished_product_moved(self):
-    #     # Move some finished products to another location
-    #     out_move = self._create_move(
-    #         self.custom_laptop,
-    #         self.mo_custom_laptop.location_dest_id,
-    #         self.env.ref('stock.stock_location_customers'),
-    #         product_uom_qty=2
-    #     )
-    #     out_move.action_assign()
-    #     out_move.action_done()
-    #     with self.assertRaises(UserError):
-    #         self.mo_custom_laptop.button_cancel_mo()
-    #
-    #     # Return the previous products in stock
-    #     in_move = self._create_move(
-    #         self.custom_laptop,
-    #         self.env.ref('stock.stock_location_customers'),
-    #         self.mo_custom_laptop.location_dest_id,
-    #         product_uom_qty=2
-    #     )
-    #     in_move.action_assign()
-    #     in_move.action_done()
-    #     self.mo_custom_laptop.button_cancel_mo()
+    def test_cancel_mo_finished_product_moved(self):
+        # Move some finished products to another location
+        out_move = self._create_move(
+            self.custom_laptop,
+            self.mo_custom_laptop.location_dest_id,
+            self.env.ref('stock.stock_location_customers'),
+            product_uom_qty=2,
+            restrict_lot_id=self.laptop_lot_001.id
+        )
+        out_move.action_assign()
+        out_move.action_done()
+        with self.assertRaises(UserError):
+            self.mo_custom_laptop.button_cancel_mo()
+
+        # Return the previous products in stock
+        in_move = self._create_move(
+            self.custom_laptop,
+            self.env.ref('stock.stock_location_customers'),
+            self.mo_custom_laptop.location_dest_id,
+            product_uom_qty=2,
+            restrict_lot_id=self.laptop_lot_001.id
+        )
+        in_move.action_assign()
+        in_move.action_done()
+        self.mo_custom_laptop.button_cancel_mo()
