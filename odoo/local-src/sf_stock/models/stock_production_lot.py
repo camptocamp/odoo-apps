@@ -28,4 +28,6 @@ class ProductionLot(models.Model):
 
     _sql_constraints = [
         ('unique_uuid', 'UNIQUE(uuid)', 'UUID must be unique!'),
+        ('unique_invitation_key', 'UNIQUE(invitation_key)',
+         'Invitation key must be unique!'),
     ]
