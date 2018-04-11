@@ -292,3 +292,4 @@ migration:
           - sf_product
           - sf_partner
           - sf_stock
+    - version: 10.26.0

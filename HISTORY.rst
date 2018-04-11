@@ -25,6 +25,8 @@ latest (unreleased)
 
 **Build**
 
+* BSSFL-535: Add missing tests related to BSSFL-512
+
 **Documentation**
 
 
