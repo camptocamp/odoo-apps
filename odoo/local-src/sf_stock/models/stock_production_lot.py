@@ -2,13 +2,20 @@
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields
+from odoo import models, fields, api
 import uuid
 
 
 class ProductionLot(models.Model):
 
     _inherit = 'stock.production.lot'
+
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        default = default or {}
+        default['uuid'] = uuid.uuid4()
+        return super(ProductionLot, self).copy(default)
 
     uuid = fields.Char(
         'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),

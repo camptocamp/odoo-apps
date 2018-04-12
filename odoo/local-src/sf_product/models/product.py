@@ -27,6 +27,13 @@ class ProductTemplate(models.Model):
             product.validator_user =\
                 self.env.user.has_group('sf_product.group_product_validator')
 
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        default = default or {}
+        default['uuid'] = uuid.uuid4()
+        return super(ProductTemplate, self).copy(default)
+
     origin_id = fields.Many2one('res.country', string='Country of Origin')
     sale_ok = fields.Boolean(
         'Can be Sold', default=False,
