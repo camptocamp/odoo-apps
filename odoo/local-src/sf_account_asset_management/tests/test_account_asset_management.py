@@ -33,7 +33,8 @@ class SenseflyTestAssetManagement(TestAssetManagement):
         move_id = dl.with_context(
             aggregate_move_lines=True,
             reference='Test assets computation with aggregation',
-            journal_id=self.journal.id
+            journal_id=self.journal.id,
+            date_end='2018-04-10'
         ).create_move()
 
         # we've got a single account move as expected
@@ -44,12 +45,15 @@ class SenseflyTestAssetManagement(TestAssetManagement):
                          'Test assets computation with aggregation')
         self.assertEqual(move.journal_id.id,
                          self.journal.id)
-
-        # analytic account (Project) and analytic tag (Team)
-        # assigned to move lines
-        for line in move.line_ids.filtered(lambda l: l.asset_id):
+        move_lines = move.line_ids.filtered(lambda l: l.asset_id)
+        for line in move_lines:
+            # analytic account (Project) and analytic tag (Team)
+            # assigned to move lines
             self.assertEqual(line.analytic_account_id, account_analytic)
             self.assertEqual(line.analytic_tag_ids.ids, [tag.id])
+            # All move lines have assigned the last day of the month chosen
+            # in the assets compute wizard
+            self.assertEqual(line.date, '2018-04-30')
 
     def test_asset_compute_entries(self):
         """As a result of the computation of the assets entries,

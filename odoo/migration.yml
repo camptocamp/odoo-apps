@@ -302,6 +302,7 @@ migration:
           - sf_rma
           - sf_rma_sale_order
           - sf_stock
+          - sf_account
           # external-src/purchase-workflow
           - purchase_discount
           # external-src/bank-payment

@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import time
-from odoo import models, api
+from dateutil.relativedelta import relativedelta
+from odoo import models, fields, api
+
+
+def get_last_month_day(date):
+    date = fields.Datetime.from_string(date)
+    last_day = date + relativedelta(days=-1, day=1, months=1)
+    return fields.Datetime.to_string(last_day)
 
 
 class AccountAssetLine(models.Model):
@@ -55,13 +62,19 @@ class AccountAssetLine(models.Model):
         move_line_obj = self.env['account.move.line']
         asset_ids = []
 
+        # Last day of the month
+        if self.env.context.get('date_end'):
+            move_date = get_last_month_day(self.env.context.get('date_end'))
+        else:
+            move_date = fields.Datetime.now()
+
         # Create single account move
         move = move_obj.create(
             {
                 'ref': self.env.context['reference'],
-                'date': time.strftime('%Y-%m-%d'),
-                'journal_id': self.env.context['journal_id']
-             }
+                'journal_id': self.env.context['journal_id'],
+                'date': move_date
+            }
         )
 
         for line in self:

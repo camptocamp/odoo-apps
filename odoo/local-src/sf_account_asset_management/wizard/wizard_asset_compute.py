@@ -13,7 +13,8 @@ class AssetDepreciationConfirmationWizard(models.TransientModel):
             asset_compute_context.update(
                 {'aggregate_move_lines': self.aggregate_move_lines,
                  'reference': self.reference,
-                 'journal_id': self.journal_id.id
+                 'journal_id': self.journal_id.id,
+                 'date_end': self.date_end
                  }
             )
         return super(
