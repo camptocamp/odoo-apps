@@ -29,6 +29,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFW:48: Assign uuid
+
 **Build**
 
 * BSSFL-535: Add missing tests related to BSSFL-512
