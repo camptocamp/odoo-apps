@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-539: Install module account_lock_date_update
+
 **Bugfixes**
 
 **Build**

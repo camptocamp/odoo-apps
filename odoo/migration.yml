@@ -293,3 +293,7 @@ migration:
           - sf_partner
           - sf_stock
     - version: 10.26.0
+      addons:
+        upgrade:
+          # OCA/account-financial-tools
+          - account_lock_date_update
