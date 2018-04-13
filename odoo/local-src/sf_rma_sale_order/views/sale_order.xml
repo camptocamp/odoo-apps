@@ -8,6 +8,9 @@
             <field name="partner_id" position="after">
                 <field name="rma_id" attrs="{'invisible': [('rma_id', '=', False)]}" />
             </field>
+            <field name="tax_id" position="before">
+                <field name="repair_line_id" />
+            </field>
             <field name="state" position="before">
                 <button name="%(action_import_mrp_repair_lines)d" context="{'default_sale_order_id': active_id}" type="action" string="Import repair lines" attrs="{'invisible': ['|', ('rma_id', '=', False), ('state', '=', 'sale')]}"/>
             </field>

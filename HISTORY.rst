@@ -22,6 +22,7 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-540: Quotation / Sale Order contact
+* BSSFL-533: Repair line on Sale order line
 
 **Bugfixes**
 
