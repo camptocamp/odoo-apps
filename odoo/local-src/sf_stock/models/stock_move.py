@@ -32,6 +32,18 @@ class StockMove(models.Model):
                 })
 
     @api.multi
+    def action_assign(self, no_prepare=False):
+        result = super(StockMove, self).action_assign(no_prepare=no_prepare)
+        pack_lots = self.mapped(
+            'linked_move_operation_ids.operation_id.pack_lot_ids'
+        )
+        if pack_lots:
+            for pack_lot in pack_lots:
+                pack_lot.action_add_quantity(-pack_lot.qty)
+            pack_lots.unlink()
+        return result
+
+    @api.multi
     def action_done(self):
         super(StockMove, self).action_done()
         for move in self:
