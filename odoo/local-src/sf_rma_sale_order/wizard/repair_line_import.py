@@ -85,6 +85,7 @@ class SaleOrderRepairLinesImportWizard(models.TransientModel):
                 _get_rma_service_placeholder(line.product_id)
             line_dict['product_id'] = rma_service_placeholder.id
             line_dict['product_uom'] = rma_service_placeholder.uom_id.id
+            line_dict['repair_line_id'] = line.id
 
             values.append(
                 (0, 0, line_dict))

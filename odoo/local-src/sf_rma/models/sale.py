@@ -43,6 +43,8 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
+    repair_line_id = fields.Many2one('mrp.repair.line', string="Repair Line")
+
     @api.multi
     def _action_procurement_create(self):
         """

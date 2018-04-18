@@ -297,3 +297,5 @@ migration:
         upgrade:
           # local-src
           - sf_sale
+          - sf_rma
+          - sf_rma_sale_order
