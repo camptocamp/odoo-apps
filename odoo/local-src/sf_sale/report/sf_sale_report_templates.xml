@@ -69,8 +69,8 @@
                     <div name="contact" t-if="doc.partner_id" class="col-xs-3">
                         <strong>Contact</strong>
                         <p style="padding-top:8px;">
-                            <span t-field="doc.partner_id.name"/>
-                            <span t-field="doc.partner_id" t-options='{"widget": "contact", "fields": ["phone", "mobile", "email"], "no_marker": False, "phone_icons": True}'/>
+                            <span t-field="doc.partner_shipping_id.name"/>
+                            <span t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["phone", "mobile", "email"], "no_marker": False, "phone_icons": True}'/>
                         </p>
                     </div>
                     <div class="col-xs-3" t-if="doc.carrier_id">

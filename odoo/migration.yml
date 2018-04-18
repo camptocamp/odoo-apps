@@ -297,3 +297,7 @@ migration:
         upgrade:
           # OCA/account-financial-tools
           - account_lock_date_update
+          # local-src
+          - sf_sale
+          - sf_rma
+          - sf_rma_sale_order

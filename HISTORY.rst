@@ -22,12 +22,15 @@ latest (unreleased)
 **Features and Improvements**
 
 * BSSFL-539: Install module account_lock_date_update
+* BSSFL-540: Quotation / Sale Order contact
+* BSSFL-533: Repair line on Sale order line
 
 **Bugfixes**
 
 **Build**
 
 * BSSFL-535: Add missing tests related to BSSFL-512
+* Upgrade nginx version to 10.0-1.2.2
 
 **Documentation**
 
