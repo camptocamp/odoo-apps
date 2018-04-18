@@ -303,3 +303,7 @@ migration:
           - sf_rma_sale_order
           # external-src/purchase-workflow
           - purchase_discount
+          # external-src/bank-payment
+          - account_banking_sepa_credit_transfer
+          # external-src/l10n-switzerland
+          - l10n_ch_pain_credit_transfer

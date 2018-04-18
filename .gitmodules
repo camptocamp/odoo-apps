@@ -15,7 +15,7 @@
 	url = git@github.com:OCA/reporting-engine.git
 [submodule "odoo/external-src/bank-payment"]
 	path = odoo/external-src/bank-payment
-	url = git@github.com:OCA/bank-payment.git
+	url = git@github.com:camptocamp/bank-payment.git
 [submodule "odoo/external-src/bank-statement-reconcile"]
 	path = odoo/external-src/bank-statement-reconcile
 	url = git@github.com:OCA/bank-statement-reconcile.git
@@ -24,7 +24,7 @@
 	url = git@github.com:camptocamp/account-closing.git
 [submodule "odoo/external-src/l10n-switzerland"]
 	path = odoo/external-src/l10n-switzerland
-	url = git@github.com:oca/l10n-switzerland.git
+	url = git@github.com:camptocamp/l10n-switzerland.git
 [submodule "odoo/external-src/partner-contact"]
 	path = odoo/external-src/partner-contact
 	url = git@github.com:OCA/partner-contact.git

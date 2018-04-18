@@ -56,3 +56,21 @@
       # [10.0] Remove crash with non ascii characters
     - bistaray refs/pull/6/head
   target: *default_target
+./external-src/bank-payment:
+  remotes:
+    oca: git@github.com:OCA/bank-payment.git
+    camptocamp: git@github.com:camptocamp/bank-payment.git
+  merges:
+    - oca 308e356aef0bf27a998fac60328b7d67b48f34e8
+      # [10.0] Refactor sepa_credit_transfert
+    - oca refs/pull/462/head
+  target: *default_target
+./external-src/l10n-switzerland:
+  remotes:
+    oca: git@github.com:OCA/l10n-switzerland.git
+    camptocamp: git@github.com:camptocamp/l10n-switzerland.git
+  merges:
+    - oca 3ad669ea86eb52c0b6550edd7dce1d1cba2efa21
+      # [10.0] Fix pain_credit_transfer with multiple currencies
+    - oca refs/pull/408/head
+  target: *default_target
