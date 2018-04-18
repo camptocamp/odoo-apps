@@ -301,3 +301,5 @@ migration:
           - sf_sale
           - sf_rma
           - sf_rma_sale_order
+          # external-src/purchase-workflow
+          - purchase_discount
