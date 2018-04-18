@@ -25,6 +25,7 @@ latest (unreleased)
 * BSSFL-540: Quotation / Sale Order contact
 * BSSFL-533: Repair line on Sale order line
 * BSSFL-255: Install purchase_discount module
+* BSSFW-35: Invitation key on serial number
 
 **Bugfixes**
 
