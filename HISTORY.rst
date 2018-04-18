@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-540: Quotation / Sale Order contact
+
 **Bugfixes**
 
 **Build**
