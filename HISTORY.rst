@@ -30,6 +30,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFW:48: Assign uuid
+* BSSFL-538: Assets depreciation line move date
 
 **Build**
 
