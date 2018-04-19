@@ -31,6 +31,7 @@ latest (unreleased)
 
 * BSSFW:48: Assign uuid
 * BSSFL-538: Assets depreciation line move date
+* BSSFL-537: Onchange account move date
 
 **Build**
 
