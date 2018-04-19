@@ -308,3 +308,6 @@ migration:
           - account_banking_sepa_credit_transfer
           # external-src/l10n-switzerland
           - l10n_ch_pain_credit_transfer
+      operations:
+        post:
+          - anthem songs.install.entity_uuid::assign_uuid
