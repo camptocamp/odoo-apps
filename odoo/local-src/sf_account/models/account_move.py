@@ -32,7 +32,7 @@ class AccountMoveLine(models.Model):
     def onchange_amount_currency(self):
         company_currency = self.env.user.company_id.currency_id
         for line in self:
-            date = line.date or fields.Datetime.now()
+            date = line.date
             if line.currency_id and company_currency and line.amount_currency:
                 if line.amount_currency > 0:
                     line.credit = False
