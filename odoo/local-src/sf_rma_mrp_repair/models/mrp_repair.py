@@ -150,9 +150,7 @@ class MrpRepair(models.Model):
     def action_repair_open(self):
         if self.filtered(lambda repair: repair.state != 'draft'):
             raise UserError(_("Repair must be in Draft in order to Open"))
-        return self.write({'state': 'open',
-                           'date_open': fields.Datetime.now()
-                           })
+        return self.write({'state': 'open'})
 
     @api.multi
     def action_repair_done(self):
@@ -285,11 +283,6 @@ class MrpRepair(models.Model):
                 lambda l: l.order_id.state == 'sale'
             )._action_procurement_create()
         return True
-
-    @api.multi
-    def action_repair_cancel(self):
-        res = super(MrpRepair, self).action_repair_cancel()
-        return res
 
     @api.multi
     def action_view_rma(self):
