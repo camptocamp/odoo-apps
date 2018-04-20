@@ -142,6 +142,9 @@ class MrpRepair(models.Model):
         result = super(MrpRepair, self).write(vals)
         return result
 
+    @api.multi
+    def copy(self, default=None):
+        raise UserError(_("You can not duplicate a repair order."))
 
     @api.multi
     def action_repair_open(self):
