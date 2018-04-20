@@ -301,6 +301,7 @@ migration:
           - sf_sale
           - sf_rma
           - sf_rma_sale_order
+          - sf_rma_mrp_repair
           - sf_stock
           - sf_account
           # external-src/purchase-workflow

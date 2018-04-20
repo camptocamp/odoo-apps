@@ -26,6 +26,7 @@ latest (unreleased)
 * BSSFL-533: Repair line on Sale order line
 * BSSFL-255: Install purchase_discount module
 * BSSFW-35: Invitation key on serial number
+* BSSFL-375: Repair status dates
 
 **Bugfixes**
 

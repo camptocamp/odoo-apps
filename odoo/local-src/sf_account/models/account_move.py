@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of sensefly.
 
-from odoo import fields, models, api, _
+from odoo import models, api, _
 
 
 class AccountMove(models.Model):
