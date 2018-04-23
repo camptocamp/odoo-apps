@@ -181,7 +181,8 @@ class SaleOrderLine(models.Model):
                          rec.order_id.state in ['sale', 'done']))
 
         for line in on_deliver_lines:
-            if line.product_uom_qty == line.qty_delivered:
+            if line.product_uom_qty == line.qty_delivered and \
+                    not line.is_rma_product:
                 line.qty_to_invoice = line.qty_delivered - line.qty_invoiced
             else:
                 line.qty_to_invoice = 0
