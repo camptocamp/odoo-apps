@@ -320,3 +320,4 @@ migration:
           - sf_report
           # akretion/odoo-usability
           - mrp_average_cost
+          - sf_rma_mrp_repair

@@ -24,6 +24,7 @@ latest (unreleased)
 * BSSFL-334: Custom reservation of serial number on stock picking
 * BSSFL-531: Company logo
 * BSSFL-547: Add the module MRP Average cost
+* BSSFL-546: Repair time field
 
 **Bugfixes**
 

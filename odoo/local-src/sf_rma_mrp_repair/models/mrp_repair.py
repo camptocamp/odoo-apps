@@ -109,6 +109,11 @@ class MrpRepair(models.Model):
     date_done = fields.Datetime('Done')
     date_cancel = fields.Datetime('Cancelled')
 
+    # Times
+    repair_time = fields.Float(
+        string='Repair Time',
+        help='Total time spent to repair')
+
     invoicable_rma = fields.Boolean(store=True, compute='_is_rma_invoicable')
 
     @api.depends('rma_id.decision')
