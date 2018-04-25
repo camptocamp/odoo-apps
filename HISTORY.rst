@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* BSSFL-334: Custom reservation of serial number on stock picking
+
 **Bugfixes**
 
 **Build**
