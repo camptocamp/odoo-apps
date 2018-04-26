@@ -40,7 +40,7 @@ latest (unreleased)
 * BSSFL-533: Repair line on Sale order line
 * BSSFL-255: Install purchase_discount module
 * BSSFW-35: Invitation key on serial number
-* BSSFL-375: Repair status dates
+* BSSFL-534: Repair status dates
 
 **Bugfixes**
 
@@ -52,6 +52,8 @@ latest (unreleased)
 
 * BSSFL-535: Add missing tests related to BSSFL-512
 * Downgrade nginx version to 10.0-1.1.0
+* BIZ-1140: Multiple currencies in same B-Level block of Pain XML files are not allowed
+  according to Swiss Payment Standards
 
 
 10.25.0 (2018-04-09)
@@ -71,8 +73,7 @@ latest (unreleased)
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-526: RMA under warranty is not invoiced
 * BSSFL-530: Repair blocked in to quotation status
-* BIZ-1140: Multiple currencies in same B-Level block of Pain XML files are not allowed
-  according to Swiss Payment Standards
+
 
 
 10.24.0 (2018-03-29)
