@@ -27,6 +27,8 @@ latest (unreleased)
 
 **Build**
 
+* Update Dockerimage to XX.2.6.1
+
 **Documentation**
 
 
