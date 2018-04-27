@@ -6,4 +6,7 @@
   <record model="res.partner.entity.type" id="entity_gov">
     <field name="name">Governement</field>
   </record>
+  <record model="res.partner.entity.type" id="entity_dealer">
+    <field name="name">Dealer</field>
+  </record>
 </odoo>
