@@ -313,3 +313,8 @@ migration:
       operations:
         post:
           - anthem songs.install.entity_uuid::assign_uuid
+    - version: 10.27.0
+      addons:
+        upgrade:
+          # local-src
+          - sf_report
