@@ -44,6 +44,18 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     repair_line_id = fields.Many2one('mrp.repair.line', string="Repair Line")
+    is_rma_product = fields.Boolean(
+        string="RMA product",
+        compute='_compute_is_rma_product',
+        store=True)
+
+    @api.depends('repair_line_id', 'route_id')
+    def _compute_is_rma_product(self):
+        for line in self:
+            rma_route = line.order_id.company_id.rma_sale_line_route_id
+            if line.order_id.rma_id and not line.repair_line_id \
+                    and line.route_id == rma_route:
+                line.is_rma_product = True
 
     @api.multi
     def _action_procurement_create(self):
@@ -69,3 +81,21 @@ class SaleOrderLine(models.Model):
             )
             if need_to_create_procurement:
                 return super(SaleOrderLine, self)._action_procurement_create()
+
+    @api.depends('invoice_lines.invoice_id.state', 'invoice_lines.quantity',
+                 'is_rma_product')
+    def _get_invoice_qty(self):
+        for line in self:
+            if line.is_rma_product:
+                line.qty_invoiced = 0
+        super(SaleOrderLine, self)._get_invoice_qty()
+
+    @api.depends('state', 'product_uom_qty', 'qty_delivered', 'qty_to_invoice',
+                 'qty_invoiced', 'is_rma_product')
+    def _compute_invoice_status(self):
+        super(SaleOrderLine, self)._compute_invoice_status()
+
+        for line in self:
+            # Returned product? Nothing to invoiced
+            if line.is_rma_product:
+                line.invoice_status = 'no'

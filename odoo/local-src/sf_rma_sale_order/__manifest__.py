@@ -12,6 +12,7 @@
     "depends": [
         "sf_rma",
         "sf_rma_mrp_repair",
+        "sf_sale",
     ],
     "data": [
         "data/product.xml",
