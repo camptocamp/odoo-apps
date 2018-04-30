@@ -318,3 +318,5 @@ migration:
         upgrade:
           # local-src
           - sf_report
+          # akretion/odoo-usability
+          - mrp_average_cost
