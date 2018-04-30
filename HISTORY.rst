@@ -21,19 +21,27 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+10.27.0 (2018-04-30)
+++++++++++++++++++++
+
+**Features and Improvements**
+
 * BSSFL-334: Custom reservation of serial number on stock picking
 * BSSFL-531: Company logo
 * BSSFL-547: Add the module MRP Average cost
 * BSSFL-546: Repair time field
 * BSSFL-544: Repaired product is not invoiced
 
-**Bugfixes**
-
 **Build**
 
 * Update Dockerimage to XX.2.6.1
-
-**Documentation**
 
 
 10.26.0 (2018-04-20)
