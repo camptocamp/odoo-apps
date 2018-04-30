@@ -112,6 +112,16 @@
                     </group>
                  </page>
              </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Times">
+                    <group>
+                        <group>
+                            <field name="repair_time" attrs="{'readonly': [('state', '=', 'done')]}" widget="float_time"/>
+                        </group>
+                    </group>
+                 </page>
+             </xpath>
         </field>
     </record>
 
