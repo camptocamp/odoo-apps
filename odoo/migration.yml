@@ -323,3 +323,8 @@ migration:
           - sf_rma_sale_order
           # akretion/odoo-usability
           - mrp_average_cost
+    - version: 10.28.0
+      addons:
+        upgrade:
+          # local-src
+          - sf_mail

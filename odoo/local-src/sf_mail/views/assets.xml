@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/sf_mail/static/src/css/many2many_tags_email_extend.css"/>
+            <script type="text/javascript" src="/sf_mail/static/src/js/many2many_tags_email_extend.js"></script>
+        </xpath>
+    </template>
+</odoo>
