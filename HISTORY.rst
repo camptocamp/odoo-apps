@@ -208,6 +208,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* BSSFL-557: Mailtrap to env test
+
 **Build**
 
 **Documentation**
