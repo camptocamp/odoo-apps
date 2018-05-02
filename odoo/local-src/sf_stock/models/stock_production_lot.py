@@ -3,7 +3,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
+from random import randint
 import uuid
+
+
+def gen_key():
+    return '{}-{}'.format(randint(1000, 9990), randint(1000, 9990))
 
 
 class ProductionLot(models.Model):
@@ -16,6 +21,38 @@ class ProductionLot(models.Model):
         default = default or {}
         default['uuid'] = uuid.uuid4()
         return super(ProductionLot, self).copy(default)
+
+    @api.multi
+    def action_set_invitation_key(self):
+        """Assign invitation key and call api"""
+        self.set_invitation_key()
+        InterfaceObj = self.env['sf.mysensefly.interface']
+        for lot in self:
+            category = lot.product_id.categ_id.parent_id.name or ''
+            code = lot.product_id.categ_id.name or ''
+            data = {
+                "invitationKey": lot.invitation_key,
+                "product": {
+                    "model": {
+                        "category": category.lower(),
+                        "code": code.lower(),
+                        "designation": lot.product_id.name
+                    },
+                    "serialNumber": lot.name,
+                    "uuid": lot.product_id.uuid
+                }
+            }
+            InterfaceObj.assign_invitation_key(data)
+
+    @api.multi
+    def set_invitation_key(self):
+        """Assign a unique invitation key to the lot with format: xxxx-xxxx"""
+        for lot in self:
+            key = gen_key()
+            while self.search([('invitation_key', '=', key)]):
+                # generate a new key until is found
+                key = gen_key()
+            lot.invitation_key = gen_key()
 
     uuid = fields.Char(
         'UUID', index=True, default=lambda self: '%s' % uuid.uuid4(),
