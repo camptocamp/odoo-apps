@@ -21,13 +21,19 @@ latest (unreleased)
 
 **Features and Improvements**
 
-* BSSFL-504: modify many2many_tags_email widget to display full user email
-
 **Bugfixes**
 
 **Build**
 
 **Documentation**
+
+
+10.28.0 (2018-05-02)
+++++++++++++++++++++
+
+**Features and Improvements**
+
+* BSSFL-504: modify many2many_tags_email widget to display full user email
 
 
 10.27.0 (2018-04-30)
