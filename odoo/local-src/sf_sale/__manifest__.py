@@ -15,6 +15,7 @@
         'delivery',
         'sale_exception',
         'sale_order_lot_selection',
+        'sf_rma'
     ],
     'license': 'AGPL-3',
     'data': [

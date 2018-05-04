@@ -338,3 +338,4 @@ migration:
           - sf_partner_entity_type
           - sf_mail
           - sf_serial_owner
+          - sf_sale

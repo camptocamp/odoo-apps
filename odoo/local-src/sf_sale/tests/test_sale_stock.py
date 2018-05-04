@@ -23,6 +23,19 @@ class TestSale(test_common.TransactionCase):
             'tracking': 'serial'
         })
 
+        # Payment setup
+        self.register_payments_model = self.env['account.register.payments']
+        self.bank_journal_euro = self.env['account.journal'].create(
+            {'name': 'Bank', 'type': 'bank', 'code': 'BNK67'})
+        self.payment_method_manual_in = self.env.ref(
+            'account.account_payment_method_manual_in')
+
+        # Downpayment product
+        self.down_payment_product = self.env.ref('sale.advance_product_0')
+        self.env['ir.values'].sudo().set_default('sale.config.settings',
+                                                 'deposit_product_id_setting',
+                                                 self.down_payment_product.id)
+
         # Serial number
         Lot = self.env['stock.production.lot']
         self.lot_id = Lot.create({
@@ -106,3 +119,96 @@ class TestSale(test_common.TransactionCase):
         # When payment term requires down payment.
         # There's no stock picking(s) after order confirm
         self.assertEqual(len(self.sale.picking_ids), 0)
+
+    def test_sale_with_payment_before_delivery_propagate_lot_on_picking(self):
+        """Test that the lot assigned in the SO line, with payment terms
+        before delivery, is propagated to the stock picking"""
+        self.warehouse.write({'delivery_steps': 'pick_pack_ship'})
+
+        # Set allow unassign lot on picking types
+        picking_types = self.env['stock.picking.type'].search(
+            [('name', '=', 'Pick')]
+        )
+        picking_types.write({'allow_unassign_lot': True})
+        picking_types.refresh()
+
+        payment_term = self.env.ref('account.account_payment_term_immediate')
+        payment_term.down_payment_required = True
+        self.sale.payment_term_id = payment_term.id
+
+        # Confirm sale
+        self.sale.action_confirm()
+
+        sale_advance_pay_inv = self.env['sale.advance.payment.inv']
+
+        pay_inv_wiz = sale_advance_pay_inv.create({
+            'advance_payment_method': 'fixed',
+            'amount': 1000,
+            'product_id': self.down_payment_product.id
+        }
+        )
+
+        pay_inv_wiz.with_context(active_ids=self.sale.id).create_invoices()
+        self.sale.invoice_ids.refresh()
+        self.sale.invoice_ids.date_invoice = datetime.today()
+        self.sale.invoice_ids.action_invoice_open()
+
+        # Pay Invoice
+        ctx = {'active_model': 'account.invoice',
+               'active_ids': [self.sale.invoice_ids.id]}
+
+        register_payments = self.register_payments_model.with_context(
+            ctx).create({'payment_date': datetime.today(),
+                         'journal_id': self.bank_journal_euro.id,
+                         'payment_method_id': self.payment_method_manual_in.id
+                         })
+        register_payments.create_payment()
+        self.sale.invoice_ids.refresh()
+        self.sale.action_create_procurements()
+
+        # Lot is propagated to Pick operation
+        pick = self.sale.picking_ids.filtered(
+            lambda p: p.picking_type_id.name == 'Pick')
+        pick_lot = pick.move_lines.lot_ids
+        pick.do_new_transfer()
+        self.assertEqual(pick.state, 'done')
+        self.assertEqual(self.lot_id, pick_lot)
+
+    def test_sale_confirm_with_3steps_propagate_lot(self):
+        """Test that the lot assigned in the SO line is propagated through
+        the 3 delivery steps"""
+        self.warehouse.write({'delivery_steps': 'pick_pack_ship'})
+
+        # Set allow unassign lot on picking types
+        picking_types = self.env['stock.picking.type'].search(
+            [('name', '=', 'Pick')]
+        )
+        picking_types.write({'allow_unassign_lot': True})
+        picking_types.refresh()
+
+        # Confirm sale
+        self.sale.action_confirm()
+
+        # Lot is propagated to Pick operation
+        pick = self.sale.picking_ids.filtered(
+            lambda p: p.picking_type_id.name == 'Pick')
+        pick_lot = pick.move_lines.lot_ids
+        pick.do_new_transfer()
+        self.assertEqual(pick.state, 'done')
+        self.assertEqual(self.lot_id, pick_lot)
+
+        # Lot is propagated to Pack operation
+        pack = self.sale.picking_ids.filtered(
+            lambda p: p.picking_type_id.name == 'Pack')
+        pack_lot = pack.move_lines.lot_ids
+        pack.do_new_transfer()
+        self.assertEqual(pack.state, 'done')
+        self.assertEqual(self.lot_id, pack_lot)
+
+        # Lot is propagated to Ship operation
+        ship = self.sale.picking_ids.filtered(
+            lambda p: p.picking_type_id.name == 'Delivery Orders')
+        ship_lot = ship.move_lines.lot_ids
+        ship.do_new_transfer()
+        self.assertEqual(ship.state, 'done')
+        self.assertEqual(self.lot_id, ship_lot)
