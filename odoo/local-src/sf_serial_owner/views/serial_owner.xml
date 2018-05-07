@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_serial_owner_form" model="ir.ui.view">
+    <field name="name">serial.owner.form</field>
+    <field name="model">serial.owner</field>
+    <field name="arch" type="xml">
+      <form string="Serial Owner">
+        <header>
+        </header>
+        <sheet>
+          <div class="oe_title">
+            <label for="serial_number_id" class="oe_edit_only"/>
+            <h1><field name="serial_number_id"/></h1>
+          </div>
+          <group name="main">
+            <group name="product_info">
+              <field name="product_name"/>
+            </group>
+            <group></group>
+            <group name="customer_info">
+              <field name="customer_id"/>
+              <field name="registred_by_customer_on"/>
+            </group>
+            <group name="reseller_info">
+              <field name="reseller_id"/>
+              <field name="shipped_to_reseller_on"/>
+            </group>
+          </group>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_serial_owner_tree" model="ir.ui.view">
+    <field name="name">serial.owner.tree</field>
+    <field name="model">serial.owner</field>
+    <field name="arch" type="xml">
+      <tree string="Serial Owner">
+        <field name="customer_id"/>
+        <field name="serial_number_id"/>
+        <field name="product_id"/>
+        <field name="reseller_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_serialowner_filter" model="ir.ui.view">
+    <field name="name">serial.owner.filter</field>
+    <field name="model">serial.owner</field>
+    <field name="arch" type="xml">
+      <search string="Search serial owner">
+        <field name="serial_number_id" string="Serial number"/>
+        <field name="product_name" string="Product name"/>
+        <field name="reseller_id"/>
+        <field name="customer_id"/>
+        <group expand="0" string="Group By">
+          <filter string="Reseller" domain="[]" context="{'group_by':'reseller_id'}"/>
+          <filter string="Customer" domain="[]" context="{'group_by':'customer_id'}"/>
+          <filter string="Product" domain="[]" context="{'group_by':'product_id'}"/>
+        </group>
+      </search>
+
+    </field>
+  </record>
+
+  <record id="action_serial_owner" model="ir.actions.act_window">
+    <field name="name">Serial Owner</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">serial.owner</field>
+    <field name="view_type">form</field>
+    <field name="view_id" ref="view_serial_owner_tree"/>
+    <field name="search_view_id" ref="view_serialowner_filter"/>
+  </record>
+
+  <menuitem action="action_serial_owner"
+    id="menu_action_serial_owner"
+    parent="stock.menu_stock_inventory_control"
+    sequence="120"/>
+
+</odoo>
