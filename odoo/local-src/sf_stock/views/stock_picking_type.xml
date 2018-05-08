@@ -10,6 +10,7 @@
                     <field name="show_button_shipped"/>
                     <field name="propagate_delivery_info"/>
                     <field name="show_availability_wizard"/>
+                    <field name="allow_unassign_lot"/>
                 </field>
             </field>
     </record>

@@ -34,13 +34,17 @@ class StockMove(models.Model):
     @api.multi
     def action_assign(self, no_prepare=False):
         result = super(StockMove, self).action_assign(no_prepare=no_prepare)
-        pack_lots = self.mapped(
-            'linked_move_operation_ids.operation_id.pack_lot_ids'
-        )
-        if pack_lots:
-            for pack_lot in pack_lots:
-                pack_lot.action_add_quantity(-pack_lot.qty)
-            pack_lots.unlink()
+        for move in self:
+            sale_line_lot = move.sale_line_id.lot_id
+            picking_type = move.picking_type_id
+            if picking_type.allow_unassign_lot and not sale_line_lot:
+                pack_lots = self.mapped(
+                    'linked_move_operation_ids.operation_id.pack_lot_ids'
+                )
+                if pack_lots:
+                    for pack_lot in pack_lots:
+                        pack_lot.action_add_quantity(-pack_lot.qty)
+                    pack_lots.unlink()
         return result
 
     @api.multi

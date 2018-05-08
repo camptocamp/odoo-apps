@@ -160,3 +160,10 @@ class PickingType(models.Model):
                                                   "next stage."
                                              )
     show_availability_wizard = fields.Boolean('Show availability wizard')
+
+    allow_unassign_lot = fields.Boolean('Allow unassign lot',
+                                        help="The lots of this picking "
+                                             "operation will be unassigned, "
+                                             "unless the related sale order "
+                                             "line has already a lot "
+                                             "assigned.")
