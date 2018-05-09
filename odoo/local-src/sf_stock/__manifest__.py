@@ -14,6 +14,7 @@
         'stock_disable_force_availability_button',
         'sf_country',
         'stock_picking_wave',
+        'sale_order_lot_selection'
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -30,6 +31,7 @@
         'wizard/wizard_stock_picking_availability.xml',
         'report/sf_report_deliveryslip.xml',
         'report/sf_report_delivery_note.xml',
+        'report/sf_report_commercial_invoice.xml',
         'report/sf_stock_report.xml'
     ],
     'demo': [],
