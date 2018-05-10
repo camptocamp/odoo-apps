@@ -45,7 +45,7 @@ latest (unreleased)
 10.27.0 (2018-04-30)
 ++++++++++++++++++++
 
-**Features and Improvements**l
+**Features and Improvements**
 
 * BSSFL-334: Custom reservation of serial number on stock picking
 * BSSFL-531: Company logo
