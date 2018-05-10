@@ -27,6 +27,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-556: Propagate lot from sale line through the 3 delivery steps
+* BSSFL-557: Mailtrap to env test
 
 **Build**
 
@@ -44,7 +45,7 @@ latest (unreleased)
 10.27.0 (2018-04-30)
 ++++++++++++++++++++
 
-**Features and Improvements**
+**Features and Improvements**l
 
 * BSSFL-334: Custom reservation of serial number on stock picking
 * BSSFL-531: Company logo
@@ -207,8 +208,6 @@ latest (unreleased)
   Display partner_id in account.move.line when create journal entry.
 
 **Bugfixes**
-
-* BSSFL-557: Mailtrap to env test
 
 **Build**
 
