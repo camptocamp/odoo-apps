@@ -27,6 +27,7 @@ latest (unreleased)
 **Bugfixes**
 
 * BSSFL-556: Propagate lot from sale line through the 3 delivery steps
+* BSSFL-557: Mailtrap to env test
 
 **Build**
 
