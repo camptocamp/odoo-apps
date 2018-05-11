@@ -23,6 +23,7 @@ latest (unreleased)
 
 * BSSFW-40: Add serial_owner
 * BSSFL-495: Commercial Invoice
+* BSSFL-545: Register invitation key
 
 **Bugfixes**
 

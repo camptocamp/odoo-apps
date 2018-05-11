@@ -5,10 +5,14 @@
         <field name="model">stock.production.lot</field>
         <field name="inherit_id" ref="stock.view_production_lot_form" />
         <field name="arch" type="xml">
+            <button name="action_traceability" position="after">
+                <button name="action_set_invitation_key" type="object" string="Generate Invitation Key" class="oe_highlight"/>
+            </button>
+
             <field name="ref" position="after">
                 <field name="product_tracking" invisible="1" />
                 <field name="warranty_end_date" attrs="{'invisible': [('product_tracking', '!=', 'serial')]}"/>
-                <field name="invitation_key"/>
+                <field name="invitation_key" readonly="1"/>
                 <field name="notes"/>
             </field>
         </field>

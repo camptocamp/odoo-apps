@@ -125,15 +125,27 @@ class StockPicking(models.Model):
             next_picking.carrier_id = self.carrier_id
             next_picking.carrier_tracking_ref = self.carrier_tracking_ref
 
+    def assign_invitation_keys(self):
+        """Assign invitation key for each lot. Only when picking type,
+        generate_invitation_key field is active."""
+        for pick in self:
+            if pick.picking_type_id.generate_invitation_key:
+                lots = pick.pack_operation_ids.mapped(
+                    'pack_lot_ids.lot_id')
+                if lots:
+                    lots.set_invitation_key()
+
     @api.multi
     def do_new_transfer(self):
         # 1. If there's no need of confirmation that the customer received
         #    the goods, the reception is confirmed by default
         # 2. Propagate delivery details to next stage
+        # 3. Assign invitation key
         for pick in self:
             pick.customer_received = not pick.confirm_customer_received
             pick.propagate_delivery_info()
             pick.date_delivered = fields.Date.today()
+            pick.assign_invitation_keys()
         return super(StockPicking, self).do_new_transfer()
 
     @api.multi
@@ -160,10 +172,15 @@ class PickingType(models.Model):
                                                   "next stage."
                                              )
     show_availability_wizard = fields.Boolean('Show availability wizard')
-
     allow_unassign_lot = fields.Boolean('Allow unassign lot',
                                         help="The lots of this picking "
                                              "operation will be unassigned, "
                                              "unless the related sale order "
                                              "line has already a lot "
                                              "assigned.")
+    generate_invitation_key = fields.Boolean('Generate Invitation Key',
+                                             help="When you validate the DO, "
+                                                  "a unique random key of "
+                                                  "format xxxx-xxxx is "
+                                                  "assigned per serial number."
+                                             )
