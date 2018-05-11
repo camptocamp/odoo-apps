@@ -64,6 +64,7 @@ class TestSale(test_common.TransactionCase):
             'date_order': datetime.today(),
             'pricelist_id': self.env.ref('product.list0').id,
             'warehouse_id': self.warehouse.id,
+            'carrier_id': self.env.ref('delivery.delivery_carrier').id,
             'ignore_exception': True
         })
         SaleOrderLine.create({
@@ -111,6 +112,7 @@ class TestSale(test_common.TransactionCase):
     def test_sale_confirm_with_3steps_and_pay_before_delivery(self):
         # With warehouse 'Pick + Pack + Ship' configuration
         # and payment term that requires down payment
+        self.warehouse.write({'delivery_steps': 'pick_pack_ship'})
         payment_term = self.env.ref('account.account_payment_term_immediate')
         payment_term.down_payment_required = True
         self.sale.payment_term_id = payment_term.id
@@ -150,15 +152,15 @@ class TestSale(test_common.TransactionCase):
 
         pay_inv_wiz.with_context(active_ids=self.sale.id).create_invoices()
         self.sale.invoice_ids.refresh()
-        self.sale.invoice_ids.date_invoice = datetime.today()
+        self.sale.invoice_ids.date_invoice = '2018-05-09'
         self.sale.invoice_ids.action_invoice_open()
 
         # Pay Invoice
         ctx = {'active_model': 'account.invoice',
-               'active_ids': [self.sale.invoice_ids.id]}
+               'active_ids': self.sale.invoice_ids.ids}
 
         register_payments = self.register_payments_model.with_context(
-            ctx).create({'payment_date': datetime.today(),
+            ctx).create({'payment_date': '2018-05-09',
                          'journal_id': self.bank_journal_euro.id,
                          'payment_method_id': self.payment_method_manual_in.id
                          })
@@ -212,3 +214,12 @@ class TestSale(test_common.TransactionCase):
         ship.do_new_transfer()
         self.assertEqual(ship.state, 'done')
         self.assertEqual(self.lot_id, ship_lot)
+
+        # Create procurements
+        self.sale.action_create_procurements()
+
+        self.assertEqual(len(self.sale.picking_ids), 3)
+        self.assertEqual(
+            self.sale.carrier_id,
+            self.sale.picking_ids.mapped('carrier_id')
+        )

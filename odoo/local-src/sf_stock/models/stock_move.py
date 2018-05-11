@@ -96,6 +96,15 @@ class StockMove(models.Model):
                     'procurement_id.sale_line_id'
                 )
 
+    def _get_new_picking_values(self):
+        """
+        Prepares a new picking for this move as it could not be assigned to
+        another picking.
+        """
+        values = super(StockMove, self)._get_new_picking_values()
+        values['carrier_id'] = self.sale_line_id.order_id.carrier_id.id
+        return values
+
     currency_id = fields.Many2one(
         related='procurement_id.sale_line_id.currency_id',
         string='Currency',

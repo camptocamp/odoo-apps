@@ -29,6 +29,7 @@ latest (unreleased)
 
 * BSSFL-556: Propagate lot from sale line through the 3 delivery steps
 * BSSFL-557: Mailtrap to env test
+* BSSFL-541: Sale Order / Stock Picking propagate delivery method
 
 **Build**
 
